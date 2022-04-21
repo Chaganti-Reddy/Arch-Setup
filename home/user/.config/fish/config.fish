@@ -210,9 +210,9 @@ function take --argument number
     head -$number
 end
 
-function cpp --argument file
+function ctime --argument file
   g++ -std=c++17 $file".cpp" -o $file
-  ./$file
+  time ./$file
 end
 
 ### END OF FUNCTIONS ###
