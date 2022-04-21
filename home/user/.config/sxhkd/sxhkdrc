@@ -208,10 +208,10 @@ super + F10
 
 # Shortcuts
 
-super + shift + w
+super + w
   brave 
 
-super + w
+super + shift + w
   qutebrowser
 
 ctrl + shift + w
@@ -284,4 +284,4 @@ super + shift + p
   rofi-pass
 
 ctrl + p
-  rofi -show p:rofi-power-menu
+  rofi -show p -modi p:~/.local/bin/rofi-power-menu
