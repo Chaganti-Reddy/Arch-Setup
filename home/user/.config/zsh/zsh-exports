@@ -1,0 +1,18 @@
+#!/bin/sh
+# HISTFILE="$XDG_DATA_HOME"/zsh/history
+HISTSIZE=1000000
+SAVEHIST=1000000
+export PATH="$HOME/.emacs.d/bin:$PATH"
+export PATH="$HOME/.local/bin":$PATH
+export PATH="/home/$USER/.local/go/bin":$PATH
+export PATH=/home/reddy/.local/yarn/bin:$PATH
+export GOPATH=$HOME/.local/go
+export PATH="$HOME/sdk/flutter/bin":$PATH
+#export MANPAGER='nvim +Man!'
+#export MANWIDTH=999
+export PATH=$HOME/.fnm:$PATH
+eval "$(fnm env)"
+eval "$(zoxide init zsh)"
+# eval "`pip completion --zsh`"
+
+export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'

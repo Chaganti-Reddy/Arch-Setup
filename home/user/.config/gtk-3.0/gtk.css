@@ -1,0 +1,7 @@
+VteTerminal, vte-terminal {
+    padding: 14px;
+}
+
+headerbar.titlebar {
+    background: #282c34;
+}

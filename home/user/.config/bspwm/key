@@ -1,0 +1,122 @@
+###################
+
+Utility Keyboard Shortcuts
+
+###################
+
+-> Open terminal
+Super + Return
+
+-> App launcher
+Super + d
+
+-> Open Chrome
+Super + w
+
+-> Open Ranger
+Super + n
+
+-> Open Nautilus
+Super + Shift + n
+
+-> Open VSCode
+Shift + v
+
+-> Open Sublime
+Shift + e
+
+-> Launch Emacs
+Super + a
+
+-> Launch Github-Desktop
+Ctrl + Shift + g
+
+-> Launch Virtual Machine
+Super + Shift + v
+
+-> Launch Discord
+Super + Shift + d
+
+-> Screen Drawer
+F3
+
+-> Dropdown Terminal
+F12
+
+-> Launch Whiteboard
+Super + Shift + w
+
+-> Launch Chess-Game
+Super + Shift + c
+
+-> Quit Window
+Super + q
+
+-> Quit Focused Window
+Super + Shift + q
+
+-> Expand Windows
+Super + Ctrl + {Left,Right,Up,Down}
+
+-> Shrink Windows
+Super + Ctrl + {Left,Right,Up,Down}
+
+-> Lock Screen
+Super + l
+
+-> Reload BSPWM
+Super + Shift + r
+
+-> Quit BSPWM
+Super + Shift + q
+
+-> Reload Sxhkd (you need to do this after you modify sxhkdrc)
+Super + Escape
+
+-> Open Whatsapp
+Ctrl + Shift + w
+
+-> Open Telegram
+Ctrl + Shift + t
+
+-> FullScreen / Toggle-FullScreen
+Super + f
+
+-> Switch between tiled and monocle layout
+Super + m
+
+-> Swap current and largest window
+Super + g
+
+-> Switch to different desktop
+Super + <number>
+
+-> Send current Window to different desktop
+Super + Shift + <number>
+
+-> Move a floating window
+Super + {left, down, up, right}
+
+-> Focus the last node
+Super + ~
+
+-> Focus the last desktop
+Super + Tab
+
+-> Focus older node in focus history
+Super + o
+
+-> Focus newer node in focus history
+Super + i
+
+-> Launch Music Player
+Super + Shift + m
+
+-> Play Next
+Super + F8
+
+-> Play Previous
+Super + F6
+
+-> Pause
+Super + F7
