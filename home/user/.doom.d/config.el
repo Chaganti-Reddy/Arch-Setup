@@ -267,3 +267,8 @@
   (prettify-symbols-mode 1))
 (add-hook 'org-mode-hook 'my/org-mode/load-prettify-symbols)
 (setq org-ellipsis " ")
+
+(setq TeX-auto-save t)
+(setq latex-preview-pane-mode t)
+
+(map! "C-c t" #'latex-preview-pane-mode)
