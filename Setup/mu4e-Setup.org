@@ -5,7 +5,7 @@
 *** Emacs
 *** mu, mbsync (paru -S mu mbsync-git)
 ** After instaling dependencies we have to create a folder named mu4e in ~/.config directory
-*** In that create a file named .mbsyncrc
+*** In that create a file named .mbsyncrc in home directory
 *** Paste the following in that
 
 
@@ -39,10 +39,10 @@ SyncState *
     (gpg2 -c mbsyncpass-acc1)
 **** After encrypting the file remove the original file for security puposes.
 *** Now type
-     (time mu index --maildir=~/Mail --my-address='email@address')
+     (time mu init --maildir=~/Mail --my-address='email@address')
 
 *** After that we have to download our mails so type
-    (time mbsync -c ~/.config/mu4e/.mbsyncrc -a)
+    (time mbsync -c ~/.mbsyncrc -a)
 
 ** You have two-factor authentication turned on:
 *** Now go to (https://myaccount.google.com/apppasswords?rapt=AEjHL4OSkRaaGvcObqcIfRLvyHFbu2m5-h4GkvKcTtKCAPFH-mCYtR9rpRp5uzttDVHjFLOsN02h8MVyWCiy-2jzH8eOWGikEQ) and add a device and website you can add anything according to your requirement then copy the 12 or 16 digit password and paste that into mbsync-acc1 file instead of your password that's it you mails will be downloaded ... Then type the same command as above.
