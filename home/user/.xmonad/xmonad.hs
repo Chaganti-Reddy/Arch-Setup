@@ -391,6 +391,8 @@ myKeys =
         , ("M-C-n", spawn (myTerminal ++ " -e ncmpcpp"))
         , ("M-p", spawn ("rofi -show p -modi p:~/.local/bin/rofi-power-menu"))
         , ("M1-<Tab>", spawn("rofi -show window"))
+        , ("M-<F10>", spawn("xbacklight -dec 5"))
+        , ("M-<F11>", spawn("xbacklight -inc 5"))
 
 
     -- KB_GROUP Kill windows
