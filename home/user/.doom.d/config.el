@@ -43,7 +43,7 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+(setq org-directory "~/Documents/org/")
 
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
@@ -264,7 +264,7 @@
       (":properties:" . ?)
       (":LOGBOOK:" . ?)
       (":logbook:" . ?)))
-  (prettify-symbols-mode 1))
+  (prettify-symbols-mode t))
 (add-hook 'org-mode-hook 'my/org-mode/load-prettify-symbols)
 (setq org-ellipsis " ")
 
@@ -332,3 +332,15 @@
       :desc "Scroll year calendar forward" "<right>" #'reddy/scroll-year-calendar-forward)
 
 (defalias 'year-calendar 'reddy/year-calendar)
+
+(define-globalized-minor-mode global-rainbow-mode rainbow-mode
+  (lambda () (rainbow-mode 1)))
+(global-rainbow-mode 1 )
+
+(custom-set-faces
+  '(org-level-1 ((t (:inherit outline-1 :height 1.4))))
+  '(org-level-2 ((t (:inherit outline-2 :height 1.3))))
+  '(org-level-3 ((t (:inherit outline-3 :height 1.2))))
+  '(org-level-4 ((t (:inherit outline-4 :height 1.1))))
+  '(org-level-5 ((t (:inherit outline-5 :height 1.0))))
+)
