@@ -122,6 +122,8 @@ myStartupHook = do
     spawnOnce "nm-applet"
     spawnOnce "volumeicon"
     spawnOnce "/usr/bin/emacs --daemon" -- emacs daemon for the emacsclient
+    spawnOnce "udiskie"
+    spawnOnce "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 "
 
     -- spawn ("sleep 2 && conky -c $HOME/.config/conky/xmonad/" ++ colorScheme ++ "-01.conkyrc")
     spawn ("sleep 2 && trayer --edge top --align right --widthtype request --padding 3 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 " ++ colorTrayer ++ " --height 22")
@@ -174,7 +176,7 @@ myAppGrid = [ ("Virtual Manager", "virt-manager")
                  , ("MYSql", "beekeeper-studio")
                  , ("Telegram", "telegram-desktop")
                  , ("Chess", "gnome-chess")
-                 , ("TimeShift", "timeshift")
+                 , ("TimeShift", "timeshift-launcher")
                  ]
 
 myScratchPads :: [NamedScratchpad]
