@@ -1,0 +1,50 @@
+
+xmonad.hs:384:45: error: Variable not in scope: rofi
+    |
+384 |         , ("M-<Return>", spawn (myTerminal))rofi -show p -modi p:~/.local/bin/rofi-power-menu
+    |                                             ^^^^
+
+xmonad.hs:384:56: error: Variable not in scope: p
+    |
+384 |         , ("M-<Return>", spawn (myTerminal))rofi -show p -modi p:~/.local/bin/rofi-power-menu
+    |                                                        ^
+
+xmonad.hs:384:59: error:
+    • Variable not in scope: modi :: t0 -> String
+    • Perhaps you meant ‘mod’ (imported from Prelude)
+    |
+384 |         , ("M-<Return>", spawn (myTerminal))rofi -show p -modi p:~/.local/bin/rofi-power-menu
+    |                                                           ^^^^
+
+xmonad.hs:384:64: error: Variable not in scope: p
+    |
+384 |         , ("M-<Return>", spawn (myTerminal))rofi -show p -modi p:~/.local/bin/rofi-power-menu
+    |                                                                ^
+
+xmonad.hs:384:65: error:
+    Data constructor not in scope:
+      (:~/.)
+        :: String -> ((r0 -> r0) -> [String] -> [String]) -> (String, X ())
+    |
+384 |         , ("M-<Return>", spawn (myTerminal))rofi -show p -modi p:~/.local/bin/rofi-power-menu
+    |                                                                 ^^^^
+
+xmonad.hs:384:75: error:
+    • Variable not in scope: bin :: (r0 -> r0) -> [String] -> [String]
+    • Perhaps you meant one of these:
+        ‘sin’ (imported from Prelude), ‘min’ (imported from Prelude)
+    |
+384 |         , ("M-<Return>", spawn (myTerminal))rofi -show p -modi p:~/.local/bin/rofi-power-menu
+    |                                                                           ^^^
+
+xmonad.hs:384:79: error:
+    Variable not in scope: rofi :: (r0 -> r0) -> [String] -> [String]
+    |
+384 |         , ("M-<Return>", spawn (myTerminal))rofi -show p -modi p:~/.local/bin/rofi-power-menu
+    |                                                                               ^^^^
+
+xmonad.hs:384:84: error:
+    Variable not in scope: power :: (r0 -> r0) -> [String] -> [String]
+    |
+384 |         , ("M-<Return>", spawn (myTerminal))rofi -show p -modi p:~/.local/bin/rofi-power-menu
+    |                                                                                    ^^^^^
