@@ -381,7 +381,7 @@ myKeys =
         , ("M-d", spawn "rofi -modi drun -show drun") -- Rofi
 
     -- KB_GROUP Useful programs to have a keybinding for launch
-        , ("M-<Return>", spawn (myTerminal))rofi -show p -modi p:~/.local/bin/rofi-power-menu
+        , ("M-<Return>", spawn (myTerminal))
         , ("M-w", spawn (myBrowser))
         , ("M-a", spawn ("emacsclient -c -a 'emacs'")) 
         , ("M-S-n", spawn ("nautilus"))
