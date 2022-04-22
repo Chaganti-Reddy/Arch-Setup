@@ -388,6 +388,7 @@ myKeys =
         , ("M-n", spawn (myTerminal ++ " -e ranger"))
         , ("M-C-n", spawn (myTerminal ++ " -e ncmpcpp"))
         , ("M-p", spawn ("rofi -show p -modi p:~/.local/bin/rofi-power-menu"))
+        , ("M1-<Tab>", spawn("rofi -show window"))
 
 
     -- KB_GROUP Kill windows
