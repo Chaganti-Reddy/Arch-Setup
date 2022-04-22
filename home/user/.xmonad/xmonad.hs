@@ -124,9 +124,12 @@ myStartupHook = do
     spawnOnce "/usr/bin/emacs --daemon" -- emacs daemon for the emacsclient
     spawnOnce "udiskie"
     spawnOnce "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 "
+    spawnOnce "mpd &"
+    spawnOnce "xinput set-prop 'DLL09D9:00 04F3:3147 Touchpad' 'libinput Tapping Enabled' 1"
+    spawnOnce "xinput set-prop 'DLL09D9:00 04F3:3147 Touchpad' 'libinput Natural Scrolling Enabled' 1"
 
     -- spawn ("sleep 2 && conky -c $HOME/.config/conky/xmonad/" ++ colorScheme ++ "-01.conkyrc")
-    spawn ("sleep 2 && trayer --edge top --align right --widthtype request --padding 3 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 " ++ colorTrayer ++ " --height 22")
+    spawn ("sleep 2 && trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 " ++ colorTrayer ++ " --height 22")
 
     -- spawnOnce "xargs xwallpaper --stretch < ~/Pictures/Wallpapers"
     -- spawnOnce "~/.fehbg &"  -- set last saved feh wallpaper
@@ -486,8 +489,8 @@ myKeys =
         , ("<XF86AudioPrev>", spawn "mpc prev")
         , ("<XF86AudioNext>", spawn "mpc next")
         , ("<XF86AudioMute>", spawn "pamixer -t")
-        , ("<XF86AudioLowerVolume>", spawn "pamixer -d 5")
-        , ("<XF86AudioRaiseVolume>", spawn "pamixer -i 5")
+        , ("<XF86AudioLowerVolume>", spawn "pamixer -d 3")
+        , ("<XF86AudioRaiseVolume>", spawn "pamixer -i 3")
         ]
     -- The following lines are needed for named scratchpads.
           where nonNSP          = WSIs (return (\ws -> W.tag ws /= "NSP"))

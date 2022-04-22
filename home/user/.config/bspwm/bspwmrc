@@ -107,6 +107,9 @@ sxhkd &
 # Start udiskie
 udiskie &
 
+xinput set-prop "DLL09D9:00 04F3:3147 Touchpad" "libinput Tapping Enabled" 1
+xinput set-prop "DLL09D9:00 04F3:3147 Touchpad" "libinput Natural Scrolling Enabled" 1
+
 # Enable power management
 xfce4-power-manager &
 
