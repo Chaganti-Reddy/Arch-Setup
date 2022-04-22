@@ -177,9 +177,10 @@ myAppGrid = [ ("Virtual Manager", "virt-manager")
                  , ("Neovim", "nvim")
                  , ("Github", "github-desktop")
                  , ("MYSql", "beekeeper-studio")
-                 , ("Telegram", "telegram-desktop")
+                 , ("Zathura", "zathura")
                  , ("Chess", "gnome-chess")
                  , ("TimeShift", "timeshift-launcher")
+                 , ("Telegram", "telegram-desktop")
                  ]
 
 myScratchPads :: [NamedScratchpad]
@@ -393,9 +394,10 @@ myKeys =
         , ("M-n", spawn (myTerminal ++ " -e ranger"))
         , ("M-C-n", spawn (myTerminal ++ " -e ncmpcpp"))
         , ("M-p", spawn ("rofi -show p -modi p:~/.local/bin/rofi-power-menu"))
-        , ("M1-<Tab>", spawn("rofi -show window"))
-        , ("M-<F10>", spawn("xbacklight -dec 5"))
-        , ("M-<F11>", spawn("xbacklight -inc 5"))
+        , ("M1-<Tab>", spawn ("rofi -show window"))
+        , ("M-<F10>", spawn ("xbacklight -dec 5"))
+        , ("M-<F11>", spawn ("xbacklight -inc 5"))
+        , ("M-S-s", spawn ("flameshot gui"))
 
 
     -- KB_GROUP Kill windows
