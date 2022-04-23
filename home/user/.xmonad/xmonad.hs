@@ -352,9 +352,9 @@ myManageHook = composeAll
      -- using 'doShift ( myWorkspaces !! 7)' sends program to workspace 8!
      -- I'm doing it this way because otherwise I would have to write out the full
      -- name of my workspaces and the names would be very long if using clickable workspaces.
-     [ className =? "confirm"         --> doFloat
+     [ className =? "confirm"         --> doCenterFloat
      , className =? "file_progress"   --> doFloat
-     , className =? "dialog"          --> doFloat
+     , className =? "dialog"          --> doCenterFloat
      , className =? "download"        --> doFloat
      , className =? "error"           --> doFloat
      , className =? "Gimp"            --> doFloat
@@ -366,7 +366,7 @@ myManageHook = composeAll
      , title =? "Oracle VM VirtualBox Manager"  --> doFloat
      , title =? "Mozilla Firefox"     --> doShift ( myWorkspaces !! 1 )
      , className =? "Brave-browser"   --> doShift ( myWorkspaces !! 1 )
-     , title =? "Discord"             --> doShift ( myWorkspaces !! 4 )
+     , title =? "Discord"             --> doShift ( myWorkspaces !! 5 )
      , className =? "mpv"             --> doShift ( myWorkspaces !! 7 )
      , className =? "Gimp"            --> doShift ( myWorkspaces !! 8 )
      , className =? "VirtualBox Manager" --> doShift  ( myWorkspaces !! 4 )
