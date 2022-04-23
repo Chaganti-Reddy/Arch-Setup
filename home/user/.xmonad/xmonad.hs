@@ -173,7 +173,7 @@ myAppGrid = [ ("Virtual Manager", "virt-manager")
                  , ("VSCode", "code")
                  , ("News", "newsflash")
                  , ("OBS", "obs")
-                 , ("Gimp", "gimp")  
+                 , ("Discord", "discord")
                  , ("Neovim", "nvim")
                  , ("Github", "github-desktop")
                  , ("MYSql", "beekeeper-studio")
@@ -181,6 +181,7 @@ myAppGrid = [ ("Virtual Manager", "virt-manager")
                  , ("Chess", "gnome-chess")
                  , ("TimeShift", "timeshift-launcher")
                  , ("Telegram", "telegram-desktop")
+                 , ("Gimp", "gimp")  
                  ]
 
 myScratchPads :: [NamedScratchpad]
