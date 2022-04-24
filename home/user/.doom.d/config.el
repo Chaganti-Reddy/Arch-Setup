@@ -6,11 +6,8 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
-(setq user-full-name "Chaganti Reddy"
+(setq user-full-name "Chaganti-Reddy"
       user-mail-address "chagantivenkataramireddy1@gmail.com")
-
-(setq doom-font (font-spec :family "JetBrains Mono" :size 17)
-      doom-big-font (font-spec :family "JetBrains Mono" :size 21))
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -80,7 +77,6 @@
 
 (delete-selection-mode t)
 
-;; ;; changes certain keywords to symbols, such as lamda!
 (setq global-prettify-symbols-mode t)
 
 ;; zoom in/out like we do everywhere else.
@@ -88,6 +84,7 @@
 (global-set-key (kbd "C--") 'text-scale-decrease)
 (global-set-key (kbd "<C-wheel-up>") 'text-scale-increase)
 (global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease)
+
 
 (use-package doom-modeline)
 (doom-modeline-mode t)
@@ -122,7 +119,7 @@
       evil-visual-state-cursor '(box "#FF00FF")
       evil-normal-state-cursor '(box "#E2E8EF"))
 (use-package vterm)
-(setq shell-file-name "/bin/fish"
+(setq shell-file-name "/bin/bash"
       vterm-max-scrollback 5000)
 
 ;; Function for setting a fixed width for neotree.
@@ -157,36 +154,33 @@
         :desc "Toggle NeoTree" "n" #'neotree-toggle))
 
 (map! "C-/" #'comment-line)
-(use-package mu4e
-  :ensure nil
-  ;; :load-path "/usr/share/emacs/site-lisp/mu4e/"
-  ;; :defer 20 ; Wait until 20 seconds after startup
-  :config
 
-  ;; This is set to 't' to avoid mail syncing issues when using mbsync
-  (setq mu4e-change-filenames-when-moving t)
+;; (use-package mu4e
+;;   :ensure nil
+;;   ;; :load-path "/usr/share/emacs/site-lisp/mu4e/"
+;;   ;; :defer 20 ; Wait until 20 seconds after startup
+;;   :config
 
-  ;; Refresh mail using isync every 10 minutes
-  (setq mu4e-update-interval (* 10 60))
-  (setq mu4e-get-mail-command "mbsync -a")
-  ;; (setq mu4e-maildir "~/Mail")
+;;   ;; This is set to 't' to avoid mail syncing issues when using mbsync
+;;   (setq mu4e-change-filenames-when-moving t)
 
-  (setq mu4e-drafts-folder "/[Gmail]/Drafts")
-  (setq mu4e-sent-folder   "/[Gmail]/Sent Mail")
-  (setq mu4e-refile-folder "/[Gmail]/All Mail")
-  (setq mu4e-trash-folder  "/[Gmail]/Trash")
+;;   ;; Refresh mail using isync every 10 minutes
+;;   (setq mu4e-update-interval (* 10 60))
+;;   (setq mu4e-get-mail-command "mbsync -a")
+;;   ;; (setq mu4e-maildir "~/Mail")
 
-  (setq mu4e-maildir-shortcuts
-      '(("/Inbox"             . ?i)
-        ("/[Gmail]/Sent Mail" . ?s)
-        ("/[Gmail]/Trash"     . ?t)
-        ("/[Gmail]/Drafts"    . ?d)
-        ("/[Gmail]/All Mail"  . ?a))))
-  ;; Load org-mode integration
-  (require 'org-mu4e)
+;;   (setq mu4e-drafts-folder "/[Gmail]/Drafts")
+;;   (setq mu4e-sent-folder   "/[Gmail]/Sent Mail")
+;;   (setq mu4e-refile-folder "/[Gmail]/All Mail")
+;;   (setq mu4e-trash-folder  "/[Gmail]/Trash")
 
-  ;; Start mu4e in the background so that it syncs mail periodically
-  ;; (mu4e t))
+;;   (setq mu4e-maildir-shortcuts
+;;       '(("/Inbox"             . ?i)
+;;         ("/[Gmail]/Sent Mail" . ?s)
+;;         ("/[Gmail]/Trash"     . ?t)
+;;         ("/[Gmail]/Drafts"    . ?d)
+;;         ("/[Gmail]/All Mail"  . ?a))))
+
 
 (map! :leader
       (:prefix ("b". "buffer")
@@ -210,6 +204,7 @@
 (map! :leader
       :desc "Toggle neotree file viewer" "t n" #'neotree-toggle
       :desc "Open directory in neotree" "d n" #'neotree-dir)
+
 
 (use-package! elfeed-goodies)
 (elfeed-goodies/setup)
@@ -241,32 +236,34 @@
                      ("http://lxer.com/module/newswire/headlines.rss" lxer linux)
                      ("https://distrowatch.com/news/dwd.xml" distrowatch linux))))
 
-(defun my/org-mode/load-prettify-symbols ()
-  (interactive)
-  (setq prettify-symbols-alist
-    '(("#+begin_src" . ?)
-      ("#+BEGIN_SRC" . ?)
-      ("#+end_src" . ?)
-      ("#+END_SRC" . ?)
-      ("#+begin_example" . ?)
-      ("#+BEGIN_EXAMPLE" . ?)
-      ("#+end_example" . ?)
-      ("#+END_EXAMPLE" . ?)
-      ("#+header:" . ?)
-      ("#+HEADER:" . ?)
-      ("#+name:" . ?﮸)
-      ("#+NAME:" . ?﮸)
-      ("#+results:" . ?)
-      ("#+RESULTS:" . ?)
-      ("#+call:" . ?)
-      ("#+CALL:" . ?)
-      (":PROPERTIES:" . ?)
-      (":properties:" . ?)
-      (":LOGBOOK:" . ?)
-      (":logbook:" . ?)))
-  (prettify-symbols-mode t))
-(add-hook 'org-mode-hook 'my/org-mode/load-prettify-symbols)
-(setq org-ellipsis " ")
+
+;; (defun my/org-mode/load-prettify-symbols ()
+;;   (interactive)
+;;   (setq prettify-symbols-alist
+;;     '(("#+begin_src" . ?)
+;;       ("#+BEGIN_SRC" . ?)
+;;       ("#+end_src" . ?)
+;;       ("#+END_SRC" . ?)
+;;       ("#+begin_example" . ?)
+;;       ("#+BEGIN_EXAMPLE" . ?)
+;;       ("#+end_example" . ?)
+;;       ("#+END_EXAMPLE" . ?)
+;;       ("#+header:" . ?)
+;;       ("#+HEADER:" . ?)
+;;       ("#+name:" . ?﮸)
+;;       ("#+NAME:" . ?﮸)
+;;       ("#+results:" . ?)
+;;       ("#+RESULTS:" . ?)
+;;       ("#+call:" . ?)
+;;       ("#+CALL:" . ?)
+;;       (":PROPERTIES:" . ?)
+;;       (":properties:" . ?)
+;;       (":LOGBOOK:" . ?)
+;;       (":logbook:" . ?)))
+;;   (prettify-symbols-mode t))
+;; (add-hook 'org-mode-hook 'my/org-mode/load-prettify-symbols)
+;; (setq org-ellipsis " ")
+
 
 (setq TeX-auto-save t)
 (setq latex-preview-pane-mode t)
@@ -350,47 +347,13 @@
 (map! "C-a" #'mark-whole-buffer)
 (map! :after evil :gnvi "C-f" #'consult-line)
 
+
 ;; Slightly improve the look and feel of Info pages, might actually encourage me to read them.
 
 (use-package! info-colors
   :after info
   :commands (info-colors-fontify-node)
   :hook (Info-selection . info-colors-fontify-node))
-
-
-(after! marginalia
-  (setq marginalia-censor-variables nil)
-
-  (defadvice! +marginalia--anotate-local-file-colorful (cand)
-    "Just a more colourful version of `marginalia--anotate-local-file'."
-    :override #'marginalia--annotate-local-file
-    (when-let (attrs (file-attributes (substitute-in-file-name
-                                       (marginalia--full-candidate cand))
-                                      'integer))
-      (marginalia--fields
-       ((marginalia--file-owner attrs)
-        :width 12 :face 'marginalia-file-owner)
-       ((marginalia--file-modes attrs))
-       ((+marginalia-file-size-colorful (file-attribute-size attrs))
-        :width 7)
-       ((+marginalia--time-colorful (file-attribute-modification-time attrs))
-        :width 12))))
-
-  (defun +marginalia--time-colorful (time)
-    (let* ((seconds (float-time (time-subtract (current-time) time)))
-           (color (doom-blend
-                   (face-attribute 'marginalia-date :foreground nil t)
-                   (face-attribute 'marginalia-documentation :foreground nil t)
-                   (/ 1.0 (log (+ 3 (/ (+ 1 seconds) 345600.0)))))))
-      ;; 1 - log(3 + 1/(days + 1)) % grey
-      (propertize (marginalia--time time) 'face (list :foreground color))))
-
-  (defun +marginalia-file-size-colorful (size)
-    (let* ((size-index (/ (log10 (+ 1 size)) 7.0))
-           (color (if (< size-index 10000000) ; 10m
-                      (doom-blend 'orange 'green size-index)
-                    (doom-blend 'red 'orange (- size-index 1)))))
-      (propertize (file-size-human-readable size) 'face (list :foreground color)))))
 
 ;; Improve tables by using unicode box characters intead of boring ascii.
 (use-package! org-pretty-table
@@ -414,3 +377,7 @@
    "/DONE" 'file))
 
 (map! :map org-mode-map :desc "Archive tasks marked DONE" "C-c DEL a" #'elken/org-archive-done-tasks)
+
+(map! :leader
+      (:prefix "g"
+       :desc "Show Git Status" "m" #'magit-status))
