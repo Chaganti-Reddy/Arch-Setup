@@ -103,3 +103,8 @@
 7. Now save the file and exit.
 
 8. for sddm copy the sddm.conf file from /etc folder of this repository and also install paru -S sddm-sugar-candy-git.
+
+
+
+
+For qt5ct to work add QT_QPA_PLATFORMTHEME=qt5ct to /etc/environment file and source it
