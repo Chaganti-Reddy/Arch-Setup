@@ -4,7 +4,7 @@ sudo hwclock --systohc
 sudo pacman -Syy
 
 git clone https://aur.archlinux.org/paru.git
-cd /yay
+cd /paru
 makepkg -si
 rm -rf paru/
 
