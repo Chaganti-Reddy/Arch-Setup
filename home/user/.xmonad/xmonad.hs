@@ -91,7 +91,7 @@ myTerminal :: String
 myTerminal = "alacritty"    -- Sets default terminal
 
 myBrowser :: String
-myBrowser = "brave"  -- Sets qutebrowser as browser
+myBrowser = "brave"  -- Sets Brave as browser
 
 myEmacs :: String
 myEmacs = "emacsclient -c -a 'emacs' "  -- Makes emacs keybindings easier to type
@@ -174,7 +174,7 @@ myAppGrid = [ ("Virtual Manager", "virt-manager")
                  , ("News", "newsflash")
                  , ("OBS", "obs")
                  , ("Discord", "discord")
-                 , ("Neovim", "nvim")
+                 , ("Neovim", "alacritty -e nvim")
                  , ("Github", "github-desktop")
                  , ("MYSql", "beekeeper-studio")
                  , ("Zathura", "zathura")
@@ -183,6 +183,17 @@ myAppGrid = [ ("Virtual Manager", "virt-manager")
                  , ("Telegram", "telegram-desktop")
                  , ("Gimp", "gimp")  
                  ]
+
+myPersonalGrid = [ ("Gmail", "brave gmail.com")
+                 , ("Youtube", "brave youtube.com")
+                 , ("Word Doc", "brave docs.google.com")
+                 , ("G Classroom", "brave classroom.google.com")
+                 , ("LeetCode", "brave leetcode.com")
+                 , ("CP 1", "emacsclient -c -a emacs ~/code/1.cpp")
+                 , ("CP 2", "emacsclient -c -a emacs ~/code/2.cpp")
+                 , ("Dotfiles", "nautilus ~/Documents/GitHub/dotfiles/")
+                 ]
+
 
 myScratchPads :: [NamedScratchpad]
 myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
@@ -421,6 +432,7 @@ myKeys =
         , ("C-g g", spawnSelected' myAppGrid)                 -- grid select favorite apps
         , ("C-g t", goToSelected $ mygridConfig myColorizer)  -- goto selected window
         , ("C-g b", bringSelected $ mygridConfig myColorizer) -- bring selected window
+        , ("C-b g", spawnSelected' myPersonalGrid)                 -- grid select personal apps
 
     -- KB_GROUP Windows navigation
         , ("M-m", windows W.focusMaster)  -- Move focus to the master window
