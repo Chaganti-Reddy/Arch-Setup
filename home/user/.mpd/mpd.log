@@ -106,3 +106,34 @@ WARNING: Unhandled message: interface=org.freedesktop.DBus, path=/org/freedeskto
 WARNING: Unhandled message: interface=org.freedesktop.DBus, path=/org/freedesktop/DBus, member=ActivatableServicesChanged
 WARNING: Unhandled message: interface=org.freedesktop.DBus, path=/org/freedesktop/DBus, member=ActivatableServicesChanged
 WARNING: Unhandled message: interface=org.freedesktop.DBus, path=/org/freedesktop/DBus, member=ActivatableServicesChanged
+Apr 24 14:25 : update: removing MUS/[iSongs.info] 02 - Mandaara Poovalle.mp3
+Apr 24 14:25 : update: removing MUS/Unknown Brain & Spce CadeX - Holding You (feat. Max Landry) [NCS Release]-Nn2aXfUkJsc.mp3
+Apr 24 14:25 : update: removing MUS/manike-mage-hithe.mp3
+Apr 24 14:25 : update: removing MUS/ClearSky - Take Me Away (feat. Thomas Fiss)-e4U_CytAKXk.mp3
+Apr 24 14:25 : update: removing MUS/Cadmium+Melody+feat+Jon+Becker+Lyric+Video].mp3
+Apr 24 14:25 : update: removing MUS/[iSongs.info] 05 - Naatu Naatu.mp3
+Apr 24 14:25 : update: updating MUS/[iSongs.info] 05 - Nee Yadalo Naaku.mp3
+Apr 24 14:25 : update: removing MUS/Main Tera Boyfriend (Raabta) 128 Kbps.mp3
+Apr 24 14:25 : update: removing MUS/Meant To Be.mp3
+Apr 24 14:25 : update: added MUS/[iSongs.info] 01 - Adhento Gaani Vunnapaatuga.mp3
+Apr 24 14:25 : update: updating MUS/[iSongs.info] 04 - Chuttesai Chuttesai.mp3
+Apr 24 14:25 : update: updating MUS/[iSongs.info] 02 - Guche Gulabi.mp3
+Apr 24 14:25 : update: updating MUS/[iSongs.info] Katha Vintava.mp3
+Apr 24 14:25 : update: updating MUS/Ammaye Challo Antu.mp3
+Apr 24 14:25 : update: updating MUS/[iSongs.info] 01 - Run.mp3
+Apr 24 14:25 : update: updating MUS/Naa Dooja Koi - Rakul Preet Singh _ Pavail Gulati _ Arko feat. Jyotica Tangri _ Zee Music Originals(MP3_320K).mp3
+Apr 24 14:25 : update: updating MUS/Ye_Chota_Nuvvunna_Saaho_Prabhas_Shraddha_K_Guru_Randhawa_Tulsi_Kumar.mp3
+Apr 24 14:25 : update: updating MUS/[iSongs.info] 02 - Ria.mp3
+Apr 24 14:25 : update: updating MUS/[iSongs.info] 01 - The Karma Theme.mp3
+Apr 24 14:25 : update: added MUS/[iSongs.info] 06 - Rave Na Cheliya.mp3
+Apr 24 14:25 : update: updating MUS/[iSongs.info] 02 - Gaali Vaaluga.mp3
+Apr 24 14:25 : update: added MUS/[iSongs.info] 01 - Halamithi Habibo (Telugu).mp3
+Apr 24 14:25 : update: updating MUS/[iSongs.info] 03 - Kung Fu Kumaari.mp3
+Apr 24 14:25 : update: updating MUS/Justin Bieber - Love Me.mp3
+Apr 24 14:25 : update: added MUS/[iSongs.info] 03 - Beast Mode.mp3
+Apr 24 14:25 : update: updating MUS/[iSongs.info] 01 - Athiloka Sundari.mp3
+Apr 24 14:25 : update: added MUS/Shape of You Mp3 Ed Sheeran.mp3
+Apr 24 14:25 : update: updating MUS/[iSongs.info] 04 - Seeti Maar.mp3
+Apr 24 14:25 : update: updating MUS/[iSongs.info] 01 - Chiru Chiru Chiru.mp3
+Apr 24 14:25 : update: updating MUS/Leharaayi.mp3
+Apr 25 09:43 : exception: Failed to open /home/reddy/.mpd/playlists: No such file or directory
