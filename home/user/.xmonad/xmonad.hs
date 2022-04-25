@@ -187,14 +187,15 @@ myAppGrid = [ ("Virtual Manager", "virt-manager")
 
 myPersonalGrid = [ ("Gmail", "brave gmail.com")
                  , ("Youtube", "brave youtube.com")
-                 , ("Word Doc", "brave docs.google.com")
+                 , ("Colab", "brave colab.research.google.com/")
                  , ("G Classroom", "brave classroom.google.com")
                  , ("G Meet", "brave meet.google.com")
                  , ("CP 1", "emacsclient -c -a emacs ~/code/1.cpp")
                  , ("CP 2", "emacsclient -c -a emacs ~/code/2.cpp")
                  , ("Dotfiles", "nautilus ~/Documents/GitHub/dotfiles/")
                  , ("LeetCode", "brave leetcode.com")
-                 , ("Whatsapp", "brave https://web.whatsapp.com/")
+                 , ("Whatsapp", "brave web.whatsapp.com/")
+                 , ("Word Doc", "brave docs.google.com")
                  ]
 
 
