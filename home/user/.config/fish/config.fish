@@ -46,7 +46,7 @@ set fzf_preview_dir_cmd exa --all --color=always
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 
 ### "vim" as manpager
-# set -x MANPAGER '/bin/bash -c "vim -MRn -c \"set buftype=nofile showtabline=0 ft=man ts=8 nomod nolist norelativenumber nonu noma\" -c \"normal L\" -c \"nmap q :qa<CR>\"</dev/tty <(col -b)"'
+# set -x MANPAGER '/bin/bash -c "vim -MRn -c \"set buftype=nofile showtabline=0 ft=man ts=8 nomod nolist norelativenumber nonu noma\" -c \"/normal L\" -c \"nmap q :qa<CR>\"</dev/tty <(col -b)"'
 
 ### "nvim" as manpager
 # set -x MANPAGER "nvim -c 'set ft=man' -"
@@ -376,6 +376,7 @@ colorscript random
 #starship init fish | source
 fnm env | source
 zoxide init fish | source
+alias vi="nvim"
 alias svi="sudoedit"
 alias su="sudo fish"
 alias r="radian"
@@ -414,4 +415,6 @@ end
 
 set -Ux FZF_DEFAULT_OPTS "--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4"
 
-
+function gccr --argument repo
+  git clone https://github.com/Chaganti-Reddy/$repo
+end
