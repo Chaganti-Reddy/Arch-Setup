@@ -193,6 +193,7 @@ myPersonalGrid = [ ("Gmail", "brave gmail.com")
                  , ("CP 2", "emacsclient -c -a emacs ~/code/2.cpp")
                  , ("Dotfiles", "nautilus ~/Documents/GitHub/dotfiles/")
                  , ("LeetCode", "brave leetcode.com")
+                 , ("Whatsapp", "brave https://web.whatsapp.com/")
                  ]
 
 
