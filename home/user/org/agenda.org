@@ -1,0 +1,9 @@
+#+title: My Agendas
+
+* Feynn Labs project 1
+*** TODO Feynn lab project 1
+DEADLINE: <2022-05-02 Mon>
+
+* Dwarf AI assessment
+*** TODO Dwarf AI intern Assesment
+DEADLINE: <2022-05-02 Mon>
