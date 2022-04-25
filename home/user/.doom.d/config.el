@@ -384,3 +384,9 @@
 (map! :leader
       (:prefix "g"
        :desc "Show Git Status" "m" #'magit-status))
+
+(map! :leader
+      (:prefix "o"
+       :desc "Switch to yearly view" "y" #'org-agenda-year-view))
+
+(setq org-agenda-year-view t)
