@@ -1,8 +1,0 @@
-#+title: Introduction
-#+OPTIONS: num:nil
-#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
-# #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-bigblow.setup
-#+HTML_HEAD: <link rel="stylesheet" href="https://latex.now.sh/style.css">
-
-* IUGRPIUTG
-$a^2$  lrjh
