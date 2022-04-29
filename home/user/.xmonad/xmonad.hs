@@ -196,6 +196,7 @@ myPersonalGrid = [ ("Gmail", "brave gmail.com")
                  , ("LeetCode", "brave leetcode.com")
                  , ("Whatsapp", "brave web.whatsapp.com/")
                  , ("Word Doc", "brave docs.google.com")
+                 , ("Github", "brave github.com/Chaganti-Reddy")
                  ]
 
 
