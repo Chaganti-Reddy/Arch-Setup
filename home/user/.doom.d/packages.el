@@ -75,3 +75,5 @@
   :recipe (:host github :repo "Fuco1/org-pretty-table"))
 
 (package! keychain-environment)
+(package! org-preview-html)
+(package! impatient-mode)

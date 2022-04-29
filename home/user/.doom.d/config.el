@@ -389,4 +389,29 @@
       (:prefix "o"
        :desc "Switch to yearly view" "y" #'org-agenda-year-view))
 
-(setq org-agenda-year-view t)
+(require 'ox-md)
+
+'(org-file-apps
+    (quote
+      ((auto-mode . emacs)
+      ("\\.mm\\'" . default)
+      ("\\.x?html?\\'" . "/usr/bin/brave %s")
+      ("\\.pdf\\'" . default))))
+
+(setq org-journal-dir "~/Documents/org/journal/"
+      org-journal-date-prefix "* "
+      org-journal-time-prefix "** "
+      org-journal-date-format "%B %d, %Y (%A) "
+      org-journal-file-format "%Y-%m-%d.org")
+
+(use-package! password-store)
+
+;;correlate
+(server-start)
+(add-hook 'LaTeX-mode-hook 'TeX-PDF-mode)
+(add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
+(setq TeX-source-correlate-method 'synctex)
+(setq TeX-source-correlate-start-server t)
+
+(setq lsp-latex-forward-search-executable "zathura")
+(setq lsp-latex-forward-search-args '("--synctex-forward" "%l:1:%f" "%p"))
