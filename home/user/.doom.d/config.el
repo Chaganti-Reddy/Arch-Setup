@@ -90,9 +90,9 @@
 (global-set-key (kbd "<C-wheel-up>") 'text-scale-increase)
 (global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease)
 
-
-(use-package doom-modeline)
-(doom-modeline-mode t)
+(use-package doom-modeline
+  :ensure t
+  :init (doom-modeline-mode 1))
 (use-package haskell-mode)
 (use-package lua-mode)
 (use-package markdown-mode)
@@ -444,8 +444,24 @@
       :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n#+filetags: Project")
       :unnarrowed t)))
   :config
+  (require 'org-roam-dailies)
+  (org-roam-db-autosync-mode)
   (org-roam-setup))
+
+(setq org-roam-dailies-capture-templates
+      '(("d" "default" entry "* %<%I:%M %p>: %?"
+         :if-new (file+head "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n"))))
 
 (map! :g "C-c n l"  #'org-roam-buffer-toggle)
 (map! :g "C-c n f"  #'org-roam-node-find)
 (map! :g "C-c n i"  #'org-roam-node-insert)
+(map! :g "C-c n d"  #'org-roam-dailies-map)
+(map! :g "C-c n d Y"  #'org-roam-dailies-capture-yesterday)
+(map! :g "C-c n d T"  #'org-roam-dailies-capture-tomorrow)
+(map! :g "C-c n d y"  #'org-roam-dailies-goto-yesterday)
+(map! :g "C-c n d t"  #'org-roam-dailies-goto-tomorrow)
+(map! :g "C-c n d v"  #'org-roam-dailies-capture-date)
+(map! :g "C-c n d c"  #'org-roam-dailies-goto-date)
+(map! :g "C-c n d f"  #'org-roam-dailies-goto-previous-note)
+(map! :g "C-c n d b"  #'org-roam-dailies-goto-next-note)
+

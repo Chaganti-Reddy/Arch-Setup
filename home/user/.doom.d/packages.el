@@ -77,3 +77,8 @@
 (package! keychain-environment)
 (package! org-preview-html)
 (package! impatient-mode)
+(package! org-download)
+(package! citar)
+(package! org-roam)
+(package! org-roam-bibtex)
+(package! org-ref)
