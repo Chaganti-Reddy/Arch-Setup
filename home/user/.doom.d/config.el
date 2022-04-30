@@ -465,3 +465,17 @@
 (map! :g "C-c n d f"  #'org-roam-dailies-goto-previous-note)
 (map! :g "C-c n d b"  #'org-roam-dailies-goto-next-note)
 
+;; (use-package vertico
+;;   :ensure t
+;;   :custom
+;;   (vertico-cycle t)
+;;   :init
+;;   (vertico-mode))
+
+;; (use-package marginalia
+;;   :after vertico
+;;   :straight t
+;;   :custom
+;;   (marginalia-annotators '(marginalia-annotators-heavy marginalia-annotators-light nil))
+;;   :init
+;;   (marginalia-mode))
