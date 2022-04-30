@@ -40,7 +40,7 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/Documents/org/")
+(setq org-directory "~/.doom.d/org/")
 
 (setq doom-font (font-spec :family "JetBrainsMono" :size 17)
       doom-big-font (font-spec :family "JetBrainsMono" :size 22))
@@ -398,7 +398,7 @@
       ("\\.x?html?\\'" . "/usr/bin/brave %s")
       ("\\.pdf\\'" . default))))
 
-(setq org-journal-dir "~/Documents/org/journal/"
+(setq org-journal-dir "~/.doom.d/org/journal/"
       org-journal-date-prefix "* "
       org-journal-time-prefix "** "
       org-journal-date-format "%B %d, %Y (%A) "
@@ -415,3 +415,35 @@
 
 (setq lsp-latex-forward-search-executable "zathura")
 (setq lsp-latex-forward-search-args '("--synctex-forward" "%l:1:%f" "%p"))
+
+
+(use-package org-roam
+  :ensure t
+  :init
+  (setq org-roam-v2-ack t)
+  :custom
+  (org-roam-directory "~/.doom.d/org/")
+  (org-roam-complete-everywhere t)
+  (org-roam-capture-templates
+   '(("d" "default" plain
+      "%?"
+      :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n#+date:%U\n")
+      :unnarrowed t)
+     ("l" "programming language" plain
+      "* Characteristics\n\n- Family: %?\n- Inspired by: \n\n* Reference:\n\n"
+      :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
+      :unnarrowed t)
+     ("b" "book notes" plain
+      (file "~/.doom.d/org/Templates/BookNoteTemplate.org")
+      :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
+      :unnarrowed t)
+     ("p" "project" plain
+      (file "~/.doom.d/org/Templates/ProjectTemplate.org")
+      :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n#+filetags: Project")
+      :unnarrowed t)))
+  :config
+  (org-roam-setup))
+
+(map! :g "C-c n l"  #'org-roam-buffer-toggle)
+(map! :g "C-c n f"  #'org-roam-node-find)
+(map! :g "C-c n i"  #'org-roam-node-insert)
