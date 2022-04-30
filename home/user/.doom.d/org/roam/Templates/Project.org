@@ -3,6 +3,6 @@
 
 * Tasks
 
-** TODO Add initial tasks
+** Add initial tasks
 
 * Dates
