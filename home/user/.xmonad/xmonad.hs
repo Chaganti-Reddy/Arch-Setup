@@ -193,10 +193,11 @@ myPersonalGrid = [ ("Gmail", "brave gmail.com")
                  , ("CP 1", "emacsclient -c -a emacs ~/code/1.cpp")
                  , ("CP 2", "emacsclient -c -a emacs ~/code/2.cpp")
                  , ("Dotfiles", "nautilus ~/Documents/GitHub/dotfiles/")
-                 , ("LeetCode", "brave leetcode.com")
+                 , ("LeetCode", "brave https://leetcode.com/problemset/all/?difficulty=EASY&page=1&status=NOT_STARTED")
                  , ("Whatsapp", "brave web.whatsapp.com/")
                  , ("Word Doc", "brave docs.google.com")
                  , ("Github", "brave github.com/Chaganti-Reddy")
+                 , ("Paint", "gromit-mpx")
                  ]
 
 
@@ -383,7 +384,7 @@ myManageHook = composeAll
      , title =? "Mozilla Firefox"     --> doShift ( myWorkspaces !! 1 )
      , className =? "Brave-browser"   --> doShift ( myWorkspaces !! 1 )
      , title =? "Discord"             --> doShift ( myWorkspaces !! 5 )
-     , className =? "mpv"             --> doShift ( myWorkspaces !! 7 )
+     --, className =? "mpv"             --> doShift ( myWorkspaces !! 7 )
      , className =? "Gimp"            --> doShift ( myWorkspaces !! 8 )
      , className =? "VirtualBox Manager" --> doShift  ( myWorkspaces !! 4 )
      , (className =? "firefox" <&&> resource =? "Dialog") --> doFloat  -- Float Firefox Dialog
