@@ -40,9 +40,9 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/.doom.d/org/")
+(setq org-directory "/home/reddy/Documents/GitHub/dotfiles/home/user/org")
 (setq org-roam-db-gc-threshold most-positive-fixnum)
-(setq org-agenda-files (directory-files-recursively "~/.doom.d/org/" "\\.org$"))
+(setq org-agenda-files (directory-files-recursively "/home/reddy/Documents/GitHub/dotfiles/home/user/org" "\\.org$"))
 
 (setq doom-font (font-spec :family "JetBrainsMono" :size 17)
       doom-big-font (font-spec :family "JetBrainsMono" :size 22))
@@ -424,7 +424,7 @@
   :init
   (setq org-roam-v2-ack t)
   :custom
-  (org-roam-directory "~/.doom.d/org/roam/")
+  (org-roam-directory "/home/reddy/Documents/GitHub/dotfiles/home/user/org/roam")
   (org-roam-complete-everywhere t)
   (org-roam-capture-templates
    '(("d" "default" plain
@@ -436,11 +436,11 @@
       :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
       :unnarrowed t)
      ("b" "book notes" plain
-      (file "~/.doom.d/org/roam/Templates/BookNote.org")
+      (file "/home/reddy/Documents/GitHub/dotfiles/home/user/org/roam/Templates/BookNote.org")
       :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
       :unnarrowed t)
      ("p" "project" plain
-      (file "~/.doom.d/org/roam/Templates/Project.org")
+      (file "/home/reddy/Documents/GitHub/dotfiles/home/user/org/roam/Templates/Project.org")
       :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n#+filetags: Project")
       :unnarrowed t)))
   :config
