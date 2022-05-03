@@ -1,10 +1,10 @@
 #+title: Bollinger Graph
 #+filetags: Project
-* Goals
-To predict the stock market graph
+
+
 * Tasks
 *** To print the Bollinger Graph
-***** Bollinger grapgh contains three graphs in a plot first is Upper Bollinger Band(Upper Standard deviation) and middle is Average data and lowest is Lower Bollinger Band(Lower Standard deviation) .
+**** Bollinger grapgh contains three graphs in a plot first is Upper Bollinger Band(Upper Standard deviation) and middle is Average data and lowest is Lower Bollinger Band(Lower Standard deviation) .
 
 **** To calculate the thos standard deviation
 
