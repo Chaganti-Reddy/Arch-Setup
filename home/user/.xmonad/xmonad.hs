@@ -183,6 +183,7 @@ myAppGrid = [ ("Virtual Manager", "virt-manager")
                  , ("TimeShift", "timeshift-launcher")
                  , ("Telegram", "telegram-desktop")
                  , ("Gimp", "gimp")  
+                 , ("Office", "libreoffice")
                  ]
 
 myPersonalGrid = [ ("Gmail", "brave gmail.com")
