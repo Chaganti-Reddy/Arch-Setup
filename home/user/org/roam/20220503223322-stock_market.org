@@ -1,0 +1,55 @@
+:PROPERTIES:
+:ID:       c214dc3b-2b83-40ef-83e3-d82165865218
+:END:
+#+title: Stock Market
+#+filetags: Project
+* Goals
+To predict the stock market graph
+* Tasks
+*** TODO First to print the Bollinger Graph
+***** Bollinger grapgh contains three graphs in a plot first is Upper Bollinger Band(Upper Standard deviation) and middle is Average data and lowest is Lower Bollinger Band(Lower Standard deviation) .
+
+**** To calculate the thos standard deviation
+
+#+begin_src Text
+BOLU=MA(TP,n)+m∗σ[TP,n]
+
+BOLD=MA(TP,n)−m∗σ[TP,n]
+
+Where BOLU is the Upper Bollinger Band and BOLD is Lower Bollinger Band. The MA is the Moving Average. The TP and σ are calculated as follows.
+
+TP (typical price)=(High+Low+Close)÷3
+
+σ[TP,n] = Standard Deviation over last n periods of TP​
+
+Where n is the number of days in smoothing period (typically 20), and m is the number of standard deviations (typically 2).
+#+end_src
+
+***** To calculate those values for given dataset
+
+#+begin_src python
+# import pandas_datareader as pdr
+import datetime as dt
+import pandas as pd
+import matplotlib.pyplot as plt
+plt.style.use('default')
+
+ticker = pd.read_csv('Stock/15min.csv')
+ticker['TP'] = (ticker['close'] + ticker['low'] + ticker['high'])/3
+ticker['std'] = ticker['TP'].rolling(20).std(ddof=0)
+ticker['MA-TP'] = ticker['TP'].rolling(20).mean()
+ticker['BOLU'] = ticker['MA-TP'] + 2*ticker['std']
+ticker['BOLD'] = ticker['MA-TP'] - 2*ticker['std']
+# ticker = ticker.dropna()
+print(ticker)
+# Plotting it all together
+ax = ticker[['close', 'BOLU', 'BOLD']].plot(color=['blue', 'orange', 'yellow'])
+ax.fill_between(ticker.index, ticker['BOLD'], ticker['BOLU'], facecolor='orange', alpha=0.1)
+plt.show()
+#+end_src
+
+#+RESULTS:
+: None
+
+#+CAPTION: Bollinger Graph
+[[Stock/Figure_1.png]]
