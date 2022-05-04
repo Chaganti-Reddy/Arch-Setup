@@ -19,7 +19,7 @@ TP (typical price)=(High+Low+Close)÷3
 
 σ[TP,n] = Standard Deviation over last n periods of TP​
 
-Where n is the number of days in smoothing period (typically 20), and m is the number of standard deviations (typically 2).
+Where n is the number of days in smoothing period (typically 20), and m  is the number of standard deviations (typically 2).
 #+end_src
 
 ***** To calculate those values for given dataset
