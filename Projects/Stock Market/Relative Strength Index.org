@@ -7,12 +7,12 @@
 
 *** To calculate RSI
 
-#+begin_center
+#+begin_src text
 RSI_{n}  =  100 - (100/(1+rs_{n}))
 
 
 rs_{n} = (avg_gain / avg_loss)
-#+end_center
+#+end_src
 
 #+begin_src text
 where
