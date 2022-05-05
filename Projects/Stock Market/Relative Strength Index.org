@@ -1,8 +1,6 @@
 #+title: Relative Strength Index
 #+FILETAGS: Project
 #+OPTIONS: tex:t
-#+LATEX_HEADER: \usepackage{fancydir}
-#+LATEX_HEADER: \usepackage{fancyplain}
 
 * TASKS
 ** To plot the Relative strength index of Data
@@ -13,6 +11,7 @@
 
 \begin{equation} RSI_n  =  100 - (100/(1+rs_n)) \end{equation}
 \begin{equation} rs_n = (avg\_gain / avg\_loss) \end{equation}
+  h<sub>&theta;</sub>(x) = &theta;<sub>o</sub> x + &theta;<sub>1</sub>x
 
 #+begin_src text
 where
