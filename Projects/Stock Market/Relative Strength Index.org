@@ -15,6 +15,27 @@ rs_{n} = (avg_gain / avg_loss)
 Important
 #+end_comment
 
+\(a^2 + b^2 = c^2\)
+
+The /Euler theorem/:
+
+\[
+\int_0^\infty e^{-x^2} dx = {{\sqrt{\pi}} \over {2}}
+\]
+
+LaTeX allows to inline such ~\[...\]~ constructs (/quadratic formula/):
+\[ \frac{-b \pm \sqrt{b^2 - 4 a c}}{2a} \]
+
+
+#+name: pythag
+\begin{equation}
+a^2 + b^2 = c^2
+\end{equation}
+
+
+
+
+
 #+begin_src text
 where
 
