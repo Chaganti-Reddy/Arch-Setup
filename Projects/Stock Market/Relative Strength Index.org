@@ -11,6 +11,24 @@
 RSI_{n}  =  100 - (100/(1+rs_{n}))
 rs_{n} = (avg_gain / avg_loss)
 
+
+#+begin_tip
+Try doing it this way...
+#+end_tip
+
+
+#+begin_caution
+Caution
+#+end_caution
+
+#+begin_warning
+Be careful!  Check that you have...
+#+end_warning
+
+#+begin_important
+Important
+#+end_important
+
 #+begin_src text
 where
 
