@@ -1,6 +1,7 @@
 #+title: Relative Strength Index
 #+FILETAGS: Project
 #+OPTIONS: tex:verbatim
+
 * TASKS
 ** To plot the Relative strength index of Data
 **** The relative strength index (RSI) is a momentum indicator used in technical analysis that measures the magnitude of recent price changes to evaluate overbought or oversold conditions in the price of a stock or other asset. The RSI is displayed as an oscillator (a line graph that moves between two extremes) and can have a reading from 0 to 100.
@@ -39,3 +40,62 @@ where
 
 ****** bullish divergence: price is trending down, RSI values are increasing (possible Long entry)
 ****** bearish divergence: price is th=rending up, RSI values are decreasing (possible Short entry)
+
+#+begin_src python
+import pandas as pd
+import numpy as np
+import datetime as dt
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('Stock/AAPL.csv')
+df['Date'] = pd.to_datetime(df['Date'])
+df['Date'] = df['Date'].dt.date
+df.set_index('Date')
+rsi_period = 14
+
+chg = df['Close'].diff(1) ## Calculate the difference of one day
+
+gain  = chg.mask(chg<0,0) # Replacing all negative with 0
+df['gain'] = gain
+loss = chg.mask(chg>0,0) # Replacing all positive with 0
+df['loss'] = loss
+
+avg_gain = gain.ewm(com = rsi_period - 1, min_periods = rsi_period).mean()
+avg_loss = loss.ewm(com = rsi_period - 1, min_periods = rsi_period).mean()
+df['avg_gain'] = avg_gain
+df['avg_loss'] = avg_loss
+
+rs = abs(avg_gain/avg_loss)
+rsi = 100 - (100/(1+rs))
+
+df['rsi'] = rsi
+
+# plot price
+plt.figure(figsize=(20,10))
+plt.plot(df['Date'], df['Adj Close'])
+plt.title('Price chart (Adj Close)')
+
+
+# plot correspondingRSI values and significant levels
+plt.figure(figsize=(20,10))
+plt.title('RSI chart')
+plt.plot(df['Date'], df['rsi'])
+
+plt.axhline(0, linestyle='--', alpha=0.1)
+plt.axhline(20, linestyle='--', alpha=0.5)
+plt.axhline(30, linestyle='--')
+
+plt.axhline(70, linestyle='--')
+plt.axhline(80, linestyle='--', alpha=0.5)
+plt.axhline(100, linestyle='--', alpha=0.1)
+
+
+# plt.savefig('rsi.jpg')
+# files.download('rsi.jpg')
+plt.show()
+
+#+end_src
+
+#+CAPTION: Bollinger Graph
+[[Stock/price_chart.jpg]]
+[[Stock/rsi.jpg]]
