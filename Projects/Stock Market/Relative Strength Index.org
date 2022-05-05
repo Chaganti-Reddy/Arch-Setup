@@ -1,0 +1,39 @@
+#+title: Relative Strength Index
+#+FILETAGS: Project
+#+OPTIONS: tex:t
+
+* TASKS
+** To plot the Relative strength index of Data
+**** The relative strength index (RSI) is a momentum indicator used in technical analysis that measures the magnitude of recent price changes to evaluate overbought or oversold conditions in the price of a stock or other asset. The RSI is displayed as an oscillator (a line graph that moves between two extremes) and can have a reading from 0 to 100.
+
+*** To calculate RSI
+
+
+$$ RSI_n  =  100 - (100/(1+rs_n)) $$
+$$ rs_n = (avg\_gain / avg\_loss) $$
+
+#+begin_src text
+where
+
+    avg_gain  is average gain over time window (period)
+    avg_loss  is average loss over time window (period)
+    n  signifies computational step
+#+end_src
+
+**** Gains - datapoints that fit following condition:
+
++ when there was price increase compared to previous day, gain is equal to that price gain value, otherwise set to zero
+
+**** Losses - datapoints that fit following condition:
+
++ when there was price decrease compared to previous day, loss is equal to that price loss value, otherwise set to zero
+
+  When RSI values are:
+
++++ above 70, asset is considered overbought (overvalued)
++++ below 30, asset is considered oversold (undervalued)
+
++ Even better is to look at divergence between price and RSI values:
+
++++ bullish divergence: price is trending down, RSI values are increasing (possible Long entry)
++++ bearish divergence: price is th=rending up, RSI values are decreasing (possible Short entry)
