@@ -24,7 +24,7 @@ Where n is the number of days in smoothing period (typically 20), and m  is the 
 
 ***** To calculate those values for given dataset
 
-#+begin_src python
+#+begin_src python :exports both
 # import pandas_datareader as pdr
 import datetime as dt
 import pandas as pd
