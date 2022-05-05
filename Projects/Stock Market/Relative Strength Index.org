@@ -9,8 +9,8 @@
 *** To calculate RSI
 
 
-\begin(equation) RSI_n  =  100 - (100/(1+rs_n))
-rs_n = (avg\_gain / avg\_loss) \end(equation)
+\( RSI_n  =  100 - (100/(1+rs_n)) \)
+\( rs_n = (avg\_gain / avg\_loss) \)
 
 #+begin_src text
 where
