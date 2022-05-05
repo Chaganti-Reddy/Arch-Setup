@@ -11,9 +11,10 @@
 \begin{equation} RSI_n  =  100 - (100/(1+rs_n)) \end{equation}
 \begin{equation} rs_n = (avg\_gain / avg\_loss) \end{equation}
 
-```tex
+#+begin_src latex
+
 \sum_{x=0}^n f(x)
-```
+#+end_src
 
 #+begin_src text
 where
