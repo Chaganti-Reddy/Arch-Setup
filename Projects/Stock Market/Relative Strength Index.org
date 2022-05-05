@@ -8,16 +8,8 @@
 *** To calculate RSI
 
 
-\begin{equation} RSI_n  =  100 - (100/(1+rs_n)) \end{equation}
-\begin{equation} rs_n = (avg\_gain / avg\_loss) \end{equation}
-
-
-\sum_{x=0}^n f(x)
-
-#+begin_src latex
-
-\sum_{x=0}^n f(x)
-#+end_src
+RSI_{n}  =  100 - (100/(1+rs_{n}))
+rs_{n} = (avg_gain / avg_loss)
 
 #+begin_src text
 where
