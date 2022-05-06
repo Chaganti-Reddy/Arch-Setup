@@ -81,7 +81,13 @@ print(df.describe(), '\n\n')
 
 ## Axis = 0 ==> Rows(Index)
 ## Axis = 1 ==> Columns
-print(df.sort_index(axis=0, ascending=True))
+print(df.sort_index(axis=0, ascending=True), '\n')
+
+df['G'] = ["A", "B", "C", "A"]
+
+## Using the isin() method for filtering:
+print(df['G'].isin(["A", "B"]))
+print(df[df['G'].isin(["A", "B"])])
 #+end_src
 
 #+RESULTS:
@@ -125,4 +131,52 @@ max    1.0  1.0  3.0
 1  1.0 2013-01-02  1.0  3  train  foo
 2  1.0 2013-01-02  1.0  3   test  foo
 3  1.0 2013-01-02  1.0  3  train  foo
+
+0     True
+1     True
+2    False
+3     True
+Name: G, dtype: bool
+     A          B    C  D      E    F  G
+0  1.0 2013-01-02  1.0  3   test  foo  A
+1  1.0 2013-01-02  1.0  3  train  foo  B
+3  1.0 2013-01-02  1.0  3  train  foo  A
+#+end_example
+
+*** Setting a new column automatically aligns the data by the indexes:
+
+#+begin_src python :exports both :results drawer output :wrap example
+import numpy as np
+import pandas as pd
+
+dates = pd.date_range("20220501", periods=6)
+s1 = pd.DataFrame(np.random.randn(6, 4), index=dates)
+s1.columns = ("A", "B", "C", "D")
+print("Before changing values \n\n", s1)
+s1.at[dates[2], "D"] = 0
+print("\n\nAfter cahnging the value of D at dates[2] = 0 \n\n",s1)
+#+end_src
+
+#+RESULTS:
+#+begin_example
+Before changing values
+
+                    A         B         C         D
+2022-05-01  0.612673 -0.001135  0.284124  0.801494
+2022-05-02 -0.019266  0.974093  1.986471 -1.533315
+2022-05-03 -0.683853  0.982893  0.611900 -1.061332
+2022-05-04 -0.360594 -0.779629 -0.023391 -0.267447
+2022-05-05  0.362789 -1.992307 -0.754424  1.946700
+2022-05-06  0.475255 -1.427635 -0.761617  0.484237
+
+
+After cahnging the value of D at dates[2] = 0
+
+                    A         B         C         D
+2022-05-01  0.612673 -0.001135  0.284124  0.801494
+2022-05-02 -0.019266  0.974093  1.986471 -1.533315
+2022-05-03 -0.683853  0.982893  0.611900  0.000000
+2022-05-04 -0.360594 -0.779629 -0.023391 -0.267447
+2022-05-05  0.362789 -1.992307 -0.754424  1.946700
+2022-05-06  0.475255 -1.427635 -0.761617  0.484237
 #+end_example
