@@ -1,0 +1,11 @@
+#+title: Arch Installation Setup
+#+AUTHOR: Chaganti Reddy
+#+DESCRIPTION: Chaganti Reddy's Personal Acrh Linux Configuration
+#+STARTUP: showeverything
+
+* TABLE OF CONTENTS :toc:
+- [[#network-configuration][NETWORK CONFIGURATION]]
+
+* NETWORK CONFIGURATION
+*** To connect WIFI Network follow these steps :
++ Run
