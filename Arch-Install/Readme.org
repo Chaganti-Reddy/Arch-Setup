@@ -7,6 +7,8 @@
 - [[#network-configuration][NETWORK CONFIGURATION]]
 - [[#disk-configuration][DISK CONFIGURATION]]
 - [[#installing-base-packages][INSTALLING BASE PACKAGES]]
+- [[#timezone-setup][TIMEZONE SETUP]]
+- [[#uefi-installation-script][UEFI INSTALLATION SCRIPT]]
 
 * NETWORK CONFIGURATION
 *** To connect WIFI Network follow these steps :
@@ -68,3 +70,19 @@ genfstab -U /mnt >> /mnt/etc/fstab
 # Now we have to enter as root into out /mnt directory
 arch-chroot /mnt
 #+end_src
+
+* TIMEZONE SETUP
+
+**** Now we have to setup our timezone (It's optional since we are going to do it after also)
+
+#+begin_src bash
+timedatectl list-timezones | grep Asia # Instead of asia you can use your continent
+ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime # Replace Asia/Kolkata with your timezone
+hwclock --systohc
+#+end_src
+
+* UEFI INSTALLATION SCRIPT
+
+**** Now the main part of arch installation is to install the necessary packages for system
+**** To do that folow the steps :
+`hello`
