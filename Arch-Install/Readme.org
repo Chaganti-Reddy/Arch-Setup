@@ -5,6 +5,8 @@
 
 * TABLE OF CONTENTS :toc:
 - [[#network-configuration][NETWORK CONFIGURATION]]
+- [[#disk-configuration][DISK CONFIGURATION]]
+- [[#installing-base-packages][INSTALLING BASE PACKAGES]]
 
 * NETWORK CONFIGURATION
 *** To connect WIFI Network follow these steps :
@@ -13,6 +15,56 @@
 3. After finding your wifi network run `station wlan0 connect "network-name"`.
 4. exit.
 
-#+begin_verse
+#+begin_quote
 Note : All the commands in the quotes should be type without quotes...
-#+end_verse
+#+end_quote
+
+* DISK CONFIGURATION
+
+**** This configuration is for `UEFI & GPT Partitioning` .
+
+1. Enter these commands as below : `Here name == /dev/diskname` (Like /dev/nvme1n1 or /dev/sda1 ...)
+
+   a. Enter `gdisk "name"`
+   b. Now enter the commands as per your diskspace usage with the same arguments as shown in figure below:
+
+      #+CAPTION: Disk partitioning image
+     [[assets/disk-setup.png]]
+
+   c. After writing the changes to your disk type lsblk and that shows you the partitions
+
+      #+CAPTION: Partition image
+      [[assets/after-disk.png]]
+
+   d. Now next step is to allocate and mount the disks
+
+      #+CAPTION: Disk allocating
+      [[asstes/allocating-disk.png]]
+
+      #+CAPTION:
+      [[assets/mounting-disk.png]]
+
+
+* INSTALLING BASE PACKAGES
+
+**** Now we have to install some base packages which are needed to continu7e our installation process
+
++ Enter the below command to install the base packages :
+
+  #+begin_src shell
+  pacstrap /mnt base linux-lts linux-lts-headers linux-firmware nano intel-ucode git openssh
+  #+end_src
+
+#+begin_quote
++ Here you can use linux and linux-headers instead of linux-lts if you want to use latest unstable kernal, but if you want to use latest stable kernal then do it for linux-lts
+
++ Also you have to install amd-ucode if your machine is amd and also install your favourite terminal text-editor (nano is better in my opinion)
+#+end_quote
+
+**** Now after completition of installation we have to generate fstab file which is useful for loading our disks on start-up of machine
+
+#+begin_src shell
+genfstab -U /mnt >> /mnt/etc/fstab
+# Now we have to enter as root into out /mnt directory
+arch-chroot /mnt
+#+end_src
