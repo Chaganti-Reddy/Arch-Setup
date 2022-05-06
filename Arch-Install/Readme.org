@@ -85,6 +85,46 @@ hwclock --systohc
 
 **** Now the main part of arch installation is to install the necessary packages for system
 **** To do that folow the steps :
-hello
 
-`Thuis`
+#+begin_src shell
+# Clone my repository
+git clone https://github.com/Chaganti-Reddy/dotfiles.git
+
+# Go to the directory and modify base-uefi.sh file as per your needs
+cd dotfiles/Arch-Install
+nano base-uefi.sh
+
+# After save the file make it executable
+chmod +x base-uefi.sh
+
+# Now go to root directory and run the file
+cd /
+./dotfiles/Arch-Install/base-uefi.sh
+
+# After installing all the packages run os-prober
+os-prober
+
+# Now edit mkinitcpio file
+nano /etc/mkinitcpio.conf
+
+# Under modules section :
+    ## If you have NVIDIA drivers then enter nvidia in between braces
+        ### Looks like MODULES=(nvidia)
+    ## Similarly if you have amd then enter amd-gpu or intel then enter i915
+    ## If you have both then enter both with a space
+
+# After that save the file and regenerate the file
+
+# If you install linux-lts then enter
+mkinitcpio -p linux-lts
+# Else make linux-lts to linux
+
+# Now edit grub file
+nano /etc/default/grub
+# Remove comment for GRUB_DISABLE_OS_PROBER=false so that you can dual boot with windows
+
+# Now unmount and exit
+exit
+umount -R /mnt
+reboot
+#+end_src
