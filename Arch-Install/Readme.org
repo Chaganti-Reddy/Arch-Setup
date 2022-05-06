@@ -23,17 +23,17 @@ Note : All the commands in the quotes should be type without quotes...
 
 * DISK CONFIGURATION
 
-**** This configuration is for *UEFI & GPT Partitioning* .
+**** This configuration is for UEFI & GPT Partitioning .
 
-1. Enter these commands as below : `Here name == /dev/diskname` (Like /dev/nvme1n1 or /dev/sda1 ...)
+1. Enter these commands as below : Here name == /dev/diskname (Like /dev/nvme1n1 or /dev/sda1 ...)
 
-   a. Enter `gdisk "name"`
+   a. Enter gdisk "name"
    b. Now enter the commands as per your diskspace usage with the same arguments as shown in figure below:
 
-      #+CAPTION: Disk partitioning image
+      #+CAPION: Disk partitioni  image
      [[../assets/disk-setup.png]]
 
-   c. After writing the changes to your disk type lsblk and that shows you the partitions
+   c. After writingthe changesto your disk type lsblk and that shows you the partitions
 
       #+CAPTION: Partition image
       [[../assets/after-disk.png]]
@@ -86,3 +86,5 @@ hwclock --systohc
 **** Now the main part of arch installation is to install the necessary packages for system
 **** To do that folow the steps :
 hello
+
+`Thuis`
