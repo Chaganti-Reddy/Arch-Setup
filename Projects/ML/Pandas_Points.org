@@ -1,18 +1,18 @@
 #+title: Pandas Important Points & Basics
 
-** Creating a Series by passing a list of values, letting pandas create a default integer index:
+*** Creating a Series by passing a list of values, letting pandas create a default integer index:
 
-#+begin_src python :results drawer :exports both
+#+begin_src python :results drawer output :exports both :wrap example
 import pandas as pd
 import numpy as np
 
 s = pd.Series([1, 3, 5, np.nan, 6, 8])
 
-return s
+print(s)
 #+end_src
 
 #+RESULTS:
-:results:
+#+begin_example
 0    1.0
 1    3.0
 2    5.0
@@ -20,9 +20,9 @@ return s
 4    6.0
 5    8.0
 dtype: float64
-:end:
+#+end_example
 
-** Creating a DataFrame by passing a NumPy array, with a datetime index and labeled columns:
+*** Creating a DataFrame by passing a NumPy array, with a datetime index and labeled columns:
 
 #+begin_src python :results drawer output :exports both :wrap example
 import numpy as np
@@ -53,4 +53,76 @@ Pandas DataFrame
 2013-01-04 -0.029517 -0.792038 -0.097531  0.275425
 2013-01-05  0.610102  0.000608  0.137623  1.188012
 2013-01-06 -0.921044  0.448201 -1.883159 -1.449910
+#+end_example
+
+*** Creating a DataFrame by passing a dictionary of objects that can be converted into a series-like structure:
+
+#+begin_src python :wrap example :results drawer output :exports both
+import pandas as pd
+import numpy as np
+
+df = pd.DataFrame(
+    {
+        "A": 1.0,
+        "B": pd.Timestamp("20130102"),
+        "C": pd.Series(1, index=list(range(4)), dtype="float32"),
+        "D": np.array([3] * 4, dtype="int32"),
+        "E": pd.Categorical(["test", "train", "test", "train"]),
+        "F": "foo",
+    }
+)
+
+print(df)
+print('\n')
+print(df.dtypes , '\n')
+print(df.index, '\n')
+print(df.to_numpy(), '\n\n')
+print(df.describe(), '\n\n')
+
+## Axis = 0 ==> Rows(Index)
+## Axis = 1 ==> Columns
+print(df.sort_index(axis=0, ascending=True))
+#+end_src
+
+#+RESULTS:
+#+begin_example
+     A          B    C  D      E    F
+0  1.0 2013-01-02  1.0  3   test  foo
+1  1.0 2013-01-02  1.0  3  train  foo
+2  1.0 2013-01-02  1.0  3   test  foo
+3  1.0 2013-01-02  1.0  3  train  foo
+
+
+A           float64
+B    datetime64[ns]
+C           float32
+D             int32
+E          category
+F            object
+dtype: object
+
+Int64Index([0, 1, 2, 3], dtype='int64')
+
+[[1.0 Timestamp('2013-01-02 00:00:00') 1.0 3 'test' 'foo']
+ [1.0 Timestamp('2013-01-02 00:00:00') 1.0 3 'train' 'foo']
+ [1.0 Timestamp('2013-01-02 00:00:00') 1.0 3 'test' 'foo']
+ [1.0 Timestamp('2013-01-02 00:00:00') 1.0 3 'train' 'foo']]
+
+
+         A    C    D
+count  4.0  4.0  4.0
+mean   1.0  1.0  3.0
+std    0.0  0.0  0.0
+min    1.0  1.0  3.0
+25%    1.0  1.0  3.0
+50%    1.0  1.0  3.0
+75%    1.0  1.0  3.0
+max    1.0  1.0  3.0
+
+
+     A          B    C  D      E    F
+0  1.0 2013-01-02  1.0  3   test  foo
+1  1.0 2013-01-02  1.0  3  train  foo
+2  1.0 2013-01-02  1.0  3   test  foo
+3  1.0 2013-01-02  1.0  3  train  foo
 #+end_example
