@@ -1,6 +1,0 @@
-:PROPERTIES:
-:ID:       f0a222c1-c9f3-4bb5-83ee-c3f40457e7f1
-:END:
-#+title: 2022-05-03
-* 08:31 PM: Started to plan the work for Machine Learning work from tomorrow
-* 09:14 PM: Also planning to do pavan rishi's project... Learning more in graph plotting
