@@ -8,4 +8,11 @@
 
 * NETWORK CONFIGURATION
 *** To connect WIFI Network follow these steps :
-+ Run
+1. Run iwctl.
+2. Enter `station wlan0 get-network`.
+3. After finding your wifi network run `station wlan0 connect "network-name"`.
+4. exit.
+
+#+begin_quote
+Note : All the commands in the quotes should be type without quotes...
+#+end_quote
