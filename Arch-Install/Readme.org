@@ -103,8 +103,8 @@ blockquote {
     margin-inline-end: 40px;
 }
 </style>
+<body>
+<blockquote>Hello</blockquote>
+</body>
 #+END_EXPORT
 
-#+BEGIN_QUOTE
-By customizing the style of blockquote element, we get a SO-like style quote block in org-mode.
-#+END_QUOTE
