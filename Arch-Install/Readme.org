@@ -23,7 +23,7 @@ Note : All the commands in the quotes should be type without quotes...
 
 * DISK CONFIGURATION
 
-**** This configuration is for **UEFI & GPT Partitioning** .
+**** This configuration is for *UEFI & GPT Partitioning* .
 
 1. Enter these commands as below : `Here name == /dev/diskname` (Like /dev/nvme1n1 or /dev/sda1 ...)
 
