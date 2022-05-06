@@ -13,8 +13,8 @@
 * NETWORK CONFIGURATION
 *** To connect WIFI Network follow these steps :
 1. Run iwctl.
-2. Enter `station wlan0 get-network`.
-3. After finding your wifi network run `station wlan0 connect "network-name"`.
+2. Enter station wlan0 get-network.
+3. After finding your wifi network run 'station wlan0 connect "network-name"'.
 4. exit.
 
 #+begin_quote
@@ -23,7 +23,7 @@ Note : All the commands in the quotes should be type without quotes...
 
 * DISK CONFIGURATION
 
-**** This configuration is for `UEFI & GPT Partitioning` .
+**** This configuration is for **UEFI & GPT Partitioning** .
 
 1. Enter these commands as below : `Here name == /dev/diskname` (Like /dev/nvme1n1 or /dev/sda1 ...)
 
@@ -86,25 +86,3 @@ hwclock --systohc
 **** Now the main part of arch installation is to install the necessary packages for system
 **** To do that folow the steps :
 hello
-
-
-#+BEGIN_EXPORT html
-<style>
-blockquote {
-    margin-bottom: 10px;
-    padding: 10px;
-    background-color: #FFF8DC;
-    border-left: 2px solid #ffeb8e;
-    border-left-color: rgb(255, 228, 102);
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 40px;
-    margin-inline-end: 40px;
-}
-</style>
-<body>
-<blockquote>Hello</blockquote>
-</body>
-#+END_EXPORT
-
