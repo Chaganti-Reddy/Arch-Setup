@@ -85,4 +85,26 @@ hwclock --systohc
 
 **** Now the main part of arch installation is to install the necessary packages for system
 **** To do that folow the steps :
-`hello`
+hello
+
+
+#+BEGIN_EXPORT html
+<style>
+blockquote {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #FFF8DC;
+    border-left: 2px solid #ffeb8e;
+    border-left-color: rgb(255, 228, 102);
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 40px;
+    margin-inline-end: 40px;
+}
+</style>
+#+END_EXPORT
+
+#+BEGIN_QUOTE
+By customizing the style of blockquote element, we get a SO-like style quote block in org-mode.
+#+END_QUOTE
