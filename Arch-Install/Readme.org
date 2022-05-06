@@ -13,6 +13,6 @@
 3. After finding your wifi network run `station wlan0 connect "network-name"`.
 4. exit.
 
-#+begin_center
+#+begin_export
 Note : All the commands in the quotes should be type without quotes...
-#+end_center
+#+end_export
