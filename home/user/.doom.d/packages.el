@@ -82,3 +82,8 @@
 (package! org-roam)
 (package! org-roam-bibtex)
 (package! org-ref)
+(package! org-tree-slide)
+(package! org-pandoc-import
+  :recipe (:host github
+           :repo "tecosaur/org-pandoc-import"
+           :files ("*.el" "filters" "preprocessors")))

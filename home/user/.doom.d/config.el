@@ -393,13 +393,6 @@
 
 (require 'ox-md)
 
-'(org-file-apps
-    (quote
-      ((auto-mode . emacs)
-      ("\\.mm\\'" . default)
-      ("\\.x?html?\\'" . "/usr/bin/brave %s")
-      ("\\.pdf\\'" . default))))
-
 (setq org-journal-dir "~/.doom.d/org/journal/"
       org-journal-date-prefix "* "
       org-journal-time-prefix "** "
@@ -479,3 +472,103 @@
 ;;   (marginalia-annotators '(marginalia-annotators-heavy marginalia-annotators-light nil))
 ;;   :init
 ;;   (marginalia-mode))
+
+
+(with-eval-after-load 'ox-latex
+(add-to-list 'org-latex-classes
+             '("org-plain-latex"
+               "\\documentclass{article}
+           [NO-DEFAULT-PACKAGES]
+           [PACKAGES]
+           [EXTRA]"
+               ("\\section{%s}" . "\\section*{%s}")
+               ("\\subsection{%s}" . "\\subsection*{%s}")
+               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+               ("\\paragraph{%s}" . "\\paragraph*{%s}")
+               ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+
+(global-set-key (kbd "C-M-/") 'my-expand-file-name-at-point)
+(defun my-expand-file-name-at-point ()
+  "Use hippie-expand to expand the filename"
+  (interactive)
+  (let ((hippie-expand-try-functions-list '(try-complete-file-name-partially try-complete-file-name)))
+    (call-interactively 'hippie-expand)))
+
+(require 'comint)
+(map! :leader
+      (:prefix "f"
+       :desc "Complete file at point" "a" #'comint-replace-by-expanded-filename))
+
+(add-to-list 'org-file-apps '("\\.pdf" . "zathura %s"))
+
+(after! tex
+ (setq TeX-view-program-selection
+        '(
+         (output-pdf "Zathura")
+          ((output-dvi has-no-display-manager)
+           "dvi2tty")
+          ((output-dvi style-pstricks)
+           "dvips and gv")
+          (output-dvi "xdvi")
+          (output-html "Brave")
+         )))
+
+(defun org-export-as-pdf-and-open ()
+  (interactive)
+  (save-buffer)
+  (org-open-file (org-latex-export-to-pdf)))
+
+(map! :g "C-c i" #'org-export-as-pdf-and-open)
+(map! :g "<f6>" #'org-latex-export-to-pdf)
+
+(use-package org-tree-slide
+  :custom
+  (org-image-actual-width nil))
+
+(use-package hide-mode-line)
+
+(defun efs/presentation-setup ()
+  ;; Hide the mode line
+  (hide-mode-line-mode 1)
+
+  ;; Display images inline
+  (org-display-inline-images) ;; Can also use org-startup-with-inline-images
+
+  ;; Scale the text.  The next line is for basic scaling:
+  (setq text-scale-mode-amount 3)
+  (text-scale-mode 1))
+
+  ;; This option is more advanced, allows you to scale other faces too
+  ;; (setq-local face-remapping-alist '((default (:height 2.0) variable-pitch)
+  ;;                                    (org-verbatim (:height 1.75) org-verbatim)
+  ;;                                    (org-block (:height 1.25) org-block))))
+
+(defun efs/presentation-end ()
+  ;; Show the mode line again
+  (hide-mode-line-mode 0)
+
+  ;; Turn off text scale mode (or use the next line if you didn't use text-scale-mode)
+  ;; (text-scale-mode 0))
+
+  ;; If you use face-remapping-alist, this clears the scaling:
+  (setq-local face-remapping-alist '((default variable-pitch default))))
+
+(use-package org-tree-slide
+  :hook ((org-tree-slide-play . efs/presentation-setup)
+         (org-tree-slide-stop . efs/presentation-end))
+  :custom
+  (org-tree-slide-slide-in-effect t)
+  (org-tree-slide-activate-message "Presentation started!")
+  (org-tree-slide-deactivate-message "Presentation finished!")
+  (org-tree-slide-header t)
+  (org-tree-slide-breadcrumbs " > ")
+  (org-image-actual-width nil))
+
+(defun markdown-convert-buffer-to-org ()
+    "Convert the current buffer's content from markdown to orgmode format and save it with the current buffer's file name but with .org extension."
+    (interactive)
+    (shell-command-on-region (point-min) (point-max)
+                             (format "pandoc -f markdown -t org -o %s"
+                                     (concat (file-name-sans-extension (buffer-file-name)) ".org"))))
+
+(use-package! org-pandoc-import :after org)

@@ -5,7 +5,10 @@
  ;; If there is more than one, they won't work right.
  '(elfeed-feeds
    '("https://www.reddit.com/r/linux.rss" "https://reddit.com/arch-linux" "http://www.cricbuzz.com/" "http://feeds.feedburner.com/CricbuzzFeed"))
- '(warning-suppress-log-types '((post-command-hook))))
+ '(smtpmail-smtp-server "smtp.gmail.com")
+ '(smtpmail-smtp-service 587)
+ '(warning-suppress-log-types '((server) (server) (server) (server)))
+ '(warning-suppress-types '((server) (server) (server) (server))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
