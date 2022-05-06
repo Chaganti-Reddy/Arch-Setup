@@ -29,20 +29,20 @@ Note : All the commands in the quotes should be type without quotes...
    b. Now enter the commands as per your diskspace usage with the same arguments as shown in figure below:
 
       #+CAPTION: Disk partitioning image
-     [[assets/disk-setup.png]]
+     [[../assets/disk-setup.png]]
 
    c. After writing the changes to your disk type lsblk and that shows you the partitions
 
       #+CAPTION: Partition image
-      [[assets/after-disk.png]]
+      [[../assets/after-disk.png]]
 
    d. Now next step is to allocate and mount the disks
 
       #+CAPTION: Disk allocating
-      [[asstes/allocating-disk.png]]
+      [[../assets/allocating-disk.png]]
 
       #+CAPTION:
-      [[assets/mounting-disk.png]]
+      [[../assets/mounting-disk.png]]
 
 
 * INSTALLING BASE PACKAGES
