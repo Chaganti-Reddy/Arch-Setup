@@ -8,7 +8,11 @@
 - [[#disk-configuration][DISK CONFIGURATION]]
 - [[#installing-base-packages][INSTALLING BASE PACKAGES]]
 - [[#timezone-setup][TIMEZONE SETUP]]
+- [[#locale-setup][LOCALE SETUP]]
 - [[#uefi-installation-script][UEFI INSTALLATION SCRIPT]]
+- [[#paru-installation][PARU INSTALLATION]]
+- [[#desktop-configuration][DESKTOP CONFIGURATION]]
+- [[#login-manager-configuration][LOGIN MANAGER CONFIGURATION]]
 
 * NETWORK CONFIGURATION
 *** To connect WIFI Network follow these steps :
@@ -81,6 +85,23 @@ ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime # Replace Asia/Kolkata wi
 hwclock --systohc
 #+end_src
 
+
+* LOCALE SETUP
+
+**** Now we have to configure our locale which is very importtant for our further steps ...
+
+#+begin_src shell
+# Edit locale.gen file
+nano /etc/locale.gen
+
+# Now uncomment the line which is your locale
+# Myne is en_US.UTF-8 UTF-8 so i will uncomment that
+
+# Now regenerate your locale
+locale-gen
+#+end_src
+
+
 * UEFI INSTALLATION SCRIPT
 
 **** Now the main part of arch installation is to install the necessary packages for system
@@ -128,3 +149,146 @@ exit
 umount -R /mnt
 reboot
 #+end_src
+
+
+* PARU INSTALLATION
+
+**** Now we have to install a AUR-Helper in my case i am using paru but you can also use yay .
+
+***** Installation
+
+#+begin_src shell
+# Move to downloads directory
+cd ~/Downloads
+
+# Clone the repository and do the following steps
+git clone https://aur.archlinux.org/paru.git
+cd /paru
+makepkg -si
+rm -rf paru/
+
+# You can install yay in the same way just replace paru with yay in above commands ...
+#+end_src
+
+* DESKTOP CONFIGURATION
+
+**** Now after installing all the system required packages we have to configure our GUI part.
+**** There are two options :
++ Desktop Environment with all pre-configured like network startup applications etc ...
++ Window Managers with no pre-configured environment
+
+***** Desktop Environment Installation is easy with just one or two commands you can go it through internet.
+***** Window manager configuration :
++ Do the following steps to install everything that i use as my window configuration
+
+#+begin_src shell
+# Move the dotfiles directory to home directory
+cp -r /dotfiles .
+
+# Now edit the wm.sh file as epr your need of applications
+cd ~/dotfiles/Arch-Install/
+nano wm.sh
+
+# Now save the file and make it executable
+chmod +x wm.sh
+
+# Now run it ..
+./wm.sh
+# That's it your window manager and all the packages are installed ...🙂
+#+end_src
+
+* LOGIN MANAGER CONFIGURATION
+
+**** Many arch linux users use lightdm which is default xfce4 login manager
+
+***** Lightdm Configuration
+
+#+begin_src shell
+sudo pacman -S lightdm
+
+# Now enable lightdm on system startup
+sudo systemctl enable lightdm
+
+# Now install some good themes
+paru -S lightdm-webkit2-greeter # This is a beautiful theme configurator
+
+# Now edit configuration file
+sudo nano /etc/lightdm-webkit2-greeter.conf
+
+# In that place glorious after webkit_theme    Looks like ==> webkit_theme        = glorious
+
+# Also place the line user_image        = /usr/share/lightdm-webkit/themes/glorious/assets/profiles/my.jpg
+
+# This uses a good logo image and save the file
+
+# Also the main thing is to edit lightdm.conf file
+sudo nano /etc/lightdm.conf
+
+# Now got to [Seat:*] section and plce    greeter-session=lightdm-webkit2-greeter in the file which means that we are using lightdm-webkit2-greeter as a login manager
+
+# Save the file
+
+# Now copy the glorious theme to system from dotfiles folder
+
+sudo cp -r ~/dotfiles/usr/share/lightdm-webkit/themes/glorious/ /usr/share/lightdm-webkit2/themes
+
+# After saving that just go and install bspwm file using below commands since, there is no default configuration files are available by default
+
+install -Dm755 /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm/bspwmrc
+install -Dm644 /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd/sxhkdrc
+
+# Now open sxhdrc file from config and replace given terminal  name with alacritty
+nano ~/.config/sxhkd/sxhdrc
+
+
+# That's it now you can reboot your system and goto your window manager ...
+#+end_src
+
+*** SDDM Configuration
+
+***** In my personal i use sddm login manager which is default KDE login manager
+
+#+begin_src shell
+sudo pacman -S sddm
+
+# Now enable sddm on system startup
+sudo systemctl enable sddm
+
+# Now install some good themes
+paru -S sddm-sugar-candy-git
+
+# Now just copy sddm.conf file from my dotfiles folder
+sudo cp ~/dotfiles/etc/sddm.conf /etc
+
+# After saving that just go and install bspwm file using below commands since, there is no default configuration files are available by default
+
+install -Dm755 /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm/bspwmrc
+install -Dm644 /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd/sxhkdrc
+
+# Now open sxhdrc file from config and replace given terminal  name with alacritty
+nano ~/.config/sxhkd/sxhdrc
+
+# But for using sddm as login manager you can face some problem so use these commands
+
+sudo nano /etc/environment
+
+# Add these line at the end of file
+
+        ##  XDG_CURRENT_DESKTOP=Unity
+        ##  QT_QPA_PLATFORMTHEME=qt5ct
+
+# Save the file and source it
+source /etc/environment
+
+# Sometime even after doing this you may face troubles at that time goto lighdm by stopping sddm using sudo systemctl disable sddm
+
+# That's it now you can reboot your system and goto your window manager ...
+#+end_src
+
+**** Now just goto desktop and press super+enter to open terminal and type nautilus to open file manager and copy the files which you are needed from dotfiles to respected folders which are in the same folders in dotfiles and also you can use xmonad by copying xmonad config files and xmobar config files and also you can use doom emacs configuration which is a good and useful text editor as well as IDE ...
+
+**** If you want wallpapers those are also available in dotfiles and in xmonad config files there is a script for auto changing wallpapers every 10 minutes.
+
+> One more Important thing is don't copy the config files directly which may lead to problems first go through those files and understand what every line is doing and change as per your need and save those and use it...
+
+*** Now just reboot and enjoy ...
