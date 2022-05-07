@@ -289,6 +289,10 @@ source /etc/environment
 
 **** If you want wallpapers those are also available in dotfiles and in xmonad config files there is a script for auto changing wallpapers every 10 minutes.
 
-> One more Important thing is don't copy the config files directly which may lead to problems first go through those files and understand what every line is doing and change as per your need and save those and use it...
+#+begin_quote
+One more Important thing is don't copy the config files directly which may lead to problems first go through those files and understand what every line is doing and change as per your need and save those and use it...
+
+#+end_quote
+
 
 *** Now just reboot and enjoy ...
