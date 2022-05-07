@@ -4,7 +4,9 @@
 #+STARTUP: showeverything
 
 #+CAPTION: Arch Logo
-#+ATTR_ORG: center
+
+<img src="assets/arch.jpeg" />
+
 [[assets/arch.jpeg]]
 
 **** This is my full setup of arch linux
