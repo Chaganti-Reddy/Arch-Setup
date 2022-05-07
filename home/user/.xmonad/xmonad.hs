@@ -198,7 +198,7 @@ myPersonalGrid = [ ("Gmail", "brave gmail.com")
                  , ("Whatsapp", "brave web.whatsapp.com/")
                  , ("Word Doc", "brave docs.google.com")
                  , ("Github", "brave github.com/Chaganti-Reddy")
-                 , ("Projects", "emacs ~/Documents/GitHub/dotfiles/Projects/")
+                 , ("Notes", "emacs ~/Documents/GitHub/My_Notes/")
                  , ("Paint", "gromit-mpx")
                  ]
 
