@@ -2,9 +2,9 @@
 #+AUTHOR: Chaganti Reddy
 #+DESCRIPTION: Chaganti Reddy's Personal Acrh Linux Configuration
 #+STARTUP: showeverything
-```
 
 #+CAPTION: Arch Logo
+#+ATTR_ORG: :center
 [[assets/arch.jpeg]]
 
 **** This is my full setup of arch linux
