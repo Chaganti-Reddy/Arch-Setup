@@ -180,3 +180,114 @@ After cahnging the value of D at dates[2] = 0
 2022-05-05  0.362789 -1.992307 -0.754424  1.946700
 2022-05-06  0.475255 -1.427635 -0.761617  0.484237
 #+end_example
+
+*** DataFrame has the methods add(), sub(), mul(), div() and related functions radd(), rsub(), ... for carrying out binary operations. For broadcasting behavior, Series input is of primary interest. Using these functions, you can use to either match on the index or columns via the axis keyword
+
+#+begin_src python :exports both :results drawer output :wrap example
+import numpy as np
+import pandas as pd
+
+np.random.seed(42) # This will stop random numbers to stay after 42 times changing and keep them constant
+df = pd.DataFrame(
+    {
+        "one": pd.Series(np.random.randn(3), index=["a", "b", "c"]),
+        "two": pd.Series(np.random.randn(4), index=["a", "b", "c", "d"]),
+        "three": pd.Series(np.random.randn(3), index=["b", "c", "d"]),
+    }
+)
+
+print(df,'\n')
+
+row = df.iloc[1] # This will locate whole 1st row
+
+column = df["two"]
+print(df.sub(row, axis="columns")) # It subtracts row 1 from every column with respect to each column
+# You can also takes axis = 1 since 0 ==> rows and 1 ==> columns
+
+#+end_src
+
+#+RESULTS:
+#+begin_example
+        one       two     three
+a  0.496714  1.523030       NaN
+b -0.138264 -0.234153  0.767435
+c  0.647689 -0.234137 -0.469474
+d       NaN  1.579213  0.542560
+
+        one       two     three
+a  0.634978  1.757183       NaN
+b  0.000000  0.000000  0.000000
+c  0.785953  0.000016 -1.236909
+d       NaN  1.813366 -0.224875
+#+end_example
+
+*** Series and Index also support the divmod() builtin. This function takes the floor division and modulo operation at the Series and Index also support the divmod() builtin. This function takes the floor division and modulo operation at the
+
+#+begin_src python :exports both :wrap example :results drawer output
+import pandas as pd
+import numpy as np
+
+s = pd.Series(np.arange(10))
+print(s, '\n')
+
+div, rem = divmod(s, 3)
+print("Quotient\n")
+print(div)
+print("\nRemainder\n")
+print(rem, '\n')
+
+# We can also do elementwise divmod():
+# div, rem = divmod(s, [2, 2, 3, 3, 4, 4, 5, 5, 6, 6])
+
+#+end_src
+
+#+RESULTS:
+#+begin_example
+0    0
+1    1
+2    2
+3    3
+4    4
+5    5
+6    6
+7    7
+8    8
+9    9
+dtype: int64
+
+Quotient
+
+0    0
+1    0
+2    0
+3    1
+4    1
+5    1
+6    2
+7    2
+8    2
+9    3
+dtype: int64
+
+Remainder
+
+0    0
+1    1
+2    2
+3    0
+4    1
+5    2
+6    0
+7    1
+8    2
+9    0
+dtype: int64
+
+#+end_example
+
+*** The pandas I/O API is a set of top level reader functions accessed like pandas.read_csv() that generally return a pandas object. The corresponding writer functions are object methods that are accessed like DataFrame.to_csv().
+
+*** Below is a table containing available readers and writers.
+
+#+CAPTION: IO Tools in Pandas
+[[images/IO Tools.png]]
