@@ -572,3 +572,17 @@
                                      (concat (file-name-sans-extension (buffer-file-name)) ".org"))))
 
 (use-package! org-pandoc-import :after org)
+
+(setq org-babel-exp-code-template
+         (concat "\n=%name=:\n"
+              org-babel-exp-code-template)
+               )
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((python . t)
+   (html . t)
+   (js . t)
+   (R . t)))
+
+(require 'ob-js)

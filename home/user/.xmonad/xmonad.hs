@@ -101,7 +101,7 @@ myEditor = "emacsclient -c -a 'emacs' "  -- Sets emacs as editor
 -- myEditor = myTerminal ++ " -e vim "    -- Sets vim as editor
 
 myBorderWidth :: Dimension
-myBorderWidth = 2           -- Sets border width for windows
+myBorderWidth = 3           -- Sets border width for windows
 
 myNormColor :: String       -- Border color of normal windows
 myNormColor   = colorBack   -- This variable is imported from Colors.THEME
@@ -175,7 +175,7 @@ myAppGrid = [ ("Virtual Manager", "virt-manager")
                  , ("VSCode", "code")
                  , ("News", "newsflash")
                  , ("OBS", "obs")
-                 , ("Discord", "discord")
+                 , ("Office", "libreoffice")
                  , ("Neovim", "alacritty -e nvim")
                  , ("Github", "github-desktop")
                  , ("MYSql", "beekeeper-studio")
@@ -183,8 +183,7 @@ myAppGrid = [ ("Virtual Manager", "virt-manager")
                  , ("Chess", "gnome-chess")
                  , ("TimeShift", "timeshift-launcher")
                  , ("Telegram", "telegram-desktop")
-                 , ("Gimp", "gimp")  
-                 , ("Office", "libreoffice")
+                 , ("Discord", "discord")
                  ]
 
 myPersonalGrid = [ ("Gmail", "brave gmail.com")
