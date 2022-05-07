@@ -4,9 +4,6 @@
 #+STARTUP: showeverything
 
 #+CAPTION: Arch Logo
-
-<img src="assets/arch.jpeg" />
-
 [[assets/arch.jpeg]]
 
 **** This is my full setup of arch linux
