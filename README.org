@@ -1,0 +1,12 @@
+#+title: Full Setup of My Arch Linux
+#+AUTHOR: Chaganti Reddy
+#+DESCRIPTION: Chaganti Reddy's Personal Acrh Linux Configuration
+#+STARTUP: showeverything
+```
+
+#+CAPTION: Arch Logo
+[[assets/arch.jpeg]]
+
+**** This is my full setup of arch linux
+
+**** Just goto arch install directory and read the readme.org file and setup arch linux step by step
