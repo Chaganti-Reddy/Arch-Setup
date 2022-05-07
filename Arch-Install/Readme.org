@@ -13,6 +13,7 @@
 - [[#paru-installation][PARU INSTALLATION]]
 - [[#desktop-configuration][DESKTOP CONFIGURATION]]
 - [[#login-manager-configuration][LOGIN MANAGER CONFIGURATION]]
+- [[#time-setup-dualboot][TIME SETUP DUALBOOT]]
 
 * NETWORK CONFIGURATION
 *** To connect WIFI Network follow these steps :
@@ -296,3 +297,7 @@ One more Important thing is don't copy the config files directly which may lead 
 
 
 *** Now just reboot and enjoy ...
+
+* TIME SETUP DUALBOOT
+
+**** After dual booting the time will change in windows so to stop that copy the .reg file from dotfiles directory to windows desktop and run it this solves the problem...
