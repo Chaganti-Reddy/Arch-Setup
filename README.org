@@ -3,8 +3,10 @@
 #+DESCRIPTION: Chaganti Reddy's Personal Acrh Linux Configuration
 #+STARTUP: showeverything
 
+#+BEGIN_CENTER
 #+CAPTION: Arch Logo
-[[assets/arch.jpeg]]
+                                    [[assets/arch.jpeg]]
+#+END_CENTER
 
 **** This is my full setup of arch linux
 
