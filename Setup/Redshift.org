@@ -25,4 +25,7 @@ mkdir ~/.config/redshift
 
 # In that file change the latitudes and longitudes as per your location
 # That's it...
+
+# Start redshift at start
+systemctl --user enable redshift.service --now
 #+end_src

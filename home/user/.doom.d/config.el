@@ -586,3 +586,6 @@
    (R . t)))
 
 (require 'ob-js)
+
+(setq org-latex-pdf-process (list
+   "latexmk -pdflatex='lualatex -shell-escape -interaction nonstopmode' -pdf -f  %f"))

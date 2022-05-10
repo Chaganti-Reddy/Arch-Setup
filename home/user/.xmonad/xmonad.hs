@@ -117,6 +117,7 @@ myStartupHook = do
     spawn "killall conky"   -- kill current conky on each restart
     spawn "killall trayer"  -- kill current trayer on each restart
     spawn "killall /usr/bin/emacs --daemon" -- emacs daemon for the emacsclient
+    -- spawn "killall redshift-gtk"
 
     spawnOnce "lxsession"
     spawnOnce "picom"
@@ -126,8 +127,10 @@ myStartupHook = do
     spawnOnce "udiskie"
     spawnOnce "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 "
     spawnOnce "mpd &"
+    spawnOnce "/usr/lib/geoclue-2.0/demos/agent"
     spawnOnce "xinput set-prop 'DLL09D9:00 04F3:3147 Touchpad' 'libinput Tapping Enabled' 1"
     spawnOnce "xinput set-prop 'DLL09D9:00 04F3:3147 Touchpad' 'libinput Natural Scrolling Enabled' 1"
+    spawnOnce "redshift-gtk"
 
     -- spawn ("sleep 2 && conky -c $HOME/.config/conky/xmonad/" ++ colorScheme ++ "-01.conkyrc")
     spawn ("sleep 2 && trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 " ++ colorTrayer ++ " --height 22")
