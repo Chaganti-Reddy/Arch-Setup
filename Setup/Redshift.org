@@ -1,0 +1,28 @@
+#+title: Redshift Setup in Arch Linux
+
+* First install redhift
+
+#+begin_src shell
+paru -S redshift-gtk-git
+#+end_src
+
+* Then configure geoclue to use redshift
+
+#+begin_src shell
+sudo nvim /etc/geoclue/geoclue.conf
+
+# Add the foloowing to it at the end of file
+
+[redshift]
+allowed=true
+system=false
+users=
+
+# Save the file and now create a folder named redshift in ~/.config
+mkdir ~/.config/redshift
+
+# Copy the files and hooks folder in this dotfiles folder to that folder and also add redshift-gtk and /usr/lib/geoclue-2.0/demos/agent to your startup file
+
+# In that file change the latitudes and longitudes as per your location
+# That's it...
+#+end_src
