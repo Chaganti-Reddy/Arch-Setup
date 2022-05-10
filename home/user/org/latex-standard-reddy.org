@@ -8,9 +8,9 @@
 #+LATEX_HEADER: \usepackage{array}
 #+LATEX_HEADER: \usepackage{tabularx}
 #+LATEX_HEADER: \usepackage{float}
-#+LATEX_HEADER: \usepackage{pacins}
 #+LATEX_HEADER: \usepackage{amsmath, amsthm, amssymb}
 #+LATEX_HEADER: \usepackage[table, xcdraw]{xcolor}
+#+LATEX_HEADER: \usepackage{placeins}
 
 % Colorizing links in a nicer way.
 #+LATEX_HEADER: \definecolor{bblue}{HTML}{0645AD}
