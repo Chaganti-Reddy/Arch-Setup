@@ -13,7 +13,8 @@
 #+LATEX_HEADER: \usepackage{float}
 #+LATEX_HEADER: \usepackage{lastpage}
 #+LATEX_HEADER: \usepackage{fancyhdr}
-#+LATEX_HEADER: \usepackage{amsmath, amsthm, amssymb}
+#+LATEX_HEADER: \usepackage{tikz}
+#+LATEX_HEADER: \usepackage{amsmath, amsthm, amssymb, amsfonts}
 #+LATEX_HEADER: \usepackage[table, xcdraw]{xcolor}
 #+LATEX_HEADER: \usepackage{placeins}
 
