@@ -8,6 +8,8 @@
 #+LATEX_HEADER: \usepackage{graphicx}
 #+LATEX_HEADER: \usepackage{array}
 #+LATEX_HEADER: \usepackage{tabularx}
+#+LATEX_HEADER: \usepackage{caption}
+#+LATEX_HEADER: \usepackage{siunitx}
 #+LATEX_HEADER: \usepackage{float}
 #+LATEX_HEADER: \usepackage{lastpage}
 #+LATEX_HEADER: \usepackage{fancyhdr}
