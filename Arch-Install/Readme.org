@@ -144,6 +144,8 @@ mkinitcpio -p linux-lts
 # Now edit grub file
 nano /etc/default/grub
 # Remove comment for GRUB_DISABLE_OS_PROBER=false so that you can dual boot with windows
+# Now generate grub
+grub-mkconfig -o /boot/grub/grub.cfg
 
 # Now unmount and exit
 exit
