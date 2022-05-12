@@ -123,7 +123,7 @@ myStartupHook = do
     spawnOnce "~/.xmonad/startsound.sh"
     spawnOnce "picom"
     spawnOnce "nm-applet"
-    spawnOnce "volumeicon"
+    -- spawnOnce "volumeicon"
     spawnOnce "/usr/bin/emacs --daemon" -- emacs daemon for the emacsclient
     spawnOnce "udiskie"
     spawnOnce "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 "
