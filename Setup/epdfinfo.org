@@ -1,0 +1,18 @@
+#+title: Epdfinfo
+
+* Recent versions of pdf tools in doom emacs are getting wrong and error in installing
+
+*** To remove those errors copy the and put into same directory path
+
+#+begin_src shell
+cp ~/dotfiles/home/user/.emacs.d/.local/straight/build-28.1/pdf-tools/build/server/autobuld ~/.emacs.d/.local/straight/build-28.1/pdf-tools/build/server/autobuld
+#+end_src
+
+**** This will change two lines between two files whcich is
+
+#+begin_src txt
+Replace echo and eval line in 542nd line or near to that with these two lines
+
+echo "./configure CXXFLAGS='-std=c++17' -q $prefix && make clean && make -s"
+eval "./configure CXXFLAGS='-std=c++17' -q $(quote "$prefix") && make clean && make -s || exit_fail"
+#+end_src
