@@ -9,6 +9,7 @@ $HOME/.config/bspwm/polybar/launch.sh
 #flameshot &
 mpd &
 mpc &
+numlockx &
 #blueman-applet &
 #dropbox &
 

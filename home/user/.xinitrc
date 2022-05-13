@@ -53,3 +53,4 @@ $HOME/.screenlayout/monitor.sh
 exec mpd
 exec mpc
 xsetroot -cursor_name left_ptr
+numlockx &
