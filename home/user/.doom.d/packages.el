@@ -53,14 +53,12 @@
 (package! haskell-mode)
 (package! lua-mode)
 (package! markdown-mode)
-(package! org-bullets)
 (package! writeroom-mode)
 (package! beacon)
 (package! eglot)
 (package! elfeed-goodies)
 (package! company)
 (package! clippy)
-(package! minimap)
 (package! pacmacs)
 (package! auctex)
 (package! auto-complete-auctex)
@@ -73,9 +71,6 @@
 (package! info-colors)
 (package! org-pretty-table
   :recipe (:host github :repo "Fuco1/org-pretty-table"))
-
-(package! keychain-environment)
-(package! org-preview-html)
 (package! impatient-mode)
 (package! org-download)
 (package! citar)
@@ -87,3 +82,10 @@
   :recipe (:host github
            :repo "tecosaur/org-pandoc-import"
            :files ("*.el" "filters" "preprocessors")))
+
+(package! lsp-treemacs)
+(package! company-box)
+(package! lsp-ui)
+(package! lsp-ivy)
+(package! pyvenv)
+(package! pdf-tools)

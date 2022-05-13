@@ -285,3 +285,4 @@ super + shift + p
 
 ctrl + p
   rofi -show p -modi p:~/.local/bin/rofi-power-menu
+

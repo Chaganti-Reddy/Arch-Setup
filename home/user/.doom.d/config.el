@@ -6,7 +6,7 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
-(setq user-full-name "Chaganti-Reddy"
+(setq user-full-name "Chaganti Reddy"
       user-mail-address "chagantivenkataramireddy1@gmail.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
@@ -40,13 +40,13 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
+
 (setq org-directory "/home/reddy/Documents/GitHub/dotfiles/home/user/org")
 (setq org-roam-db-gc-threshold most-positive-fixnum)
 (setq org-agenda-files (directory-files-recursively "/home/reddy/Documents/GitHub/dotfiles/home/user/org" "\\.org$"))
 
 (setq doom-font (font-spec :family "JetBrainsMono" :size 17)
       doom-big-font (font-spec :family "JetBrainsMono" :size 22))
-
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
@@ -473,6 +473,8 @@
 ;;   :init
 ;;   (marginalia-mode))
 
+(add-hook 'c-mode-hook 'lsp)
+(add-hook 'c++-mode-hook 'lsp)
 
 (with-eval-after-load 'ox-latex
 (add-to-list 'org-latex-classes
@@ -526,7 +528,6 @@
   (org-image-actual-width nil))
 
 (use-package hide-mode-line)
-
 (defun efs/presentation-setup ()
   ;; Hide the mode line
   (hide-mode-line-mode 1)
@@ -589,3 +590,81 @@
 
 (setq org-latex-pdf-process (list
    "latexmk -pdflatex='lualatex -shell-escape -interaction nonstopmode' -pdf -f  %f"))
+
+(use-package lsp-mode
+  :ensure t
+  :commands (lsp lsp-deferred)
+  :hook ((lsp-mode . lsp-enable-which-key-integration)
+         (lsp-managed-mode . lsp-modeline-diagnostics-mode)
+         (lsp-mode . lsp-headerline-breadcrumb-mode)
+         (lsp-mode . lsp-modeline-code-actions-mode)))
+
+(use-package python-mode
+  :ensure t
+  :hook (python-mode . lsp-deferred)
+  :custom
+  ;; NOTE: Set these if Python 3 is called "python3" on your system!
+  (python-shell-interpreter "python3")
+  (dap-python-executable "python3")
+  (dap-python-debugger 'debugpy)
+  (run-python t)
+  :config
+  (require 'dap-python))
+
+(use-package pyvenv
+  :config
+  (pyvenv-mode 1))
+
+;; (use-package c++-mode
+;;   :mode *\\.cpp\\*
+;;   :hook (c++-mode . lsp-deferred)
+;;   )
+
+(use-package rainbow-delimiters
+  :hook (python-mode . rainbow-delimiters-mode)
+        (c++-mode . rainbow-delimiters-mode)
+        (c-mode . rainbow-delimiters-mode)
+        (org-mode . rainbow-delimiters-mode))
+
+
+(setq org-agenda-prefix-format '((agenda . " %i %-12:c%?-12t% s")
+         (timeline . "  % s")
+         (todo .
+               " %i %-12:c %(concat \"[ \"(org-format-outline-path (org-get-outline-path)) \" ]\") ")
+         (tags .
+               " %i %-12:c %(concat \"[ \"(org-format-outline-path (org-get-outline-path)) \" ]\") ")
+         (search . " %i %-12:c"))
+      )
+
+(setq lsp-headerline-breadcrumb-segments '(project file symbols))
+(setq lsp-headerline-breadcrumb-icons-enable t)
+
+(use-package company
+  :after lsp-mode
+  :hook (lsp-mode . company-mode))
+
+(use-package company-box
+  :hook (company-mode . company-box-mode))
+
+(use-package lsp-ui
+  :hook (lsp-mode . lsp-ui-mode)
+  :config
+  (setq lsp-ui-doc-enable t)
+  (setq lsp-ui-sideline-mode t)
+  (setq lsp-ui-doc-position 'bottom-and-right)
+  (setq lsp-ui-sideline-toggle-symbols-info t))
+
+
+(use-package lsp-treemacs
+  :after lsp)
+
+(use-package lsp-ivy)
+
+(set-face-attribute 'flycheck-fringe-warning nil :foreground (face-attribute 'fringe :background ))
+(require 'multiple-cursors)
+
+;; pdf-tools
+(use-package pdf-tools
+  :ensure t
+  :init
+  (pdf-tools-install))
