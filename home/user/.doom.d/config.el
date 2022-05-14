@@ -101,9 +101,23 @@
 (use-package toc-org
   :commands toc-org-enable
   :init (add-hook 'org-mode-hook 'toc-org-enable))
+
+
 (use-package projectile
   :config
-  (projectile-global-mode t))
+  (projectile-global-mode t)
+  :custom
+  ((projectile-completion-system 'ivy))
+  :bind-keymap
+  ("C-c P" . projectile-command-map)
+  :init
+  (when (file-directory-p "/media/Projects")
+    (setq projectile-project-search-path '("/media/Projects")))
+  (setq projectile-switch-project-action #'projectile-dired))
+
+(use-package counsel-projectile
+  :config (counsel-projectile-mode))
+
 (use-package writeroom-mode)
 (require 'eglot)
 (add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
@@ -242,32 +256,32 @@
                      ("https://distrowatch.com/news/dwd.xml" distrowatch linux))))
 
 
-;; (defun my/org-mode/load-prettify-symbols ()
-;;   (interactive)
-;;   (setq prettify-symbols-alist
-;;     '(("#+begin_src" . ?)
-;;       ("#+BEGIN_SRC" . ?)
-;;       ("#+end_src" . ?)
-;;       ("#+END_SRC" . ?)
-;;       ("#+begin_example" . ?)
-;;       ("#+BEGIN_EXAMPLE" . ?)
-;;       ("#+end_example" . ?)
-;;       ("#+END_EXAMPLE" . ?)
-;;       ("#+header:" . ?)
-;;       ("#+HEADER:" . ?)
-;;       ("#+name:" . ?﮸)
-;;       ("#+NAME:" . ?﮸)
-;;       ("#+results:" . ?)
-;;       ("#+RESULTS:" . ?)
-;;       ("#+call:" . ?)
-;;       ("#+CALL:" . ?)
-;;       (":PROPERTIES:" . ?)
-;;       (":properties:" . ?)
-;;       (":LOGBOOK:" . ?)
-;;       (":logbook:" . ?)))
-;;   (prettify-symbols-mode t))
-;; (add-hook 'org-mode-hook 'my/org-mode/load-prettify-symbols)
-;; (setq org-ellipsis " ")
+(defun my/org-mode/load-prettify-symbols ()
+  (interactive)
+  (setq prettify-symbols-alist
+    '(("#+begin_src" . ?)
+      ("#+BEGIN_SRC" . ?)
+      ("#+end_src" . ?)
+      ("#+END_SRC" . ?)
+      ("#+begin_example" . ?)
+      ("#+BEGIN_EXAMPLE" . ?)
+      ("#+end_example" . ?)
+      ("#+END_EXAMPLE" . ?)
+      ("#+header:" . ?)
+      ("#+HEADER:" . ?)
+      ("#+name:" . ?﮸)
+      ("#+NAME:" . ?﮸)
+      ("#+results:" . ?)
+      ("#+RESULTS:" . ?)
+      ("#+call:" . ?)
+      ("#+CALL:" . ?)
+      (":PROPERTIES:" . ?)
+      (":properties:" . ?)
+      (":LOGBOOK:" . ?)
+      (":logbook:" . ?)))
+  (prettify-symbols-mode t))
+(add-hook 'org-mode-hook 'my/org-mode/load-prettify-symbols)
+(setq org-ellipsis " ")
 
 
 (setq TeX-auto-save t)
@@ -615,16 +629,22 @@
   :config
   (pyvenv-mode 1))
 
-;; (use-package c++-mode
-;;   :mode *\\.cpp\\*
-;;   :hook (c++-mode . lsp-deferred)
-;;   )
+(use-package cpp-mode
+  :ensure t
+  :hook (cpp-mode . lsp-deferred)
+  )
+
+(use-package c-mode
+  :ensure t
+  :hook (c-mode . lsp-deferred)
+  )
+
 
 (use-package rainbow-delimiters
   :hook (python-mode . rainbow-delimiters-mode)
-        (c++-mode . rainbow-delimiters-mode)
-        (c-mode . rainbow-delimiters-mode)
-        (org-mode . rainbow-delimiters-mode))
+  (c++-mode . rainbow-delimiters-mode)
+  (c-mode . rainbow-delimiters-mode)
+  (org-mode . rainbow-delimiters-mode))
 
 
 (setq org-agenda-prefix-format '((agenda . " %i %-12:c%?-12t% s")
@@ -668,3 +688,12 @@
   :ensure t
   :init
   (pdf-tools-install))
+
+;;  Alternative of combany mode auto completion
+;; (use-package auto-complete
+;;   :ensure t
+;;   :init
+;;   (progn
+;;     (ac-config-default)
+;;     (global-auto-complete-mode t)
+;;     ))

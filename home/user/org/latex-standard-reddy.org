@@ -7,6 +7,7 @@
 #+LATEX_HEADER: \usepackage[english]{babel}
 #+LATEX_HEADER: \usepackage{graphicx}
 #+LATEX_HEADER: \usepackage{array}
+#+LATEX_HEADER: \usepackage{longtable}
 #+LATEX_HEADER: \usepackage{tabularx}
 #+LATEX_HEADER: \usepackage{caption}
 #+LATEX_HEADER: \usepackage{siunitx}
