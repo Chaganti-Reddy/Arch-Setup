@@ -8,8 +8,11 @@
 #+LATEX_HEADER: \usepackage{graphicx}
 #+LATEX_HEADER: \usepackage{array}
 #+LATEX_HEADER: \usepackage{longtable}
+#+LATEX_HEADER: \usepackage[nottoc]{tocbibind}
+# #+LATEX_HEADER: \usepackage{fourier}
 #+LATEX_HEADER: \usepackage{tabularx}
 #+LATEX_HEADER: \usepackage{caption}
+#+LATEX_HEADER: \usepackage[style=verbose,backend=bibtex]{biblatex}
 #+LATEX_HEADER: \usepackage{siunitx}
 #+LATEX_HEADER: \usepackage{float}
 #+LATEX_HEADER: \usepackage{lastpage}
@@ -57,7 +60,6 @@
 #+LATEX_HEADER: \posttitle{\par\end{center}}
 #+LATEX_HEADER: \preauthor{\begin{center}\vspace{-6bp}\fontsize{14pt}{14pt}\selectfont}
 #+LATEX_HEADER: \postauthor{\par\end{center}\vspace{-25bp}}
-
 #+LATEX_HEADER: \predate{\begin{center}\fontsize{12pt}{12pt}\selectfont}
 #+LATEX_HEADER: \postdate{\par\end{center}\vspace{0em}}
 
