@@ -190,6 +190,7 @@ myAppGrid = [ ("Virtual Manager", "virt-manager")
                  , ("TimeShift", "timeshift-launcher")
                  , ("OBS", "obs")
                  , ("Discord", "discord")
+                 , ("News", " raven-reader")
                  ]
 
 myPersonalGrid = [ ("Gmail", "brave gmail.com")
