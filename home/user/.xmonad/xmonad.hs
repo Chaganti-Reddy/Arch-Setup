@@ -122,6 +122,7 @@ myStartupHook = do
     spawnOnce "lxsession"
     spawnOnce "~/.xmonad/startsound.sh"
     spawnOnce "picom"
+    spawnOnce "mailspring"
     spawnOnce "nm-applet"
     -- spawnOnce "volumeicon"
     spawnOnce "/usr/bin/emacs --daemon" -- emacs daemon for the emacsclient
