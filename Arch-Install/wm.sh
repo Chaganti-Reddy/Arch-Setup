@@ -28,9 +28,9 @@ sudo mysql_secure_installation
 sudo corepack enable
 sudo updatedb
 
-paru -S beekeeper-studio-bin pass-otp ksuperkey zathura zathura-djvu zathura-pdf-mupdf zathura-ps zathura-cb polybar-git qalculate-gtk ttf-icomoon-feather shell-color-scripts stockfish mailspring zoxide alacritty-ligatures-git ttf-mononoki visual-studio-code-bin imagemagick qbittorrent brave-bin fisher fnm-bin telegram-desktop-bin nerd-fonts-mononoki zig android-tools android-udev lazygit libxft-bgra nautilus nautilus-admin-git noto-fonts-emoji pamixer prettier screenkey stow tree ttf-joypixels ttf-unifont wireless_tools xbanish stylua xsel picom-jonaburg-git udiskie github-desktop-bin sddm-sugar-candy-git otf-raleway otf-font-awesome tf-raleway otf-font-awesome pop-gtk-theme pop-icon-theme timeshift-bin xmonad xmobar xmonad-contrib nimsuggest-git  graphviz tidy  stylelint js-beautify auctex-latexmk gromit-mpx gopls gomodifytags gotest gore jq
+paru -S pass-otp ksuperkey zathura zathura-djvu zathura-pdf-mupdf zathura-ps zathura-cb polybar-git qalculate-gtk ttf-icomoon-feather shell-color-scripts stockfish zoxide alacritty-ligatures-git ttf-mononoki visual-studio-code-bin imagemagick qbittorrent brave-bin fisher fnm-bin telegram-desktop-bin nerd-fonts-mononoki zig android-tools android-udev lazygit libxft-bgra nautilus nautilus-admin-git noto-fonts-emoji pamixer prettier screenkey stow tree ttf-joypixels ttf-unifont wireless_tools xbanish stylua xsel picom-jonaburg-git udiskie github-desktop-bin sddm-sugar-candy-git otf-raleway otf-font-awesome tf-raleway otf-font-awesome pop-gtk-theme pop-icon-theme timeshift-bin xmonad xmobar xmonad-contrib nimsuggest-git  graphviz tidy  stylelint js-beautify auctex-latexmk gromit-mpx gopls gomodifytags gotest gore jq appimagelauncher-git 
 
-#yay -S  protonvpn filezilla pamac-all obsidian sublime-text-4 betterlockscreen-git gromit-mpx lightdm-webkit2-greeter  appimagelauncher-git newsflash mu mbsync-git newsflash newsflash raven-reader-bin
+#yay -S  protonvpn filezilla pamac-all obsidian sublime-text-4 betterlockscreen-git gromit-mpx lightdm-webkit2-greeter newsflash mu mbsync-git newsflash newsflash raven-reader-bin beekeeper-studio-bin mailspring 
 
 #sudo systemctl enable snapd.service
 sudo systemctl enable bluetooth.service
