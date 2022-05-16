@@ -59,6 +59,5 @@ Creating a new theme in Mailspring is easy! Here's how you can do it.
 │   ├── ui-variables.less  # UI variables that override N1's defaults
 │   ├── theme-colors.less  # Theme colors for theme preview (optional)
 ├── package.json           # Metadata about the theme
-├── LICENSE.md             # License with usage rights
 └── README.md              # Info about your theme and how to use it
 ```
