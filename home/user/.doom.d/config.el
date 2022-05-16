@@ -41,9 +41,9 @@
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 
-(setq org-directory "/home/reddy/Documents/GitHub/dotfiles/home/user/org")
+(setq org-directory "/home/reddy/Documents/GitHub/dotfiles/org")
 (setq org-roam-db-gc-threshold most-positive-fixnum)
-(setq org-agenda-files (directory-files-recursively "/home/reddy/Documents/GitHub/dotfiles/home/user/org" "\\.org$"))
+(setq org-agenda-files (directory-files-recursively "/home/reddy/Documents/GitHub/dotfiles/org" "\\.org$"))
 
 (setq doom-font (font-spec :family "JetBrainsMono" :size 17)
       doom-big-font (font-spec :family "JetBrainsMono" :size 22))
@@ -431,7 +431,7 @@
   :init
   (setq org-roam-v2-ack t)
   :custom
-  (org-roam-directory "/home/reddy/Documents/GitHub/dotfiles/home/user/org/roam")
+  (org-roam-directory "/home/reddy/Documents/GitHub/dotfiles/org/roam")
   (org-roam-complete-everywhere t)
   (org-roam-capture-templates
    '(("d" "default" plain
@@ -443,11 +443,11 @@
       :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
       :unnarrowed t)
      ("b" "book notes" plain
-      (file "/home/reddy/Documents/GitHub/dotfiles/home/user/org/roam/Templates/BookNote.org")
+      (file "/home/reddy/Documents/GitHub/dotfiles/org/roam/Templates/BookNote.org")
       :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
       :unnarrowed t)
      ("p" "project" plain
-      (file "/home/reddy/Documents/GitHub/dotfiles/home/user/org/roam/Templates/Project.org")
+      (file "/home/reddy/Documents/GitHub/dotfiles/org/roam/Templates/Project.org")
       :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n#+filetags: Project")
       :unnarrowed t)))
   :config
@@ -602,8 +602,11 @@
 
 (require 'ob-js)
 
-(setq org-latex-pdf-process (list
-   "latexmk -pdflatex='lualatex -shell-escape -interaction nonstopmode' -pdf -f  %f"))
+;; (setq org-latex-pdf-process (list
+   ;; "latexmk -pdflatex='lualatex -shell-escape -interaction nonstopmode' -pdf -f  %f"))
+
+(setq org-latex-pdf-process
+    '("latexmk -shell-escape -pdflatex='pdflatex -interaction nonstopmode' -bibtex -f -pdf %f"))
 
 (use-package lsp-mode
   :ensure t
@@ -697,3 +700,14 @@
 ;;     (ac-config-default)
 ;;     (global-auto-complete-mode t)
 ;;     ))
+
+(require 'bibtex)
+(require 'org-ref)
+;; (require 'org-ref-ivy)
+(require 'org-ref-helm)
+
+;; Tell ispell-mode to use ispell.
+(setq ispell-program-name "/usr/bin/ispell")
+
+(add-to-list 'ispell-skip-region-alist '(":\\(PROPERTIES\\|LOGBOOK\\):" . ":END:"))
+(add-to-list 'ispell-skip-region-alist '("#\\+BEGIN_SRC" . "#\\+END_SRC"))
