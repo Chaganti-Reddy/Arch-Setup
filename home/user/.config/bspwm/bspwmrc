@@ -10,6 +10,7 @@ $HOME/.config/bspwm/polybar/launch.sh
 mpd &
 mpc &
 numlockx &
+pamixer --set-volume 45 &
 #blueman-applet &
 #dropbox &
 

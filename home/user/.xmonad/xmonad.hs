@@ -137,7 +137,7 @@ myStartupHook = do
 
     -- spawn ("sleep 2 && conky -c $HOME/.config/conky/xmonad/" ++ colorScheme ++ "-01.conkyrc")
     spawn ("sleep 2 && trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 " ++ colorTrayer ++ " --height 22")
-
+    spawn ("pamixer --set-volume 45")
     spawn ("~/.xmonad/wall_change.sh")
     -- spawnOnce "xargs xwallpaper --stretch < ~/Pictures/Wallpapers"
     -- spawnOnce "~/.fehbg &"  -- set last saved feh wallpaper
