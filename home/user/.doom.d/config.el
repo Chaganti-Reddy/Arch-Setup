@@ -976,3 +976,5 @@
                                   :with-author nil
                                   :with-toc nil))
   (add-hook 'message-send-hook 'org-mime-confirm-when-no-multipart))
+
+(map! :g "C-c b" #'+ivy/switch-buffer)
