@@ -54,6 +54,7 @@
 (package! lua-mode)
 (package! markdown-mode)
 (package! writeroom-mode)
+(package! writeroom-mode)
 (package! beacon)
 (package! eglot)
 (package! elfeed-goodies)
@@ -89,3 +90,4 @@
 (package! lsp-ivy)
 (package! pyvenv)
 (package! pdf-tools)
+(package! org-mime)

@@ -3,6 +3,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(elfeed-feeds
+   '("https://www.reddit.com/r/linux.rss" "https://www.reddit.com/r/distrotube.rss" "https://www.gamingonlinux.com/article_rss.php" "https://opensource.com/feed" "http://aitrends.com/feed" "https://machinelearningmastery.com/blog/feed/" "https://news.mit.edu/rss/topic/artificial-intelligence2" "https://aws.amazon.com/blogs/machine-learning/feed/" "https://www.espncricinfo.com/rss/livescores.xml" "https://www.todaylivescore.info/feed/"))
+ '(package-selected-packages '(pdf-tools path-headerline-mode all-the-icons-ivy))
  '(warning-suppress-log-types '((server) (server) (server) (server) (server) (server)))
  '(warning-suppress-types '((server) (server) (server) (server) (server))))
 (custom-set-faces

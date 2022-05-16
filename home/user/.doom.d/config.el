@@ -174,33 +174,6 @@
 
 (map! "C-/" #'comment-line)
 
-;; (use-package mu4e
-;;   :ensure nil
-;;   ;; :load-path "/usr/share/emacs/site-lisp/mu4e/"
-;;   ;; :defer 20 ; Wait until 20 seconds after startup
-;;   :config
-
-;;   ;; This is set to 't' to avoid mail syncing issues when using mbsync
-;;   (setq mu4e-change-filenames-when-moving t)
-
-;;   ;; Refresh mail using isync every 10 minutes
-;;   (setq mu4e-update-interval (* 10 60))
-;;   (setq mu4e-get-mail-command "mbsync -a")
-;;   ;; (setq mu4e-maildir "~/Mail")
-
-;;   (setq mu4e-drafts-folder "/[Gmail]/Drafts")
-;;   (setq mu4e-sent-folder   "/[Gmail]/Sent Mail")
-;;   (setq mu4e-refile-folder "/[Gmail]/All Mail")
-;;   (setq mu4e-trash-folder  "/[Gmail]/Trash")
-
-;;   (setq mu4e-maildir-shortcuts
-;;       '(("/Inbox"             . ?i)
-;;         ("/[Gmail]/Sent Mail" . ?s)
-;;         ("/[Gmail]/Trash"     . ?t)
-;;         ("/[Gmail]/Drafts"    . ?d)
-;;         ("/[Gmail]/All Mail"  . ?a))))
-
-
 (map! :leader
       (:prefix ("b". "buffer")
        :desc "List bookmarks" "L" #'list-bookmarks
@@ -223,37 +196,6 @@
 (map! :leader
       :desc "Toggle neotree file viewer" "t n" #'neotree-toggle
       :desc "Open directory in neotree" "d n" #'neotree-dir)
-
-
-(use-package! elfeed-goodies)
-(elfeed-goodies/setup)
-(setq elfeed-goodies/entry-pane-size 0.5)
-(add-hook 'elfeed-show-mode-hook 'visual-line-mode)
-(evil-define-key 'normal elfeed-show-mode-map
-  (kbd "J") 'elfeed-goodies/split-show-next
-  (kbd "K") 'elfeed-goodies/split-show-prev)
-(evil-define-key 'normal elfeed-search-mode-map
-  (kbd "J") 'elfeed-goodies/split-show-next
-  (kbd "K") 'elfeed-goodies/split-show-prev)
-(setq elfeed-feeds (quote
-                    (("https://www.reddit.com/r/linux.rss" reddit linux)
-                     ("https://www.reddit.com/r/commandline.rss" reddit commandline)
-                     ("https://www.reddit.com/r/distrotube.rss" reddit distrotube)
-                     ("https://www.reddit.com/r/emacs.rss" reddit emacs)
-                     ("https://www.gamingonlinux.com/article_rss.php" gaming linux)
-                     ("https://hackaday.com/blog/feed/" hackaday linux)
-                     ("https://opensource.com/feed" opensource linux)
-                     ("https://linux.softpedia.com/backend.xml" softpedia linux)
-                     ("https://itsfoss.com/feed/" itsfoss linux)
-                     ("https://www.zdnet.com/topic/linux/rss.xml" zdnet linux)
-                     ("https://www.phoronix.com/rss.php" phoronix linux)
-                     ("http://feeds.feedburner.com/d0od" omgubuntu linux)
-                     ("https://www.computerworld.com/index.rss" computerworld linux)
-                     ("https://www.networkworld.com/category/linux/index.rss" networkworld linux)
-                     ("https://www.techrepublic.com/rssfeeds/topic/open-source/" techrepublic linux)
-                     ("https://betanews.com/feed" betanews linux)
-                     ("http://lxer.com/module/newswire/headlines.rss" lxer linux)
-                     ("https://distrowatch.com/news/dwd.xml" distrowatch linux))))
 
 
 (defun my/org-mode/load-prettify-symbols ()
@@ -711,3 +653,326 @@
 
 (add-to-list 'ispell-skip-region-alist '(":\\(PROPERTIES\\|LOGBOOK\\):" . ":END:"))
 (add-to-list 'ispell-skip-region-alist '("#\\+BEGIN_SRC" . "#\\+END_SRC"))
+
+(require 'elfeed)
+(use-package! elfeed-goodies)
+;;; Code:
+(cl-loop for feed in '(("http://planetpython.org/rss20.xml" python)
+		       ("http://planet.scipy.org/rss20.xml" python)
+		       ("http://planet.emacsen.org/atom.xml" emacs)
+		       ;; Stackoverflow questions on emacs
+		       ("http://emacs.stackexchange.com/feeds" emacs)
+                       ("https://distrowatch.com/news/dwd.xml" distrowatch linux)
+                       ("https://www.reddit.com/r/distrotube.rss" reddit distrotube)
+                       ("https://www.espncricinfo.com/rss/livescores.xml" Cricinfo))
+	 do
+	 (add-to-list 'elfeed-feeds feed t))
+
+(defface python-elfeed-entry
+  '((t :background "Darkseagreen1"))
+  "Marks a python Elfeed entry."
+  :group 'scimax-elfeed)
+
+(defface emacs-elfeed-entry
+  '((t :background "Lightblue1"))
+  "Marks a python Elfeed entry."
+
+  :group 'scimax-elfeed)
+
+(push '(python python-elfeed-entry)
+      elfeed-search-face-alist)
+
+(push '(emacs emacs-elfeed-entry)
+      elfeed-search-face-alist)
+
+
+(setq elfeed-search-title-max-width 150)
+(setq elfeed-search-trailing-width 30)
+
+;; A snippet for periodic update for feeds (3 mins since Emacs start, then every
+;; half hour)
+;; (run-at-time 180 1800 (lambda () (unless elfeed-waiting (elfeed-update))))
+
+(defun email-elfeed-entry ()
+  "Capture the elfeed entry and put it in an email."
+  (interactive)
+  (let* ((title (elfeed-entry-title elfeed-show-entry))
+	 (url (elfeed-entry-link elfeed-show-entry))
+	 (content (elfeed-entry-content elfeed-show-entry))
+	 (entry-id (elfeed-entry-id elfeed-show-entry))
+	 (entry-link (elfeed-entry-link elfeed-show-entry))
+	 (entry-id-str (concat (car entry-id)
+			       "|"
+			       (cdr entry-id)
+			       "|"
+			       url)))
+    (compose-mail)
+    (message-goto-subject)
+    (insert title)
+    (message-goto-body)
+    (insert (format "You may find this interesting:
+%s\n\n" url))
+    (insert (elfeed-deref content))
+
+    (message-goto-body)
+    (while (re-search-forward "<br>" nil t)
+      (replace-match "\n\n"))
+
+    (message-goto-body)
+    (while (re-search-forward "<.*?>" nil t)
+      (replace-match ""))
+
+    (message-goto-body)
+    (fill-region (point) (point-max))
+
+    (message-goto-to)
+    (ivy-contacts nil)))
+
+
+(defun doi-utils-add-entry-from-elfeed-entry ()
+  "Add elfeed entry to bibtex."
+  (interactive)
+  (require 'org-ref)
+  (let* ((title (elfeed-entry-title elfeed-show-entry))
+	 (url (elfeed-entry-link elfeed-show-entry))
+	 (content (elfeed-deref (elfeed-entry-content elfeed-show-entry)))
+	 (entry-id (elfeed-entry-id elfeed-show-entry))
+	 (entry-link (elfeed-entry-link elfeed-show-entry))
+	 (entry-id-str (concat (car entry-id)
+			       "|"
+			       (cdr entry-id)
+			       "|"
+			       url)))
+    (if (string-match "DOI: \\(.*\\)$" content)
+	(doi-add-bibtex-entry (match-string 1 content)
+			      (ido-completing-read
+			       "Bibfile: "
+			       (append (f-entries "." (lambda (f)
+							(and (not (string-match "#" f))
+							     (f-ext? f "bib"))))
+				       org-ref-default-bibliography)))
+      (let ((dois (org-ref-url-scrape-dois url)))
+	(cond
+	 ;; One doi found. Assume it is what we want.
+	 ((= 1 (length dois))
+	  (doi-utils-add-bibtex-entry-from-doi
+	   (car dois)
+	   (ido-completing-read
+	    "Bibfile: "
+	    (append (f-entries "." (lambda (f)
+				     (and (not (string-match "#" f))
+					  (f-ext? f "bib"))))
+		    org-ref-default-bibliography)))
+	  action)
+	 ;; Multiple DOIs found
+	 ((> (length dois) 1)
+	  (ivy-read "Select a DOI" (let ((dois '()))
+				     (with-current-buffer (url-retrieve-synchronously url)
+				       (loop for doi-pattern in org-ref-doi-regexps
+					     do
+					     (goto-char (point-min))
+					     (while (re-search-forward doi-pattern nil t)
+					       (pushnew
+						;; Cut off the doi, sometimes
+						;; false matches are long.
+						(cons (format "%40s | %s"
+							      (substring
+							       (match-string 1)
+							       0 (min
+								  (length (match-string 1))
+								  40))
+							      doi-pattern)
+						      (match-string 1))
+						dois
+						:test #'equal)))
+				       (reverse dois)))
+		    :action
+		    (lambda (candidate)
+		      (let ((bibfile (completing-read
+				      "Bibfile: "
+				      (append (f-entries "." (lambda (f)
+							       (and (not (string-match "#" f))
+								    (f-ext? f "bib"))))
+					      org-ref-default-bibliography))))
+			(doi-utils-add-bibtex-entry-from-doi
+			 (cdr candidate)
+			 bibfile)
+			;; this removes two blank lines before each entry.
+			(bibtex-beginning-of-entry)
+			(delete-char -2))))))))))
+
+(define-key elfeed-show-mode-map (kbd "e") 'email-elfeed-entry)
+(define-key elfeed-show-mode-map (kbd "c") (lambda () (interactive) (org-capture nil "e")))
+(define-key elfeed-show-mode-map (kbd "d") 'doi-utils-add-entry-from-elfeed-entry)
+
+;; help me alternate fingers in marking entries as read
+(define-key elfeed-search-mode-map (kbd "f") 'elfeed-search-untag-all-unread)
+(define-key elfeed-search-mode-map (kbd "j") 'elfeed-search-untag-all-unread)
+(define-key elfeed-search-mode-map (kbd "o") 'elfeed-search-show-entry)
+
+;; * store links to elfeed entries
+;; These are copied from org-elfeed
+(defun org-elfeed-open (path)
+  "Open an elfeed link to PATH."
+  (cond
+   ((string-match "^entry-id:\\(.+\\)" path)
+    (let* ((entry-id-str (substring-no-properties (match-string 1 path)))
+	   (parts (split-string entry-id-str "|"))
+	   (feed-id-str (car parts))
+	   (entry-part-str (cadr parts))
+	   (entry-id (cons feed-id-str entry-part-str))
+	   (entry (elfeed-db-get-entry entry-id)))
+      (elfeed-show-entry entry)))
+   (t (error "%s %s" "elfeed: Unrecognised link type - " path))))
+
+(defun org-elfeed-store-link ()
+  "Store a link to an elfeed entry."
+  (interactive)
+  (cond
+   ((eq major-mode 'elfeed-show-mode)
+    (let* ((title (elfeed-entry-title elfeed-show-entry))
+	   (url (elfeed-entry-link elfeed-show-entry))
+	   (entry-id (elfeed-entry-id elfeed-show-entry))
+	   (entry-id-str (concat (car entry-id)
+				 "|"
+				 (cdr entry-id)
+				 "|"
+				 url))
+	   (org-link (concat "elfeed:entry-id:" entry-id-str)))
+      (org-link-store-props
+       :description title
+       :type "elfeed"
+       :link org-link
+       :url url
+       :entry-id entry-id)
+      org-link))
+   (t nil)))
+
+(org-link-set-parameters
+ "elfeed"
+ :follow 'org-elfeed-open
+ :store 'org-elfeed-store-link)
+
+(provide 'scimax-elfeed)
+
+;; Use passwords from authinfo from outside of emacs by using thsi function
+;; ex : emacsclient -e "(efs/lookup-password :host \"facebook.com\" :user \"zuck\")" | cut -d '"' -f2
+(defun efs/lookup-password (&rest keys)
+  (let ((result (apply #'auth-source-search keys)))
+    (if result
+        (funcall (plist-get (car result) :secret))
+      nil)))
+
+(use-package mu4e
+  :ensure nil
+  :config
+
+  (require 'mu4e-org)
+
+  ;; This is set to 't' to avoid mail syncing issues when using mbsync
+  (setq mu4e-change-filenames-when-moving t)
+
+  (setq mu4e-compose-context-policy 'ask)
+
+  ;; Refresh mail using isync every 10 minutes
+  (setq mu4e-update-interval (* 10 60))
+  (setq mu4e-get-mail-command "mbsync -a")
+  (setq mu4e-root-maildir "~/Mail")
+
+  ;; Make sure plain text mails flow correctly for recipients
+  (setq mu4e-compose-format-flowed t)
+
+  ;; Configure the function to use for sending mail
+  (setq message-send-mail-function 'smtpmail-send-it)
+
+  ;; NOTE: Only use this if you have set up a GPG key!
+  ;; Automatically sign all outgoing mails
+  ;; (add-hook 'message-send-hook 'mml-secure-message-sign-pgpmime)
+
+  (setq mu4e-contexts
+        (list
+         ;; Work account
+         (make-mu4e-context
+          :name "Work"
+          :match-func
+          (lambda (msg)
+            (when msg
+              (string-prefix-p "/Gmail" (mu4e-message-field msg :maildir))))
+          :vars '((user-mail-address . "chagantivenkataramireddy1@gmail.com")
+                  (user-full-name    . "Chaganti Reddy")
+                  (smtpmail-smtp-server  . "smtp.gmail.com")
+                  (smtpmail-smtp-service . 465)
+                  (smtpmail-stream-type  . ssl)
+                  (mu4e-compose-signature . "Chaganti Reddy Via Gmail")
+                  (mu4e-drafts-folder  . "/Gmail/[Gmail]/Drafts")
+                  (mu4e-sent-folder  . "/Gmail/[Gmail]/Sent Mail")
+                  (mu4e-refile-folder  . "/Gmail/[Gmail]/All Mail")
+                  (mu4e-trash-folder  . "/Gmail/[Gmail]/Trash")))
+
+         ;; Personal account
+         ;; (make-mu4e-context
+         ;;  :name "Personal"
+         ;;  :match-func
+         ;;  (lambda (msg)
+         ;;    (when msg
+         ;;      (string-prefix-p "/4mail" (mu4e-message-field msg :maildir))))
+         ;;  :vars '((user-mail-address . "chagantivenkataramireddy4@gmail.com")
+         ;;          (user-full-name    . "Chaganti RamiReddy")
+         ;;          (smtpmail-smtp-server  . "smtp.gmail.com")
+         ;;          (smtpmail-smtp-service . 465)
+         ;;          (smtpmail-stream-type  . ssl)
+         ;;          (mu4e-compose-signature . "Chaganti RamiReddy via Gmail")
+         ;;          (mu4e-drafts-folder  . "/4mail/Drafts")
+         ;;          (mu4e-sent-folder  . "/4mail/Sent")
+         ;;          (mu4e-refile-folder  . "/4mail/Archive")
+         ;;          (mu4e-trash-folder  . "/4mail/Trash")))
+         ))
+
+  (setq org-capture-templates
+        `(("m" "Email Workflow")
+          ("mf" "Follow Up" entry (file+headline "~/Documents/GitHub/dotfiles/org/Mail.org" "Follow Up")
+           "* TODO Follow up with %:fromname on %a\nSCHEDULED:%t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n\n%i")
+          ("mr" "Read Later" entry (file+headline "~/Documents/GitHub/dotfiles/org/Mail.org" "Read Later")
+           "* TODO Read %:subject\nSCHEDULED:%t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n\n%a\n\n%i")))
+
+  (defun efs/capture-mail-follow-up (msg)
+    (interactive)
+    (call-interactively 'org-store-link)
+    (org-capture nil "mf"))
+
+  (defun efs/capture-mail-read-later (msg)
+    (interactive)
+    (call-interactively 'org-store-link)
+    (org-capture nil "mr"))
+
+  ;; Add custom actions for our capture templates
+  (add-to-list 'mu4e-headers-actions
+               '("follow up" . efs/capture-mail-follow-up) t)
+  (add-to-list 'mu4e-view-actions
+               '("follow up" . efs/capture-mail-follow-up) t)
+  (add-to-list 'mu4e-headers-actions
+               '("read later" . efs/capture-mail-read-later) t)
+  (add-to-list 'mu4e-view-actions
+               '("read later" . efs/capture-mail-read-later) t)
+
+(defun efs/store-link-to-mu4e-query ()
+  (interactive)
+  (let ((mu4e-org-link-query-in-headers-mode t))
+    (call-interactively 'org-store-link)))
+
+  (setq mu4e-maildir-shortcuts
+        '(("/Inbox"             . ?i)
+          ("/[Gmail]/Sent Mail" . ?s)
+          ("/[Gmail]/Trash"     . ?t)
+          ("/[Gmail]/Drafts"    . ?d)
+          ("/[Gmail]/All Mail"  . ?a))))
+
+
+
+(use-package org-mime
+  :ensure t
+  :config
+  (setq org-mime-export-options '(:section-numbers nil
+                                  :with-author nil
+                                  :with-toc nil))
+  (add-hook 'message-send-hook 'org-mime-confirm-when-no-multipart))

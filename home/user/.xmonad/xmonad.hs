@@ -134,6 +134,7 @@ myStartupHook = do
     spawnOnce "xinput set-prop 'DLL09D9:00 04F3:3147 Touchpad' 'libinput Natural Scrolling Enabled' 1"
     -- spawnOnce "redshift-gtk"
     spawnOnce "numlockx"
+    spawnOnce "gpg-connect-agent /bye"
 
     -- spawn ("sleep 2 && conky -c $HOME/.config/conky/xmonad/" ++ colorScheme ++ "-01.conkyrc")
     spawn ("sleep 2 && trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 " ++ colorTrayer ++ " --height 22")

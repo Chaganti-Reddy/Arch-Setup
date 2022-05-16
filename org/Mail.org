@@ -1,0 +1,10 @@
+#+title: EMail Management
+
+* Queries
+
++ [[mu4e:query:flag:unread AND NOT flag:trashed][Unread Mail]]
++ [[mu4e:query:date:today..now][Today Mails]]
++ [[mu4e:query:date:7d..now][Last 7Day Mails]]
++ [[mu4e:query:flag:flagged][Flagged Mails]]
++ [[mu4e:query:prio:high][High Priority]]
++ [[mu4e:query:list:guix-patches.gnu.org][Guix-Patches]]
