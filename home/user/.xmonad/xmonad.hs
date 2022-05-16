@@ -114,7 +114,7 @@ windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace
 
 myStartupHook :: X ()
 myStartupHook = do
-    spawn "killall conky"   -- kill current conky on each restart
+    -- spawn "killall conky"   -- kill current conky on each restart
     spawn "killall trayer"  -- kill current trayer on each restart
     spawn "killall /usr/bin/emacs --daemon" -- emacs daemon for the emacsclient
     -- spawn "killall redshift-gtk"
@@ -122,14 +122,14 @@ myStartupHook = do
     spawnOnce "lxsession"
     spawnOnce "~/.xmonad/startsound.sh"
     spawnOnce "picom"
-    spawnOnce "mailspring"
+    -- spawnOnce "mailspring"
     spawnOnce "nm-applet"
     -- spawnOnce "volumeicon"
     spawnOnce "/usr/bin/emacs --daemon" -- emacs daemon for the emacsclient
     spawnOnce "udiskie"
     spawnOnce "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 "
     spawnOnce "mpd &"
-    spawnOnce "/usr/lib/geoclue-2.0/demos/agent"
+    -- spawnOnce "/usr/lib/geoclue-2.0/demos/agent"
     spawnOnce "xinput set-prop 'DLL09D9:00 04F3:3147 Touchpad' 'libinput Tapping Enabled' 1"
     spawnOnce "xinput set-prop 'DLL09D9:00 04F3:3147 Touchpad' 'libinput Natural Scrolling Enabled' 1"
     -- spawnOnce "redshift-gtk"
@@ -183,9 +183,9 @@ myAppGrid = [ ("Virtual Manager", "virt-manager")
                  , ("Telegram", "telegram-desktop")
                  , ("Office", "libreoffice")
                  , ("Neovim", "alacritty -e nvim")
-                 , ("Github", "github-desktop")
-                 -- , ("MYSql", "beekeeper-studio")
                  , ("Zathura", "zathura")
+                 -- , ("MYSql", "beekeeper-studio")
+                 , ("Github", "github-desktop")
                  , ("Chess", "gnome-chess")
                  , ("TimeShift", "timeshift-launcher")
                  -- , ("OBS", "obs")
