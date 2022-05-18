@@ -59,7 +59,7 @@ Note : All the commands in the quotes should be type without quotes...
 + Enter the below command to install the base packages :
 
   #+begin_src shell
-  pacstrap /mnt base linux-lts linux-lts-headers linux-firmware nano intel-ucode git openssh
+  pacstrap /mnt base linux-lts linux-lts-headers linux-firmware neovim intel-ucode git openssh
   #+end_src
 
 #+begin_quote
