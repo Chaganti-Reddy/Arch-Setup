@@ -21,8 +21,8 @@ Account gmail
 
 MaildirStore gmail-local
 Subfolders Verbatim
-Path ~/Mail/chaga1
-Inbox ~/Mail/chaga1/Inbox
+Path ~/Mail/Gmail
+Inbox ~/Mail/Gmail/Inbox
 
 Channel gmail
 Master :gmail-remote:
