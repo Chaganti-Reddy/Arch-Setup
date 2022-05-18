@@ -7,7 +7,7 @@
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
 (setq user-full-name "Chaganti Reddy"
-      user-mail-address "chagantivenkataramireddy1@gmail.com")
+      user-mail-address "chagantivenkataramireddy1@gmail.com@gmail.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -79,6 +79,7 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
 
 (delete-selection-mode t)
 
@@ -625,7 +626,6 @@
 
 (use-package lsp-ivy)
 
-(set-face-attribute 'flycheck-fringe-warning nil :foreground (face-attribute 'fringe :background ))
 (require 'multiple-cursors)
 
 ;; pdf-tools
@@ -877,7 +877,7 @@
   ;; Refresh mail using isync every 10 minutes
   (setq mu4e-update-interval (* 10 60))
   (setq mu4e-get-mail-command "mbsync -a")
-  (setq mu4e-root-maildir "~/Mail")
+  (setq mu4e-root-maildir "~/Mail/")
 
   ;; Make sure plain text mails flow correctly for recipients
   (setq mu4e-compose-format-flowed t)
@@ -897,17 +897,17 @@
           :match-func
           (lambda (msg)
             (when msg
-              (string-prefix-p "/Gmail" (mu4e-message-field msg :maildir))))
+              (string-prefix-p "/Gmail/" (mu4e-message-field msg :maildir))))
           :vars '((user-mail-address . "chagantivenkataramireddy1@gmail.com")
                   (user-full-name    . "Chaganti Reddy")
                   (smtpmail-smtp-server  . "smtp.gmail.com")
                   (smtpmail-smtp-service . 465)
                   (smtpmail-stream-type  . ssl)
-                  (mu4e-compose-signature . "Chaganti Reddy Via Gmail")
-                  (mu4e-drafts-folder  . "/Gmail/[Gmail]/Drafts")
-                  (mu4e-sent-folder  . "/Gmail/[Gmail]/Sent Mail")
-                  (mu4e-refile-folder  . "/Gmail/[Gmail]/All Mail")
-                  (mu4e-trash-folder  . "/Gmail/[Gmail]/Trash")))
+                  (mu4e-compose-signature . "Chaganti Reddy Via Gmail/")
+                  (mu4e-drafts-folder  . "/Gmail/[Gmail]/Drafts/")
+                  (mu4e-sent-folder  . "/Gmail/[Gmail]/Sent Mail/")
+                  (mu4e-refile-folder  . "/Gmail/[Gmail]/All Mail/")
+                  (mu4e-trash-folder  . "/Gmail/[Gmail]/Trash/")))
 
          ;; Personal account
          ;; (make-mu4e-context
@@ -961,11 +961,11 @@
     (call-interactively 'org-store-link)))
 
   (setq mu4e-maildir-shortcuts
-        '(("/Inbox"             . ?i)
-          ("/[Gmail]/Sent Mail" . ?s)
-          ("/[Gmail]/Trash"     . ?t)
-          ("/[Gmail]/Drafts"    . ?d)
-          ("/[Gmail]/All Mail"  . ?a))))
+        '(("/Inbox/"             . ?i)
+          ("/[Gmail]/Sent Mail/" . ?s)
+          ("/[Gmail]/Trash/"     . ?t)
+          ("/[Gmail]/Drafts/"    . ?d)
+          ("/[Gmail]/All Mail/"  . ?a))))
 
 
 

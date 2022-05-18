@@ -49,11 +49,11 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
+
 (package! org-bullets)
 (package! haskell-mode)
 (package! lua-mode)
 (package! markdown-mode)
-(package! writeroom-mode)
 (package! writeroom-mode)
 (package! beacon)
 (package! eglot)
@@ -83,7 +83,6 @@
   :recipe (:host github
            :repo "tecosaur/org-pandoc-import"
            :files ("*.el" "filters" "preprocessors")))
-
 (package! lsp-treemacs)
 (package! company-box)
 (package! lsp-ui)
