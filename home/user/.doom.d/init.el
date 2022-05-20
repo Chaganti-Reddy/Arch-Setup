@@ -81,8 +81,8 @@
 
        :checkers
        syntax              ; tasing you for every semicolon you forget
-       ;;(spell +flyspell) ; tasing you for misspelling mispelling
-       grammar           ; tasing grammar mistake every you make
+       (spell +flyspell) ; tasing you for misspelling mispelling
+       ;; grammar           ; tasing grammar mistake every you make
 
        :tools
        ;;ansible
@@ -150,9 +150,10 @@
        lua               ; one-based indices? one-based indices
        markdown          ; writing docs for people to ignore
        nim               ; python + lisp at the speed of c
-       ;;nix               ; I hereby declare "nix geht mehr!"
-       ;;ocaml             ; an objective camel
-       org               ; organize your plain life in plain text
+       ;; nix               ; I hereby declare "nix geht mehr!"
+       ;; ;;ocaml             ; an objective camel
+       ;; org
+                                        ; organize your plain life in plain text
        php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional

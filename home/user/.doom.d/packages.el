@@ -90,3 +90,4 @@
 (package! pyvenv)
 (package! pdf-tools)
 (package! org-mime)
+(package! helm-bibtex)

@@ -92,7 +92,7 @@
 (global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease)
 
 (use-package doom-modeline
-  :ensure t
+  ;; :ensure t
   :init (doom-modeline-mode 1))
 (use-package haskell-mode)
 (use-package lua-mode)
@@ -104,31 +104,22 @@
   :init (add-hook 'org-mode-hook 'toc-org-enable))
 
 
-(use-package projectile
-  :config
-  (projectile-global-mode t)
-  :custom
-  ((projectile-completion-system 'ivy))
-  :bind-keymap
-  ("C-c P" . projectile-command-map)
-  :init
-  (when (file-directory-p "/media/Projects")
-    (setq projectile-project-search-path '("/media/Projects")))
-  (setq projectile-switch-project-action #'projectile-dired))
+;; (use-package projectile
+;;   :config
+;;   (projectile-global-mode t)
+;;   :custom
+;;   ((projectile-completion-system 'ivy))
+;;   :bind-keymap
+;;   ("C-c P" . projectile-command-map)
+;;   :init
+;;   (when (file-directory-p "/media/Projects")
+;;     (setq projectile-project-search-path '("/media/Projects")))
+;;   (setq projectile-switch-project-action #'projectile-dired))
 
-(use-package counsel-projectile
-  :config (counsel-projectile-mode))
+;; (use-package counsel-projectile
+;;   :config (counsel-projectile-mode))
 
 (use-package writeroom-mode)
-(require 'eglot)
-(add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
-(add-hook 'c-mode-hook 'eglot-ensure)
-(add-hook 'c++-mode-hook 'eglot-ensure)
-(beacon-mode t)
-(map! :leader
-      ( :prefix ("c h" . "Help info from Clippy")
-        :desc "Clippy describes function under pointer" "f" #'clippy-describe-function
-        :desc "Clippy describes variable under pointer" "v" #'clippy-describe-variable))
 
 (setq minimap-window-location 'right)
 (map! :leader
@@ -356,7 +347,7 @@
       org-journal-date-format "%B %d, %Y (%A) "
       org-journal-file-format "%Y-%m-%d.org")
 
-(use-package! password-store)
+;; (use-package! password-store)
 
 ;;correlate
 (server-start)
@@ -429,9 +420,6 @@
 ;;   (marginalia-annotators '(marginalia-annotators-heavy marginalia-annotators-light nil))
 ;;   :init
 ;;   (marginalia-mode))
-
-(add-hook 'c-mode-hook 'lsp)
-(add-hook 'c++-mode-hook 'lsp)
 
 (with-eval-after-load 'ox-latex
 (add-to-list 'org-latex-classes
@@ -539,7 +527,7 @@
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((python . t)
-   (html . t)
+   ;; (html . t)
    (js . t)
    (R . t)))
 
@@ -575,6 +563,19 @@
   :config
   (pyvenv-mode 1))
 
+(require 'eglot)
+(add-to-list 'eglot-server-programs '((cpp-mode) "clangd"))
+(add-hook 'cpp-mode-hook 'eglot-ensure)
+(beacon-mode t)
+(map! :leader
+      ( :prefix ("c h" . "Help info from Clippy")
+        :desc "Clippy describes function under pointer" "f" #'clippy-describe-function
+        :desc "Clippy describes variable under pointer" "v" #'clippy-describe-variable))
+
+
+(add-hook 'c-mode-hook 'lsp)
+(add-hook 'c++-mode-hook 'lsp)
+
 (use-package cpp-mode
   :ensure t
   :hook (cpp-mode . lsp-deferred)
@@ -588,7 +589,7 @@
 
 (use-package rainbow-delimiters
   :hook (python-mode . rainbow-delimiters-mode)
-  (c++-mode . rainbow-delimiters-mode)
+  (cpp-mode . rainbow-delimiters-mode)
   (c-mode . rainbow-delimiters-mode)
   (org-mode . rainbow-delimiters-mode))
 
@@ -768,7 +769,7 @@
 	 ((> (length dois) 1)
 	  (ivy-read "Select a DOI" (let ((dois '()))
 				     (with-current-buffer (url-retrieve-synchronously url)
-				       (loop for doi-pattern in org-ref-doi-regexps
+				       (cl-loop for doi-pattern in org-ref-doi-regexps
 					     do
 					     (goto-char (point-min))
 					     (while (re-search-forward doi-pattern nil t)
@@ -801,9 +802,9 @@
 			(bibtex-beginning-of-entry)
 			(delete-char -2))))))))))
 
-(define-key elfeed-show-mode-map (kbd "e") 'email-elfeed-entry)
-(define-key elfeed-show-mode-map (kbd "c") (lambda () (interactive) (org-capture nil "e")))
-(define-key elfeed-show-mode-map (kbd "d") 'doi-utils-add-entry-from-elfeed-entry)
+;; (define-key elfeed-show-mode-map (kbd "e") 'email-elfeed-entry)
+;; (define-key elfeed-show-mode-map (kbd ""))
+;; (define-key elfeed-show-mode-map (kbd "d") 'doi-utils-add-entry-from-elfeed-entry)
 
 ;; help me alternate fingers in marking entries as read
 (define-key elfeed-search-mode-map (kbd "f") 'elfeed-search-untag-all-unread)
@@ -978,3 +979,32 @@
   (add-hook 'message-send-hook 'org-mime-confirm-when-no-multipart))
 
 (map! :g "C-c b" #'+ivy/switch-buffer)
+
+(defun flyspell-on-for-buffer-type ()
+      "Enable Flyspell appropriately for the major mode of the current buffer.  Uses `flyspell-prog-mode' for modes derived from `prog-mode', so only strings and comments get checked.  All other buffers get `flyspell-mode' to check all text.  If flyspell is already enabled, does nothing."
+      (interactive)
+      (if (not (symbol-value flyspell-mode)) ; if not already on
+	(progn
+	  (if (derived-mode-p 'prog-mode)
+	    (progn
+	      (message "Flyspell on (code)")
+	      (flyspell-prog-mode))
+	    ;; else
+	    (progn
+	      (message "Flyspell on (text)")
+	      (flyspell-mode 1)))
+	  ;; I tried putting (flyspell-buffer) here but it didn't seem to work
+	  )))
+
+    (defun flyspell-toggle ()
+      "Turn Flyspell on if it is off, or off if it is on.  When turning on, it uses `flyspell-on-for-buffer-type' so code-vs-text is handled appropriately."
+      (interactive)
+      (if (symbol-value flyspell-mode)
+	  (progn ; flyspell is on, turn it off
+	    (message "Flyspell off")
+	    (flyspell-mode -1))
+	  ; else - flyspell is off, turn it on
+	  (flyspell-on-for-buffer-type)))
+
+
+;; (setq! flyspell-issue-message-flag nil)
