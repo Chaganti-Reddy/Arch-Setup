@@ -48,4 +48,4 @@ lxsession &
 # nm-applet &
 gpg-connect-agent /bye &
 
-~/.config/i3/wall.sh
+~/.xmonad/wall_change.sh
