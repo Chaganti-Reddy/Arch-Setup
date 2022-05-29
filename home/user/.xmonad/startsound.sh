@@ -1,5 +1,3 @@
 #!/bin/bash
 
-mplayer -volume 60 ~/.xmonad/Windows\ 7\ startup.mp3
-
-
+mplayer -volume 40 ~/.xmonad/startup-03.mp3
