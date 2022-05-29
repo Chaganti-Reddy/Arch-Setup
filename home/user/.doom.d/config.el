@@ -45,8 +45,8 @@
 (setq org-roam-db-gc-threshold most-positive-fixnum)
 (setq org-agenda-files (directory-files-recursively "/home/reddy/Documents/GitHub/dotfiles/org" "\\.org$"))
 
-(setq doom-font (font-spec :family "JetBrainsMono" :size 17)
-      doom-big-font (font-spec :family "JetBrainsMono" :size 22))
+(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 17)
+      doom-big-font (font-spec :family "JetBrainsMono Nerd Font" :size 22))
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
@@ -92,7 +92,6 @@
 (global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease)
 
 (use-package doom-modeline
-  ;; :ensure t
   :init (doom-modeline-mode 1))
 (use-package haskell-mode)
 (use-package lua-mode)
@@ -361,7 +360,6 @@
 
 
 (use-package org-roam
-  :ensure t
   :init
   (setq org-roam-v2-ack t)
   :custom
@@ -407,7 +405,6 @@
 (map! :g "C-c n d b"  #'org-roam-dailies-goto-next-note)
 
 ;; (use-package vertico
-;;   :ensure t
 ;;   :custom
 ;;   (vertico-cycle t)
 ;;   :init
@@ -539,16 +536,7 @@
 (setq org-latex-pdf-process
     '("latexmk -shell-escape -pdflatex='pdflatex -interaction nonstopmode' -bibtex -f -pdf %f"))
 
-(use-package lsp-mode
-  :ensure t
-  :commands (lsp lsp-deferred)
-  :hook ((lsp-mode . lsp-enable-which-key-integration)
-         (lsp-managed-mode . lsp-modeline-diagnostics-mode)
-         (lsp-mode . lsp-headerline-breadcrumb-mode)
-         (lsp-mode . lsp-modeline-code-actions-mode)))
-
 (use-package python-mode
-  :ensure t
   :hook (python-mode . lsp-deferred)
   :custom
   ;; NOTE: Set these if Python 3 is called "python3" on your system!
@@ -565,33 +553,36 @@
 
 (require 'eglot)
 (add-to-list 'eglot-server-programs '((cpp-mode) "clangd"))
-(add-hook 'cpp-mode-hook 'eglot-ensure)
+(add-hook 'cpp-mode-hook 'eglot-ensure 'lsp)
 (beacon-mode t)
 (map! :leader
       ( :prefix ("c h" . "Help info from Clippy")
         :desc "Clippy describes function under pointer" "f" #'clippy-describe-function
         :desc "Clippy describes variable under pointer" "v" #'clippy-describe-variable))
 
+(add-hook 'c++-mode-hook #'lsp)
+(add-hook 'python-mode-hook #'lsp)
+(add-hook 'c-mode-hook #'lsp)
 
-(add-hook 'c-mode-hook 'lsp)
-(add-hook 'c++-mode-hook 'lsp)
+(map! :g "C-c h" #'lsp-headerline-breadcrumb-mode)
 
-(use-package cpp-mode
-  :ensure t
-  :hook (cpp-mode . lsp-deferred)
-  )
+(setq auto-mode-alist
+    (cons '("\\.cpp$" . c++-mode) auto-mode-alist))
+(setq auto-mode-alist
+    (cons '("\\.c$" . c-mode) auto-mode-alist))
 
-(use-package c-mode
-  :ensure t
-  :hook (c-mode . lsp-deferred)
-  )
+(use-package lsp-mode
+  :commands (lsp lsp-deferred)
+  :hook ((lsp-mode . lsp-enable-which-key-integration)
+         (lsp-managed-mode . lsp-modeline-diagnostics-mode)
+         (lsp-mode . lsp-headerline-breadcrumb-mode)
+         (lsp-mode . lsp-modeline-code-actions-mode )))
 
-
-(use-package rainbow-delimiters
-  :hook (python-mode . rainbow-delimiters-mode)
-  (cpp-mode . rainbow-delimiters-mode)
-  (c-mode . rainbow-delimiters-mode)
-  (org-mode . rainbow-delimiters-mode))
+;; (use-package rainbow-delimiters
+;;   :hook (python-mode . rainbow-delimiters-mode)
+;;   (cpp-mode . rainbow-delimiters-mode)
+;;   (c-mode . rainbow-delimiters-mode)
+;;   (org-mode . rainbow-delimiters-mode))
 
 
 (setq org-agenda-prefix-format '((agenda . " %i %-12:c%?-12t% s")
@@ -628,16 +619,18 @@
 (use-package lsp-ivy)
 
 (require 'multiple-cursors)
+(map! :g "C-c d d" #'mc/mark-next-like-this-word)
+(map! :g "C-c d p" #'mc/mark-previous-like-this-word)
+(map! :g "C-c d a" #'mc/mark-all-words-like-this)
+(map! :g "C-c d A" #'mc/mark-all-in-region)
 
 ;; pdf-tools
 (use-package pdf-tools
-  :ensure t
   :init
   (pdf-tools-install))
 
 ;;  Alternative of combany mode auto completion
 ;; (use-package auto-complete
-;;   :ensure t
 ;;   :init
 ;;   (progn
 ;;     (ac-config-default)
@@ -865,7 +858,6 @@
       nil)))
 
 (use-package mu4e
-  :ensure nil
   :config
 
   (require 'mu4e-org)
@@ -971,7 +963,6 @@
 
 
 (use-package org-mime
-  :ensure t
   :config
   (setq org-mime-export-options '(:section-numbers nil
                                   :with-author nil
@@ -1008,3 +999,10 @@
 
 
 ;; (setq! flyspell-issue-message-flag nil)
+
+(use-package yasnippet
+       :init
+       (yas-global-mode 1)
+       :config
+       (setq yas-snippet-dirs '("~/.doom.d/snippets"
+                               "~/Documents/GitHub/dotfiles/org/templates")))

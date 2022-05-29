@@ -1,8 +1,8 @@
 #! /bin/sh
 
 # Restore wallpaper
-bash $HOME/.config/bspwm/.fehbg
-
+#bash $HOME/.config/bspwm/.fehbg
+~/.xmonad/wall_change.sh
 pgrep -x sxhkd > /dev/null || sxhkd &
 $HOME/.config/bspwm/polybar/launch.sh
 

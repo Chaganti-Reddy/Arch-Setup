@@ -1,0 +1,25 @@
+# -*- mode: snippet -*-
+# name: mini
+# uuid:
+# key: mini
+# condition: t
+# --
+#include<bits/stdc++.h>
+using namespace std;
+
+void solve()
+{
+    int ${1:var1};
+    cin >> $1 ;
+}
+
+int main()
+{
+    int t;
+    cin >> t;
+    while(t--)
+    {
+        solve() ;
+    }
+    return 0;
+}
