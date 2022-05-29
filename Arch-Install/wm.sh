@@ -28,8 +28,7 @@ sudo mysql_secure_installation
 sudo corepack enable
 sudo updatedb
 
-paru -S pass-otp ksuperkey zathura zathura-djvu zathura-pdf-mupdf zathura-ps zathura-cb polybar-git qalculate-gtk ttf-icomoon-feather shell-color-scripts stockfish zoxide alacritty-ligatures-git ttf-mononoki visual-studio-code-bin imagemagick qbittorrent brave-bin fisher fnm-bin telegram-desktop-bin nerd-fonts-mononoki zig android-tools android-udev lazygit libxft-bgra nautilus nautilus-admin-git noto-fonts-emoji pamixer prettier screenkey stow tree ttf-joypixels ttf-unifont wireless_tools xbanish stylua xsel picom-jonaburg-git udiskie github-desktop-bin sddm-sugar-candy-git otf-raleway otf-font-awesome otf-font-awesome pop-gtk-theme pop-icon-theme timeshift-bin xmonad xmobar xmonad-contrib nimsuggest-git  graphviz tidy  stylelint auctex-latexmk gromit-mpx gopls gomodifytags gotest gore jq appimagelauncher-git mu mbsync-git betterlockscreen-git 
-
+paru -S pass-otp ksuperkey zathura zathura-djvu zathura-pdf-mupdf zathura-ps zathura-cb polybar-git qalculate-gtk ttf-icomoon-feather shell-color-scripts stockfish zoxide alacritty-ligatures-git ttf-mononoki visual-studio-code-bin imagemagick qbittorrent brave-bin fisher fnm-bin telegram-desktop-bin nerd-fonts-mononoki zig android-tools android-udev lazygit libxft-bgra nautilus nautilus-admin-git noto-fonts-emoji pamixer prettier screenkey stow tree ttf-joypixels ttf-unifont wireless_tools xbanish stylua xsel picom-jonaburg-git udiskie github-desktop-bin otf-raleway otf-font-awesome otf-font-awesome pop-gtk-theme pop-icon-theme timeshift-bin xmonad xmobar xmonad-contrib nimsuggest-git  graphviz tidy  stylelint auctex-latexmk gromit-mpx gopls gomodifytags gotest gore jq appimagelauncher-git mu mbsync-git 
 #yay -S  protonvpn filezilla pamac-all obsidian sublime-text-4 gromit-mpx lightdm-webkit2-greeter newsflash newsflash newsflash raven-reader-bin beekeeper-studio-bin mailspring 
 
 #sudo systemctl enable snapd.service

@@ -326,3 +326,40 @@ May 11 16:34 : player: played "MUS/Ye_Chota_Nuvvunna.mp3"
 May 11 20:27 : player: played "MUS/Ye_Chota_Nuvvunna.mp3"
 May 12 14:33 : player: played "MUS/Ye_Chota_Nuvvunna.mp3"
 May 12 16:15 : player: played "MUS/Ye_Chota_Nuvvunna.mp3"
+May 18 17:49 : exception: Failed to decode /home/reddy/Music/MUS/Ye_Chota_Nuvvunna.mp3; Failed to open '/home/reddy/Music/MUS/Ye_Chota_Nuvvunna.mp3': No such file or directory
+May 18 17:49 : player: played "MUS/Ye_Chota_Nuvvunna.mp3"
+May 19 09:15 : player: played "MUS/Ammaye Challo Antu.mp3"
+May 19 09:18 : player: played "MUS/Kola Kalle Ilaa.mp3"
+May 19 09:22 : player: played "MUS/Beast Mode.mp3"
+May 19 15:03 : player: played "MUS/Gundegilli.mp3"
+May 19 19:34 : player: played "MUS/Gundegilli.mp3"
+May 19 21:53 : player: played "MUS/Gundegilli.mp3"
+May 20 21:21 : player: played "MUS/Gundegilli.mp3"
+May 21 14:16 : player: played "MUS/Gundegilli.mp3"
+WARNING: Unhandled message: interface=org.freedesktop.DBus, path=/org/freedesktop/DBus, member=ActivatableServicesChanged
+WARNING: Unhandled message: interface=org.freedesktop.DBus, path=/org/freedesktop/DBus, member=ActivatableServicesChanged
+WARNING: Unhandled message: interface=org.freedesktop.DBus, path=/org/freedesktop/DBus, member=ActivatableServicesChanged
+WARNING: Unhandled message: interface=org.freedesktop.DBus, path=/org/freedesktop/DBus, member=ActivatableServicesChanged
+WARNING: Unhandled message: interface=org.freedesktop.DBus, path=/org/freedesktop/DBus, member=ActivatableServicesChanged
+WARNING: Unhandled message: interface=org.freedesktop.DBus, path=/org/freedesktop/DBus, member=ActivatableServicesChanged
+WARNING: Unhandled message: interface=org.freedesktop.DBus, path=/org/freedesktop/DBus, member=ActivatableServicesChanged
+May 25 20:20 : player: played "MUS/Gundegilli.mp3"
+May 25 20:23 : player: played "MUS/Gundegilli.mp3"
+May 25 20:40 : player: played "MUS/Gundegilli.mp3"
+May 25 20:45 : player: played "MUS/Gundegilli.mp3"
+May 26 22:33 : player: played "MUS/Gundegilli.mp3"
+May 27 13:38 : player: played "MUS/Gundegilli.mp3"
+May 27 21:42 : player: played "MUS/Gundegilli.mp3"
+May 29 10:23 : player: played "MUS/Gundegilli.mp3"
+WARNING: Unhandled message: interface=org.freedesktop.DBus, path=/org/freedesktop/DBus, member=ActivatableServicesChanged
+WARNING: Unhandled message: interface=org.freedesktop.DBus, path=/org/freedesktop/DBus, member=ActivatableServicesChanged
+WARNING: Unhandled message: interface=org.freedesktop.DBus, path=/org/freedesktop/DBus, member=ActivatableServicesChanged
+May 29 11:05 : player: played "MUS/Gundegilli.mp3"
+May 29 11:43 : player: played "MUS/Gundegilli.mp3"
+May 29 13:14 : player: played "MUS/Gundegilli.mp3"
+May 29 14:38 : player: played "MUS/Gundegilli.mp3"
+May 29 14:48 : player: played "MUS/Gundegilli.mp3"
+May 29 14:55 : player: played "MUS/Gundegilli.mp3"
+May 29 15:48 : player: played "MUS/Gundegilli.mp3"
+May 29 16:30 : player: played "MUS/Gundegilli.mp3"
+May 29 16:33 : player: played "MUS/Gundegilli.mp3"

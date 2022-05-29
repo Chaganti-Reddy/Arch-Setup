@@ -2,7 +2,7 @@
 
 # Restore wallpaper
 #bash $HOME/.config/bspwm/.fehbg
-~/.xmonad/wall_change.sh
+
 pgrep -x sxhkd > /dev/null || sxhkd &
 $HOME/.config/bspwm/polybar/launch.sh
 
@@ -103,7 +103,7 @@ ksuperkey -e 'Super_R=Alt_L|F1' &
 
 # polkit agent
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-/usr/lib/geoclue-2.0/demos/agent &
+#/usr/lib/geoclue-2.0/demos/agent &
 # redshift-gtk &
 ~/.xmonad/startsound.sh &
 # Launch keybindings daemon
@@ -131,3 +131,5 @@ sed -i "s/theme =.*$/theme = \"tokyonight\",/g" $HOME/.config/nvim/lua/chadrc.lu
 # change xfce4-terminal colorscheme
 XFCE_TERM_PATH="$HOME/.config/xfce4/terminal"
 cp "$XFCE_TERM_PATH"/colorschemes/tokyo-night "$XFCE_TERM_PATH"/terminalrc
+
+~/.xmonad/wall_change.sh

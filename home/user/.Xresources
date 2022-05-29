@@ -1,3 +1,8 @@
+! COLORS FOR SXIV
+Sxiv.foreground:   #bbc2cf
+Sxiv.background:   #282c34
+Sxiv.font: Ubuntu:style=bold:size=11
+
 ! Dracula Xresources palette
 *.foreground: #F8F8F2
 *.background: #282A36
