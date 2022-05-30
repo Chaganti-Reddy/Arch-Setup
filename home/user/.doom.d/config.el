@@ -80,7 +80,8 @@
 ;; they are implemented.
 
 (delete-selection-mode t)
-
+(recentf-mode t)
+(save-place-mode t)
 (setq global-prettify-symbols-mode t)
 
 ;; zoom in/out like we do everywhere else.
@@ -121,7 +122,7 @@
 
 (setq minimap-window-location 'right)
 (map! :leader
-      ( :prefix ("t" . "toggle")
+       (:prefix ("t" . "toggle")
         :desc "Toggle minimap-mode" "m" #'minimap-mode))
 (setq confirm-kill-emacs nil)
 (setq evil-insert-state-cursor '(bar "#00FF00")
@@ -159,7 +160,7 @@
 (setq-default neo-show-hidden-files t)
 
 (map! :leader
-      ( :prefix ("t" . "toggle")
+       (:prefix ("t" . "toggle")
         :desc "Toggle NeoTree" "n" #'neotree-toggle))
 
 (map! "C-/" #'comment-line)
@@ -558,9 +559,12 @@
         :desc "Clippy describes function under pointer" "f" #'clippy-describe-function
         :desc "Clippy describes variable under pointer" "v" #'clippy-describe-variable))
 
+(add-to-list 'auto-mode-alist '("\\.R\\'" . ess-r-mode))
+
 (add-hook 'c++-mode-hook #'lsp)
 (add-hook 'python-mode-hook #'lsp)
 (add-hook 'c-mode-hook #'lsp)
+(add-hook 'ess-r-mode-hook #'lsp)
 
 (map! :g "C-c h" #'lsp-headerline-breadcrumb-mode)
 
@@ -582,15 +586,6 @@
 ;;   (c-mode . rainbow-delimiters-mode)
 ;;   (org-mode . rainbow-delimiters-mode))
 
-
-(setq org-agenda-prefix-format '((agenda . " %i %-12:c%?-12t% s")
-         (timeline . "  % s")
-         (todo .
-               " %i %-12:c %(concat \"[ \"(org-format-outline-path (org-get-outline-path)) \" ]\") ")
-         (tags .
-               " %i %-12:c %(concat \"[ \"(org-format-outline-path (org-get-outline-path)) \" ]\") ")
-         (search . " %i %-12:c"))
-      )
 
 (setq lsp-headerline-breadcrumb-segments '(project file symbols))
 (setq lsp-headerline-breadcrumb-icons-enable t)
@@ -974,4 +969,5 @@
        (yas-global-mode 1)
        :config
        (setq yas-snippet-dirs '("~/.doom.d/snippets")))
+
 (setq debug-on-error t)
