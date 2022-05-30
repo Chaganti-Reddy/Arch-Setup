@@ -7,7 +7,7 @@
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
 (setq user-full-name "Chaganti Reddy"
-      user-mail-address "chagantivenkataramireddy1@gmail.com@gmail.com")
+      user-mail-address "chagantivenkataramireddy1@gmail.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -40,7 +40,6 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-
 (setq org-directory "/home/reddy/Documents/GitHub/dotfiles/org")
 (setq org-roam-db-gc-threshold most-positive-fixnum)
 (setq org-agenda-files (directory-files-recursively "/home/reddy/Documents/GitHub/dotfiles/org" "\\.org$"))
@@ -80,7 +79,6 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-
 (delete-selection-mode t)
 
 (setq global-prettify-symbols-mode t)
@@ -93,7 +91,9 @@
 
 (use-package doom-modeline
   :init (doom-modeline-mode 1))
-(use-package haskell-mode)
+
+;; (use-package haskell-mode)
+
 (use-package lua-mode)
 (use-package markdown-mode)
 (use-package org-bullets)
@@ -101,7 +101,6 @@
 (use-package toc-org
   :commands toc-org-enable
   :init (add-hook 'org-mode-hook 'toc-org-enable))
-
 
 ;; (use-package projectile
 ;;   :config
@@ -187,7 +186,6 @@
 (map! :leader
       :desc "Toggle neotree file viewer" "t n" #'neotree-toggle
       :desc "Open directory in neotree" "d n" #'neotree-dir)
-
 
 (defun my/org-mode/load-prettify-symbols ()
   (interactive)
@@ -551,9 +549,9 @@
   :config
   (pyvenv-mode 1))
 
-(require 'eglot)
-(add-to-list 'eglot-server-programs '((cpp-mode) "clangd"))
-(add-hook 'cpp-mode-hook 'eglot-ensure 'lsp)
+;; (require 'eglot)
+;; (add-to-list 'eglot-server-programs '((cpp-mode) "clangd"))
+;; (add-hook 'cpp-mode-hook 'eglot-ensure 'lsp)
 (beacon-mode t)
 (map! :leader
       ( :prefix ("c h" . "Help info from Clippy")
@@ -766,7 +764,7 @@
 					     do
 					     (goto-char (point-min))
 					     (while (re-search-forward doi-pattern nil t)
-					       (pushnew
+					       (cl-pushnew
 						;; Cut off the doi, sometimes
 						;; false matches are long.
 						(cons (format "%40s | %s"
@@ -971,38 +969,9 @@
 
 (map! :g "C-c b" #'+ivy/switch-buffer)
 
-(defun flyspell-on-for-buffer-type ()
-      "Enable Flyspell appropriately for the major mode of the current buffer.  Uses `flyspell-prog-mode' for modes derived from `prog-mode', so only strings and comments get checked.  All other buffers get `flyspell-mode' to check all text.  If flyspell is already enabled, does nothing."
-      (interactive)
-      (if (not (symbol-value flyspell-mode)) ; if not already on
-	(progn
-	  (if (derived-mode-p 'prog-mode)
-	    (progn
-	      (message "Flyspell on (code)")
-	      (flyspell-prog-mode))
-	    ;; else
-	    (progn
-	      (message "Flyspell on (text)")
-	      (flyspell-mode 1)))
-	  ;; I tried putting (flyspell-buffer) here but it didn't seem to work
-	  )))
-
-    (defun flyspell-toggle ()
-      "Turn Flyspell on if it is off, or off if it is on.  When turning on, it uses `flyspell-on-for-buffer-type' so code-vs-text is handled appropriately."
-      (interactive)
-      (if (symbol-value flyspell-mode)
-	  (progn ; flyspell is on, turn it off
-	    (message "Flyspell off")
-	    (flyspell-mode -1))
-	  ; else - flyspell is off, turn it on
-	  (flyspell-on-for-buffer-type)))
-
-
-;; (setq! flyspell-issue-message-flag nil)
-
 (use-package yasnippet
        :init
        (yas-global-mode 1)
        :config
-       (setq yas-snippet-dirs '("~/.doom.d/snippets"
-                               "~/Documents/GitHub/dotfiles/org/templates")))
+       (setq yas-snippet-dirs '("~/.doom.d/snippets")))
+(setq debug-on-error t)

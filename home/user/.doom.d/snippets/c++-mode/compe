@@ -1,21 +1,21 @@
 # -*- mode: snippet -*-
-# name: mini
+# name: compe
 # uuid:
-# key: mini
+# key: compe
 # condition: t
 # --
 #include<bits/stdc++.h>
-using namespace std;
+using namespace std ;
 
 void solve()
 {
-    int ${1:var1};
+    int ${1:var} ;
     cin >> $1 ;
 }
 
 int main()
 {
-    int t;
+    int t=1;
     cin >> t;
     while(t--)
     {

@@ -49,7 +49,6 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
-
 (package! org-bullets)
 (package! haskell-mode)
 (package! lua-mode)

@@ -12,6 +12,7 @@
 * Now we have to generate gpg keys
 ** For that enter (gpg --full-generate-key) and select default options.
 ** Now copy the gpg key at the end lines.
+gpg --list-secret-keys --keyid-format=long
 *** After that enter (pass init 'key')
 ** From there you can inmsert password using (pass insert 'website')
 *** For more commands type (man pass)
