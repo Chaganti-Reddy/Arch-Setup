@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
-# name: compe
+# name: comp
 # uuid:
-# key: compe
+# key: comp
 # condition: t
 # --
 #include<bits/stdc++.h>
