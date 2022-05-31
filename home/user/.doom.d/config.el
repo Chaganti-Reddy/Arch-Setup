@@ -1185,3 +1185,5 @@
        (yas-global-mode 1)
        :config
        (setq yas-snippet-dirs '("~/.doom.d/snippets")))
+
+;; (setq debug-on-error t)

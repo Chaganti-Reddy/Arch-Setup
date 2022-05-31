@@ -3,7 +3,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(elfeed-feeds '("http://planetpython.org/rss20.xml"))
  '(package-selected-packages '(all-the-icons-dired marginalia))
+ '(warning-suppress-log-types '((after-save-hook) (post-command-hook)))
  '(warning-suppress-types '((post-command-hook))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

@@ -68,6 +68,7 @@
 (package! latex-pretty-symbols)
 (package! latex-extra)
 (package! org-dashboard)
+(package! dash)
 (package! info-colors)
 (package! org-pretty-table
   :recipe (:host github :repo "Fuco1/org-pretty-table"))
