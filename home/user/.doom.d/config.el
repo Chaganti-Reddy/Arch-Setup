@@ -34,10 +34,9 @@
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-one)
 (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 17)
-      doom-variable-pitch-font (font-spec :family "Ubuntu" :size 15)
       doom-big-font (font-spec :family "JetBrainsMono Nerd Font" :size 22))
 
-(after! doom-themes
+(after! doom-theme
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t))
 (custom-set-faces!
@@ -808,6 +807,7 @@
 ;;   :config (counsel-projectile-mode))
 
 ;; Latex Settings
+(require 'ivy-bibtex)
 (setq TeX-auto-save t)
 (setq latex-preview-pane-mode t)
 

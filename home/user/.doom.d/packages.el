@@ -104,3 +104,4 @@
 (package! all-the-icons-ibuffer)
 (package! all-the-icons-completion)
 (package! org-fancy-priorities)
+(package! ivy-bibtex)
