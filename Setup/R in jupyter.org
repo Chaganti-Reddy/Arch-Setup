@@ -1,0 +1,13 @@
+#+title: R In Jupyter
+
+* To run R kernel in Jupyter Notebook
+** First Install R and Jupyter Notebook, Then open R terminal and install ...
+
+#+begin_src r
+install.packages("languageserver")
+install.packages(c("repr", "IRdisplay", "evaluate", "crayon", "pbdZMQ", "devtools", "uuid", "digest"))
+install.packages("IRkernel")
+IRkernel::installspec()
+#+end_src
+
+*** That's it R kernel is added to Jupyter Notebook...
