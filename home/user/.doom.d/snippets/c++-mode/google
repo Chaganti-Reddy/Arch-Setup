@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 # name: google
 # uuid:
-# key: google
+# key: gog
 # condition: t
 # --
 #pragma clang diagnostic ignored "-Wunused-variable"

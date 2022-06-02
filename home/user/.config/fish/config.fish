@@ -215,6 +215,14 @@ function ctime --argument file
   time ./$file
 end
 
+function mosscc --argument file1 file2
+  perl -i moss.pl -l cc $file1 $file2
+end
+
+function mosspy --argument file1 file2
+  perl -i moss.pl -l python $file1 $file2
+end
+
 ### END OF FUNCTIONS ###
 
 

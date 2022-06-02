@@ -1004,6 +1004,9 @@
          (lsp-mode . lsp-headerline-breadcrumb-mode)
          (lsp-mode . lsp-modeline-code-actions-mode )))
 
+(cl-defmethod lsp-execute-command
+((_server (eql ccls)) (command (eql ccls.xref)) arguments))
+
 ;; (use-package rainbow-delimiters
 ;;   :hook (python-mode . rainbow-delimiters-mode)
 ;;   (cpp-mode . rainbow-delimiters-mode)

@@ -59,3 +59,11 @@ function ctime(){
   g++ -std=c++17 $1".cpp" -o $1; 
   time ./$1
 }
+
+function mosscc(){
+  perl -i moss.pl -l cc $1 $2
+}
+
+function mosspy(){
+  perl -i moss.pl -l python $1 $2
+}
