@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: cina
+# uuid: 3
+# key: cina
+# condition: t
+# --
+for(int i=0;i <n;++i)
+{
+    cin >> a[i] ;
+}
