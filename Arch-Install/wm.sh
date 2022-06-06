@@ -49,7 +49,7 @@ pip install pandas seaborn keras numpy tensorflow imutils matplotlib scikit-lear
 # install.packages("languageserver")
 # install.packages("httpgd")
 # install.packages("jsonlite")
-pip install "jupyterlab>=3" "ipywidgets>=7.6" jupyter-dash kaleido dash
+pip install "jupyterlab>=3" "ipywidgets>=7.6" jupyter-dash kaleido dash yellowbrick tqdm cufflinks
 paru -S js-beautify
 
 printf "\e[1;32mCHANGE NECESSARY FILES BEFORE REBOOT\e[0m"
