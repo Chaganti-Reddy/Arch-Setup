@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+options=("DoomOne"
+"Dracula"
+"GruvboxDark"
+"MonokaiPro"
+"Nord"
+"OceanicNext"
+"Palenight"
+"SolarizedDark"
+"SolarizedLight"
+"TomorrowNight")
+
+choice=$(printf '%s\n' "${options[@]}" | rofi -dmenu -i -p 'Arch Wiki Docs: ' "${@}")
+
+if [ "$choice" ]; then
+    sed  -i "s/import Colors.*/import Colors.$choice/g" "$HOME"/.xmonad/README.org || echo "Cannot modify README.org"
+    sed  -i "s/import Colors.*/import Colors.$choice/g" "$HOME"/.xmonad/xmonad.hs || echo "Cannot modify xmonad.hs"
+    xmonad --restart
+
+
+# DOOM EMACS
+
+# What to do if we just escape without choosing anything.
+else
+  echo "Program terminated." && exit 0
+fi
