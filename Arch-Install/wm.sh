@@ -5,10 +5,10 @@ sudo pacman -Syy
 
 echo "MAIN PACKAGES"
 
-sudo pacman -S neovim emacs clang lolcat exa gnome-chess fish bash-completion flameshot ueberzug tcl tk ranger fzf wget curl npm nodejs bspwm sxhkd pandoc nitrogen lxappearance arandr alsa-utils pulseaudio pulseaudio-alsa pavucontrol dina-font tamsyn-font ttf-bitstream-vera ttf-croscore ttf-dejavu ttf-droid gnu-free-fonts ttf-ibm-plex ttf-liberation ttf-linux-libertine noto-fonts ttf-roboto tex-gyre-fonts ttf-ubuntu-font-family ttf-anonymous-pro ttf-cascadia-code ttf-fantasque-sans-mono ttf-fira-mono ttf-hack ttf-fira-code ttf-inconsolata ttf-jetbrains-mono ttf-monofur adobe-source-code-pro-fonts cantarell-fonts inter-font ttf-opensans gentium-plus-font ttf-junicode adobe-source-han-sans-otc-fonts adobe-source-han-serif-otc-fonts noto-fonts-cjk noto-fonts-emoji ttf-font-awesome awesome-terminal-fonts rofi mpc mpd ncmpcpp polkit-gnome dunst pacman-contrib bluez bluez-utils qemu virt-manager python python-pip python-wheel ebtables starship iwd htop lua xclip neofetch mariadb ripgrep fd swtpm bat hwinfo rofi-emoji rofimoji rofi-calc expac baobab gnome-disk-utility python-pywal sxiv feh amfora sddm texlive-most texlive-lang yad discord vlc libreoffice-fresh python-pylint python-flake8-docstrings numlockx arch-wiki-docs avidemux-qt
+sudo pacman -S neovim emacs clang lolcat exa gnome-chess fish bash-completion flameshot ueberzug tcl tk ranger fzf wget curl npm nodejs bspwm sxhkd pandoc nitrogen lxappearance arandr alsa-utils pulseaudio pulseaudio-alsa pavucontrol dina-font tamsyn-font ttf-bitstream-vera ttf-croscore ttf-dejavu ttf-droid gnu-free-fonts ttf-ibm-plex ttf-liberation ttf-linux-libertine noto-fonts ttf-roboto tex-gyre-fonts ttf-ubuntu-font-family ttf-anonymous-pro ttf-cascadia-code ttf-fantasque-sans-mono ttf-fira-mono ttf-hack ttf-fira-code ttf-inconsolata ttf-jetbrains-mono ttf-monofur adobe-source-code-pro-fonts cantarell-fonts inter-font ttf-opensans gentium-plus-font ttf-junicode adobe-source-han-sans-otc-fonts adobe-source-han-serif-otc-fonts noto-fonts-cjk noto-fonts-emoji ttf-font-awesome awesome-terminal-fonts rofi mpc mpd ncmpcpp polkit-gnome dunst pacman-contrib bluez bluez-utils qemu virt-manager python python-pip python-wheel ebtables starship iwd htop lua xclip neofetch mariadb ripgrep fd swtpm bat hwinfo rofi-emoji rofimoji rofi-calc expac baobab gnome-disk-utility python-pywal sxiv feh amfora sddm texlive-most texlive-lang yad discord vlc libreoffice-fresh python-pylint numlockx arch-wiki-docs avidemux-qt
 
 # sudo pacman -S xfce4-terminal zsh xfce4-power-manager feh cronie lightdm kitty jq volumeicon languagetool ifuse i3-gaps r
-sudo pacman -S acpilight cabal-install ccls haskell-language-server hoogle qt5ct kvantum-qt5 pass rofi-pass php pwgen python-black python-pyflakes python-isort python-pipenv python-pytest shellcheck  trayer nim ncdu mlocate inotify-tools dash mplayer ispell jdk-openjdk jre-openjdk hsetroot r
+sudo pacman -S acpilight qt5ct kvantum-qt5 pass rofi-pass php pwgen python-black python-pyflakes python-isort python-pipenv python-pytest shellcheck  trayer nim ncdu mlocate mplayer ispell jdk-openjdk jre-openjdk hsetroot r
 
 # sudo systemctl enable lightdm
 sudo systemctl enable sddm
@@ -49,7 +49,7 @@ pip install pandas seaborn keras numpy tensorflow imutils matplotlib scikit-lear
 # install.packages("languageserver")
 # install.packages("httpgd")
 # install.packages("jsonlite")
-pip install "jupyterlab>=3" "ipywidgets>=7.6" jupyter-dash kaleido dash yellowbrick tqdm cufflinks
+pip install "jupyterlab>=3" "ipywidgets>=7.6" jupyter-dash kaleido yellowbrick tqdm cufflinks
 paru -S js-beautify
 
 printf "\e[1;32mCHANGE NECESSARY FILES BEFORE REBOOT\e[0m"
