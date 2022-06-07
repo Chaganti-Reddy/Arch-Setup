@@ -15,5 +15,16 @@
 gpg --list-secret-keys --keyid-format=long
 *** After that enter (pass init 'key')
 ** From there you can inmsert password using (pass insert 'website')
+
+You can also insert user name and all like below 
+
+#+begin_quote
+YwrZSNH35z164ym9pI
+URL: *.amazon.com/*
+Username: AmazonianChicken@example.com
+Secret Question 1: What is your childhood best friend's most bizarre superhero fantasy? Oh god, Amazon, it's too awful to say...
+Phone Support PIN #: 84719
+#+end_quote
+
 *** For more commands type (man pass)
 *** You can type rofi-pass fro list of passwords
