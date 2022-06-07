@@ -1,9 +1,0 @@
-
-lib/Colors/DoomOne.hs:3:1: error:
-    Could not find module ‘XMonad’
-    Perhaps you meant
-      DsMonad (from ghc-api-compat-8.6.1, reexporting ghc-9.0.2:GHC.HsToCore.Monad)
-    Use -v (or `:set -v` in ghci) to see a list of the files searched for.
-  |
-3 | import XMonad
-  | ^^^^^^^^^^^^^

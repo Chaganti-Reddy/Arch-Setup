@@ -422,6 +422,8 @@ myKeys =
         , ("M-C-n", spawn (myTerminal ++ " -e ncmpcpp"))
         , ("M-p", spawn ("rofi -show p -modi p:~/.local/bin/rofi-power-menu"))
         , ("M1-w", spawn ("~/.local/bin/arch-wiki"))
+        , ("M1-e", spawn ("rofi -show emoji"))
+        , ("M1-t", spawn ("~/.local/bin/dtos-colorscheme"))
         , ("M-S-p", spawn ("rofi-pass"))
         , ("M1-<Tab>", spawn ("rofi -show window"))
         , ("M-<F10>", spawn ("xbacklight -dec 5"))
