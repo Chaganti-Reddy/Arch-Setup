@@ -427,6 +427,7 @@ myKeys =
         , ("M-<F10>", spawn ("xbacklight -dec 5"))
         , ("M-<F11>", spawn ("xbacklight -inc 5"))
         , ("M-S-s", spawn ("flameshot gui"))
+        , ("M-s e", spawn ("rofi -show emoji"))
 
 
     -- KB_GROUP Kill windows

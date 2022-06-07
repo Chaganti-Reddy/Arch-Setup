@@ -1,5 +1,5 @@
 configuration {
-	modi: "window,combi,ssh,drun";
+	modi: "window,combi,ssh,drun,emoji";
 	width: 800;
 	lines: 10;
 	columns: 2;
