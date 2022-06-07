@@ -618,6 +618,7 @@
   (xterm-mouse-mode 1)
 
 ;; NEOTREE
+
 (after! neotree
   (setq neo-smart-open t
         neo-window-fixed-size nil))
@@ -979,9 +980,9 @@
   :config
   (pyvenv-mode 1))
 
-;; (require 'eglot)
-;; (add-to-list 'eglot-server-programs '((cpp-mode) "clangd"))
-;; (add-hook 'cpp-mode-hook 'eglot-ensure 'lsp)
+(require 'eglot)
+(add-to-list 'eglot-server-programs '((cpp-mode) "clangd"))
+(add-hook 'cpp-mode-hook 'eglot-ensure 'lsp)
 
 ;; (add-to-list 'auto-mode-alist '("\\.R\\'" . ess-r-mode))
 
