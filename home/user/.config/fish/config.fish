@@ -410,6 +410,8 @@ alias doc="cd ~/Documents/"
 alias sql="sudo mysql -u DSAI -p"
 alias precompile="sudo g++ -std=c++17 stdc++.h"
 alias grub="svi /etc/default/grub"
+alias gpgkeys="gpg --list-secret-keys --keyid-format=long"
+alias lock="betterlockscreen -l"
 
 ## Starship prompt
 if status --is-interactive
