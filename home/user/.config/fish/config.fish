@@ -412,6 +412,7 @@ alias precompile="sudo g++ -std=c++17 stdc++.h"
 alias grub="svi /etc/default/grub"
 alias gpgkeys="gpg --list-secret-keys --keyid-format=long"
 alias lock="betterlockscreen -l"
+alias activate="source my_env/bin/activate.fish"
 
 ## Starship prompt
 if status --is-interactive
