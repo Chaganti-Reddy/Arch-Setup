@@ -121,7 +121,7 @@
 (map! "C-a" #'mark-whole-buffer)
 (map! :after evil :gnvi "C-f" #'consult-line)
 (map! :g "C-c b" #'+ivy/switch-buffer)
-
+(setq! word-wrap t)
 
 ;; Vertico
 (use-package vertico
