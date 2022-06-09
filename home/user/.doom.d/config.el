@@ -745,13 +745,22 @@
  'org-babel-load-languages
  '((plantuml . t))) ; this line activates plantuml
 
+(add-to-list
+  'org-src-lang-modes '("plantuml" . plantuml))
+;; in org mode
+;; #+BEGIN_SRC plantuml
+  ;; <hit C-c ' here to open a plantuml-mode buffer>
+;; #+END_SRC
+
+(add-to-list 'auto-mode-alist '("\\.plantuml\\'" . plantuml-mode))
+
 ;; Sample jar configuration
-(setq plantuml-jar-path "~/Documents/GitHub/dotfiles/org/plantuml.jar")
-(setq plantuml-default-exec-mode 'jar)
+(setq org-plantuml-jar-path "~/Documents/GitHub/dotfiles/org/plantuml.jar")
+(setq org-plantuml-exec-mode 'jar)
 
 ;; Sample executable configuration
-(setq plantuml-executable-path "/usr/bin/plantuml")
-(setq plantuml-default-exec-mode 'executable)
+(setq org-plantuml-executable-path "/usr/bin/plantuml")
+;; (setq plantuml-default-exec-mode 'executable)
 
 ;; ORG-MODE SHORTCUTS
 
