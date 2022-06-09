@@ -1,0 +1,16 @@
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
+#+REVEAL_HLEVEL: 1
+#+REVEAL: split
+#+REVEAL_THEME: league
+# Themes : black | white | beige | blood | league | moon | night | serif | simple | sky | solarized
+#+REVEAL_EXTRA_CSS: style.css
+#+REVEAL_TITLE_SLIDE: <h1>%t</h1> <p>%s</p> <h3>%a</h3>
+# #+REVEAL_TITLE_SLIDE_STATE: <section data-state="make-it-pop" />
+#+REVEAL_PLUGINS: (markdown notes zoom)
+#+OPTIONS: toc:nil
+:PROPERTIES:
+:reveal_background_iframe: https://hakim.se
+:reveal_background: rgb(0,0,0)
+:reveal_background_opacity: 0.8
+:END:
+#+REVEAL_INIT_OPTIONS: slideNumber:true

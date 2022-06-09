@@ -108,3 +108,7 @@
 (package! skewer-mode)
 (package! org-mind-map)
 (package! plantuml-mode)
+(package! ox-reveal)
+(package! org-autolist)
+(package! ob-ipython)
+(package! ob-async)

@@ -122,6 +122,19 @@
 (map! :after evil :gnvi "C-f" #'consult-line)
 (map! :g "C-c b" #'+ivy/switch-buffer)
 (setq! word-wrap t)
+;; remove backup files (e.g. README.md~)
+(setq make-backup-files nil)
+;; Shift-arrow to swith windows
+(windmove-default-keybindings)
+
+
+  ;; Use cmd key for meta
+  ;; https://superuser.com/questions/297259/set-emacs-meta-key-to-be-the-mac-key
+  ;; (setq mac-option-key-is-meta nil
+  ;;       mac-command-key-is-meta t
+  ;;       mac-command-modifier 'meta
+  ;;       mac-option-modifier 'super)
+
 
 ;; Vertico
 (use-package vertico
@@ -535,7 +548,7 @@
 
 ;; EWW
 ;; EWW is the Emacs Web Wowser, the builtin browser in Emacs.  Below I set urls to open in a specific browser (eww) with browse-url-browser-function.  By default, Doom Emacs does not use ‘SPC e’ for anything, so I choose to use the format ‘SPC e’ plus ‘key’ for these (I also use ‘SPC e’ for ‘eval’ keybindings).  I chose to use ‘SPC s w’ for eww-search-words because Doom Emacs uses ‘SPC s’ for ‘search’ commands
-(setq browse-url-browser-function 'eww-browse-url)
+;; (setq browse-url-browser-function 'eww-browse-url)
 (map! :leader
       :desc "Search web for text between BEG/END"
       "s w" #'eww-search-words
@@ -594,6 +607,55 @@
  '(markdown-header-face-1 ((t (:inherit markdown-header-face :height 1.8))))
  '(markdown-header-face-2 ((t (:inherit markdown-header-face :height 1.4))))
  '(markdown-header-face-3 ((t (:inherit markdown-header-face :height 1.2)))))
+
+(add-to-list 'load-path (expand-file-name "~/.doom.d/emacs-livedown"))
+(require 'livedown)
+
+(custom-set-variables
+ '(livedown-autostart nil) ; automatically open preview when opening markdown files
+ '(livedown-open t)        ; automatically open the browser window
+ '(livedown-port 1337)     ; port for livedown server
+ '(livedown-browser "brave"))  ; browser to use
+
+(use-package markdown-mode
+  :ensure t
+  :mode ("\\.md\\'" . gfm-mode)
+  :commands (markdown-mode gfm-mode)
+  :config
+  (setq markdown-command "pandoc --standalone --mathjax -f markdown -t html5"))
+
+(use-package simple-httpd
+  :ensure t
+  :config
+  (setq httpd-port 7070)
+  (setq httpd-host (system-name)))
+
+(use-package impatient-mode
+  :ensure t
+  :commands impatient-mode)
+
+;; (setq browse-url-browser-function 'browse-url-generic
+      ;; browse-url-generic-program "brave")
+(setq browse-url-browser-function 'browse-url-default-browser)
+
+(defun my-markdown-filter (buffer)
+  (princ
+   (with-temp-buffer
+     (let ((tmp (buffer-name)))
+       (set-buffer buffer)
+       (set-buffer (markdown tmp))
+       (format "<!DOCTYPE html><html><title>Markdown preview</title><link rel=\"stylesheet\" href = \"https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/3.0.1/github-markdown.min.css\"/>
+<body><article class=\"markdown-body\" style=\"box-sizing: border-box;min-width: 200px;max-width: 980px;margin: 0 auto;padding: 45px;\">%s</article></body></html>" (buffer-string))))
+   (current-buffer)))
+
+(defun my-markdown-preview ()
+  "Preview markdown."
+  (interactive)
+  (unless (process-status "httpd")
+    (httpd-start))
+  (impatient-mode)
+  (imp-set-user-filter 'my-markdown-filter)
+  (imp-visit-buffer))
 
 ;; Minimap
 (setq minimap-window-location 'right)
@@ -683,7 +745,12 @@
 (add-hook 'org-mode-hook 'my/org-mode/load-prettify-symbols)
 
 (setq org-ellipsis " ")
-;; (add-hook 'org-agenda-mode-hook 'org-fancy-priorities-mode)
+(use-package org-fancy-priorities
+  :diminish
+  ;; :ensure t
+  :hook (org-mode . org-fancy-priorities-mode)
+  :config
+  (setq org-fancy-priorities-list '("🅰" "🅱" "🅲" "🅳" "🅴")))
 
 ;; Set font sizes for each header level in Org
 (custom-set-faces
@@ -698,6 +765,17 @@
 (require 'ox-md)
 (require 'ob-js)
 
+(setq org-src-preserve-indentation t)
+
+;; ob-async isn't tied to src blocks in a specific org-babel language. Simply add the keyword :async to the header-args of any org-babel src block and invoke ob-async-org-babel-execute-src-block
+(use-package ob-async)
+(use-package ob-ipython)
+
+(setq org-export-backends '(ascii html md icalendar latex odt man texinfo))
+
+(with-eval-after-load 'org
+  (setq word-wrap t))
+
 (org-babel-do-load-languages
  'org-babel-load-languages
  '(
@@ -709,14 +787,6 @@
 (add-hook 'css-mode-hook 'skewer-css-mode)
 (add-hook 'html-mode-hook 'skewer-html-mode)
 
-;; This makes markdwon preview beautiful in browser
-;; First open markdown file then start http server by typing M-X httpd-start and then use impatient mode by typing M-X impatient-mode
-;; Now type M-X imp-set-user-filter then search for markdown-html and press enter that's it.
-(defun markdown-html (buffer)
-  (princ (with-current-buffer buffer
-           (format "<!DOCTYPE html><html><title>Impatient Markdown</title><xmp theme=\"united\" style=\"display:none;\"> %s  </xmp><script src=\"http://strapdownjs.com/v/0.2/strapdown.js\"></script></html>" (buffer-substring-no-properties (point-min) (point-max))))
-         (current-buffer)))
-
 ;; ORG-MIND-MAP
 ;; This is a beautiful package that creates a  kind map from our org-file using heading and sub-headings
 
@@ -725,9 +795,7 @@
 (use-package org-mind-map
   :init
   (require 'ox-org)
-  :ensure t
-  ;; Uncomment the below if 'ensure-system-packages` is installed
-  ;;:ensure-system-package (gvgen . graphviz)
+  ;; :ensure t
   :config
   (setq org-mind-map-engine "dot")       ; Default. Directed Graph
   ;; (setq org-mind-map-engine "neato")  ; Undirected Spring Graph
@@ -739,6 +807,11 @@
   )
 ;; After writing in org-file then type M-X org-mind-map-write within the org-mode file you would like to make a mind-map for. If all works as expected, a PDF file will be generated in the same directory as the org file.
 ;; For more details goto org in my dotfiles and check the folder org-mind-map
+
+(use-package org-autolist
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-autolist-mode)))
+  )
 
 ;; PLANTUML mode for flowcharts
 (org-babel-do-load-languages
@@ -826,6 +899,21 @@
 (map! :g "C-c n d f"  #'org-roam-dailies-goto-previous-note)
 (map! :g "C-c n d b"  #'org-roam-dailies-goto-next-note)
 
+;; ORG SUPER AGENDA
+
+;; (use-package org-super-agenda
+;;   :defer 2
+;;   :config
+;;   (org-super-agenda-mode)
+;;   )
+
+;; (setq org-super-agenda-groups
+;;        '((:auto-category t)))
+
+;; (let ((org-super-agenda-groups
+;;        '((:auto-category t))))
+;;   (org-agenda-list))
+
 ;; SHELLS
 (use-package vterm)
 (setq shell-file-name "/bin/bash"
@@ -897,6 +985,7 @@
 
 (add-to-list 'org-file-apps '("\\.pdf" . "zathura %s"))
 (add-to-list 'org-file-apps '("\\.html" . "brave %s"))
+(add-to-list 'org-file-apps '("\\.md" . "brave %s"))
 
 ;;correlate
 (server-start)
@@ -1014,12 +1103,19 @@
   (org-tree-slide-breadcrumbs " > ")
   (org-image-actual-width nil))
 
+(require 'ox-reveal)
+;; (setq org-reveal-root "http://cdn.jsdelivr.net/reveal.js/3.0.0/")
+
+(use-package htmlize
+  ;; :ensure t
+  )
+
 (defun markdown-convert-buffer-to-org ()
-    "Convert the current buffer's content from markdown to orgmode format and save it with the current buffer's file name but with .org extension."
-    (interactive)
-    (shell-command-on-region (point-min) (point-max)
-                             (format "pandoc -f markdown -t org -o %s"
-                                     (concat (file-name-sans-extension (buffer-file-name)) ".org"))))
+  "Convert the current buffer's content from markdown to orgmode format and save it with the current buffer's file name but with .org extension."
+  (interactive)
+  (shell-command-on-region (point-min) (point-max)
+                           (format "pandoc -f markdown -t org -o %s"
+                                   (concat (file-name-sans-extension (buffer-file-name)) ".org"))))
 
 (use-package! org-pandoc-import :after org)
 
@@ -1053,6 +1149,15 @@
 (require 'eglot)
 (add-to-list 'eglot-server-programs '((cpp-mode) "clangd"))
 (add-hook 'cpp-mode-hook 'eglot-ensure 'lsp)
+
+;; For python
+(add-hook 'python-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+;; julia
+;; (add-hook 'julia-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+;; For Javascript
+(add-hook 'js2-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+;; ;; For ruby
+;; (add-hook 'ruby-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
 
 ;; (add-to-list 'auto-mode-alist '("\\.R\\'" . ess-r-mode))
 
@@ -1102,6 +1207,32 @@
   (setq lsp-ui-doc-position 'bottom-and-right)
   (setq lsp-ui-sideline-toggle-symbols-info t))
 
+
+;; Display errors and warnings in an org-mode code block instead of seperate buffer.
+
+ (defvar org-babel-eval-verbose t
+    "A non-nil value makes `org-babel-eval' display")
+
+  (defun org-babel-eval (cmd body)
+    "Run CMD on BODY.
+  If CMD succeeds then return its results, otherwise display
+  STDERR with `org-babel-eval-error-notify'."
+    (let ((err-buff (get-buffer-create " *Org-Babel Error*")) exit-code)
+      (with-current-buffer err-buff (erase-buffer))
+      (with-temp-buffer
+        (insert body)
+        (setq exit-code
+              (org-babel--shell-command-on-region
+               (point-min) (point-max) cmd err-buff))
+        (if (or (not (numberp exit-code)) (> exit-code 0)
+                (and org-babel-eval-verbose (> (buffer-size err-buff) 0))) ; new condition
+            (progn
+              (with-current-buffer err-buff
+                (org-babel-eval-error-notify exit-code (buffer-string)))
+              nil)
+          (buffer-string)))))
+
+  (setq org-babel-eval-verbose t)
 
 (use-package lsp-treemacs
   :after lsp)
@@ -1261,3 +1392,71 @@
        (setq yas-snippet-dirs '("~/.doom.d/snippets")))
 
 ;; (setq debug-on-error t)
+
+;; Rename File and Buffer
+;; source: http://steve.yegge.googlepages.com/my-dot-emacs-file
+(defun rename-file-and-buffer (new-name)
+  "Renames both current buffer and file it's visiting to NEW-NAME."
+  (interactive "sNew name: ")
+  (let ((name (buffer-name))
+        (filename (buffer-file-name)))
+    (if (not filename)
+        (message "Buffer '%s' is not visiting a file!" name)
+      (if (get-buffer new-name)
+          (message "A buffer named '%s' already exists!" new-name)
+        (progn
+          (rename-file filename new-name 1)
+          (rename-buffer new-name)
+          (set-visited-file-name new-name)
+          (set-buffer-modified-p nil))))))
+
+;; Embed Local Video
+;; Adapted from this method: http://endlessparentheses.com/embedding-youtube-videos-with-org-mode-links.html. [[mv:movie.mp4]] will export a html5 video.
+
+;; (defvar mv-iframe-format
+;;   ;; You may want to change your width and height.
+;;   (concat "<video"
+;;           " height=\"500\""
+;;           " style=\"display:block; margin: 0 auto;\" controls>"
+;;           " <source"
+;;           " src=\"%s\""
+;;           " type=\"video/mp4\">"
+;;           "</video>"))
+
+;; (org-add-link-type
+;;  "mv"
+;;  (lambda (handle)
+;;    (browse-url
+;;     (concat "https://www.youtube.com/embed/"
+;;             handle)))
+;;  (lambda (path desc backend)
+;;    (cl-case backend
+;;      (html (format mv-iframe-format
+;;                    path (or desc "")))
+;;      (latex (format "\href{%s}{%s}"
+;;                     path (or desc "video"))))))
+
+;; Embed Audio
+
+;; (defvar audio-iframe-format
+;;   ;; You may want to change your width and height.
+;;   (concat "<iframe"
+;;           " width=\"600\""
+;;           " height=\"60\""
+;;           " style=\"display:block; margin: 0\""
+;;           " src=\"%s\">"
+;;           "</iframe>"))
+
+;; (org-add-link-type
+;;  "audio"
+;;  (lambda (handle)
+;;    (browse-url
+;;     (concat "https://www.youtube.com/embed/"
+;;             handle)))
+;;  (lambda (path desc backend)
+;;    (cl-case backend
+;;      (html (format audio-iframe-format
+;;                    path (or desc "")))
+;;      (latex (format "\href{%s}{%s}"
+;;                     path (or desc "audio"))))))
+
