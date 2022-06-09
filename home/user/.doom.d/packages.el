@@ -105,3 +105,6 @@
 (package! all-the-icons-completion)
 (package! org-fancy-priorities)
 (package! ivy-bibtex)
+(package! skewer-mode)
+(package! org-mind-map)
+(package! plantuml-mode)

@@ -698,6 +698,66 @@
 (require 'ox-md)
 (require 'ob-js)
 
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '(
+   (js . t)
+   (ipython . t)
+   (jupyter-python . t)
+   ))
+
+(add-hook 'css-mode-hook 'skewer-css-mode)
+(add-hook 'html-mode-hook 'skewer-html-mode)
+
+;; This makes markdwon preview beautiful in browser
+;; First open markdown file then start http server by typing M-X httpd-start and then use impatient mode by typing M-X impatient-mode
+;; Now type M-X imp-set-user-filter then search for markdown-html and press enter that's it.
+(defun markdown-html (buffer)
+  (princ (with-current-buffer buffer
+           (format "<!DOCTYPE html><html><title>Impatient Markdown</title><xmp theme=\"united\" style=\"display:none;\"> %s  </xmp><script src=\"http://strapdownjs.com/v/0.2/strapdown.js\"></script></html>" (buffer-substring-no-properties (point-min) (point-max))))
+         (current-buffer)))
+
+;; ORG-MIND-MAP
+;; This is a beautiful package that creates a  kind map from our org-file using heading and sub-headings
+
+;; This is an Emacs package that creates graphviz directed graphs from
+;; the headings of an org file
+(use-package org-mind-map
+  :init
+  (require 'ox-org)
+  :ensure t
+  ;; Uncomment the below if 'ensure-system-packages` is installed
+  ;;:ensure-system-package (gvgen . graphviz)
+  :config
+  (setq org-mind-map-engine "dot")       ; Default. Directed Graph
+  ;; (setq org-mind-map-engine "neato")  ; Undirected Spring Graph
+  ;; (setq org-mind-map-engine "twopi")  ; Radial Layout
+  ;; (setq org-mind-map-engine "fdp")    ; Undirected Spring Force-Directed
+  ;; (setq org-mind-map-engine "sfdp")   ; Multiscale version of fdp for the layout of large graphs
+  ;; (setq org-mind-map-engine "twopi")  ; Radial layouts
+  ;; (setq org-mind-map-engine "circo")  ; Circular Layout
+  )
+;; After writing in org-file then type M-X org-mind-map-write within the org-mode file you would like to make a mind-map for. If all works as expected, a PDF file will be generated in the same directory as the org file.
+;; For more details goto org in my dotfiles and check the folder org-mind-map
+
+;; PLANTUML mode for flowcharts
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((plantuml . t))) ; this line activates plantuml
+
+;; Sample jar configuration
+(setq plantuml-jar-path "~/Documents/GitHub/dotfiles/org/plantuml.jar")
+(setq plantuml-default-exec-mode 'jar)
+
+;; Sample executable configuration
+(setq plantuml-executable-path "/usr/bin/plantuml")
+(setq plantuml-default-exec-mode 'executable)
+
+;; ORG-MODE SHORTCUTS
+
+;; (add-to-list 'org-structure-template-alist
+;; '("s" "#+NAME: ?\n-----\n#+BEGIN_SRC \n\n#+END_SRC\n-----"))
+
 ;; Org-Journal
 (setq org-journal-dir "~/nc/Org/journal/"
       org-journal-date-prefix "* "
@@ -827,6 +887,7 @@
          )))
 
 (add-to-list 'org-file-apps '("\\.pdf" . "zathura %s"))
+(add-to-list 'org-file-apps '("\\.html" . "brave %s"))
 
 ;;correlate
 (server-start)

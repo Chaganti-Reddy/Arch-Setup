@@ -1,0 +1,18 @@
+# -*- mode: snippet -*-
+# name: a2code
+# uuid:
+# key: a2code
+# condition: t
+# --
+#include<bits/stdc++.h>
+using namespace std ;
+
+int main()
+{
+    int t=1 ;
+    // cin >> t;
+    while(t--)
+    {
+        $1
+    }
+}
