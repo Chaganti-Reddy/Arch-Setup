@@ -776,14 +776,6 @@
 (with-eval-after-load 'org
   (setq word-wrap t))
 
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '(
-   (js . t)
-   (ipython . t)
-   (jupyter-python . t)
-   ))
-
 (add-hook 'css-mode-hook 'skewer-css-mode)
 (add-hook 'html-mode-hook 'skewer-html-mode)
 
@@ -814,9 +806,6 @@
   )
 
 ;; PLANTUML mode for flowcharts
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((plantuml . t))) ; this line activates plantuml
 
 (add-to-list
   'org-src-lang-modes '("plantuml" . plantuml))
@@ -1128,6 +1117,9 @@
  'org-babel-load-languages
  '((python . t)
    (js . t)
+   (plantuml . t)
+   (ipython . t)
+   (jupyter . t)
    (R . t)))
 
 ;; Programming
@@ -1196,6 +1188,31 @@
   :after lsp-mode
   :hook (lsp-mode . company-mode))
 
+(add-to-list 'company-backends 'company-ob-ipython)
+(defun ob-ipython--collect-json ()
+  ;; hacks here
+  (when (re-search-forward "{" nil t)
+    (backward-char))
+  ;; hacks end
+  (let ((json-array-type 'list))
+    (let (acc)
+      (while (not (= (point) (point-max)))
+        (setq acc (cons (json-read) acc))
+        (forward-line))
+      (nreverse acc))))
+
+(advice-add 'ob-ipython--collect-json :before
+            (lambda (&rest args)
+              (when (re-search-forward "{" nil t)
+                (backward-char))))
+
+;; (setq ob-ipython-command "~/.local/bin/jupyter")
+
+(setq org-confirm-babel-evaluate nil)   ;don't prompt me to confirm everytime I want to evaluate a block
+(add-to-list 'org-latex-minted-langs '(ipython "python"))
+;;; display/update images in the buffer after I evaluate
+(add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append)
+
 (use-package company-box
   :hook (company-mode . company-box-mode))
 
@@ -1208,31 +1225,31 @@
   (setq lsp-ui-sideline-toggle-symbols-info t))
 
 
-;; Display errors and warnings in an org-mode code block instead of seperate buffer.
+;; Display errors and warnings in an org-mode in seperate buffer.
 
- (defvar org-babel-eval-verbose t
-    "A non-nil value makes `org-babel-eval' display")
+(defvar org-babel-eval-verbose t
+  "A non-nil value makes `org-babel-eval' display")
 
-  (defun org-babel-eval (cmd body)
-    "Run CMD on BODY.
+(defun org-babel-eval (cmd body)
+  "Run CMD on BODY.
   If CMD succeeds then return its results, otherwise display
   STDERR with `org-babel-eval-error-notify'."
-    (let ((err-buff (get-buffer-create " *Org-Babel Error*")) exit-code)
-      (with-current-buffer err-buff (erase-buffer))
-      (with-temp-buffer
-        (insert body)
-        (setq exit-code
-              (org-babel--shell-command-on-region
-               (point-min) (point-max) cmd err-buff))
-        (if (or (not (numberp exit-code)) (> exit-code 0)
-                (and org-babel-eval-verbose (> (buffer-size err-buff) 0))) ; new condition
-            (progn
-              (with-current-buffer err-buff
-                (org-babel-eval-error-notify exit-code (buffer-string)))
-              nil)
-          (buffer-string)))))
+  (let ((err-buff (get-buffer-create " *Org-Babel Error*")) exit-code)
+    (with-current-buffer err-buff (erase-buffer))
+    (with-temp-buffer
+      (insert body)
+      (setq exit-code
+            (org-babel--shell-command-on-region
+             (point-min) (point-max) cmd err-buff))
+      (if (or (not (numberp exit-code)) (> exit-code 0)
+              (and org-babel-eval-verbose (> (buffer-size err-buff) 0))) ; new condition
+          (progn
+            (with-current-buffer err-buff
+              (org-babel-eval-error-notify exit-code (buffer-string)))
+            nil)
+        (buffer-string)))))
 
-  (setq org-babel-eval-verbose t)
+(setq org-babel-eval-verbose t)
 
 (use-package lsp-treemacs
   :after lsp)
@@ -1460,3 +1477,13 @@
 ;;      (latex (format "\href{%s}{%s}"
 ;;                     path (or desc "audio"))))))
 
+;; Wakatime
+;; Wakatime is a monitoring tool for time spent while programming that gives metrics per language or per project. Currently I’m dabbling on Emacs specifically Doom Emacs. Wakatime is avaiable in almost all text editor.
+;; Time Tracking
+;; (use-package wakatime-mode
+;;   :diminish 'wakatime-mode
+;;   :init
+;;   (add-hook 'prog-mode-hook 'wakatime-mode)
+;;   :config (progn (setq wakatime-cli-path "~/.local/bin/wakatime")
+;;                  (setq wakatime-python-bin nil)
+;;                  (global-wakatime-mode)))

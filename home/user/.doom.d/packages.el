@@ -112,3 +112,4 @@
 (package! org-autolist)
 (package! ob-ipython)
 (package! ob-async)
+;; (package! wakatime-mode)
