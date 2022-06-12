@@ -216,11 +216,11 @@ function ctime --argument file
 end
 
 function mosscc --argument file1 file2
-  perl -i moss.pl -l cc $file1 $file2
+  perl -i ~/moss.pl -l cc $file1 $file2
 end
 
 function mosspy --argument file1 file2
-  perl -i moss.pl -l python $file1 $file2
+  perl -i ~/moss.pl -l python $file1 $file2
 end
 
 ### END OF FUNCTIONS ###
@@ -413,6 +413,7 @@ alias grub="svi /etc/default/grub"
 alias gpgkeys="gpg --list-secret-keys --keyid-format=long"
 alias lock="betterlockscreen -l"
 alias activate="source my_env/bin/activate.fish"
+alias createvirtual="python3 -m virtualenv my_env"
 
 ## Starship prompt
 if status --is-interactive

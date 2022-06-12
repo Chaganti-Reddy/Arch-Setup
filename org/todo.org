@@ -5,5 +5,4 @@
 DEADLINE: <2022-05-02 Mon>
 
 * Microsoft Azure AI Exam
-*** TODO Microsoft Azure AI 900 Exam
-DEADLINE: <2022-06-30 Thu> SCHEDULED: <2022-06-30 Thu>
+** TODO Microsoft Azure AI 900 Exam SCHEDULED: <2022-06-30 Thu>
