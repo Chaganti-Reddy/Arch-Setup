@@ -153,6 +153,9 @@
        ;;nix               ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
        (org                ; organize your plain life in plain text
+        +attach            ; custom attachment option
+        +babel
+        +capture
         +journal           ; enable org journal
         +pretty            ; replace asterisks with pretty org bullets
         +publish           ; create static websites with org

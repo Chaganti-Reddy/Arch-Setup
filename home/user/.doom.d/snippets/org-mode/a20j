@@ -32,6 +32,6 @@ $6
 
 *CPP CODE*
 
-#+BEGIN_SRC CPP
+#+BEGIN_SRC C++
 $7
 #+END_SRC

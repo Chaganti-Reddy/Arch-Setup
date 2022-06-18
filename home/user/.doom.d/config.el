@@ -126,7 +126,12 @@
 (setq make-backup-files nil)
 ;; Shift-arrow to swith windows
 (windmove-default-keybindings)
-
+(setq baby-blue '("#d2ecff" "#d2ecff" "brightblue"))
+(setq
+ js-indent-level 2
+ json-reformat:indent-width 2
+ prettier-js-args '("--single-quote")
+ )
 
   ;; Use cmd key for meta
   ;; https://superuser.com/questions/297259/set-emacs-meta-key-to-be-the-mac-key
@@ -750,7 +755,9 @@
   ;; :ensure t
   :hook (org-mode . org-fancy-priorities-mode)
   :config
-  (setq org-fancy-priorities-list '("🅰" "🅱" "🅲" "🅳" "🅴")))
+  (setq org-fancy-priorities-list '("⚡" "⬆" "⬇" "☕"))
+  ;; (setq org-fancy-priorities-list '("🅰" "🅱" "🅲" "🅳" "🅴"))
+  )
 
 ;; Set font sizes for each header level in Org
 (custom-set-faces
@@ -761,11 +768,65 @@
  '(org-level-5 ((t (:inherit outline-5 :height 1.0))))
  )
 
+(after! org
+  (set-face-attribute 'org-link nil
+                      :weight 'normal
+                      :background nil)
+  (set-face-attribute 'org-code nil
+                      :foreground "#a9a1e1"
+                      :background nil)
+  (set-face-attribute 'org-date nil
+                      :foreground "#5B6268"
+                      :background nil)
+  (set-face-attribute 'org-level-1 nil
+                      :foreground "steelblue2"
+                      :background nil
+                      :height 1.2
+                      :weight 'normal)
+  (set-face-attribute 'org-level-2 nil
+                      :foreground "slategray2"
+                      :background nil
+                      :height 1.0
+                      :weight 'normal)
+  (set-face-attribute 'org-level-3 nil
+                      :foreground "SkyBlue2"
+                      :background nil
+                      :height 1.0
+                      :weight 'normal)
+  (set-face-attribute 'org-level-4 nil
+                      :foreground "DodgerBlue2"
+                      :background nil
+                      :height 1.0
+                      :weight 'normal)
+  (set-face-attribute 'org-level-5 nil
+                      :weight 'normal)
+  (set-face-attribute 'org-level-6 nil
+                      :weight 'normal)
+  (set-face-attribute 'org-document-title nil
+                      :foreground "SlateGray1"
+                      :background nil
+                      :height 1.75
+                      :weight 'bold)
+  )
+
 ;; Org export
 (require 'ox-md)
 (require 'ob-js)
 
 (setq org-src-preserve-indentation t)
+
+;; html2org-clipboard
+;; Source: https://stackoverflow.com/a/64408897 Source2: https://emacs.stackexchange.com/questions/12121/org-mode-parsing-rich-html-directly-when-pasting
+
+(defun my/html2org-clipboard ()
+  "Convert clipboard contents from HTML to Org and then paste (yank)."
+  (interactive)
+  ;; (setq cmd "osascript -e 'the clipboard as \"HTML\"' | perl -ne 'print chr foreach unpack(\"C*\",pack(\"H*\",substr($_,11,-3)))' | pandoc -f html -t json | pandoc -f json -t org") ;; For macos
+  (setq cmd "xclip -o -t TARGETS | grep -q text/html && (xclip -o -t text/html | pandoc -f html -t json | pandoc -f json -t org) || xclip -o") ;; For linux
+  (kill-new (shell-command-to-string cmd))
+  (yank))
+
+(define-key org-mode-map (kbd "C-c V") #'my/html2org-clipboard)
 
 ;; ob-async isn't tied to src blocks in a specific org-babel language. Simply add the keyword :async to the header-args of any org-babel src block and invoke ob-async-org-babel-execute-src-block
 (use-package ob-async)
@@ -776,8 +837,8 @@
 (with-eval-after-load 'org
   (setq word-wrap t))
 
-(add-hook 'css-mode-hook 'skewer-css-mode)
-(add-hook 'html-mode-hook 'skewer-html-mode)
+;; (add-hook 'css-mode-hook 'skewer-css-mode)
+;; (add-hook 'html-mode-hook 'skewer-html-mode)
 
 ;; ORG-MIND-MAP
 ;; This is a beautiful package that creates a  kind map from our org-file using heading and sub-headings
@@ -889,19 +950,39 @@
 (map! :g "C-c n d b"  #'org-roam-dailies-goto-next-note)
 
 ;; ORG SUPER AGENDA
+(require 'org-super-agenda)
+(use-package org-super-agenda
+  :after org-agenda
+  :config
+  (org-super-agenda-mode)
+  )
 
-;; (use-package org-super-agenda
-;;   :defer 2
-;;   :config
-;;   (org-super-agenda-mode)
-;;   )
-
-;; (setq org-super-agenda-groups
-;;        '((:auto-category t)))
-
-;; (let ((org-super-agenda-groups
-;;        '((:auto-category t))))
-;;   (org-agenda-list))
+(setq org-super-agenda-groups
+       '(;; Each group has an implicit boolean OR operator between its selectors.
+         (:name "Today"  ; Optionally specify section name
+                :time-grid t  ; Items that appear on the time grid
+                :todo "TODAY")  ; Items that have this TODO keyword
+         (:name "Important"
+                ;; Single arguments given alone
+                :tag "bills"
+                :priority "A")
+         ;; Groups supply their own section names when none are given
+         (:todo "WAITING" :order 8)  ; Set order of this section
+         (:todo ("SOMEDAY" "TO-READ" "CHECK" "TO-WATCH" "WATCHING")
+                ;; Show this group at the end of the agenda (since it has the
+                ;; highest number). If you specified this group last, items
+                ;; with these todo keywords that e.g. have priority A would be
+                ;; displayed in that group instead, because items are grouped
+                ;; out in the order the groups are listed.
+                :order 9)
+         (:priority<= "B"
+                      ;; Show this section after "Today" and "Important", because
+                      ;; their order is unspecified, defaulting to 0. Sections
+                      ;; are displayed lowest-number-first.
+                      :order 1)
+         ;; After the last group, the agenda will display items that didn't
+         ;; match any of these groups, with the default order position of 99
+         ))
 
 ;; SHELLS
 (use-package vterm)
@@ -1175,14 +1256,18 @@
 (cl-defmethod lsp-execute-command
 ((_server (eql ccls)) (command (eql ccls.xref)) arguments))
 
-;; (use-package rainbow-delimiters
-;;   :hook (python-mode . rainbow-delimiters-mode)
-;;   (cpp-mode . rainbow-delimiters-mode)
-;;   (c-mode . rainbow-delimiters-mode)
-;;   (org-mode . rainbow-delimiters-mode))
+(use-package rainbow-delimiters
+  :hook (python-mode . rainbow-delimiters-mode)
+  (cpp-mode . rainbow-delimiters-mode)
+  (c-mode . rainbow-delimiters-mode)
+  (org-mode . rainbow-delimiters-mode))
 
 (setq lsp-headerline-breadcrumb-segments '(project file symbols))
 (setq lsp-headerline-breadcrumb-icons-enable t)
+
+(add-hook!
+ js2-mode 'prettier-js-mode
+ (add-hook 'before-save-hook #'refmt-before-save nil t))
 
 (use-package company
   :after lsp-mode
@@ -1487,3 +1572,26 @@
 ;;   :config (progn (setq wakatime-cli-path "~/.local/bin/wakatime")
 ;;                  (setq wakatime-python-bin nil)
 ;;                  (global-wakatime-mode)))
+
+;; SQL-INDENT
+
+(require 'sql-indent)
+
+;; WINDRESIZE
+;; This mode lets you edit the window configuration interactively just by using the keyboard.
+
+;; To use it, type M-x windresize; this puts Emacs in a state where the up/down and left/right arrow keys resize the window dimensions.  To return Emacs to its ordinary state, type RET.
+(require 'windresize)
+(map! :g "C-c w" #'windresize)
+(map! :g "C-c W" #'windresize-balance-windows)
+
+;; Smooth Scrolling the buffer
+
+(use-package smooth-scroll
+      :config
+      (smooth-scroll-mode 1)
+      (setq smooth-scroll/vscroll-step-size 5)
+      )
+(use-package smooth-scrolling
+         :config
+         (smooth-scrolling-mode 1))
