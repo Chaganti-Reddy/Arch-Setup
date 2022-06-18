@@ -830,7 +830,7 @@
 
 ;; ob-async isn't tied to src blocks in a specific org-babel language. Simply add the keyword :async to the header-args of any org-babel src block and invoke ob-async-org-babel-execute-src-block
 (use-package ob-async)
-(use-package ob-ipython)
+;;(use-package ob-ipython)
 
 (setq org-export-backends '(ascii html md icalendar latex odt man texinfo))
 
@@ -1199,7 +1199,7 @@
  '((python . t)
    (js . t)
    (plantuml . t)
-   (ipython . t)
+   ;;(ipython . t)
    (jupyter . t)
    (R . t)))
 
@@ -1273,28 +1273,28 @@
   :after lsp-mode
   :hook (lsp-mode . company-mode))
 
-(add-to-list 'company-backends 'company-ob-ipython)
-(defun ob-ipython--collect-json ()
-  ;; hacks here
-  (when (re-search-forward "{" nil t)
-    (backward-char))
-  ;; hacks end
-  (let ((json-array-type 'list))
-    (let (acc)
-      (while (not (= (point) (point-max)))
-        (setq acc (cons (json-read) acc))
-        (forward-line))
-      (nreverse acc))))
+;;(add-to-list 'company-backends 'company-ob-ipython)
+;; (defun ob-ipython--collect-json ()
+;;   ;; hacks here
+;;   (when (re-search-forward "{" nil t)
+;;     (backward-char))
+;;   ;; hacks end
+;;   (let ((json-array-type 'list))
+;;     (let (acc)
+;;       (while (not (= (point) (point-max)))
+;;         (setq acc (cons (json-read) acc))
+;;         (forward-line))
+;;       (nreverse acc))))
 
-(advice-add 'ob-ipython--collect-json :before
-            (lambda (&rest args)
-              (when (re-search-forward "{" nil t)
-                (backward-char))))
+;; (advice-add 'ob-ipython--collect-json :before
+;;             (lambda (&rest args)
+;;               (when (re-search-forward "{" nil t)
+;;                 (backward-char))))
 
-;; (setq ob-ipython-command "~/.local/bin/jupyter")
+;; ;; (setq ob-ipython-command "~/.local/bin/jupyter")
 
 (setq org-confirm-babel-evaluate nil)   ;don't prompt me to confirm everytime I want to evaluate a block
-(add-to-list 'org-latex-minted-langs '(ipython "python"))
+;;(add-to-list 'org-latex-minted-langs '(ipython "python"))
 ;;; display/update images in the buffer after I evaluate
 (add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append)
 
