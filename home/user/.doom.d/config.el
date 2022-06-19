@@ -102,8 +102,6 @@
 (save-place-mode t)
 (setq global-prettify-symbols-mode t)
 (use-package! password-store)
-(use-package doom-modeline
-  :init (doom-modeline-mode 1))
 (use-package lua-mode)
 (use-package markdown-mode)
 (use-package org-bullets)
@@ -132,6 +130,10 @@
  json-reformat:indent-width 2
  prettier-js-args '("--single-quote")
  )
+(require 'bibtex)
+(require 'org-ref)
+(require 'org-ref-ivy)
+
 
   ;; Use cmd key for meta
   ;; https://superuser.com/questions/297259/set-emacs-meta-key-to-be-the-mac-key
@@ -395,7 +397,7 @@
 (defun doi-utils-add-entry-from-elfeed-entry ()
   "Add elfeed entry to bibtex."
   (interactive)
-  (require 'org-ref)
+  ;; (require 'org-ref)
   (let* ((title (elfeed-entry-title elfeed-show-entry))
 	 (url (elfeed-entry-link elfeed-show-entry))
 	 (content (elfeed-deref (elfeed-entry-content elfeed-show-entry)))
@@ -606,6 +608,9 @@
        :desc "Ivy push view" "v p" #'ivy-push-view
        :desc "Ivy switch view" "v s" #'ivy-switch-view))
 
+(use-package! all-the-icons-ivy-rich
+  :init (all-the-icons-ivy-rich-mode))
+
 ;; MARKDOWN
 (custom-set-faces
  '(markdown-header-face ((t (:inherit font-lock-function-name-face :weight bold :family "variable-pitch"))))
@@ -662,6 +667,8 @@
   (imp-set-user-filter 'my-markdown-filter)
   (imp-visit-buffer))
 
+(add-to-list 'auto-mode-alist '("\\.mdx\\'" . markdown-mode))
+
 ;; Minimap
 (setq minimap-window-location 'right)
 (map! :leader
@@ -669,20 +676,155 @@
         :desc "Toggle minimap-mode" "m" #'minimap-mode))
 
 ;; Modeline
-(set-face-attribute 'mode-line nil :font "JetBrainsMono Nerd Font-13")
-(setq doom-modeline-height 30   ;; sets modeline height
-      doom-modeline-bar-width 5 ;; sets right bar width
-      doom-modeline-persp-name t  ;; adds perspective name to modeline
-      doom-modeline-persp-icon t) ;; adds folder icon next to persp name
 
-(use-package doom-modeline
+;; (use-package doom-modeline
+;;   :init (doom-modeline-mode 1))
+
+;; (set-face-attribute 'mode-line nil :font "JetBrainsMono Nerd Font-13")
+;; (setq doom-modeline-height 30   ;; sets modeline height
+;;       doom-modeline-bar-width 5 ;; sets right bar width
+;;       doom-modeline-persp-name t  ;; adds perspective name to modeline
+;;       doom-modeline-persp-icon t) ;; adds folder icon next to persp name
+
+;; (use-package doom-modeline
+;;   :config
+;;   (setq line-number-mode t
+;;         column-number-mode t
+;;         size-indication-mode t))
+
+(defvar +modeline--old-bar-height nil)
+;;;###autoload
+(defun +modeline-resize-for-font-h ()
+  "Adjust the modeline's height when the font size is changed by
+`doom/increase-font-size' or `doom/decrease-font-size'.
+Meant for `doom-change-font-size-hook'."
+  (unless +modeline--old-bar-height
+    (setq +modeline--old-bar-height doom-modeline-height))
+  (let ((default-height +modeline--old-bar-height)
+        (scale (or (frame-parameter nil 'font-scale) 0)))
+    (setq doom-modeline-height
+          (if (> scale 0)
+              (+ default-height (* scale doom-font-increment))
+            default-height))))
+
+;;;###autoload
+(defun +modeline-update-env-in-all-windows-h (&rest _)
+  "Update version strings in all buffers."
+  (dolist (window (window-list))
+    (with-selected-window window
+      (when (fboundp 'doom-modeline-update-env)
+        (doom-modeline-update-env))
+      (force-mode-line-update))))
+
+;;;###autoload
+(defun +modeline-clear-env-in-all-windows-h (&rest _)
+  "Blank out version strings in all buffers."
+  (unless (featurep! +light)
+    (dolist (buffer (buffer-list))
+      (with-current-buffer buffer
+        (setq doom-modeline-env--version
+              (bound-and-true-p doom-modeline-load-string)))))
+  (force-mode-line-update t))
+
+(use-package! doom-modeline
+  :hook (after-init . doom-modeline-mode)
+  :hook (doom-modeline-mode . size-indication-mode) ; filesize in modeline
+  :hook (doom-modeline-mode . column-number-mode)   ; cursor column in modeline
+  :init
+  (unless after-init-time
+    ;; prevent flash of unstyled modeline at startup
+    (setq-default mode-line-format nil))
+  ;; We display project info in the modeline ourselves
+  (setq projectile-dynamic-mode-line nil)
+  ;; Set these early so they don't trigger variable watchers
+  (setq doom-modeline-bar-width 3
+        doom-modeline-github nil
+        doom-modeline-mu4e nil
+        doom-modeline-persp-name nil
+        doom-modeline-minor-modes nil
+        doom-modeline-major-mode-icon nil
+        doom-modeline-buffer-file-name-style 'relative-from-project
+        ;; Only show file encoding if it's non-UTF-8 and different line endings
+        ;; than the current OSes preference
+        doom-modeline-buffer-encoding 'nondefault
+        doom-modeline-default-eol-type
+        (cond (IS-MAC 2)
+              (IS-WINDOWS 1)
+              (0)))
+
+  ;; Fix modeline icons in daemon-spawned graphical frames. We have our own
+  ;; mechanism for disabling all-the-icons, so we don't need doom-modeline to do
+  ;; it for us. However, this may cause unwanted padding in the modeline in
+  ;; daemon-spawned terminal frames. If it bothers you, you may prefer
+  ;; `doom-modeline-icon' set to `nil'.
+  (when (daemonp)
+    (setq doom-modeline-icon t))
   :config
-  (setq line-number-mode t
-        column-number-mode t
-        size-indication-mode t))
+  ;; HACK Fix #4102 due to empty all-the-icons return value (caused by
+  ;;      `doom--disable-all-the-icons-in-tty-a' advice) in tty daemon frames.
+  (defadvice! +modeline-disable-icon-in-daemon-a (orig-fn &rest args)
+    :around #'doom-modeline-propertize-icon
+    (when (display-graphic-p)
+      (apply orig-fn args)))
 
-  ;; Adding mouse support in the terminal version of Emacs.
-  (xterm-mouse-mode 1)
+  ;; Fix an issue where these two variables aren't defined in TTY Emacs on MacOS
+  (defvar mouse-wheel-down-event nil)
+  (defvar mouse-wheel-up-event nil)
+
+  (add-hook 'after-setting-font-hook #'+modeline-resize-for-font-h)
+  (add-hook 'doom-load-theme-hook #'doom-modeline-refresh-bars)
+
+  (add-hook '+doom-dashboard-mode-hook #'doom-modeline-set-project-modeline)
+
+  (add-hook! 'magit-mode-hook
+    (defun +modeline-hide-in-non-status-buffer-h ()
+      "Show minimal modeline in magit-status buffer, no modeline elsewhere."
+      (if (eq major-mode 'magit-status-mode)
+          (doom-modeline-set-vcs-modeline)
+        (hide-mode-line-mode))))
+
+  ;; Some functions modify the buffer, causing the modeline to show a false
+  ;; modified state, so force them to behave.
+  (defadvice! +modeline--inhibit-modification-hooks-a (orig-fn &rest args)
+    :around #'ws-butler-after-save
+    (with-silent-modifications (apply orig-fn args))))
+
+(defun doom-modeline--set-char-widths (alist)
+  "Set correct widths of icons characters in ALIST."
+  (while (char-table-parent char-width-table)
+    (setq char-width-table (char-table-parent char-width-table)))
+  (dolist (pair alist)
+    (let ((width 1)
+          (chars (cdr pair))
+          (table (make-char-table nil)))
+      (dolist (char chars)
+        (set-char-table-range table char width))
+      (optimize-char-table table)
+      (set-char-table-parent table char-width-table)
+      (setq char-width-table table))))
+
+(after! doom-modeline
+  (setq doom-modeline-enable-word-count t
+        doom-modeline-header-line nil
+        ;doom-modeline-hud nil
+        doom-themes-padded-modeline t
+        doom-flatwhite-brighter-modeline nil
+        size-indication-mode t
+        doom-plain-brighter-modeline nil))
+(add-hook! 'doom-modeline-mode-hook
+           (progn
+  (set-face-attribute 'header-line nil
+                      :background (face-background 'mode-line)
+                      :foreground (face-foreground 'mode-line))
+  ))
+
+(after! doom-modeline
+  (doom-modeline-def-modeline 'main
+    '(bar matches buffer-info vcs word-count)
+    '(buffer-position misc-info major-mode)))
+
+;; Adding mouse support in the terminal version of Emacs.
+(xterm-mouse-mode 1)
 
 ;; NEOTREE
 
@@ -723,52 +865,121 @@
 (setq-default neo-show-hidden-files t)
 
 ;; ORG-MODE
-(defun my/org-mode/load-prettify-symbols ()
-  (interactive)
-  (setq prettify-symbols-alist
-    '(("#+begin_src" . ?)
-      ("#+BEGIN_SRC" . ?)
-      ("#+end_src" . ?)
-      ("#+END_SRC" . ?)
-      ("#+begin_example" . ?)
-      ("#+BEGIN_EXAMPLE" . ?)
-      ("#+end_example" . ?)
-      ("#+END_EXAMPLE" . ?)
-      ("#+header:" . ?)
-      ("#+HEADER:" . ?)
-      ("#+name:" . ?﮸)
-      ("#+NAME:" . ?﮸)
-      ("#+results:" . ?)
-      ("#+RESULTS:" . ?)
-      ("#+call:" . ?)
-      ("#+CALL:" . ?)
-      (":PROPERTIES:" . ?)
-      (":properties:" . ?)
-      (":LOGBOOK:" . ?)
-      (":logbook:" . ?)))
-  (prettify-symbols-mode t))
-(add-hook 'org-mode-hook 'my/org-mode/load-prettify-symbols)
-
-(setq org-ellipsis " ")
-(use-package org-fancy-priorities
-  :diminish
-  ;; :ensure t
-  :hook (org-mode . org-fancy-priorities-mode)
-  :config
-  (setq org-fancy-priorities-list '("⚡" "⬆" "⬇" "☕"))
-  ;; (setq org-fancy-priorities-list '("🅰" "🅱" "🅲" "🅳" "🅴"))
-  )
-
-;; Set font sizes for each header level in Org
-(custom-set-faces
- '(org-level-1 ((t (:inherit outline-1 :height 1.4))))
- '(org-level-2 ((t (:inherit outline-2 :height 1.3))))
- '(org-level-3 ((t (:inherit outline-3 :height 1.2))))
- '(org-level-4 ((t (:inherit outline-4 :height 1.1))))
- '(org-level-5 ((t (:inherit outline-5 :height 1.0))))
- )
+;; (defun my/org-mode/load-prettify-symbols ()
+;;   (interactive)
+;;   (setq prettify-symbols-alist
+;;     '(("#+begin_src" . ?)
+;;       ("#+BEGIN_SRC" . ?)
+;;       ("#+end_src" . ?)
+;;       ("#+END_SRC" . ?)
+;;       ("#+begin_example" . ?)
+;;       ("#+BEGIN_EXAMPLE" . ?)
+;;       ("#+end_example" . ?)
+;;       ("#+END_EXAMPLE" . ?)
+;;       ("#+header:" . ?)
+;;       ("#+HEADER:" . ?)
+;;       ("#+name:" . ?﮸)
+;;       ("#+NAME:" . ?﮸)
+;;       ("#+results:" . ?)
+;;       ("#+RESULTS:" . ?)
+;;       ("#+call:" . ?)
+;;       ("#+CALL:" . ?)
+;;       (":PROPERTIES:" . ?)
+;;       (":properties:" . ?)
+;;       (":LOGBOOK:" . ?)
+;;       (":logbook:" . ?)))
+;;   (prettify-symbols-mode t))
+;; (add-hook 'org-mode-hook 'my/org-mode/load-prettify-symbols)
 
 (after! org
+  ;; (setq org-ellipsis " ▾ ")
+  (appendq! +ligatures-extra-symbols
+            `(:checkbox      "☐"
+              :pending       "◼"
+              :checkedbox    "☑"
+              :list_property "∷"
+              :em_dash       "—"
+              :ellipses      "…"
+              :arrow_right   "→"
+              :arrow_left    "←"
+              :title         nil
+              :subtitle      "𝙩"
+              :author        "𝘼"
+              :date          "𝘿"
+              :property      ""
+              :options       "⌥"
+              :startup       "⏻"
+              :macro         "𝓜"
+              :html_head     "🅷"
+              :html          "🅗"
+              :latex_class   "🄻"
+              :latex_header  "🅻"
+              :beamer_header "🅑"
+              :latex         "🅛"
+              :attr_latex    "🄛"
+              :attr_html     "🄗"
+              :attr_org      "⒪"
+              :begin_quote   "❝"
+              :end_quote     "❞"
+              :caption       "☰"
+              :header        "›"
+              :results       "🠶"
+              :begin_export  "⏩"
+              :end_export    "⏪"
+              :properties    ""
+              :end           "∎"
+              :priority_a   ,(propertize "⚑" 'face 'all-the-icons-red)
+              :priority_b   ,(propertize "⬆" 'face 'all-the-icons-orange)
+              :priority_c   ,(propertize "■" 'face 'all-the-icons-yellow)
+              :priority_d   ,(propertize "⬇" 'face 'all-the-icons-green)
+              :priority_e   ,(propertize "❓" 'face 'all-the-icons-blue)
+              :roam_tags nil
+              :filetags nil))
+  (set-ligatures! 'org-mode
+    :merge t
+    :checkbox      "[ ]"
+    :pending       "[-]"
+    :checkedbox    "[X]"
+    :list_property "::"
+    :em_dash       "---"
+    :ellipsis      "..."
+    :arrow_right   "->"
+    :arrow_left    "<-"
+    :title         "#+title:"
+    :subtitle      "#+subtitle:"
+    :author        "#+author:"
+    :date          "#+date:"
+    :property      "#+property:"
+    :options       "#+options:"
+    :startup       "#+startup:"
+    :macro         "#+macro:"
+    :html_head     "#+html_head:"
+    :html          "#+html:"
+    :latex_class   "#+latex_class:"
+    :latex_header  "#+latex_header:"
+    :beamer_header "#+beamer_header:"
+    :latex         "#+latex:"
+    :attr_latex    "#+attr_latex:"
+    :attr_html     "#+attr_html:"
+    :attr_org      "#+attr_org:"
+    :begin_quote   "#+begin_quote"
+    :end_quote     "#+end_quote"
+    :caption       "#+caption:"
+    :header        "#+header:"
+    :begin_export  "#+begin_export"
+    :end_export    "#+end_export"
+    :results       "#+RESULTS:"
+    :property      ":PROPERTIES:"
+    :end           ":END:"
+    :priority_a    "[#A]"
+    :priority_b    "[#B]"
+    :priority_c    "[#C]"
+    :priority_d    "[#D]"
+    :priority_e    "[#E]"
+    :roam_tags     "#+roam_tags:"
+    :filetags      "#+filetags:")
+  (plist-put +ligatures-extra-symbols :name "⁍")
+
   (set-face-attribute 'org-link nil
                       :weight 'normal
                       :background nil)
@@ -808,6 +1019,30 @@
                       :height 1.75
                       :weight 'bold)
   )
+
+(with-eval-after-load 'org
+  (plist-put org-format-latex-options :background 'default))
+
+(setq org-fontify-todo-headline t)
+
+(setq org-ellipsis " ")
+(use-package org-fancy-priorities
+  :diminish
+  ;; :ensure t
+  :hook (org-mode . org-fancy-priorities-mode)
+  :config
+  (setq org-fancy-priorities-list '("⚡" "⬆" "⬇" "☕"))
+  ;; (setq org-fancy-priorities-list '("🅰" "🅱" "🅲" "🅳" "🅴"))
+  )
+
+;; Set font sizes for each header level in Org
+(custom-set-faces
+ '(org-level-1 ((t (:inherit outline-1 :height 1.4))))
+ '(org-level-2 ((t (:inherit outline-2 :height 1.3))))
+ '(org-level-3 ((t (:inherit outline-3 :height 1.2))))
+ '(org-level-4 ((t (:inherit outline-4 :height 1.1))))
+ '(org-level-5 ((t (:inherit outline-5 :height 1.0))))
+ )
 
 ;; Org export
 (require 'ox-md)
@@ -957,32 +1192,56 @@
   (org-super-agenda-mode)
   )
 
+;; (setq org-super-agenda-groups
+;;        '(;; Each group has an implicit boolean OR operator between its selectors.
+;;          (:name "Today"  ; Optionally specify section name
+;;                 :time-grid t  ; Items that appear on the time grid
+;;                 :todo "TODAY")  ; Items that have this TODO keyword
+;;          (:name "Important"
+;;                 ;; Single arguments given alone
+;;                 :tag "bills"
+;;                 :priority "A")
+;;          ;; Groups supply their own section names when none are given
+;;          (:todo "WAITING" :order 8)  ; Set order of this section
+;;          (:todo ("SOMEDAY" "TO-READ" "CHECK" "TO-WATCH" "WATCHING")
+;;                 ;; Show this group at the end of the agenda (since it has the
+;;                 ;; highest number). If you specified this group last, items
+;;                 ;; with these todo keywords that e.g. have priority A would be
+;;                 ;; displayed in that group instead, because items are grouped
+;;                 ;; out in the order the groups are listed.
+;;                 :order 9)
+;;          (:priority<= "B"
+;;                       ;; Show this section after "Today" and "Important", because
+;;                       ;; their order is unspecified, defaulting to 0. Sections
+;;                       ;; are displayed lowest-number-first.
+;;                       :order 1)
+;;          ;; After the last group, the agenda will display items that didn't
+;;          ;; match any of these groups, with the default order position of 99
+;;          ))
+
+(org-super-agenda-mode)
 (setq org-super-agenda-groups
-       '(;; Each group has an implicit boolean OR operator between its selectors.
-         (:name "Today"  ; Optionally specify section name
-                :time-grid t  ; Items that appear on the time grid
-                :todo "TODAY")  ; Items that have this TODO keyword
-         (:name "Important"
-                ;; Single arguments given alone
-                :tag "bills"
-                :priority "A")
-         ;; Groups supply their own section names when none are given
-         (:todo "WAITING" :order 8)  ; Set order of this section
-         (:todo ("SOMEDAY" "TO-READ" "CHECK" "TO-WATCH" "WATCHING")
-                ;; Show this group at the end of the agenda (since it has the
-                ;; highest number). If you specified this group last, items
-                ;; with these todo keywords that e.g. have priority A would be
-                ;; displayed in that group instead, because items are grouped
-                ;; out in the order the groups are listed.
-                :order 9)
-         (:priority<= "B"
-                      ;; Show this section after "Today" and "Important", because
-                      ;; their order is unspecified, defaulting to 0. Sections
-                      ;; are displayed lowest-number-first.
-                      :order 1)
-         ;; After the last group, the agenda will display items that didn't
-         ;; match any of these groups, with the default order position of 99
-         ))
+      '(
+        ;; (:name "⏰ Calendar" :time-grid t)
+        (:name "➡ Today" :scheduled today)
+        (:discard (:todo "HOLD"))
+        (:name "🏃 Current Sprint"
+                :and (:category "sprint" :not (:tag "agenda"))
+        )
+        (:name "😀 Agenda" :tag "agenda")
+        (:name "⚡ THUNDER!" :and (:category "thundertalks" :not (:todo("WAIT"))))
+        (:name "🔭 R&D + 20%" :category "20pct")
+        (:name "🏡 Zuhause" :and (:tag "@home" :not (:tag "@city")))
+        (:name "🛍 City" :tag "@city")
+        (:name "💸 Finanzen" :and (:category "finanzen" :not (:todo("WAIT"))))
+        (:name "🏋 & 🏃" :and (:category "training" :not (:todo("WAIT"))))
+        (:name "🎶 Musik" :and (:category "music" :not (:todo("WAIT"))))
+        (:name "" :category "inbox")
+        ;; (:name "🛠" :auto-category)
+        (:name "🛠" :not (:todo ("WAIT")))
+        (:name "😴" :todo ("WAIT"))
+        )
+)
 
 ;; SHELLS
 (use-package vterm)
@@ -1361,10 +1620,6 @@
 ;;     (global-auto-complete-mode t)
 ;;     ))
 
-(require 'bibtex)
-(require 'org-ref)
-(require 'org-ref-ivy)
-
 ;; Tell ispell-mode to use ispell.
 (setq ispell-program-name "/usr/bin/ispell")
 
@@ -1515,52 +1770,52 @@
 ;; Embed Local Video
 ;; Adapted from this method: http://endlessparentheses.com/embedding-youtube-videos-with-org-mode-links.html. [[mv:movie.mp4]] will export a html5 video.
 
-;; (defvar mv-iframe-format
-;;   ;; You may want to change your width and height.
-;;   (concat "<video"
-;;           " height=\"500\""
-;;           " style=\"display:block; margin: 0 auto;\" controls>"
-;;           " <source"
-;;           " src=\"%s\""
-;;           " type=\"video/mp4\">"
-;;           "</video>"))
+(defvar mv-iframe-format
+  ;; You may want to change your width and height.
+  (concat "<video"
+          " height=\"500\""
+          " style=\"display:block; margin: 0 auto;\" controls>"
+          " <source"
+          " src=\"%s\""
+          " type=\"video/mp4\">"
+          "</video>"))
 
-;; (org-add-link-type
-;;  "mv"
-;;  (lambda (handle)
-;;    (browse-url
-;;     (concat "https://www.youtube.com/embed/"
-;;             handle)))
-;;  (lambda (path desc backend)
-;;    (cl-case backend
-;;      (html (format mv-iframe-format
-;;                    path (or desc "")))
-;;      (latex (format "\href{%s}{%s}"
-;;                     path (or desc "video"))))))
+(org-add-link-type
+ "mv"
+ (lambda (handle)
+   (browse-url
+    (concat "https://www.youtube.com/embed/"
+            handle)))
+ (lambda (path desc backend)
+   (cl-case backend
+     (html (format mv-iframe-format
+                   path (or desc "")))
+     (latex (format "\href{%s}{%s}"
+                    path (or desc "video"))))))
 
 ;; Embed Audio
 
-;; (defvar audio-iframe-format
-;;   ;; You may want to change your width and height.
-;;   (concat "<iframe"
-;;           " width=\"600\""
-;;           " height=\"60\""
-;;           " style=\"display:block; margin: 0\""
-;;           " src=\"%s\">"
-;;           "</iframe>"))
+(defvar audio-iframe-format
+  ;; You may want to change your width and height.
+  (concat "<iframe"
+          " width=\"600\""
+          " height=\"60\""
+          " style=\"display:block; margin: 0\""
+          " src=\"%s\">"
+          "</iframe>"))
 
-;; (org-add-link-type
-;;  "audio"
-;;  (lambda (handle)
-;;    (browse-url
-;;     (concat "https://www.youtube.com/embed/"
-;;             handle)))
-;;  (lambda (path desc backend)
-;;    (cl-case backend
-;;      (html (format audio-iframe-format
-;;                    path (or desc "")))
-;;      (latex (format "\href{%s}{%s}"
-;;                     path (or desc "audio"))))))
+(org-add-link-type
+ "audio"
+ (lambda (handle)
+   (browse-url
+    (concat "https://www.youtube.com/embed/"
+            handle)))
+ (lambda (path desc backend)
+   (cl-case backend
+     (html (format audio-iframe-format
+                   path (or desc "")))
+     (latex (format "\href{%s}{%s}"
+                    path (or desc "audio"))))))
 
 ;; Wakatime
 ;; Wakatime is a monitoring tool for time spent while programming that gives metrics per language or per project. Currently I’m dabbling on Emacs specifically Doom Emacs. Wakatime is avaiable in almost all text editor.
@@ -1595,3 +1850,43 @@
 (use-package smooth-scrolling
          :config
          (smooth-scrolling-mode 1))
+
+;; CENTAUR TABS
+
+(use-package centaur-tabs
+  :demand
+  :config
+  (centaur-tabs-mode t)
+  :bind
+  ("M-<left>" . centaur-tabs-backward)
+  ("M-<right>" . centaur-tabs-forward))
+(after! centaur-tabs
+  (setq centaur-tabs-style "wave")
+  (setq centaur-tabs-set-icons t)
+  (setq centaur-tabs-set-bar 'left)
+  ;; (setq centaur-tabs-set-close-button nil)
+  ;; (setq centaur-tabs-close-button "X")
+  (setq centaur-tabs-set-modified-marker t)
+  ;; (setq centaur-tabs-modified-marker "*")
+  (setq centaur-tabs-gray-out-icons 'buffer)
+  ;; When the currently selected tab(A) is at the right of the last visited
+  ;; tab(B), move A to the right of B. When the currently selected tab(A) is
+  ;; at the left of the last visited tab(B), move A to the left of B
+  ;; (setq centaur-tabs-adjust-buffer-order t)
+
+  ;; Move the currently selected tab to the left of the the last visited tab.
+  ;; (setq centaur-tabs-adjust-buffer-order 'left)
+
+  ;; Move the currently selected tab to the right of the the last visited tab.
+  ;; (setq centaur-tabs-adjust-buffer-order 'right)
+  (setq centaur-tabs-label-fixed-length 12)
+  ;; (setq centaur-tabs-show-navigation-buttons t)
+  )
+
+;; DEVDOCS documentation
+
+(use-package! devdocs
+  :after lsp
+  :config
+  (add-hook! 'devdocs-mode-hook
+    (face-remap-add-relative 'variable-pitch '(:family "Noto Sans"))))

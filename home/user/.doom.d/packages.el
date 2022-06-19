@@ -120,3 +120,5 @@
 (package! smooth-scroll)
 (package! smooth-scrolling)
 ;; (package! org-preview-html)
+(package! centaur-tabs)
+(package! devdocs)
