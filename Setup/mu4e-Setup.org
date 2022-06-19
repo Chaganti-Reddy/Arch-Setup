@@ -53,3 +53,9 @@ SyncState *
 mu init --maildir=~/Mail \
           --my-address=chagantivenkataramireddy1@gmail.com \
           --my-address=chagantivenkataramireddy4@gmail.com
+
+** You can add an authinfo file in your home directory and add thsi to file
+
+#+begin_quote
+machine smtp.gmail.com login "gmail-name" password "password" port "port number"
+#+end_quote

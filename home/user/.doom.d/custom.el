@@ -8,7 +8,7 @@
  '(livedown-open t)
  '(livedown-port 1337)
  '(package-selected-packages
-   '(doom-themes all-the-icons-ivy-rich treemacs-all-the-icons))
+   '(ivy-emoji doom-themes all-the-icons-ivy-rich treemacs-all-the-icons))
  '(warning-suppress-log-types '((initialization)))
  '(warning-suppress-types '((server) (initialization) (initialization))))
 (custom-set-faces
