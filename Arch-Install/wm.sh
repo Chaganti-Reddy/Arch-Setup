@@ -50,7 +50,7 @@ pip install pandas seaborn keras numpy tensorflow imutils matplotlib scikit-lear
 # install.packages("httpgd")
 # install.packages("jsonlite")
 pip install "jupyterlab>=3" "ipywidgets>=7.6" jupyter-dash kaleido yellowbrick tqdm cufflinks wakatime torch
-pip install jovian
+pip install jovian wordcloud nltk
 paru -S js-beautify
 
 printf "\e[1;32mCHANGE NECESSARY FILES BEFORE REBOOT\e[0m"
