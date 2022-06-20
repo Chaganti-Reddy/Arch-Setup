@@ -13,7 +13,7 @@
 #+LATEX_HEADER: \usepackage{tabularx}
 #+LATEX_HEADER: \usepackage{caption}
 #+LATEX_HEADER: \usepackage[style=verbose,backend=bibtex]{biblatex}
-#+LATEX_HEADER: \usepackage{siunitx}
+#+LATEX_HEADER: \usepackage{siunitx, pbsi}
 #+LATEX_HEADER: \usepackage{float}
 #+LATEX_HEADER: \usepackage{lastpage}
 #+LATEX_HEADER: \usepackage{fancyhdr}
@@ -91,3 +91,16 @@
 # %Subsubsection
 # #+LATEX_HEADER: \titleformat{\subsubsection} {\large}{\thesubsubsection}{1em}{#1}
 \titlespacing\subsubsection{0pt}{5pt}{-5pt} % left margin, space before subsection header, space after subsection header#
+
+
+\let\oldquote\quote
+\let\endoldquote\endquote
+\renewenvironment{quote}[2][]
+  {\if\relax\detokenize{#1}\relax
+     \def\quoteauthor{#2}%
+   \else
+     \def\quoteauthor{#2~---~#1}%
+   \fi
+   \oldquote}
+  {\par\nobreak\smallskip\hfill(\quoteauthor)%
+   \endoldquote\addvspace{\bigskipamount}}
