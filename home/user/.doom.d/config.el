@@ -1535,7 +1535,6 @@ Meant for `doom-change-font-size-hook'."
   :commands doct)
 
 (after! org-capture
-  <<prettify-capture>>
 
   (defun +doct-icon-declaration-to-icon (declaration)
     "Convert :icon declaration to icon"
@@ -1690,7 +1689,6 @@ Meant for `doom-change-font-size-hook'."
                   (set-org-capture-templates)
                   (remove-hook 'server-after-make-frame-hook
                                #'org-capture-reinitialise-hook))))))(after! org-capture
-  <<prettify-capture>>
 
   (defun +doct-icon-declaration-to-icon (declaration)
     "Convert :icon declaration to icon"
