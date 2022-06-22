@@ -326,6 +326,15 @@
 
 ;; CENTAUR TABS
 
+;; ;; Enable centaur-tabs without faulty theming in daemon mode.
+;; (if (not (daemonp))
+;; 	 (centaur-tabs-mode)
+
+;;   (defun centaur-tabs-daemon-mode (frame)
+;; 	 (unless (and (featurep 'centaur-tabs) (centaur-tabs-mode-on-p))
+;; 		(run-at-time nil nil (lambda () (centaur-tabs-mode)))))
+;;   (add-hook 'after-make-frame-functions #'centaur-tabs-daemon-mode))
+
 (use-package centaur-tabs
   :demand
   :config
@@ -337,7 +346,7 @@
   (setq centaur-tabs-height 36)
   (setq centaur-tabs-style "wave")
   (setq centaur-tabs-set-icons t)
-  (setq centaur-tabs-set-bar 'left)
+  ;; (setq centaur-tabs-set-bar 'left)
   ;; (setq centaur-tabs-set-close-button nil)
   ;; (setq centaur-tabs-close-button "X")
   (setq centaur-tabs-set-modified-marker t)
