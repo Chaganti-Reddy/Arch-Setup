@@ -42,14 +42,12 @@ sudo usermod -aG video reddy
 # ~/.emacs.d/bin/doom install
 
 # If you want to install python packages uncomment this
-pip install pandas seaborn keras numpy tensorflow imutils matplotlib scikit-learn sklearn jupyterlab notebook voila JLDracula opencv-python numba urllib3 pygame nose python-lsp-server[all] debugpy radian plotly statsmodels
+pip install pandas seaborn keras numpy jovian wordcloud nltk tensorflow imutils matplotlib scikit-learn sklearn jupyterlab notebook voila JLDracula opencv-python numba urllib3 pygame nose python-lsp-server[all] debugpy radian plotly statsmodels "jupyterlab>=3" "ipywidgets>=7.6" jupyter-dash kaleido yellowbrick tqdm cufflinks wakatime torch
 
 # R packages
 # install.packages("languageserver")
 # install.packages("httpgd")
 # install.packages("jsonlite")
-pip install "jupyterlab>=3" "ipywidgets>=7.6" jupyter-dash kaleido yellowbrick tqdm cufflinks wakatime torch
-pip install jovian wordcloud nltk
 paru -S js-beautify
 
 printf "\e[1;32mCHANGE NECESSARY FILES BEFORE REBOOT\e[0m"
