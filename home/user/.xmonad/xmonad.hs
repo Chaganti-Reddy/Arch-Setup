@@ -133,7 +133,7 @@ myStartupHook = do
     spawnOnce "xinput set-prop 'DLL09D9:00 04F3:3147 Touchpad' 'libinput Tapping Enabled' 1"
     spawnOnce "xinput set-prop 'DLL09D9:00 04F3:3147 Touchpad' 'libinput Natural Scrolling Enabled' 1"
     -- spawnOnce "redshift-gtk"
-    spawnOnce "numlockx"
+    spawnOnce "numlockx &"
     spawnOnce "gpg-connect-agent /bye"
 
     -- spawn ("sleep 2 && conky -c $HOME/.config/conky/xmonad/" ++ colorScheme ++ "-01.conkyrc")
