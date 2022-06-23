@@ -25,7 +25,7 @@ Dotfiles are the customization files that are used to personalize your Linux or 
 # - [[https://gitlab.com/dwt1/dotfiles/-/tree/master/.config/spectrwm][Spectrwm]] (you will also need this [[https://gitlab.com/dwt1/dotfiles/-/blob/master/baraction.sh][baraction.sh]] script)
 - [[https://github.com/Chaganti-Reddy/dotfiles/tree/master/home/user/.xmonad][XMonad]]
 
-(*) = /links to another repository of mine/
+# (*) = /links to another repository of mine/
 
 * Other Popular Configs Of Mine
 - [[https://github.com/Chaganti-Reddy/dotfiles/tree/master/home/user/.config/alacritty][Alacritty]]
