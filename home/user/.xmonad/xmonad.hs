@@ -117,6 +117,7 @@ myStartupHook = do
     -- spawn "killall conky"   -- kill current conky on each restart
     spawn "killall trayer"  -- kill current trayer on each restart
     spawn "killall /usr/bin/emacs --daemon" -- emacs daemon for the emacsclient
+    spawn "killall wall_change.sh"
     -- spawn "killall redshift-gtk"
 
     spawnOnce "lxsession"
