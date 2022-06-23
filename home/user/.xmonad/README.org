@@ -19,14 +19,14 @@
 * About This Config
 #+CAPTION: XMonad Scrot
 #+ATTR_HTML: :alt XMonad Scrot :title XMonad Scrot :align left
-[[https://gitlab.com/dwt1/dotfiles/-/raw/master/.screenshots/dotfiles05-thumb.png]]
+[[./xmonad-example-configs/xmonad.png]]
 
 Xmonad is a dynamically tiling X11 window manager that is written and configured in Haskell.
 - XMonad Official Website: [[https://xmonad.org][https://xmonad.org]]
 - Haskell Official Website: [[https://haskell.org][https://haskell.org]]
 
 This is the xmonad configuration of Chaganti Reddy
-- My GitLab:  [[http://www.github.com/Chaganti-Reddy/][http://www.github.com/Chaganti-Reddy/]]
+- My GitHub:  [[http://www.github.com/Chaganti-Reddy/][http://www.github.com/Chaganti-Reddy/]]
 
 Keep in mind, that my configs are purposely bloated with examples of what you can do with xmonad. It is written more as a study guide rather than a config that you should download and use.
 
@@ -487,30 +487,30 @@ myManageHook = composeAll
 * Keybindings
 I am using the Xmonad.Util.EZConfig module which allows keybindings to be written in simpler, emacs-like format.  The Super/Windows key is 'M' (the modkey).  The ALT key is 'M1'.  SHIFT is 'S' and CTR is 'C'.
 
-| A FEW KEYBINDINGS       | ASSOCIATED ACTION                                            |
-|-------------------------+--------------------------------------------------------------|
-| MODKEY + RETURN         | opens terminal (alacritty)                                   |
-| MODKEY + d | opens run launcher (rofi)                                   |
-| MODKEY + TAB            | rotates through the available layouts                        |
-| MODKEY + SPACE          | toggles fullscreen on/off (useful for watching videos)       |
-| MODKEY + q      | closes window with focus                                     |
-| MODKEY + SHIFT + r      | restarts xmonad                                              |
-| MODKEY + SHIFT + q      | quits xmonad                                                 |
-| MODKEY + 1-9            | switch focus to workspace (1-9)                              |
-| MODKEY + SHIFT + 1-9    | send focused window to workspace (1-9)                       |
-| MODKEY + j              | windows focus down (switches focus between windows in stack) |
-| MODKEY + k              | windows focus up (switches focus between windows in stack)   |
-| MODKEY + SHIFT + j      | windows swap down (swap windows in the stack)                |
-| MODKEY + SHIFT + k      | windows swap up (swap the windows in the stack)              |
-| MODKEY + h              | shrink window (decreases window width)                       |
-| MODKEY + l              | expand window (increases window width)                       |
-| MODKEY + w              | switches focus to monitor 1                                  |
-| MODKEY + e              | switches focus to monitor 2                                  |
-| MODKEY + r              | switches focus to monitor 3                                  |
-| MODKEY + period         | switch focus to next monitor                                 |
-| MODKEY + comma          | switch focus to prev monitor                                 |
-| MODKEY + SPACE          | toggles fullscreen on/off (useful for watching videos)       |
-| MODKEY + t              | force floating window back into tiling                       |
+| A FEW KEYBINDINGS    | ASSOCIATED ACTION                                            |
+|----------------------+--------------------------------------------------------------|
+| MODKEY + RETURN      | opens terminal (alacritty)                                   |
+| MODKEY + d           | opens run launcher (rofi)                                    |
+| MODKEY + TAB         | rotates through the available layouts                        |
+| MODKEY + SPACE       | toggles fullscreen on/off (useful for watching videos)       |
+| MODKEY + q           | closes window with focus                                     |
+| MODKEY + SHIFT + r   | restarts xmonad                                              |
+| MODKEY + SHIFT + q   | quits xmonad                                                 |
+| MODKEY + 1-9         | switch focus to workspace (1-9)                              |
+| MODKEY + SHIFT + 1-9 | send focused window to workspace (1-9)                       |
+| MODKEY + j           | windows focus down (switches focus between windows in stack) |
+| MODKEY + k           | windows focus up (switches focus between windows in stack)   |
+| MODKEY + SHIFT + j   | windows swap down (swap windows in the stack)                |
+| MODKEY + SHIFT + k   | windows swap up (swap the windows in the stack)              |
+| MODKEY + h           | shrink window (decreases window width)                       |
+| MODKEY + l           | expand window (increases window width)                       |
+| MODKEY + w           | switches focus to monitor 1                                  |
+| MODKEY + e           | switches focus to monitor 2                                  |
+| MODKEY + r           | switches focus to monitor 3                                  |
+| MODKEY + period      | switch focus to next monitor                                 |
+| MODKEY + comma       | switch focus to prev monitor                                 |
+| MODKEY + SPACE       | toggles fullscreen on/off (useful for watching videos)       |
+| MODKEY + t           | force floating window back into tiling                       |
 
 #+BEGIN_SRC haskell
 -- START_KEYS
