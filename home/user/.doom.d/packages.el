@@ -135,3 +135,4 @@
 (package! websocket)
 (package! csv-mode)
 (package! git-link)
+(package! jedi)

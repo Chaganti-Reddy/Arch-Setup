@@ -1978,6 +1978,7 @@ is selected, only the bare key is returned."
 
 (add-hook 'c++-mode-hook #'lsp)
 (add-hook 'python-mode-hook #'lsp)
+(add-hook 'python-mode-hook #'jedi:ac-setup)
 (add-hook 'c-mode-hook #'lsp)
 (add-hook 'ess-r-mode-hook #'lsp)
 (add-hook 'haskell-mode-hook #'lsp)
@@ -2349,11 +2350,12 @@ is selected, only the bare key is returned."
           ("ein-haskell" . haskell)
           ("ein-julia" . julia))))
   )
+(setq ein:completion-backend 'ein:use-ac-jedi-backend)
 
 (after! ein:ipynb-mode                  ;
- (poly-ein-mode 1)
- (hungry-delete-mode -1)
-)
+  (poly-ein-mode 1)
+  (hungry-delete-mode -1)
+  )
 
 ;; ----------------------------------------------------------------------------------------------------------------------
 
