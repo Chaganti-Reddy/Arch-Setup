@@ -779,7 +779,10 @@ Meant for `doom-change-font-size-hook'."
   (setq neo-smart-open t
         neo-window-fixed-size nil))
 (after! doom-themes
-  (setq doom-neotree-enable-variable-pitch t))
+  (setq doom-neotree-enable-variable-pitch t)
+  (setq doom-themes-treemacs-theme "doom-dracula")
+  (doom-themes-treemacs-config)
+  )
 (map! :leader
       :desc "Toggle neotree file viewer" "t n" #'neotree-toggle
       :desc "Open directory in neotree" "d n" #'neotree-dir)
@@ -1977,6 +1980,7 @@ is selected, only the bare key is returned."
 (add-hook 'python-mode-hook #'lsp)
 (add-hook 'c-mode-hook #'lsp)
 (add-hook 'ess-r-mode-hook #'lsp)
+(add-hook 'haskell-mode-hook #'lsp)
 
 (map! :g "C-c h" #'lsp-headerline-breadcrumb-mode)
 
@@ -2334,22 +2338,22 @@ is selected, only the bare key is returned."
 
 ;; EIN Jupyter Notebook In Emacs
 
-;; (use-package! ein
-;;   :config
-;;   (setq ob-ein-languages
-;;    (quote
-;;     (("ein-python" . python)
-;;      ("ein-R" . R)
-;;      ("ein-r" . R)
-;;      ("ein-rust" . rust)
-;;      ("ein-haskell" . haskell)
-;;      ("ein-julia" . julia))))
-;;   )
+(use-package ein
+  :config
+  (setq ob-ein-languages
+        (quote
+         (("ein-python" . python)
+          ("ein-R" . R)
+          ("ein-r" . R)
+          ("ein-rust" . rust)
+          ("ein-haskell" . haskell)
+          ("ein-julia" . julia))))
+  )
 
-;; (after! ein:ipynb-mode                  ;
-;;   (poly-ein-mode 1)
-;;   (hungry-delete-mode -1)
-;;   )
+(after! ein:ipynb-mode                  ;
+ (poly-ein-mode 1)
+ (hungry-delete-mode -1)
+)
 
 ;; ----------------------------------------------------------------------------------------------------------------------
 
@@ -2431,6 +2435,8 @@ is selected, only the bare key is returned."
 ;; ----------------------------------------------------------------------------------------------------------------------
 
 ;; ELFEED
+
+(elfeed-load-opml "~/Documents/GitHub/dotfiles/home/user/subscriptions.opml")
 
 (map! :map elfeed-search-mode-map
       :after elfeed-search
@@ -3323,5 +3329,49 @@ SQL can be either the emacsql vector representation, or a string."
 (defun +org-xkcd-complete (&optional arg)
   "Complete xkcd using `+xkcd-stored-info'"
   (format "xkcd:%d" (+xkcd-select)))
+
+;; ----------------------------------------------------------------------------------------------------------------------
+
+;; CSV MODE
+
+(use-package csv-mode
+  :mode ("\\.csv\\'" . csv-mode)
+  :init (add-hook 'csv-mode-hook (lambda () (font-lock-mode -1)))
+  :ensure t)
+
+;; ----------------------------------------------------------------------------------------------------------------------
+
+;; GIT LINK
+
+;; using https://github.com/jwiegley/use-package and https://github.com/sshaw/git-link
+
+;; in the git config of the repository setup the following
+;; [git-link]
+;;	remote = mysourcegraph.sourcegraph
+;; [remote "mysourcegraph.sourcegraph"]
+;;  url = https://my.sourcegraph.host/my.git.host/myrespository
+
+(use-package git-link
+  :ensure t
+  :config
+  (defun git-link-sourcegraph (hostname dirname filename _branch commit start end)
+    (let ((line-or-range (if end (format "%s-%s" start end) start)))
+      (format "https://%s/%s@%s/-/blob/%s#L%s"
+              hostname
+              dirname
+              commit
+              filename
+              line-or-range)))
+
+  (defun git-link-commit-sourcegraph (hostname dirname commit)
+    (format "https://%s/%s@%s"
+            hostname
+            dirname
+            commit))
+
+  (add-to-list 'git-link-remote-alist '("sourcegraph" git-link-sourcegraph))
+  (add-to-list 'git-link-commit-remote-alist '("sourcegraph" git-link-commit-sourcegraph))
+
+  (setq git-link-open-in-browser 't))
 
 ;; ----------------------------------------------------------------------------------------------------------------------

@@ -50,7 +50,7 @@
 ;(unpin! t)
 
 (package! org-bullets)
-;;(package! haskell-mode)
+;; (package! haskell-mode)
 (package! lua-mode)
 (package! markdown-mode)
 (package! writeroom-mode)
@@ -133,3 +133,5 @@
 (package! doct)
 (package! org-roam-ui)
 (package! websocket)
+(package! csv-mode)
+(package! git-link)
