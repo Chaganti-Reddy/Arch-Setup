@@ -789,7 +789,7 @@ Meant for `doom-change-font-size-hook'."
         neo-window-fixed-size nil))
 (after! doom-themes
   (setq doom-neotree-enable-variable-pitch t)
-  (setq doom-themes-treemacs-theme "doom-dracula")
+  (setq doom-themes-treemacs-theme "doom-atom")
   (doom-themes-treemacs-config)
   )
 (map! :leader
@@ -2349,7 +2349,11 @@ is selected, only the bare key is returned."
 ;; EIN Jupyter Notebook In Emacs
 
 (use-package ein
-  :config
+  :init
+  (add-hook 'ein:notebook-mode-hook 'jedi:setup)
+  (add-hook 'ein:notebook-mode-hook 'pixel-scroll-mode)
+  ;; :config
+  ;; (add-hook 'ein:ipynb-mode 'ein:maybe-open-file-as-notebook)
   (setq ob-ein-languages
         (quote
          (("ein-python" . python)
@@ -2358,7 +2362,23 @@ is selected, only the bare key is returned."
           ("ein-rust" . rust)
           ("ein-haskell" . haskell)
           ("ein-julia" . julia))))
-  )
+  :custom
+  (ein:auto-save-on-execute t)
+  (ein:auto-black-on-execute t)
+  (ein:complete-on-dot t)
+  (ein:truncate-long-cell-output nil)
+  (ein:output-area-inlined-images t) ;; not necessary in older versions
+  (ein:slice-image t)
+  ;; I set the URL explicitly, since I run my notebook servers from the terminal and
+  ;; access them by URL in EIN
+  (ein:urls "8888")
+:bind
+  ("C-c C-x C-c" . ein:worksheet-clear-all-output)
+  ("C-c C-x C-k" . ein:nuke-and-pave)
+  ;; black-cell isn't really useful if you auto-black-on-execute
+  ("C-c C-b c" . ein:worksheet-python-black-cell)
+  ("C-c C-x C-f" . ein:new-notebook))
+
 (setq ein:completion-backend 'ein:use-ac-jedi-backend)
 
 (after! ein:ipynb-mode                  ;
