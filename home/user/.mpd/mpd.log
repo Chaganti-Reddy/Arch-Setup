@@ -363,3 +363,12 @@ May 29 14:55 : player: played "MUS/Gundegilli.mp3"
 May 29 15:48 : player: played "MUS/Gundegilli.mp3"
 May 29 16:30 : player: played "MUS/Gundegilli.mp3"
 May 29 16:33 : player: played "MUS/Gundegilli.mp3"
+Jun 22 11:43 : exception: Failed to decode /home/reddy/Music/MUS/Gundegilli.mp3; Failed to open '/home/reddy/Music/MUS/Gundegilli.mp3': No such file or directory
+Jun 22 11:43 : player: played "MUS/Gundegilli.mp3"
+Jun 22 11:48 : update: added MUS/Challaga oka merupula.mp3
+Jun 22 11:48 : update: added MUS/[iSongs.info] 05 - Telusaa Telusaa.mp3
+Jun 24 10:13 : update: added MUS/Toofan.mp3
+Jun 24 10:13 : update: added MUS/Mehabooba.mp3
+Jun 24 10:13 : update: added MUS/Yadagara Yadagara.mp3
+Jun 24 10:13 : update: added MUS/Sulthana.mp3
+Jun 24 10:13 : exception: Failed to open /home/reddy/.mpd/playlists: No such file or directory
