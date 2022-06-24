@@ -645,6 +645,15 @@ Meant for `doom-change-font-size-hook'."
   (kbd "g h") 'ibuffer-do-kill-lines
   (kbd "g H") 'ibuffer-update)
 
+;; kILL ALL BUFFERS
+
+(defun nuke-all-buffers ()
+  (interactive)
+  (mapcar 'kill-buffer (buffer-list))
+  (delete-other-windows))
+
+(global-set-key (kbd "C-x K") 'nuke-all-buffers)
+
 ;; --------------------------------------------------------------------------------------------------------------------
 
 ;; DIRED

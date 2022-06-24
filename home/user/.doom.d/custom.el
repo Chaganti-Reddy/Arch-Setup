@@ -8,7 +8,8 @@
  '(livedown-autostart nil)
  '(livedown-browser "brave")
  '(livedown-open t)
- '(livedown-port 1337))
+ '(livedown-port 1337)
+ '(warning-suppress-types '((ein) (ein) (ein) (ein) (ein))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
