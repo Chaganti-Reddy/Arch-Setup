@@ -452,7 +452,7 @@ myKeys =
         , ("C-g g", spawnSelected' myAppGrid)                 -- grid select favorite apps
         , ("C-g t", goToSelected $ mygridConfig myColorizer)  -- goto selected window
         , ("C-g b", bringSelected $ mygridConfig myColorizer) -- bring selected window
-        , ("C-b g", spawnSelected' myPersonalGrid)                 -- grid select personal apps
+        , ("C-g p", spawnSelected' myPersonalGrid)                 -- grid select personal apps
 
     -- KB_GROUP Windows navigation
         , ("M-m", windows W.focusMaster)  -- Move focus to the master window
