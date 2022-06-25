@@ -118,6 +118,7 @@ myStartupHook = do
     spawn "killall trayer"  -- kill current trayer on each restart
     spawn "killall /usr/bin/emacs --daemon" -- emacs daemon for the emacsclient
     spawn "killall wall_change.sh"
+    spawn "xscreensaver -nosplash &"
     -- spawn "killall redshift-gtk"
 
     spawnOnce "lxsession"
