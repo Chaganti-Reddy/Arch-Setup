@@ -1961,7 +1961,7 @@ is selected, only the bare key is returned."
       (company-indent-or-complete-common nil)))
 
 (use-package! copilot
-  :hook (prog-mode . copilot-mode)
+  ;; :hook (prog-mode . copilot-mode)
   :bind (("C-M-<right>" . 'copilot-accept-completion-by-line)
          ;; ("<tab>" . 'copilot-accept-completion-by-word)
          ;; :map company-active-map
