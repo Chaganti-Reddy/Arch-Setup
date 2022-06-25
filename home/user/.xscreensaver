@@ -1,5 +1,5 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-settings 6.04 for reddy on Sat Jun 25 13:01:28 2022.
+# Written by xscreensaver-settings 6.04 for reddy on Sat Jun 25 13:09:55 2022.
 # https://www.jwz.org/xscreensaver/
 
 timeout:	0:05:00
@@ -128,7 +128,8 @@ programs:								      \
 				wander -root				    \n\
 -				webcollage -root			    \n\
 				xflame -root				    \n\
-				xmatrix -root				    \n\
+				xmatrix -root -mode pipe -delay 25833	      \
+				  -density 52 -fps			    \n\
   GL: 				gflux -root				    \n\
 				nerverot -root				    \n\
 				xrayswarm -root				    \n\
