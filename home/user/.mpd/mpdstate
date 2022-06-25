@@ -1,9 +1,9 @@
 sw_volume: 100
 audio_device_state:1:pulse audio
 audio_device_state:1:my_fifo
-state: pause
-current: 9
-time: 1.710000
+state: play
+current: 3
+time: 87.779000
 random: 0
 repeat: 0
 single: 0
@@ -19,19 +19,19 @@ playlist_begin
 4:MUS/Sulthana.mp3
 5:MUS/Toofan.mp3
 6:MUS/Mehabooba.mp3
-7:MUS/Gundegilli.mp3
-8:MUS/Athiloka Sundari.mp3
-9:MUS/Challaga oka merupula.mp3
-10:MUS/Kalaavathi.mp3
-11:MUS/Ee Raathale.mp3
-12:MUS/Love Me.mp3
-13:MUS/Gaali Vaaluga.mp3
-14:MUS/Leharaayi.mp3
-15:MUS/Naa Dooja Koi.mp3
-16:MUS/Halamithi Habibo.mp3
-17:MUS/Kung Fu Kumaari.mp3
-18:MUS/Ria.mp3
-19:MUS/Rave Na Cheliya.mp3
+7:MUS/Athiloka Sundari.mp3
+8:MUS/Challaga oka merupula.mp3
+9:MUS/Naa Dooja Koi.mp3
+10:MUS/Ee Raathale.mp3
+11:MUS/Kung Fu Kumaari.mp3
+12:MUS/Halamithi Habibo.mp3
+13:MUS/Rave Na Cheliya.mp3
+14:MUS/Gundegilli.mp3
+15:MUS/Kalaavathi.mp3
+16:MUS/Love Me.mp3
+17:MUS/Gaali Vaaluga.mp3
+18:MUS/Leharaayi.mp3
+19:MUS/Ria.mp3
 20:MUS/Guche Gulabi.mp3
 21:MUS/Shape of You.mp3
 22:MUS/Run.mp3
