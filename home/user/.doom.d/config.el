@@ -1954,8 +1954,6 @@ is selected, only the bare key is returned."
   ;; :straight (:host github :repo "zerolfx/copilot.el" :files ("dist" "*.el"))
   :ensure t)
 
-(add-hook 'prog-mode-hook 'copilot-mode)
-
 ;; accept completion from copilot and fallback to company
 (defun my-tab ()
   (interactive)
