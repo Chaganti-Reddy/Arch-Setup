@@ -136,4 +136,3 @@
 (package! csv-mode)
 (package! git-link)
 (package! jedi)
-(package! python-black)

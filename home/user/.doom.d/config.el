@@ -2375,8 +2375,6 @@ is selected, only the bare key is returned."
 :bind
   ("C-c C-x C-c" . ein:worksheet-clear-all-output)
   ("C-c C-x C-k" . ein:nuke-and-pave)
-  ;; black-cell isn't really useful if you auto-black-on-execute
-  ("C-c C-b c" . ein:worksheet-python-black-cell)
   ("C-c C-x C-f" . ein:new-notebook))
 
 (setq ein:completion-backend 'ein:use-ac-jedi-backend)
