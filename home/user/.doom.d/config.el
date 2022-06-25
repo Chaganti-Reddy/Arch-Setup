@@ -219,13 +219,13 @@
 (require 'org-ref-ivy)
 (require 'company-tabnine)
 (use-package simple-httpd
-  :ensure t
+  ;; :ensure t
   :config
   (setq httpd-port 7070)
   (setq httpd-host (system-name)))
 
 (use-package impatient-mode
-  :ensure t
+  ;; :ensure t
   :commands impatient-mode)
 
 ;; ob-async isn't tied to src blocks in a specific org-babel language. Simply add the keyword :async to the header-args of any org-babel src block and invoke ob-async-org-babel-execute-src-block
@@ -1997,7 +1997,7 @@ is selected, only the bare key is returned."
 
 (require 'eglot)
 (add-to-list 'eglot-server-programs '((cpp-mode) "clangd"))
-(add-hook 'cpp-mode-hook 'eglot-ensure 'lsp)
+(add-hook 'cpp-mode-hook 'eglot-ensure 'lsp 'company-tabnine)
 
 ;; For python
 (add-hook 'python-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
@@ -2558,7 +2558,7 @@ is selected, only the bare key is returned."
 (after! elfeed
 
   (use-package elfeed-org
-    :ensure t
+    ;; :ensure t
     :config
     (elfeed-org)
     (setq rmh-elfeed-org-files (list "~/Documents/GitHub/dotfiles/org/elfeed.org")))
@@ -3412,7 +3412,8 @@ SQL can be either the emacsql vector representation, or a string."
 (use-package csv-mode
   :mode ("\\.csv\\'" . csv-mode)
   :init (add-hook 'csv-mode-hook (lambda () (font-lock-mode -1)))
-  :ensure t)
+  ;; :ensure t
+  )
 
 ;; ----------------------------------------------------------------------------------------------------------------------
 
@@ -3427,7 +3428,7 @@ SQL can be either the emacsql vector representation, or a string."
 ;;  url = https://my.sourcegraph.host/my.git.host/myrespository
 
 (use-package git-link
-  :ensure t
+  ;; :ensure t
   :config
   (defun git-link-sourcegraph (hostname dirname filename _branch commit start end)
     (let ((line-or-range (if end (format "%s-%s" start end) start)))
