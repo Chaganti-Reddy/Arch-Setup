@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/home/reddy/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ale = {
+    loaded = true,
+    path = "/home/reddy/.local/share/nvim/site/pack/packer/start/ale",
+    url = "https://github.com/dense-analysis/ale"
+  },
   ["alpha-nvim"] = {
     loaded = true,
     path = "/home/reddy/.local/share/nvim/site/pack/packer/start/alpha-nvim",
@@ -118,6 +123,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/reddy/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
+  },
+  ["copilot.vim"] = {
+    loaded = true,
+    path = "/home/reddy/.local/share/nvim/site/pack/packer/start/copilot.vim",
+    url = "https://github.com/github/copilot.vim"
   },
   ["darkplus.nvim"] = {
     loaded = true,
