@@ -136,3 +136,7 @@
 (package! csv-mode)
 (package! git-link)
 (package! jedi)
+(package! format-all)
+(package! copilot
+  :recipe (:host github :repo "zerolfx/copilot.el" :files ("*.el" "dist")))
+(package! company-tabnine)
