@@ -1,11 +1,11 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-settings 6.04 for reddy on Sat Jun 25 13:37:41 2022.
+# Written by xscreensaver-settings 6.04 for reddy on Sun Jun 26 15:23:06 2022.
 # https://www.jwz.org/xscreensaver/
 
-timeout:	0:05:00
+timeout:	0:02:00
 cycle:		0:01:00
 lock:		True
-lockTimeout:	0:10:00
+lockTimeout:	0:05:00
 passwdTimeout:	0:00:30
 visualID:	default
 installColormap:    True
@@ -288,7 +288,7 @@ programs:								      \
   GL: 				chompytower -root			    \n\
   GL: 				mapscroller -root			    \n\
   GL: 				nakagin -root				    \n\
-  GL: 				squirtorus -root			    \n\
+- GL: 				squirtorus -root			    \n\
 
 
 pointerHysteresis:  10
