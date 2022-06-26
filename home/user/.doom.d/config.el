@@ -593,6 +593,33 @@ Meant for `doom-change-font-size-hook'."
 (map! :leader
       :desc "Clone indirect buffer other window" "b c" #'clone-indirect-buffer-other-window)
 
+(defun toggle-window-split ()
+  (interactive)
+  (if (= (count-windows) 2)
+      (let* ((this-win-buffer (window-buffer))
+         (next-win-buffer (window-buffer (next-window)))
+         (this-win-edges (window-edges (selected-window)))
+         (next-win-edges (window-edges (next-window)))
+         (this-win-2nd (not (and (<= (car this-win-edges)
+                     (car next-win-edges))
+                     (<= (cadr this-win-edges)
+                     (cadr next-win-edges)))))
+         (splitter
+          (if (= (car this-win-edges)
+             (car (window-edges (next-window))))
+          'split-window-horizontally
+        'split-window-vertically)))
+    (delete-other-windows)
+    (let ((first-win (selected-window)))
+      (funcall splitter)
+      (if this-win-2nd (other-window 1))
+      (set-window-buffer (selected-window) this-win-buffer)
+      (set-window-buffer (next-window) next-win-buffer)
+      (select-window first-win)
+      (if this-win-2nd (other-window 1))))))
+
+(global-set-key (kbd "C-x |") 'toggle-window-split)
+
 ;; --------------------------------------------------------------------------------------------------------------------
 
 ;; WINNER MODE
@@ -3449,5 +3476,29 @@ SQL can be either the emacsql vector representation, or a string."
   (add-to-list 'git-link-commit-remote-alist '("sourcegraph" git-link-commit-sourcegraph))
 
   (setq git-link-open-in-browser 't))
+
+;; ----------------------------------------------------------------------------------------------------------------------
+
+;; COMPILE AND RUN C++
+
+(defun my/vterm-execute-cpp ()
+  "Insert text of current line in vterm and execute."
+  (interactive)
+  (require 'vterm)
+  (eval-when-compile (require 'subr-x))
+  (let ((command (concat "g++ -std=c++17 " (buffer-name) " -o a.out && ./a.out")))
+    (let ((buf (current-buffer)))
+      (unless (get-buffer vterm-buffer-name)
+        (vterm))
+      (display-buffer vterm-buffer-name t)
+      ;; (switch-to-buffer-other-window vterm-buffer-name)
+      (vterm--goto-line -1)
+      (message command)
+      (vterm-send-string command)
+      (vterm-send-return)
+      ;; (switch-to-buffer-other-window buf)
+      )))
+
+(global-set-key [f9] 'my/vterm-execute-cpp)
 
 ;; ----------------------------------------------------------------------------------------------------------------------
