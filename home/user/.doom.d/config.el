@@ -197,6 +197,12 @@
         (funcall (plist-get (car result) :secret))
       nil)))
 
+(add-to-list 'company-backends #'company-tabnine)
+;; Trigger completion immediately.
+(setq company-idle-delay 0)
+
+;; Number the candidates (use M-1, M-2 etc to select completions).
+(setq company-show-numbers t)
 
 ;; --------------------------------------------------------------------------------------------------------------------
 
@@ -235,7 +241,7 @@
 ;; Nice Visual Improvements
 
 ;; Slightly improve the look and feel of Info pages, might actually encourage me to read them.
-(use-package! info-colors
+(use-package info-colors
   :after info
   :commands (info-colors-fontify-node)
   :hook (Info-selection . info-colors-fontify-node))
@@ -244,6 +250,8 @@
 (require 'sql-indent)
 
 (require 'windresize)
+
+(mode-icons-mode)
 
 (require 'ox-reveal)
 (use-package htmlize)
@@ -951,7 +959,8 @@ Meant for `doom-change-font-size-hook'."
 ;; NOTE: If the setting for ‘ivy-posframe-display’ is set to ‘nil’ (false), anything that is set to ‘ivy-display-function-fallback’ will just default to their normal position in Doom Emacs (usually a bottom split).  However, if this is set to ‘t’ (true), then the fallback position will be centered in the window.
 
 (setq ivy-posframe-display-functions-alist
-      '((swiper                     . ivy-posframe-display-at-point)
+      '(
+        (swiper                     . ivy-posframe-display-at-point)
         (complete-symbol            . ivy-posframe-display-at-point)
         (counsel-M-x                . ivy-display-function-fallback)
         (counsel-esh-history        . ivy-posframe-display-at-window-center)
@@ -979,6 +988,15 @@ Meant for `doom-change-font-size-hook'."
 
 ;; ----------------------------------------------------------------------------------------------------------------------
 
+(ivy-mode)
+(setq ivy-use-virtual-buffers t)
+(setq enable-recursive-minibuffers t)
+;; enable this if you want `swiper' to use it
+;; (setq search-default-mode #'char-fold-to-regexp)
+(global-set-key "\C-s" 'swiper)
+
+;; ----------------------------------------------------------------------------------------------------------------------
+
 ;; ORG-MODE
 (defun my/org-mode/load-prettify-symbols ()
   (interactive)
@@ -996,9 +1014,33 @@ Meant for `doom-change-font-size-hook'."
           ("#+name:" . ?﮸)
           ("#+NAME:" . ?﮸)
           ("#+begin_src python" . "🐍")
+          ("#+BEGIN_SRC python" . "🐍")
+          ("#+begin_src C" . "🇨")
+          ("#+begin_src C++" . "🇨")
+          ("#+BEGIN_SRC C" . "🇨")
+          ("#+BEGIN_SRC C++" . "🇨")
+          ("#+begin_src java" . "☕")
+          ("#+BEGIN_SRC java" . "☕")
+          ("#+begin_src txt" . "📝")
+          ("#+BEGIN_SRC txt" . "📝")
           ("#+begin_src elisp" . "λ")
+          ("#+BEGIN_SRC elisp" . "λ")
           ("#+begin_src jupyter-python" . "🐍")
-          ("#+end_src" . "―")
+          ("#+BEGIN_SRC jupyter-python" . "🐍")
+          ("#+begin_src bash" . "🐚")
+          ("#+begin_src sh" . "🐚")
+          ("#+BEGIN_SRC bash" . "🐚")
+          ("#+BEGIN_SRC sh" . "🐚")
+          ("#+begin_quote" . "✌")
+          ("#+BEGIN_QUOTE" . "✌")
+          ("#+end_quote" . "✌")
+          ("#+END_QUOTE" . "✌")
+          ("#+begin_export" . "📁")
+          ("#+BEGIN_EXPORT" . "📁")
+          ("#+end_export" . "📁")
+          ("#+END_EXPORT" . "📁")
+          ("#+end_src" . "ℹ")
+          ("#+END_SRC" . "ℹ")
           ("#+results:" . "🔨")
           ("#+RESULTS:" . "🔨")      ("#+call:" . ?)
           ("#+CALL:" . ?)
@@ -2080,13 +2122,6 @@ is selected, only the bare key is returned."
 (use-package company
   :after lsp-mode
   :hook (lsp-mode . company-mode))
-(add-to-list 'company-backends #'company-tabnine)
-
-;; Trigger completion immediately.
-(setq company-idle-delay 0)
-
-;; Number the candidates (use M-1, M-2 etc to select completions).
-(setq company-show-numbers t)
 
 ;;(add-to-list 'company-backends 'company-ob-ipython)
 ;; (defun ob-ipython--collect-json ()
