@@ -4,7 +4,7 @@ import System.Directory
 import System.IO (hPutStrLn)
 import System.Exit (exitSuccess)
 import qualified XMonad.StackSet as W
- 
+
     -- Actions
 import XMonad.Actions.CopyWindow (kill1)
 import XMonad.Actions.CycleWS (Direction1D(..), moveTo, shiftTo, WSType(..), nextScreen, prevScreen)
@@ -423,6 +423,7 @@ myKeys =
         , ("M-n", spawn (myTerminal ++ " -e ranger"))
         , ("M-C-n", spawn (myTerminal ++ " -e ncmpcpp"))
         , ("M-p", spawn ("rofi -show p -modi p:~/.local/bin/rofi-power-menu"))
+        , ("M-S-d", spawn ("~/.config/eww/dashboard/launch_dashboard"))
         , ("M1-w", spawn ("~/.local/bin/arch-wiki"))
         , ("M1-e", spawn ("rofi -show emoji"))
         , ("M1-t", spawn ("~/.local/bin/dtos-colorscheme"))
