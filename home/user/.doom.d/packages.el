@@ -142,3 +142,5 @@
 (package! company-tabnine)
 (package! mode-icons)
 (package! swiper)
+(package! visual-fill-column)
+(package! org-present)

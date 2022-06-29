@@ -204,6 +204,14 @@
 ;; Number the candidates (use M-1, M-2 etc to select completions).
 (setq company-show-numbers t)
 
+(menu-bar-mode 0)
+(tool-bar-mode 0)
+(scroll-bar-mode 0)
+
+;; Let the desktop background show through
+;; (set-frame-parameter (selected-frame) 'alpha '(97 . 100))
+;; (add-to-list 'default-frame-alist '(alpha . (90 . 90)))
+
 ;; --------------------------------------------------------------------------------------------------------------------
 
 ;; Some Packages Initialization
@@ -2290,7 +2298,7 @@ is selected, only the bare key is returned."
   ;; Refresh mail using isync every 10 minutes
   (setq mu4e-update-interval (* 10 60))
   (setq mu4e-get-mail-command "mbsync -a")
-  (setq mu4e-root-maildir "~/Mail/")
+  (setq mu4e-root-maildir "~/Mail")
 
   ;; Make sure plain text mails flow correctly for recipients
   (setq mu4e-compose-format-flowed t)
@@ -2310,7 +2318,7 @@ is selected, only the bare key is returned."
           :match-func
           (lambda (msg)
             (when msg
-              (string-prefix-p "/Gmail/" (mu4e-message-field msg :maildir))))
+              (string-prefix-p "/Gmail" (mu4e-message-field msg :maildir))))
           :vars '((user-mail-address . "chagantivenkataramireddy1@gmail.com")
                   (user-full-name    . "Chaganti Reddy")
                   (smtpmail-smtp-server  . "smtp.gmail.com")
@@ -3003,6 +3011,69 @@ is selected, only the bare key is returned."
 ;; ----------------------------------------------------------------------------------------------------------------------
 
 ;;  Presentation
+
+;; (unless (package-installed-p 'org-present)
+;;   (package-install 'org-present))
+
+;; ;; Install visual-fill-column
+;; (unless (package-installed-p 'visual-fill-column)
+;;   (package-install 'visual-fill-column))
+
+;; Configure fill width
+(setq visual-fill-column-width 110
+      visual-fill-column-center-text t)
+
+(defun my/org-present-start ()
+  ;; Tweak font sizes
+  (setq-local face-remapping-alist '((default (:height 1.5) variable-pitch)
+                                     (header-line (:height 4.0) variable-pitch)
+                                     (org-document-title (:height 1.75) org-document-title)
+                                     (org-code (:height 1.55) org-code)
+                                     (org-verbatim (:height 1.55) org-verbatim)
+                                     (org-block (:height 1.25) org-block)
+                                     (org-block-begin-line (:height 0.7) org-block)))
+
+  ;; Set a blank header line string to create blank space at the top
+  (setq header-line-format " ")
+
+  ;; Center the presentation and wrap lines
+  (visual-fill-column-mode 1)
+  (visual-line-mode 1))
+
+(defun my/org-present-end ()
+  ;; Reset font customizations
+  (setq-local face-remapping-alist '((default variable-pitch default)))
+
+  ;; Clear the header line format by setting to `nil'
+  (setq header-line-format nil)
+
+  ;; Stop centering the document
+  (visual-fill-column-mode 0)
+  (visual-line-mode 0))
+
+;; ;; Turn on variable pitch fonts in Org Mode buffers
+;; (add-hook 'org-mode-hook 'variable-pitch-mode)
+
+;; Register hooks with org-present
+(add-hook 'org-present-mode-hook 'my/org-present-start)
+(add-hook 'org-present-mode-quit-hook 'my/org-present-end)
+
+(defun my/org-present-prepare-slide (buffer-name heading)
+  ;; Show only top-level headlines
+  (org-overview)
+
+  ;; Unfold the current entry
+  (org-show-entry)
+
+  ;; Show only direct subheadings of the slide but don't expand them
+  (org-show-children))
+
+(add-hook 'org-present-after-navigate-functions 'my/org-present-prepare-slide)
+
+;; ----------------------------------------------------------------------------------------------------------------------
+
+;; ORG-TREE-SLIDE
+
 (use-package org-tree-slide
   :custom
   (org-image-actual-width nil))
