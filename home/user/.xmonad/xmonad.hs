@@ -122,6 +122,7 @@ myStartupHook = do
     -- spawn "killall redshift-gtk"
 
     spawnOnce "lxsession"
+    spawnOnce "eww daemon"
     spawnOnce "~/.xmonad/startsound.sh"
     spawnOnce "picom"
     -- spawnOnce "mailspring"
