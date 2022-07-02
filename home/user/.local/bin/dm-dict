@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+WORD="$(rofi -dmenu -i -p "Search:")"
+TESTWORD="$(dym -c -n=1 "$WORD")"
+
+if [ "$WORD" != "$TESTWORD" ]; then
+	KEYWORD=$(dym -c "$WORD" | rofi -dmenu -i -p "was $WORD a misspelling?(select/no)")
+	if [ "$KEYWORD" = "no" ] || [ "$KEYWORD" = "n" ]; then
+		KEYWORD="$WORD"
+	fi
+else
+	KEYWORD="$WORD"
+fi
+
+if ! [ "${KEYWORD}" ]; then
+	printf 'No word inserted\n' >&2
+	exit 0
+fi
+alacritty -e trans -v -d "$WORD"
+
