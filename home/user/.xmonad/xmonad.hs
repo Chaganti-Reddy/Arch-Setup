@@ -122,6 +122,7 @@ myStartupHook = do
     -- spawn "killall redshift-gtk"
 
     spawnOnce "lxsession"
+    spawn "mpv"
     spawnOnce "eww daemon"
     spawnOnce "~/.xmonad/startsound.sh"
     spawnOnce "picom"
@@ -425,7 +426,7 @@ myKeys =
         , ("M-C-n", spawn (myTerminal ++ " -e ncmpcpp"))
         , ("M-p", spawn ("rofi -show p -modi p:~/.local/bin/rofi-power-menu"))
         , ("M-S-d", spawn ("~/.config/eww/dashboard/launch_dashboard"))
-        , ("M1-w", spawn ("~/.local/bin/arch-wiki"))
+        , ("M1-w", spawn ("~/.local/bin/dm-wiki"))
         , ("M1-e", spawn ("rofi -show emoji"))
         , ("M1-t", spawn ("~/.local/bin/dtos-colorscheme"))
         , ("M-S-p", spawn ("rofi-pass"))
@@ -434,7 +435,6 @@ myKeys =
         , ("M-<F11>", spawn ("xbacklight -inc 5"))
         , ("M-S-s", spawn ("flameshot gui"))
         , ("M-s e", spawn ("rofi -show emoji"))
-
 
     -- KB_GROUP Kill windows
         , ("M-q", kill1)     -- Kill the currently focused client
