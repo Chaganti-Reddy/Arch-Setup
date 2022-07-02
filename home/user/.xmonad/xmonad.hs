@@ -429,6 +429,7 @@ myKeys =
         , ("M1-w", spawn ("~/.local/bin/dm-wiki"))
         , ("M1-e", spawn ("rofi -show emoji"))
         , ("M1-t", spawn ("~/.local/bin/dtos-colorscheme"))
+        , ("M1-r", spawn ("~/.local/bin/Rofi-Scripts"))
         , ("M-S-p", spawn ("rofi-pass"))
         , ("M1-<Tab>", spawn ("rofi -show window"))
         , ("M-<F10>", spawn ("xbacklight -dec 5"))
