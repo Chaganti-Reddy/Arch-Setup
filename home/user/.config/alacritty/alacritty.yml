@@ -364,7 +364,7 @@ schemes:
       white:   '#FCFCFA'
 
   ### Nord ###
-  Nord: &nord
+  Nord: &Nord
     # Default colors
     primary:
       background: '#2E3440'
