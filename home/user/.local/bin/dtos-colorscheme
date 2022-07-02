@@ -11,7 +11,7 @@ options=("DoomOne"
 "SolarizedLight"
 "TomorrowNight")
 
-choice=$(printf '%s\n' "${options[@]}" | rofi -dmenu -i -p 'Arch Wiki Docs: ' "${@}")
+choice=$(printf '%s\n' "${options[@]}" | rofi -dmenu -i -p 'Choose Color Theme: ' "${@}")
 
 if [ "$choice" ]; then
     sed  -i "s/import Colors.*/import Colors.$choice/g" "$HOME"/.xmonad/README.org || echo "Cannot modify README.org"
