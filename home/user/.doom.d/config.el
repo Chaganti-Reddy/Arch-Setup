@@ -1278,7 +1278,7 @@ Meant for `doom-change-font-size-hook'."
 (require 'ob-js)
 
 (setq org-src-preserve-indentation t)
-
+(setq org-src-fontify-natively t)
 ;; html2org-clipboard
 ;; Source: https://stackoverflow.com/a/64408897 Source2: https://emacs.stackexchange.com/questions/12121/org-mode-parsing-rich-html-directly-when-pasting
 
@@ -1321,7 +1321,8 @@ Meant for `doom-change-font-size-hook'."
    (plantuml . t)
    ;;(ipython . t)
    (jupyter . t)
-   (R . t)))
+   (R . t)
+   (latex . t)))
 
 ;; ----------------------------------------------------------------------------------------------------------------------
 
@@ -2152,7 +2153,6 @@ is selected, only the bare key is returned."
 ;; ;; (setq ob-ipython-command "~/.local/bin/jupyter")
 
 (setq org-confirm-babel-evaluate nil)   ;don't prompt me to confirm everytime I want to evaluate a block
-;;(add-to-list 'org-latex-minted-langs '(ipython "python"))
 ;;; display/update images in the buffer after I evaluate
 (add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append)
 
@@ -2225,6 +2225,13 @@ is selected, only the bare key is returned."
 ;; ----------------------------------------------------------------------------------------------------------------------
 
 ;; Latex Settings
+
+(setq org-latex-listings 'minted)
+(add-to-list 'org-latex-packages-alist '("" "listingsutf8"))
+(add-to-list 'org-latex-packages-alist '("" "minted"))
+(add-to-list 'org-latex-minted-langs '(ipython "python"))
+
+
 (require 'ivy-bibtex)
 (setq TeX-auto-save t)
 (setq latex-preview-pane-mode t)
@@ -2278,8 +2285,15 @@ is selected, only the bare key is returned."
 (map! :g "C-c i" #'org-export-as-pdf-and-open)
 (map! :g "<f6>" #'org-latex-export-to-pdf)
 
+;; (setq org-latex-pdf-process
+;;       '("latexmk -shell-escape -pdflatex='pdflatex -interaction nonstopmode' -bibtex -f -pdf %f"
+;;         ))
+
 (setq org-latex-pdf-process
-      '("latexmk -shell-escape -pdflatex='pdflatex -interaction nonstopmode' -bibtex -f -pdf %f"))
+ '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+   ;; "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+   ;; "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+   ))
 
 ;; ----------------------------------------------------------------------------------------------------------------------
 
