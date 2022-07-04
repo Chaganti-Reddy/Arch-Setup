@@ -210,6 +210,10 @@ function take --argument number
     head -$number
 end
 
+function mkcd --argument dir
+  mkdir -p $dir && cd $dir
+end
+
 function ctime --argument file
   g++ -std=c++17 $file".cpp" -o $file
   time ./$file
@@ -414,6 +418,7 @@ alias gpgkeys="gpg --list-secret-keys --keyid-format=long"
 alias lock="betterlockscreen -l"
 alias activate="source my_env/bin/activate.fish"
 alias createvirtual="python3 -m virtualenv my_env"
+alias open="xdg-open"
 
 ## Starship prompt
 if status --is-interactive
