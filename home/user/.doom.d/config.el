@@ -3067,6 +3067,7 @@ is selected, only the bare key is returned."
 
 ;; ;; Turn on variable pitch fonts in Org Mode buffers
 ;; (add-hook 'org-mode-hook 'variable-pitch-mode)
+(add-hook 'org-mode-hook 'pixel-scroll-mode)
 
 ;; Register hooks with org-present
 (add-hook 'org-present-mode-hook 'my/org-present-start)

@@ -9,7 +9,7 @@
  '(livedown-browser "brave")
  '(livedown-open t)
  '(livedown-port 1337)
- '(package-selected-packages '(python-black))
+ '(package-selected-packages '(jupyter python-black))
  '(warning-suppress-types '((ein) (ein) (ein) (ein) (ein))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
