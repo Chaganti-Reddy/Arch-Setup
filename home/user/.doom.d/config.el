@@ -1001,7 +1001,9 @@ Meant for `doom-change-font-size-hook'."
 (setq enable-recursive-minibuffers t)
 ;; enable this if you want `swiper' to use it
 ;; (setq search-default-mode #'char-fold-to-regexp)
-(global-set-key "\C-s" 'swiper)
+;; (global-set-key "M-S" 'swiper)
+(map! (:prefix ("M-s")
+       :desc "Swiper" "s" #'swiper))
 
 ;; ----------------------------------------------------------------------------------------------------------------------
 
