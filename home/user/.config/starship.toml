@@ -9,9 +9,8 @@ add_newline = true
 success_symbol = "[➜](bold green)" # The "success_symbol" segment is being set to "➜" with the color "bold green"
 error_symbol = "[➜](bold red)"
 
-#[python]
-#style = "blue bold"
-#format = 'via [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+[c]
+format = "via [$name $version]($style)"
 
 [username]
 format = "[$user]($style)"
@@ -22,5 +21,3 @@ format = ":[$hostname]($style) "
 # Disable the package module, hiding it from the prompt completely
 [package]
 disabled = true
-
-
