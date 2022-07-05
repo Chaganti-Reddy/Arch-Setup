@@ -4,7 +4,7 @@
 # First line removes the path; second line sets it.  Without the first line,
 # your path gets massive and fish becomes very slow.
 set -e fish_user_paths
-#set -U fish_user_paths $HOME/.local/bin $HOME/Applications $fish_user_paths
+set -U fish_user_paths /usr/bin $fish_user_paths
 set -U fish_user_paths $HOME/.emacs.d/bin $HOME/Applications $fish_user_paths
 set -U fish_user_paths $HOME/.local/go/bin $HOME/Applications $fish_user_paths
 set -U fish_user_paths $HOME/.local/yarn/bin $HOME/Applications $fish_user_paths
@@ -418,7 +418,7 @@ alias gpgkeys="gpg --list-secret-keys --keyid-format=long"
 alias lock="betterlockscreen -l"
 alias activate="source my_env/bin/activate.fish"
 alias createvirtual="python3 -m virtualenv my_env"
-alias open="xdg-open"
+alias createvirtual2="virtualenv --python="/usr/bin/python2.7" "my_env""
 
 ## Starship prompt
 if status --is-interactive
