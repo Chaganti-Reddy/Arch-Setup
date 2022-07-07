@@ -256,7 +256,6 @@
 
 ;; SQL-INDENT
 (require 'sql-indent)
-
 (require 'windresize)
 
 (mode-icons-mode)
@@ -2259,6 +2258,7 @@ is selected, only the bare key is returned."
 ;;correlate
 (server-start)
 (add-hook 'LaTeX-mode-hook 'TeX-PDF-mode)
+(add-hook 'Latex-mode-hook 'lsp-latex 'lsp 'company-tabnine)
 (add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
 (setq TeX-source-correlate-method 'synctex)
 (setq TeX-source-correlate-start-server t)

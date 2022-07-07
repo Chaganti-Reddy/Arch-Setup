@@ -144,3 +144,4 @@
 (package! swiper)
 (package! visual-fill-column)
 (package! org-present)
+(package! lsp-latex)
