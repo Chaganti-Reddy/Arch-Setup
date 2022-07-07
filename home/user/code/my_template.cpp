@@ -57,7 +57,7 @@ const int d8i[8] = {-1, -1, 0, 1, 1, 1, 0, -1},
 #define all(c) (c).begin(), (c).end()
 #define rall(c) c.end(), c.begin()
 #define pii pair<int, int>
-#define MEM(a, b) memset(a, (b), sizeof(a))
+#define MEM(a, b) memset(a, (b), sizeof(a));
 #define pqb priority_queue<int>
 #define pqs priority_queue<int, vi, greater<int>>
 #define setbits(x) __builtin_popcountll(x)
