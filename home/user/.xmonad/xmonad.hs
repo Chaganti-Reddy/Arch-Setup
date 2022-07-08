@@ -32,6 +32,7 @@ import XMonad.Hooks.ManageHelpers (isFullscreen, doFullFloat, doCenterFloat)
 import XMonad.Hooks.ServerMode
 import XMonad.Hooks.SetWMName
 import XMonad.Hooks.WorkspaceHistory
+import XMonad.Hooks.RefocusLast
 
     -- Layouts
 import XMonad.Layout.Accordion
@@ -181,7 +182,7 @@ spawnSelected' lst = gridselect conf lst >>= flip whenJust spawn
 
 myAppGrid = [ ("Virtual Manager", "virt-manager")
                  , ("Brave", "brave")
-                 , ("Nautilus", "nautilus")
+                 , ("File Manager", "pcmanfm-qt")
                  , ("Emacs", "emacsclient -c -a emacs")
                  , ("VSCode", "code")
                  , ("Telegram", "telegram-desktop")
@@ -203,7 +204,7 @@ myPersonalGrid = [ ("Gmail", "brave gmail.com")
                  , ("G Meet", "brave meet.google.com")
                  , ("CP 1", "emacs ~/CP/1.cpp")
                  , ("CP 2", "emacs ~/cp/2.cpp")
-                 , ("Dotfiles", "nautilus ~/Documents/GitHub/dotfiles/")
+                 , ("Dotfiles", "pcmanfm-qt ~/Documents/GitHub/dotfiles/")
                  , ("LeetCode", "brave https://leetcode.com/problemset/all/?difficulty=EASY&page=1&status=NOT_STARTED")
                  , ("Whatsapp", "brave web.whatsapp.com/")
                  , ("Word Doc", "brave docs.google.com")
@@ -382,7 +383,7 @@ myManageHook = composeAll
      -- I'm doing it this way because otherwise I would have to write out the full
      -- name of my workspaces and the names would be very long if using clickable workspaces.
      [ className =? "confirm"         --> doCenterFloat
-     , className =? "file_progress"   --> doFloat
+     , className =? "file_progress"   --> doCenterFloat
      , className =? "dialog"          --> doCenterFloat
      , className =? "download"        --> doFloat
      , className =? "error"           --> doFloat
@@ -422,7 +423,7 @@ myKeys =
         , ("M-<Return>", spawn (myTerminal))
         , ("M-w", spawn (myBrowser))
         , ("M-a", spawn ("emacsclient -c -a 'emacs'")) 
-        , ("M-S-n", spawn ("nautilus"))
+        , ("M-S-n", spawn ("pcmanfm-qt"))
         , ("M-n", spawn (myTerminal ++ " -e ranger"))
         , ("M-C-n", spawn (myTerminal ++ " -e ncmpcpp"))
         , ("M-p", spawn ("rofi -show p -modi p:~/.local/bin/rofi-power-menu"))
