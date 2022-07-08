@@ -91,7 +91,7 @@ Recursive=false
 [/home/reddy]
 SortOrder=ascending
 SortColumn=name
-ViewMode=icon
+ViewMode=thumbnail
 ShowHidden=false
 SortFolderFirst=true
 SortHiddenLast=false
