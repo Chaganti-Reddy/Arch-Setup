@@ -2054,6 +2054,31 @@ is selected, only the bare key is returned."
 
 ;; ----------------------------------------------------------------------------------------------------------------------
 
+;; ;; Debugging the python code using DAP-MODE
+
+;; (require 'dap-mode)
+;; (require 'dap-java)
+;; (require 'dap-python)
+;; (require 'dap-gdb-lldb)
+;; (require 'dap-lldb)
+;; (require 'dap-cpptools)
+
+;; (dap-mode 1)
+
+;; ;; The modes below are optional
+
+;; (dap-ui-mode 1)
+;; ;; enables mouse hover support
+;; (dap-tooltip-mode 1)
+;; ;; use tooltips for mouse hover
+;; ;; if it is not enabled `dap-mode' will use the minibuffer.
+;; (tooltip-mode 1)
+;; ;; displays floating panel with debug buttons
+;; ;; requies emacs 26+
+;; (dap-ui-controls-mode 1)
+
+;; ----------------------------------------------------------------------------------------------------------------------
+
 ;; Programming
 (use-package python-mode
   :hook (python-mode . lsp-deferred)
@@ -2213,6 +2238,19 @@ is selected, only the bare key is returned."
 
 (add-to-list 'ispell-skip-region-alist '(":\\(PROPERTIES\\|LOGBOOK\\):" . ":END:"))
 (add-to-list 'ispell-skip-region-alist '("#\\+BEGIN_SRC" . "#\\+END_SRC"))
+
+;; ----------------------------------------------------------------------------------------------------------------------
+
+;; Typescript Mode
+
+(use-package typescript-mode
+  :mode "\\.ts\\'"
+  :hook (typescript-mode . lsp-deffered)
+  :config
+  (setq typescript-indent-level 2)
+  ;; (require 'dap-node)
+  ;; (dap-node-setup)
+  )
 
 ;; ----------------------------------------------------------------------------------------------------------------------
 

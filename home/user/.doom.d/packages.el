@@ -145,3 +145,4 @@
 (package! visual-fill-column)
 (package! org-present)
 (package! lsp-latex)
+(package! typescript-mode)
