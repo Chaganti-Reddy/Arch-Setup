@@ -3,6 +3,19 @@ Sxiv.foreground:   #bbc2cf
 Sxiv.background:   #282c34
 Sxiv.font: Ubuntu:style=bold:size=11
 
+emacs*foreground:   #ebb2b7
+emacs*background:   #0C0201
+URxvt*foreground:   #ebb2b7
+XTerm*foreground:   #ebb2b7
+UXTerm*foreground:  #ebb2b7
+URxvt*background:   [100]#0C0201
+XTerm*background:   #0C0201
+UXTerm*background:  #0C0201
+URxvt*cursorColor:  #ebb2b7
+XTerm*cursorColor:  #ebb2b7
+UXTerm*cursorColor: #ebb2b7
+URxvt*borderColor:  [100]#0C0201
+
 ! Dracula Xresources palette
 *.foreground: #F8F8F2
 *.background: #282A36
@@ -22,3 +35,19 @@ Sxiv.font: Ubuntu:style=bold:size=11
 *.color14:    #9AEDFE
 *.color7:     #BFBFBF
 *.color15:    #E6E6E6
+
+! Black color that will not be affected by bold highlighting.
+*.color66: #0C0201
+*color66:  #0C0201
+
+! Xclock colors.
+XClock*foreground: #ebb2b7
+XClock*background: #0C0201
+XClock*majorColor:  rgba:eb/b2/b7/ff
+XClock*minorColor:  rgba:eb/b2/b7/ff
+XClock*hourColor:   rgba:eb/b2/b7/ff
+XClock*minuteColor: rgba:eb/b2/b7/ff
+XClock*secondColor: rgba:eb/b2/b7/ff
+
+! Set depth to make transparency work.
+URxvt*depth: 32
