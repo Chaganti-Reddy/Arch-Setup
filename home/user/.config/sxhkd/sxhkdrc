@@ -221,7 +221,7 @@ ctrl + shift + t
   telegram-desktop
 
 super + shift + n
-  nautilus
+  pcmanfm-qt
 
 super + n
   alacritty -e ranger
@@ -286,3 +286,5 @@ super + shift + p
 ctrl + p
   rofi -show p -modi p:~/.local/bin/rofi-power-menu
 
+alt + r
+  ~/.local/bin/Rofi-Scripts
