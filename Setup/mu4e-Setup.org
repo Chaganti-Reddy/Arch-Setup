@@ -39,7 +39,7 @@ SyncState *
     (gpg2 -c mbsyncpass-acc1)
 **** After encrypting the file remove the original file for security puposes.
 *** Now type
-     (time mu init --maildir=~/Mail --my-address='email@address')
+     (time mu init --maildir=~/Mail/ --my-address='email@address')
 
 *** After that we have to download our mails so type
     (time mbsync -c ~/.mbsyncrc -a)

@@ -5,8 +5,7 @@
 
 #+begin_src r
 install.packages("languageserver")
-install.packages(c("repr", "IRdisplay", "evaluate", "crayon", "pbdZMQ", "devtools", "uuid", "digest", "httpgd", "jsonlite"))
-install.packages("IRkernel")
+install.packages(c("repr", "IRkernel", "IRdisplay", "evaluate", "crayon", "pbdZMQ", "devtools", "uuid", "digest", "httpgd", "jsonlite"))
 IRkernel::installspec()
 #+end_src
 
