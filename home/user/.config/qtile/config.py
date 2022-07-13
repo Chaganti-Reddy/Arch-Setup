@@ -23,7 +23,7 @@ keys = [
         lazy.spawn(myTerm),
         desc='Launches My Terminal'
         ),
-    Key([mod], "n",
+    Key([mod, "shift"], "n",
         lazy.spawn("pcmanfm-qt"),
         desc='Launches My File Manager'
         ),
@@ -34,6 +34,14 @@ keys = [
     Key([], "XF86AudioRaiseVolume",
         lazy.spawn("pamixer -i 3"),
         desc='Volume Increase'
+        ),
+    Key([mod], "F10",
+        lazy.spawn("xbacklight -dec 5"),
+        desc='Brightness Decrease'
+        ),
+    Key([mod], "F11",
+        lazy.spawn("xbacklight -inc 5"),
+        desc='Brightness Increase'
         ),
     Key([], "XF86AudioMute",
         lazy.spawn("pamixer -t"),
