@@ -550,7 +550,19 @@ floating_layout = layout.Floating(float_rules=[
     *layout.Floating.default_float_rules,
     Match(title='Confirmation'),      # tastyworks exit box
     Match(title='Qalculate!'),        # qalculate-gtk
+    Match(title='Oracle VM VirtualBox Manager'),
     Match(wm_class='kdenlive'),       # kdenlive
+    Match(wm_class='confirm'),
+    Match(wm_class='file_progress'),
+    Match(wm_class='dialog'),
+    Match(wm_class='download'),
+    Match(wm_class='error'),
+    Match(wm_class='Gimp'),
+    Match(wm_class='notification'),
+    Match(wm_class='splash'),
+    Match(wm_class='toolbar'),
+    Match(wm_class='Yad'),
+    Match(wm_class='Tk'),
     Match(wm_class='pinentry-gtk-2'),  # GPG key password entry
 ])
 auto_fullscreen = True
