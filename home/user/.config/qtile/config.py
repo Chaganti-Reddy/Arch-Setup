@@ -23,6 +23,22 @@ keys = [
         lazy.spawn(myTerm),
         desc='Launches My Terminal'
         ),
+    Key([mod], "n",
+        lazy.spawn("pcmanfm-qt"),
+        desc='Launches My File Manager'
+        ),
+    Key([], "XF86AudioLowerVolume",
+        lazy.spawn("pamixer -d 3"),
+        desc='Volume Decrease'
+        ),
+    Key([], "XF86AudioRaiseVolume",
+        lazy.spawn("pamixer -i 3"),
+        desc='Volume Increase'
+        ),
+    Key([], "XF86AudioMute",
+        lazy.spawn("pamixer -t"),
+        desc='Volume Increase'
+        ),
     Key([alt], "r",
         lazy.spawn("/home/reddy/.local/bin/Rofi-Scripts"),
         desc='Launches My Scripts'
