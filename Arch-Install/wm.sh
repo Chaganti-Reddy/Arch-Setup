@@ -34,6 +34,7 @@ sudo systemctl enable bluetooth.service
 sudo virsh net-start default
 sudo virsh net-autostart default
 sudo usermod -aG video reddy
+sudo usermod -aG vboxusers reddy
 #sudo systemctl enable cronie.service --now
 
 # If you want install doo emacs by uncommenting it
