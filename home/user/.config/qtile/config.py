@@ -13,7 +13,7 @@ from libqtile.utils import guess_terminal
 from typing import List  # noqa: F401
 
 mod = "mod4"              # Sets mod key to SUPER/WINDOWS
-alt = "mod1"
+alt = "mod1"              # Sets mod key to ALT
 myTerm = "alacritty"      # My terminal of choice
 myBrowser = "brave"  # My browser of choice
 
