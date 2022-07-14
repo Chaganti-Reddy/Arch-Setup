@@ -240,6 +240,8 @@ globalkeys = my_table.join(
       {description = "Run launcher", group = "hotkeys"}),
     awful.key({ altkey,     }, "r", function () awful.util.spawn("sh /home/reddy/.local/bin/Rofi-Scripts") end,
       {description = "Run launcher", group = "hotkeys"}),
+    awful.key({ altkey,     }, "e", function () awful.util.spawn("rofi -show emoji") end,
+      {description = "Run launcher", group = "hotkeys"}),
 
     -- Emacs (Super + e followed by KEY)
     awful.key( {modkey}, "e", function()

@@ -51,6 +51,10 @@ keys = [
         lazy.spawn("/home/reddy/.local/bin/Rofi-Scripts"),
         desc='Launches My Scripts'
         ),
+    Key([alt], "e",
+        lazy.spawn("rofi -show emoji"),
+        desc='Launches Emoji'
+        ),
     Key([mod], "d",
         lazy.spawn("rofi -modi drun -show drun"),
         desc='Run Launcher'
@@ -153,6 +157,7 @@ keys = [
         lazy.layout.toggle_split(),
         desc='Toggle between split and unsplit sides of stack'
         ),
+
     # Emacs programs launched using the key chord CTRL+e followed by 'key'
     KeyChord([mod], "e", [
              Key([], "e",
@@ -278,6 +283,7 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+
 def init_widgets_list():
     widgets_list = [
         widget.Sep(
@@ -289,7 +295,8 @@ def init_widgets_list():
         widget.Image(
             filename="~/.config/qtile/icons/python.png",
             scale="False",
-            mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('rofi -show p -modi p:~/.local/bin/rofi-power-menu')}
+            mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(
+                'rofi -show p -modi p:~/.local/bin/rofi-power-menu')}
         ),
         widget.Sep(
             linewidth=0,

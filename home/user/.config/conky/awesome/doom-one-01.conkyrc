@@ -120,13 +120,8 @@ ${color1}[S]+e, s${alignr}${color2}eshell${color}
 ${color1}[S]+e, v${alignr}${color2}vterm${color}
 ${color1}${hr}${color}
 ${color1}[S]+[SHIFT]+n${alignr}${color2}open file-manager${color}
-${color1}[S]+n${alignr}${color2}open ranger${color}
-${color1}[S]+[SHIFT], m${alignr}${color2}open music player${color}
-${color1}[S]+[SHIFT], c${alignr}${color2}open calculator${color}
-${color1}[S]+[SHIFT], h${alignr}${color2}open HTOP${color}
 ${color1}[ALT]+r${alignr}${color2}open Rofi Scripts${color}
 ${color1}[ALT]+e${alignr}${color2}open Emojis${color}
-${color1}[S]+p${alignr}${color2}open Powermenu${color}
 ${color1}${hr}${color}
 ${color1}[S]+[SHIFT]+r${alignr}${color2}restart xmonad${color}
 ${color1}[S]+[SHIFT]+q${alignr}${color2}quit xmonad${color}
