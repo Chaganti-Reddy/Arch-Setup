@@ -42,7 +42,7 @@ sudo usermod -aG vboxusers reddy
 # ~/.emacs.d/bin/doom install
 
 # If you want to install python packages uncomment this
-pip install pandas seaborn keras numpy jovian wordcloud jedi nltk tensorflow imutils matplotlib scikit-learn sklearn jupyterlab notebook voila JLDracula opencv-python numba urllib3 pygame nose python-lsp-server[all] debugpy radian plotly statsmodels "jupyterlab>=3" "ipywidgets>=7.6" jupyter-dash kaleido yellowbrick tqdm cufflinks wakatime torch torchvision torchaudio black opendatasets folium ptvsd
+pip install pandas seaborn keras numpy jovian wordcloud jedi nltk tensorflow imutils matplotlib scikit-learn sklearn jupyterlab notebook voila JLDracula opencv-python numba urllib3 pygame nose python-lsp-server[all] debugpy radian plotly statsmodels "jupyterlab>=3" "ipywidgets>=7.6" jupyter-dash kaleido yellowbrick tqdm cufflinks wakatime torch torchvision torchaudio black opendatasets folium ptvsd iwlib
 
 # R packages
 # install.packages("languageserver")
@@ -55,5 +55,5 @@ sudo modprobe vboxdrv
 #source /usr/share/nvm/nvm.sh
 #source /usr/share/nvm/bash_completion
 #source /usr/share/nvm/install-nvm-exec
-
+sudo pacman -R i3-wm
 printf "\e[1;32mCHANGE NECESSARY FILES BEFORE REBOOT\e[0m"
