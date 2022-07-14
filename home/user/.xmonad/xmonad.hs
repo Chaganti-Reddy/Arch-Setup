@@ -115,7 +115,7 @@ windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace
 
 myStartupHook :: X ()
 myStartupHook = do
-    -- spawn "killall conky"   -- kill current conky on each restart
+    spawn "killall conky"   -- kill current conky on each restart
     spawn "killall trayer"  -- kill current trayer on each restart
     spawn "killall /usr/bin/emacs --daemon" -- emacs daemon for the emacsclient
     spawn "killall wall_change.sh"
@@ -141,7 +141,7 @@ myStartupHook = do
     spawnOnce "numlockx &"
     spawnOnce "gpg-connect-agent /bye"
 
-    -- spawn ("sleep 2 && conky -c $HOME/.config/conky/xmonad/" ++ colorScheme ++ "-01.conkyrc")
+    spawn ("sleep 2 && conky -c $HOME/.config/conky/xmonad/" ++ colorScheme ++ "-01.conkyrc")
     spawn ("sleep 2 && trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 " ++ colorTrayer ++ " --height 22")
     spawn ("pamixer --set-volume 45")
     spawn ("~/.xmonad/wall_change.sh")

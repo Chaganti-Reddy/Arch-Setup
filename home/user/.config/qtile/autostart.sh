@@ -14,7 +14,7 @@ mpd &
 mpc &
 mpv &
 nm-applet &
-
+conky -c $HOME/.config/conky/qtile/doom-one-01.conkyrc
 ### UNCOMMENT ONLY ONE OF THE FOLLOWING THREE OPTIONS! ###
 # 1. Uncomment to restore last saved wallpaper
 # xargs xwallpaper --stretch < ~/.cache/wall &
