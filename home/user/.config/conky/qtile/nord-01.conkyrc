@@ -77,7 +77,7 @@ conky.config = {
 	own_window_colour = '#2E3440',				-- set colour if own_window_transparent no
 	own_window_transparent = false,				-- if own_window_argb_visual is true sets background opacity 0%
 	own_window_title = 'xmonad_conky',			-- set the name manually
-	own_window_type = 'desktop',				-- if own_window true options are: normal/override/dock/desktop/panel
+	own_window_type = 'override',				-- if own_window true options are: normal/override/dock/desktop/panel
 	own_window_hints = 'undecorated,below,above,sticky,skip_taskbar,skip_pager',  -- if own_window true - just hints - own_window_type sets it
 
 	--Colors (Nord)
@@ -106,7 +106,7 @@ ${color1}[S]+[RET]${alignr}${color2}open terminal${color}
 ${color1}[S]+b${alignr}${color2}open qutebrowser${color}
 ${color1}[S]+[SHIFT]+[RET]${alignr}${color2}run prompt${color}
 ${color1}[S]+[SHIFT]+c${alignr}${color2}close window${color}
-${color1}[S]+hjkl${alignr}${color2}move win focus${color}
+${color1}[S]+j/k${alignr}${color2}move win focus${color}
 ${color1}[S]+[SHIFT]+hjkl${alignr}${color2}move window${color}
 ${color1}[S]+[1-9]${alignr}${color2}switch workspace${color}
 ${color1}[S]+[SHIFT]+[1-9]${alignr}${color2}send window${color}
