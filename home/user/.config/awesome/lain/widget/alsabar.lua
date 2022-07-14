@@ -30,19 +30,15 @@ local function factory(args)
         _playback      = "off"
     }
 
-    args             = args or {}
-
+    local args       = args or {}
     local timeout    = args.timeout or 5
     local settings   = args.settings or function() end
     local width      = args.width or 63
     local height     = args.height or 1
     local margins    = args.margins or 1
+    local paddings   = args.paddings or 1
     local ticks      = args.ticks or false
     local ticks_size = args.ticks_size or 7
-    local tick       = args.tick or "|"
-    local tick_pre   = args.tick_pre or "["
-    local tick_post  = args.tick_post or "]"
-    local tick_none  = args.tick_none or " "
 
     alsabar.cmd                 = args.cmd or "amixer"
     alsabar.channel             = args.channel or "Master"
@@ -52,7 +48,8 @@ local function factory(args)
     alsabar.notification_preset = args.notification_preset
 
     if not alsabar.notification_preset then
-        alsabar.notification_preset = { font = "Monospace 10" }
+        alsabar.notification_preset      = {}
+        alsabar.notification_preset.font = "Monospace 10"
     end
 
     local format_cmd = string.format("%s get %s", alsabar.cmd, alsabar.channel)
@@ -118,32 +115,22 @@ local function factory(args)
             end
 
             -- tot is the maximum number of ticks to display in the notification
-            local tot = alsabar.notification_preset.max_ticks
+            -- fallback: default horizontal wibox height
+            local wib, tot = awful.screen.focused().mywibox, 20
 
-            if not tot then
-                local wib = awful.screen.focused().mywibox
-                -- if we can grab mywibox, tot is defined as its height if
-                -- horizontal, or width otherwise
-                if wib then
-                    if wib.position == "left" or wib.position == "right" then
-                        tot = wib.width
-                    else
-                        tot = wib.height
-                    end
-                -- fallback: default horizontal wibox height
+            -- if we can grab mywibox, tot is defined as its height if
+            -- horizontal, or width otherwise
+            if wib then
+                if wib.position == "left" or wib.position == "right" then
+                    tot = wib.width
                 else
-                    tot = 20
+                    tot = wib.height
                 end
             end
 
-            local int = math.modf((alsabar._current_level / 100) * tot)
-            preset.text = string.format(
-                "%s%s%s%s",
-                tick_pre,
-                string.rep(tick, int),
-                string.rep(tick_none, tot - int),
-                tick_post
-            )
+            int = math.modf((alsabar._current_level / 100) * tot)
+            preset.text = string.format("[%s%s]", string.rep("|", int),
+                          string.rep(" ", tot - int))
 
             if alsabar.followtag then preset.screen = awful.screen.focused() end
 

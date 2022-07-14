@@ -15,8 +15,8 @@ local string  = string
 -- lain.widget.alsa
 
 local function factory(args)
-    args           = args or {}
-    local alsa     = { widget = args.widget or wibox.widget.textbox() }
+    local alsa     = { widget = wibox.widget.textbox() }
+    local args     = args or {}
     local timeout  = args.timeout or 5
     local settings = args.settings or function() end
 
@@ -36,7 +36,6 @@ local function factory(args)
     function alsa.update()
         helpers.async(format_cmd, function(mixer)
             local l,s = string.match(mixer, "([%d]+)%%.*%[([%l]*)")
-            l = tonumber(l)
             if alsa.last.level ~= l or alsa.last.status ~= s then
                 volume_now = { level = l, status = s }
                 widget = alsa.widget
