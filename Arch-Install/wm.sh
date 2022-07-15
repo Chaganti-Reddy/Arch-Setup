@@ -52,7 +52,7 @@ jupyter serverextension enable --py jupyter_tabnine --user
 # install.packages("httpgd")
 # install.packages("jsonlite")
 paru -S js-beautify
-
+pip install "jupyterlab-kite>=2.0.2"
 sudo modprobe vboxdrv
 
 #source /usr/share/nvm/nvm.sh
