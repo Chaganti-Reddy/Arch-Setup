@@ -1,0 +1,81 @@
+\documentclass[12pt, letterpaper]{book}
+
+\usepackage{lmodern} % Ensures we have the right font
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage[nottoc]{tocbibind}
+\usepackage{fourier}
+\usepackage{tabularx}
+\usepackage{caption}
+\usepackage[style=verbose,backend=bibtex]{biblatex}
+\usepackage{siunitx, pbsi}
+\usepackage{float}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+% \usepackage[table, xcdraw]{xcolor}
+\usepackage{placeins}
+
+% Colorizing links in a nicer way.
+\definecolor{bblue}{HTML}{0645AD}
+\usepackage[colorlinks]{hyperref}
+\hypersetup{colorlinks, linkcolor=blue, urlcolor=bblue}
+
+% Moving up the title.
+\usepackage{titling}
+\setlength{\droptitle}{-6em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+\usepackage[stretch=10]{microtype}
+\usepackage{hyphenat}
+\usepackage{ragged2e}
+\usepackage{subfig} % Subfigures (not needed in Org I think)
+\usepackage{hyperref} % Links
+\usepackage{listings} % Code highlighting
+% Disables flush alighment on the right side. Personal preference.
+\raggedright
+
+% Page geometry
+% #+LATEX_HEADER: \usepackage[top=1in, bottom=1.25in, left=1.40in, right=1.55in]{geometry}
+\usepackage[top=1in, bottom=1.25in, left=1.20in, right=1.25in]{geometry}
+
+% Line spacing
+\renewcommand{\baselinestretch}{1.15}
+
+% Page numbering - this disables it
+\pagenumbering{gobble}
+
+% Spacing, titling, text setting.
+\usepackage[explicit]{titlesec}
+
+% Title customization
+\pretitle{\begin{center}\fontsize{20pt}{20pt}\selectfont}
+\posttitle{\par\end{center}}
+\preauthor{\begin{center}\vspace{-6bp}\fontsize{14pt}{14pt}\selectfont}
+\postauthor{\par\end{center}\vspace{-25bp}}
+\predate{\begin{center}\fontsize{12pt}{12pt}\selectfont}
+\postdate{\par\end{center}\vspace{0em}}
+
+
+% Section/subsection headings:
+
+%Section
+\titlespacing\section{0pt}{5pt}{5pt} % left margin, space before section header, space after section header
+
+%Subsection
+\titlespacing\subsection{0pt}{5pt}{-2pt} % left margin, space before subsection header, space after subsection header
+
+%Subsubsection
+\titlespacing\subsubsection{0pt}{5pt}{-2pt} % left margin, space before subsection header, space after subsection header
+
+% List spacing
+\usepackage{enumitem}
+\setlist{itemsep=-2pt} % or \setlist{noitemsep} to leave space around whole list
+
+% -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
