@@ -1,0 +1,38 @@
+\documentclass[b5paper]{article}
+
+\usepackage[english]{babel}
+\usepackage{verbatim,ifthen,xspace,blindtext,datetime}
+
+\RequirePackage{ifxetex}
+\ifxetex
+  \usepackage{fontspec}
+  \setmainfont[Ligatures=TeX,Scale=MatchUppercase]{TimesNewRomanPSMT}
+  \setsansfont[Ligatures=TeX,Scale=MatchUppercase]{Arial}
+\else
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage{mathptmx}
+\fi
+
+%
+\usepackage[%
+%  department=mekanik,    % select your department
+%  bgcolor=dtulightgreen, % the colour of the tiles
+%  licolor=dtured         % the colour of the line
+  ]{dtucover}
+%
+% We start by drawing the cover page and putting test onto it
+\AtBeginDocument{
+  \dtucoverThreeTiles % make the title page background
+  \dtucoverTitleText %
+    [Some Formulaes \& Definitions] % This is the subtitle
+    {Mathematics for ML \& DSA} % This is the title
+    {Manual} % This is the report type
+    {Chaganti Reddy\\ \monthname{} \the\year} % This is the author information
+  \clearpage
+}
+
+\begin{document}
+
+
+\end{document}
