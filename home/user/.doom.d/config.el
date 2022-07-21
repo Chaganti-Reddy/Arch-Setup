@@ -228,7 +228,7 @@
 (use-package toc-org
   :commands toc-org-enable
   :init (add-hook 'org-mode-hook 'toc-org-enable))
-(require 'bibtex)
+;; (require 'bibtex)
 (require 'org-ref)
 (require 'org-ref-ivy)
 (require 'company-tabnine)
@@ -1319,7 +1319,7 @@ Meant for `doom-change-font-size-hook'."
  'org-babel-load-languages
  '((python . t)
    (js . t)
-   (plantuml . t)
+   ;; (plantuml . t)
    ;;(ipython . t)
    (jupyter . t)
    (R . t)
@@ -1332,35 +1332,35 @@ Meant for `doom-change-font-size-hook'."
 
 ;; This is an Emacs package that creates graphviz directed graphs from
 ;; the headings of an org file
-(use-package org-mind-map
-  :init
-  (require 'ox-org)
-  ;; :ensure t
-  :config
-  (setq org-mind-map-engine "dot")      ; Default. Directed Graph
-  ;; (setq org-mind-map-engine "neato")  ; Undirected Spring Graph
-  ;; (setq org-mind-map-engine "twopi")  ; Radial Layout
-  ;; (setq org-mind-map-engine "fdp")    ; Undirected Spring Force-Directed
-  ;; (setq org-mind-map-engine "sfdp")   ; Multiscale version of fdp for the layout of large graphs
-  ;; (setq org-mind-map-engine "twopi")  ; Radial layouts
-  ;; (setq org-mind-map-engine "circo")  ; Circular Layout
-  )
-;; After writing in org-file then type M-X org-mind-map-write within the org-mode file you would like to make a mind-map for. If all works as expected, a PDF file will be generated in the same directory as the org file.
-;; For more details goto org in my dotfiles and check the folder org-mind-map
+;; (use-package org-mind-map
+;;   :init
+;;   (require 'ox-org)
+;;   ;; :ensure t
+;;   :config
+;;   (setq org-mind-map-engine "dot")      ; Default. Directed Graph
+;;   ;; (setq org-mind-map-engine "neato")  ; Undirected Spring Graph
+;;   ;; (setq org-mind-map-engine "twopi")  ; Radial Layout
+;;   ;; (setq org-mind-map-engine "fdp")    ; Undirected Spring Force-Directed
+;;   ;; (setq org-mind-map-engine "sfdp")   ; Multiscale version of fdp for the layout of large graphs
+;;   ;; (setq org-mind-map-engine "twopi")  ; Radial layouts
+;;   ;; (setq org-mind-map-engine "circo")  ; Circular Layout
+;;   )
+;; ;; After writing in org-file then type M-X org-mind-map-write within the org-mode file you would like to make a mind-map for. If all works as expected, a PDF file will be generated in the same directory as the org file.
+;; ;; For more details goto org in my dotfiles and check the folder org-mind-map
 
-(use-package org-autolist
-  :config
-  (add-hook 'org-mode-hook (lambda () (org-autolist-mode)))
-  )
+;; (use-package org-autolist
+;;   :config
+;;   (add-hook 'org-mode-hook (lambda () (org-autolist-mode)))
+;;   )
 
-(setq org-fontify-quote-and-verse-blocks t)
+;; (setq org-fontify-quote-and-verse-blocks t)
 
-(appendq! org-html-checkbox-types
-          '((html-span
-             (on . "<span class='checkbox'></span>")
-             (off . "<span class='checkbox'></span>")
-             (trans . "<span class='checkbox'></span>"))))
-(setq org-html-checkbox-type 'html-span)
+;; (appendq! org-html-checkbox-types
+;;           '((html-span
+;;              (on . "<span class='checkbox'></span>")
+;;              (off . "<span class='checkbox'></span>")
+;;              (trans . "<span class='checkbox'></span>"))))
+;; (setq org-html-checkbox-type 'html-span)
 
 ;; ORG-MODE SHORTCUTS
 
@@ -1833,141 +1833,141 @@ is selected, only the bare key is returned."
 
 ;; Citation using ORG-REF
 
-(use-package! org-ref
-  ;; :after org
-  :defer t
-  :config
-  (defadvice! org-ref-open-bibtex-pdf-a ()
-    :override #'org-ref-open-bibtex-pdf
-    (save-excursion
-      (bibtex-beginning-of-entry)
-      (let* ((bibtex-expand-strings t)
-             (entry (bibtex-parse-entry t))
-             (key (reftex-get-bib-field "=key=" entry))
-             (pdf (or
-                   (car (-filter (lambda (f) (string-match-p "\\.pdf$" f))
-                                 (split-string (reftex-get-bib-field "file" entry) ";")))
-                   (funcall org-ref-get-pdf-filename-function key))))
-        (if (file-exists-p pdf)
-            (org-open-file pdf)
-          (ding)))))
-  (defadvice! org-ref-open-pdf-at-point-a ()
-    "Open the pdf for bibtex key under point if it exists."
-    :override #'org-ref-open-pdf-at-point
-    (interactive)
-    (let* ((results (org-ref-get-bibtex-key-and-file))
-           (key (car results))
-           (pdf-file (funcall org-ref-get-pdf-filename-function key)))
-      (with-current-buffer (find-file-noselect (cdr results))
-        (save-excursion
-          (bibtex-search-entry (car results))
-          (org-ref-open-bibtex-pdf))))))
+;; (use-package! org-ref
+;;   ;; :after org
+;;   :defer t
+;;   :config
+;;   (defadvice! org-ref-open-bibtex-pdf-a ()
+;;     :override #'org-ref-open-bibtex-pdf
+;;     (save-excursion
+;;       (bibtex-beginning-of-entry)
+;;       (let* ((bibtex-expand-strings t)
+;;              (entry (bibtex-parse-entry t))
+;;              (key (reftex-get-bib-field "=key=" entry))
+;;              (pdf (or
+;;                    (car (-filter (lambda (f) (string-match-p "\\.pdf$" f))
+;;                                  (split-string (reftex-get-bib-field "file" entry) ";")))
+;;                    (funcall org-ref-get-pdf-filename-function key))))
+;;         (if (file-exists-p pdf)
+;;             (org-open-file pdf)
+;;           (ding)))))
+;;   (defadvice! org-ref-open-pdf-at-point-a ()
+;;     "Open the pdf for bibtex key under point if it exists."
+;;     :override #'org-ref-open-pdf-at-point
+;;     (interactive)
+;;     (let* ((results (org-ref-get-bibtex-key-and-file))
+;;            (key (car results))
+;;            (pdf-file (funcall org-ref-get-pdf-filename-function key)))
+;;       (with-current-buffer (find-file-noselect (cdr results))
+;;         (save-excursion
+;;           (bibtex-search-entry (car results))
+;;           (org-ref-open-bibtex-pdf))))))
 
-(use-package! citar
-  :when (featurep! :completion vertico)
-  :custom
-  (org-cite-insert-processor 'citar)
-  (org-cite-follow-processor 'citar)
-  (org-cite-activate-processor 'citar)
-  :config
-  (setq citar-bibliography
-        (let ((libfile-search-names '("library.json" "Library.json" "library.bib" "Library.bib"))
-              (libfile-dir "~/Zotero")
-              paths)
-          (dolist (libfile libfile-search-names)
-            (when (and (not paths)
-                       (file-exists-p (expand-file-name libfile libfile-dir)))
-              (setq paths (list (expand-file-name libfile libfile-dir)))))
-          paths))
-  (setq citar-symbols
-        `((file ,(all-the-icons-faicon "file-o" :face 'all-the-icons-green :v-adjust -0.1) . " ")
-          (note ,(all-the-icons-material "speaker_notes" :face 'all-the-icons-blue :v-adjust -0.3) . " ")
-          (link ,(all-the-icons-octicon "link" :face 'all-the-icons-orange :v-adjust 0.01) . " "))))
+;; (use-package! citar
+;;   :when (featurep! :completion vertico)
+;;   :custom
+;;   (org-cite-insert-processor 'citar)
+;;   (org-cite-follow-processor 'citar)
+;;   (org-cite-activate-processor 'citar)
+;;   :config
+;;   (setq citar-bibliography
+;;         (let ((libfile-search-names '("library.json" "Library.json" "library.bib" "Library.bib"))
+;;               (libfile-dir "~/Zotero")
+;;               paths)
+;;           (dolist (libfile libfile-search-names)
+;;             (when (and (not paths)
+;;                        (file-exists-p (expand-file-name libfile libfile-dir)))
+;;               (setq paths (list (expand-file-name libfile libfile-dir)))))
+;;           paths))
+;;   (setq citar-symbols
+;;         `((file ,(all-the-icons-faicon "file-o" :face 'all-the-icons-green :v-adjust -0.1) . " ")
+;;           (note ,(all-the-icons-material "speaker_notes" :face 'all-the-icons-blue :v-adjust -0.3) . " ")
+;;           (link ,(all-the-icons-octicon "link" :face 'all-the-icons-orange :v-adjust 0.01) . " "))))
 
-(use-package! citeproc
-  :defer t)
+;; (use-package! citeproc
+;;   :defer t)
 
 ;; ----------------------------------------------------------------------------------------------------------------------
 
 ;; Org-Cite configuration
 
-(map! :after org
-      :map org-mode-map
-      :localleader
-      :desc "Insert citation" "@" #'org-cite-insert)
+;; (map! :after org
+;;       :map org-mode-map
+;;       :localleader
+;;       :desc "Insert citation" "@" #'org-cite-insert)
 
-(use-package! oc
-  :after org citar
-  :config
-  (require 'ox)
-  (setq org-cite-global-bibliography
-        (let ((paths (or citar-bibliography
-                         (bound-and-true-p bibtex-completion-bibliography))))
-          ;; Always return bibliography paths as list for org-cite.
-          (if (stringp paths) (list paths) paths)))
-  ;; setup export processor; default csl/citeproc-el, with biblatex for latex
-  (setq org-cite-export-processors
-        '((t csl))))
+;; (use-package! oc
+;;   :after org citar
+;;   :config
+;;   (require 'ox)
+;;   (setq org-cite-global-bibliography
+;;         (let ((paths (or citar-bibliography
+;;                          (bound-and-true-p bibtex-completion-bibliography))))
+;;           ;; Always return bibliography paths as list for org-cite.
+;;           (if (stringp paths) (list paths) paths)))
+;;   ;; setup export processor; default csl/citeproc-el, with biblatex for latex
+;;   (setq org-cite-export-processors
+;;         '((t csl))))
 
  ;;; Org-cite processors
-(use-package! oc-biblatex
-  :after oc)
+;; (use-package! oc-biblatex
+;;   :after oc)
 
-(use-package! oc-csl
-  :after oc
-  :config
-  (setq org-cite-csl-styles-dir "~/Zotero/styles"))
+;; (use-package! oc-csl
+;;   :after oc
+;;   :config
+;;   (setq org-cite-csl-styles-dir "~/Zotero/styles"))
 
-(use-package! oc-natbib
-  :after oc)
+;; (use-package! oc-natbib
+;;   :after oc)
 
-(use-package! oc-csl-activate
-  :after oc
-  :config
-  (setq org-cite-csl-activate-use-document-style t)
-  (defun +org-cite-csl-activate/enable ()
-    (interactive)
-    (setq org-cite-activate-processor 'csl-activate)
-    (add-hook! 'org-mode-hook '((lambda () (cursor-sensor-mode 1)) org-cite-csl-activate-render-all))
-    (defadvice! +org-cite-csl-activate-render-all-silent (orig-fn)
-      :around #'org-cite-csl-activate-render-all
-      (with-silent-modifications (funcall orig-fn)))
-    (when (eq major-mode 'org-mode)
-      (with-silent-modifications
-        (save-excursion
-          (goto-char (point-min))
-          (org-cite-activate (point-max)))
-        (org-cite-csl-activate-render-all)))
-    (fmakunbound #'+org-cite-csl-activate/enable)))
+;; (use-package! oc-csl-activate
+;;   :after oc
+;;   :config
+;;   (setq org-cite-csl-activate-use-document-style t)
+;;   (defun +org-cite-csl-activate/enable ()
+;;     (interactive)
+;;     (setq org-cite-activate-processor 'csl-activate)
+;;     (add-hook! 'org-mode-hook '((lambda () (cursor-sensor-mode 1)) org-cite-csl-activate-render-all))
+;;     (defadvice! +org-cite-csl-activate-render-all-silent (orig-fn)
+;;       :around #'org-cite-csl-activate-render-all
+;;       (with-silent-modifications (funcall orig-fn)))
+;;     (when (eq major-mode 'org-mode)
+;;       (with-silent-modifications
+;;         (save-excursion
+;;           (goto-char (point-min))
+;;           (org-cite-activate (point-max)))
+;;         (org-cite-csl-activate-render-all)))
+;;     (fmakunbound #'+org-cite-csl-activate/enable)))
 
-;; I think it would be nice to have a function to convert org-ref citations to org-cite
+;; ;; I think it would be nice to have a function to convert org-ref citations to org-cite
 
-(after! oc
-  (defun org-ref-to-org-cite ()
-    "Attempt to convert org-ref citations to org-cite syntax."
-    (interactive)
-    (let* ((cite-conversions '(("cite" . "//b") ("Cite" . "//bc")
-                               ("nocite" . "/n")
-                               ("citep" . "") ("citep*" . "//f")
-                               ("parencite" . "") ("Parencite" . "//c")
-                               ("citeauthor" . "/a/f") ("citeauthor*" . "/a")
-                               ("citeyear" . "/na/b")
-                               ("Citep" . "//c") ("Citealp" . "//bc")
-                               ("Citeauthor" . "/a/cf") ("Citeauthor*" . "/a/c")
-                               ("autocite" . "") ("Autocite" . "//c")
-                               ("notecite" . "/l/b") ("Notecite" . "/l/bc")
-                               ("pnotecite" . "/l") ("Pnotecite" . "/l/bc")))
-           (cite-regexp (rx (regexp (regexp-opt (mapcar #'car cite-conversions) t))
-                            ":" (group (+ (not (any "\n     ,.)]}")))))))
-      (save-excursion
-        (goto-char (point-min))
-        (while (re-search-forward cite-regexp nil t)
-          (message (format "[cite%s:@%s]"
-                           (cdr (assoc (match-string 1) cite-conversions))
-                           (match-string 2)))
-          (replace-match (format "[cite%s:@%s]"
-                                 (cdr (assoc (match-string 1) cite-conversions))
-                                 (match-string 2))))))))
+;; (after! oc
+;;   (defun org-ref-to-org-cite ()
+;;     "Attempt to convert org-ref citations to org-cite syntax."
+;;     (interactive)
+;;     (let* ((cite-conversions '(("cite" . "//b") ("Cite" . "//bc")
+;;                                ("nocite" . "/n")
+;;                                ("citep" . "") ("citep*" . "//f")
+;;                                ("parencite" . "") ("Parencite" . "//c")
+;;                                ("citeauthor" . "/a/f") ("citeauthor*" . "/a")
+;;                                ("citeyear" . "/na/b")
+;;                                ("Citep" . "//c") ("Citealp" . "//bc")
+;;                                ("Citeauthor" . "/a/cf") ("Citeauthor*" . "/a/c")
+;;                                ("autocite" . "") ("Autocite" . "//c")
+;;                                ("notecite" . "/l/b") ("Notecite" . "/l/bc")
+;;                                ("pnotecite" . "/l") ("Pnotecite" . "/l/bc")))
+;;            (cite-regexp (rx (regexp (regexp-opt (mapcar #'car cite-conversions) t))
+;;                             ":" (group (+ (not (any "\n     ,.)]}")))))))
+;;       (save-excursion
+;;         (goto-char (point-min))
+;;         (while (re-search-forward cite-regexp nil t)
+;;           (message (format "[cite%s:@%s]"
+;;                            (cdr (assoc (match-string 1) cite-conversions))
+;;                            (match-string 2)))
+;;           (replace-match (format "[cite%s:@%s]"
+;;                                  (cdr (assoc (match-string 1) cite-conversions))
+;;                                  (match-string 2))))))))
 
 ;; Spell Check
 
@@ -2008,49 +2008,49 @@ is selected, only the bare key is returned."
 
 ;; PLANTUML mode for flowcharts
 
-(add-to-list
- 'org-src-lang-modes '("plantuml" . plantuml))
-;; in org mode
-;; #+BEGIN_SRC plantuml
-;; <hit C-c ' here to open a plantuml-mode buffer>
-;; #+END_SRC
+;; (add-to-list
+;;  'org-src-lang-modes '("plantuml" . plantuml))
+;; ;; in org mode
+;; ;; #+BEGIN_SRC plantuml
+;; ;; <hit C-c ' here to open a plantuml-mode buffer>
+;; ;; #+END_SRC
 
-(add-to-list 'auto-mode-alist '("\\.plantuml\\'" . plantuml-mode))
+;; (add-to-list 'auto-mode-alist '("\\.plantuml\\'" . plantuml-mode))
 
-;; Sample jar configuration
-(setq org-plantuml-jar-path "~/Documents/GitHub/dotfiles/org/plantuml.jar")
-(setq org-plantuml-exec-mode 'jar)
+;; ;; Sample jar configuration
+;; (setq org-plantuml-jar-path "~/Documents/GitHub/dotfiles/org/plantuml.jar")
+;; (setq org-plantuml-exec-mode 'jar)
 
-;; Sample executable configuration
-(setq org-plantuml-executable-path "/usr/bin/plantuml")
-;; (setq plantuml-default-exec-mode 'executable)
+;; ;; Sample executable configuration
+;; (setq org-plantuml-executable-path "/usr/bin/plantuml")
+;; ;; (setq plantuml-default-exec-mode 'executable)
 
 ;; ----------------------------------------------------------------------------------------------------------------------
 
 ;; Github Copilot
 
-(use-package copilot
-  ;; :straight (:host github :repo "zerolfx/copilot.el" :files ("dist" "*.el"))
-  :ensure t)
+;; (use-package copilot
+;;   ;; :straight (:host github :repo "zerolfx/copilot.el" :files ("dist" "*.el"))
+;;   :ensure t)
 
-;; accept completion from copilot and fallback to company
-(defun my-tab ()
-  (interactive)
-  (or (copilot-accept-completion)
-      (company-indent-or-complete-common nil)))
+;; ;; accept completion from copilot and fallback to company
+;; (defun my-tab ()
+;;   (interactive)
+;;   (or (copilot-accept-completion)
+;;       (company-indent-or-complete-common nil)))
 
-(use-package! copilot
-  ;; :hook (prog-mode . copilot-mode)
-  :bind (("C-M-<right>" . 'copilot-accept-completion-by-line)
-         ;; ("<tab>" . 'copilot-accept-completion-by-word)
-         ;; :map company-active-map
-         ;; ("<tab>" . 'my-tab)
-         ;; ("TAB" . 'my-tab)
-         ;; :map company-mode-map
-         ;; ("<tab>" . 'my-tab)
-         ;; ("TAB" . 'my-tab)
-         )
-  )
+;; (use-package! copilot
+;;   ;; :hook (prog-mode . copilot-mode)
+;;   :bind (("C-M-<right>" . 'copilot-accept-completion-by-line)
+;;          ;; ("<tab>" . 'copilot-accept-completion-by-word)
+;;          ;; :map company-active-map
+;;          ;; ("<tab>" . 'my-tab)
+;;          ;; ("TAB" . 'my-tab)
+;;          ;; :map company-mode-map
+;;          ;; ("<tab>" . 'my-tab)
+;;          ;; ("TAB" . 'my-tab)
+;;          )
+;;   )
 
 ;; ----------------------------------------------------------------------------------------------------------------------
 
@@ -2095,9 +2095,11 @@ is selected, only the bare key is returned."
   :config
   (pyvenv-mode 1))
 
-(use-package! python-black
-  :after python
-  :hook (python-mode . python-black-on-save-mode-enable-dwim))
+;; (use-package! python-black
+  ;; :after python
+  ;; :hook (python-mode . python-black-on-save-mode-enable-dwim))
+
+(add-hook 'prog-mode-hook 'format-all-mode)
 
 (require 'eglot)
 (add-to-list 'eglot-server-programs '((cpp-mode) "clangd"))
@@ -2122,7 +2124,7 @@ is selected, only the bare key is returned."
 (add-hook 'c-mode-hook #'lsp)
 (add-hook 'ess-r-mode-hook #'lsp)
 (add-hook 'ess-r-mode-hook #'jedi:ac-setup)
-(add-hook 'haskell-mode-hook #'lsp)
+;; (add-hook 'haskell-mode-hook #'lsp)
 
 (map! :g "C-c h" #'lsp-headerline-breadcrumb-mode)
 
@@ -2265,75 +2267,75 @@ is selected, only the bare key is returned."
 
 ;; Latex Settings
 
-(setq org-latex-listings 'minted)
-(add-to-list 'org-latex-packages-alist '("" "listingsutf8"))
-(add-to-list 'org-latex-packages-alist '("" "minted"))
-(add-to-list 'org-latex-minted-langs '(ipython "python"))
+;; (setq org-latex-listings 'minted)
+;; (add-to-list 'org-latex-packages-alist '("" "listingsutf8"))
+;; (add-to-list 'org-latex-packages-alist '("" "minted"))
+;; (add-to-list 'org-latex-minted-langs '(ipython "python"))
 
 
-(require 'ivy-bibtex)
-(setq TeX-auto-save t)
-(setq latex-preview-pane-mode t)
+;; (require 'ivy-bibtex)
+;; (setq TeX-auto-save t)
+;; (setq latex-preview-pane-mode t)
 
-(map! "C-c t" #'latex-preview-pane-mode)
+;; (map! "C-c t" #'latex-preview-pane-mode)
 
-(after! tex
-  (setq TeX-view-program-selection
-        '(
-          (output-pdf "Zathura")
-          ((output-dvi has-no-display-manager)
-           "dvi2tty")
-          ((output-dvi style-pstricks)
-           "dvips and gv")
-          (output-dvi "xdvi")
-          (output-html "Brave")
-          )))
+;; (after! tex
+;;   (setq TeX-view-program-selection
+;;         '(
+;;           (output-pdf "Zathura")
+;;           ((output-dvi has-no-display-manager)
+;;            "dvi2tty")
+;;           ((output-dvi style-pstricks)
+;;            "dvips and gv")
+;;           (output-dvi "xdvi")
+;;           (output-html "Brave")
+;;           )))
 
-(add-to-list 'org-file-apps '("\\.pdf" . "zathura %s"))
-(add-to-list 'org-file-apps '("\\.html" . "brave %s"))
-(add-to-list 'org-file-apps '("\\.md" . "brave %s"))
+;; (add-to-list 'org-file-apps '("\\.pdf" . "zathura %s"))
+;; (add-to-list 'org-file-apps '("\\.html" . "brave %s"))
+;; (add-to-list 'org-file-apps '("\\.md" . "brave %s"))
 
-;;correlate
-(server-start)
-(add-hook 'LaTeX-mode-hook 'TeX-PDF-mode)
-(add-hook 'Latex-mode-hook 'lsp-latex 'lsp 'company-tabnine)
-(add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
-(setq TeX-source-correlate-method 'synctex)
-(setq TeX-source-correlate-start-server t)
+;; ;;correlate
+;; (server-start)
+;; (add-hook 'LaTeX-mode-hook 'TeX-PDF-mode)
+;; (add-hook 'Latex-mode-hook 'lsp-latex 'lsp 'company-tabnine)
+;; (add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
+;; (setq TeX-source-correlate-method 'synctex)
+;; (setq TeX-source-correlate-start-server t)
 
-(setq lsp-latex-forward-search-executable "zathura")
-(setq lsp-latex-forward-search-args '("--synctex-forward" "%l:1:%f" "%p"))
+;; (setq lsp-latex-forward-search-executable "zathura")
+;; (setq lsp-latex-forward-search-args '("--synctex-forward" "%l:1:%f" "%p"))
 
-(with-eval-after-load 'ox-latex
-  (add-to-list 'org-latex-classes
-               '("org-plain-latex"
-                 "\\documentclass{article}
-           [NO-DEFAULT-PACKAGES]
-           [PACKAGES]
-           [EXTRA]"
-                 ("\\section{%s}" . "\\section*{%s}")
-                 ("\\subsection{%s}" . "\\subsection*{%s}")
-                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
-                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+;; (with-eval-after-load 'ox-latex
+;;   (add-to-list 'org-latex-classes
+;;                '("org-plain-latex"
+;;                  "\\documentclass{article}
+;;            [NO-DEFAULT-PACKAGES]
+;;            [PACKAGES]
+;;            [EXTRA]"
+;;                  ("\\section{%s}" . "\\section*{%s}")
+;;                  ("\\subsection{%s}" . "\\subsection*{%s}")
+;;                  ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+;;                  ("\\paragraph{%s}" . "\\paragraph*{%s}")
+;;                  ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
 
-(defun org-export-as-pdf-and-open ()
-  (interactive)
-  (save-buffer)
-  (org-open-file (org-latex-export-to-pdf)))
+;; (defun org-export-as-pdf-and-open ()
+;;   (interactive)
+;;   (save-buffer)
+;;   (org-open-file (org-latex-export-to-pdf)))
 
-(map! :g "C-c i" #'org-export-as-pdf-and-open)
-(map! :g "<f6>" #'org-latex-export-to-pdf)
+;; (map! :g "C-c i" #'org-export-as-pdf-and-open)
+;; (map! :g "<f6>" #'org-latex-export-to-pdf)
+
+;; ;; (setq org-latex-pdf-process
+;; ;;       '("latexmk -shell-escape -pdflatex='pdflatex -interaction nonstopmode' -bibtex -f -pdf %f"
+;; ;;         ))
 
 ;; (setq org-latex-pdf-process
-;;       '("latexmk -shell-escape -pdflatex='pdflatex -interaction nonstopmode' -bibtex -f -pdf %f"
-;;         ))
-
-(setq org-latex-pdf-process
- '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-   ;; "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-   ;; "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-   ))
+;;  '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+;;    ;; "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+;;    ;; "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+;;    ))
 
 ;; ----------------------------------------------------------------------------------------------------------------------
 
@@ -3046,21 +3048,21 @@ is selected, only the bare key is returned."
 ;; EMMS
 ;; One of the media players available for Emacs is emms, which stands for Emacs Multimedia System.  By default, Doom Emacs does not use ‘SPC a’,’ so the format I use for these bindings is ‘SPC a’ plus ‘key’.
 
-(emms-all)
-(emms-default-players)
-(emms-mode-line 1)
-(emms-playing-time 1)
-(setq emms-source-file-default-directory "~/Music/MUS"
-      emms-playlist-buffer-name "*Music*"
-      emms-info-asynchronously t
-      emms-source-file-directory-tree-function 'emms-source-file-directory-tree-find)
-(map! :leader
-      (:prefix ("m" . "EMMS audio player")
-       :desc "Go to emms playlist" "a" #'emms-playlist-mode-go
-       :desc "Emms pause track" "x" #'emms-pause
-       :desc "Emms stop track" "s" #'emms-stop
-       :desc "Emms play previous track" "p" #'emms-previous
-       :desc "Emms play next track" "n" #'emms-next))
+;; (emms-all)
+;; (emms-default-players)
+;; (emms-mode-line 1)
+;; (emms-playing-time 1)
+;; (setq emms-source-file-default-directory "~/Music/MUS"
+;;       emms-playlist-buffer-name "*Music*"
+;;       emms-info-asynchronously t
+;;       emms-source-file-directory-tree-function 'emms-source-file-directory-tree-find)
+;; (map! :leader
+;;       (:prefix ("m" . "EMMS audio player")
+;;        :desc "Go to emms playlist" "a" #'emms-playlist-mode-go
+;;        :desc "Emms pause track" "x" #'emms-pause
+;;        :desc "Emms stop track" "s" #'emms-stop
+;;        :desc "Emms play previous track" "p" #'emms-previous
+;;        :desc "Emms play next track" "n" #'emms-next))
 
 ;; ----------------------------------------------------------------------------------------------------------------------
 
@@ -3129,47 +3131,47 @@ is selected, only the bare key is returned."
 
 ;; ORG-TREE-SLIDE
 
-(use-package org-tree-slide
-  :custom
-  (org-image-actual-width nil))
+;; (use-package org-tree-slide
+;;   :custom
+;;   (org-image-actual-width nil))
 
-(use-package hide-mode-line)
-(defun efs/presentation-setup ()
-  ;; Hide the mode line
-  (hide-mode-line-mode 1)
+;; (use-package hide-mode-line)
+;; (defun efs/presentation-setup ()
+;;   ;; Hide the mode line
+;;   (hide-mode-line-mode 1)
 
-  ;; Display images inline
-  (org-display-inline-images) ;; Can also use org-startup-with-inline-images
+;;   ;; Display images inline
+;;   (org-display-inline-images) ;; Can also use org-startup-with-inline-images
 
-  ;; Scale the text.  The next line is for basic scaling:
-  (setq text-scale-mode-amount 3)
-  (text-scale-mode 1))
+;;   ;; Scale the text.  The next line is for basic scaling:
+;;   (setq text-scale-mode-amount 3)
+;;   (text-scale-mode 1))
 
-;; This option is more advanced, allows you to scale other faces too
-;; (setq-local face-remapping-alist '((default (:height 2.0) variable-pitch)
-;;                                    (org-verbatim (:height 1.75) org-verbatim)
-;;                                    (org-block (:height 1.25) org-block))))
+;; ;; This option is more advanced, allows you to scale other faces too
+;; ;; (setq-local face-remapping-alist '((default (:height 2.0) variable-pitch)
+;; ;;                                    (org-verbatim (:height 1.75) org-verbatim)
+;; ;;                                    (org-block (:height 1.25) org-block))))
 
-(defun efs/presentation-end ()
-  ;; Show the mode line again
-  (hide-mode-line-mode 0)
+;; (defun efs/presentation-end ()
+;;   ;; Show the mode line again
+;;   (hide-mode-line-mode 0)
 
-  ;; Turn off text scale mode (or use the next line if you didn't use text-scale-mode)
-  ;; (text-scale-mode 0))
+;;   ;; Turn off text scale mode (or use the next line if you didn't use text-scale-mode)
+;;   ;; (text-scale-mode 0))
 
-  ;; If you use face-remapping-alist, this clears the scaling:
-  (setq-local face-remapping-alist '((default variable-pitch default))))
+;;   ;; If you use face-remapping-alist, this clears the scaling:
+;;   (setq-local face-remapping-alist '((default variable-pitch default))))
 
-(use-package org-tree-slide
-  :hook ((org-tree-slide-play . efs/presentation-setup)
-         (org-tree-slide-stop . efs/presentation-end))
-  :custom
-  (org-tree-slide-slide-in-effect t)
-  (org-tree-slide-activate-message "Presentation started!")
-  (org-tree-slide-deactivate-message "Presentation finished!")
-  (org-tree-slide-header t)
-  (org-tree-slide-breadcrumbs " > ")
-  (org-image-actual-width nil))
+;; (use-package org-tree-slide
+;;   :hook ((org-tree-slide-play . efs/presentation-setup)
+;;          (org-tree-slide-stop . efs/presentation-end))
+;;   :custom
+;;   (org-tree-slide-slide-in-effect t)
+;;   (org-tree-slide-activate-message "Presentation started!")
+;;   (org-tree-slide-deactivate-message "Presentation finished!")
+;;   (org-tree-slide-header t)
+;;   (org-tree-slide-breadcrumbs " > ")
+;;   (org-image-actual-width nil))
 
 ;; ----------------------------------------------------------------------------------------------------------------------
 
