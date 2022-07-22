@@ -1,28 +1,70 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.7.18)  19 JUL 2022 20:49
-entering extended mode
- restricted \write18 enabled.
- %&-line parsing enabled.
+This is LuaHBTeX, Version 1.15.0 (TeX Live 2022/Arch Linux)  (format=lualatex 2022.7.18)  22 JUL 2022 13:55
+ restricted system commands enabled.
 **latex-template.tex
 (./latex-template.tex
 LaTeX2e <2021-11-15> patch level 1
-L3 programming layer <2022-04-10>
+Lua module: luaotfload 2022-03-18 3.21 Lua based OpenType font support
+Lua module: lualibs 2021-05-20 2.74 ConTeXt Lua standard libraries.
+Lua module: lualibs-extended 2021-05-20 2.74 ConTeXt Lua libraries -- extended c
+ollection.
+luaotfload | conf : Root cache directory is "/home/reddy/.texlive/texmf-var/luat
+ex-cache/generic/names".
+luaotfload | init : Loading fontloader "fontloader-2022-02-24.lua" from kpse-res
+olved path "/usr/share/texmf-dist/tex/luatex/luaotfload/fontloader-2022-02-24.lu
+a".
+Lua-only attribute luaotfload@noligature = 1
+luaotfload | init : Context OpenType loader version 3.119
+Inserting `luaotfload.node_processor' at position 1 in `pre_linebreak_filter'.
+Inserting `luaotfload.node_processor' at position 1 in `hpack_filter'.
+Inserting `luaotfload.glyph_stream' at position 1 in `glyph_stream_provider'.
+Inserting `luaotfload.define_font' at position 1 in `define_font'.
+Lua-only attribute luaotfload_color_attribute = 2
+luaotfload | conf : Root cache directory is "/home/reddy/.texlive/texmf-var/luat
+ex-cache/generic/names".
+Inserting `luaotfload.harf.strip_prefix' at position 1 in `find_opentype_file'.
+Inserting `luaotfload.harf.strip_prefix' at position 1 in `find_truetype_file'.
+Removing  `luaotfload.glyph_stream' from `glyph_stream_provider'.
+Inserting `luaotfload.harf.glyphstream' at position 1 in `glyph_stream_provider'
+.
+Inserting `luaotfload.harf.finalize_vlist' at position 1 in `post_linebreak_filt
+er'.
+Inserting `luaotfload.harf.finalize_hlist' at position 2 in `hpack_filter'.
+Inserting `luaotfload.cleanup_files' at position 1 in `wrapup_run'.
+Inserting `luaotfload.harf.finalize_unicode' at position 1 in `finish_pdffile'.
+Inserting `luaotfload.glyphinfo' at position 1 in `glyph_info'.
+Lua-only attribute luaotfload.letterspace_done = 3
+Inserting `luaotfload.aux.set_sscale_dimens' at position 1 in `luaotfload.patch_
+font'.
+Inserting `luaotfload.aux.set_font_index' at position 2 in `luaotfload.patch_fon
+t'.
+Inserting `luaotfload.aux.patch_cambria_domh' at position 3 in `luaotfload.patch
+_font'.
+Inserting `luaotfload.aux.fixup_fontdata' at position 1 in `luaotfload.patch_fon
+t_unsafe'.
+Inserting `luaotfload.aux.set_capheight' at position 4 in `luaotfload.patch_font
+'.
+Inserting `luaotfload.aux.set_xheight' at position 5 in `luaotfload.patch_font'.
+Inserting `luaotfload.rewrite_fontname' at position 6 in `luaotfload.patch_font'
+. L3 programming layer <2022-04-10>
+Inserting `tracingstacklevels' at position 1 in `input_level_string'.
 (/usr/share/texmf-dist/tex/latex/base/report.cls
 Document Class: report 2021/10/04 v1.4n Standard LaTeX document class
 (/usr/share/texmf-dist/tex/latex/base/size12.clo
 File: size12.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
-)
-\c@part=\count185
-\c@chapter=\count186
-\c@section=\count187
-\c@subsection=\count188
-\c@subsubsection=\count189
-\c@paragraph=\count190
-\c@subparagraph=\count191
-\c@figure=\count192
-\c@table=\count193
+luaotfload | db : Font names database loaded from /home/reddy/.texlive/texmf-var
+/luatex-cache/generic/names/luaotfload-names.luc.gz)
+\c@part=\count183
+\c@chapter=\count184
+\c@section=\count185
+\c@subsection=\count186
+\c@subsubsection=\count187
+\c@paragraph=\count188
+\c@subparagraph=\count189
+\c@figure=\count190
+\c@table=\count191
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
-\bibindent=\dimen138
+\bibindent=\dimen137
 )
 (/usr/share/texmf-dist/tex/latex/lm/lmodern.sty
 Package: lmodern 2015/05/01 v1.6.1 Latin Modern Fonts
@@ -72,9 +114,9 @@ File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 (/usr/share/texmf-dist/tex/latex/l3kernel/expl3.sty
 Package: expl3 2022-04-10 L3 programming layer (loader) 
 
-(/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2022-04-14 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count194
+(/usr/share/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
+File: l3backend-luatex.def 2022-04-14 L3 backend support: PDF output (LuaTeX)
+\l__color_backend_stack_int=\count192
 \l__pdf_internal_box=\box50
 ))
 Package: l3keys2e 2022-01-12 LaTeX2e option processing using LaTeX3 keys
@@ -84,183 +126,342 @@ Package: xparse 2022-01-12 L3 Experimental document command parser
 )
 Package: comicneue 2020/04/26 v1.2 Craig Rozynski's Comic Neue fonts
 
+(/usr/share/texmf-dist/tex/latex/fontspec/fontspec.sty
+Package: fontspec 2022/01/15 v2.8a Font selection for XeLaTeX and LuaLaTeX
+Lua module: fontspec 2022/01/15 2.8a Font selection for XeLaTeX and LuaLaTeX
+(/usr/share/texmf-dist/tex/latex/fontspec/fontspec-luatex.sty
+Package: fontspec-luatex 2022/01/15 v2.8a Font selection for XeLaTeX and LuaLaT
+eX
+\l__fontspec_script_int=\count193
+\l__fontspec_language_int=\count194
+\l__fontspec_strnum_int=\count195
+\l__fontspec_tmp_int=\count196
+\l__fontspec_tmpa_int=\count197
+\l__fontspec_tmpb_int=\count198
+\l__fontspec_tmpc_int=\count199
+\l__fontspec_em_int=\count266
+\l__fontspec_emdef_int=\count267
+\l__fontspec_strong_int=\count268
+\l__fontspec_strongdef_int=\count269
+\l__fontspec_tmpa_dim=\dimen138
+\l__fontspec_tmpb_dim=\dimen139
+\l__fontspec_tmpc_dim=\dimen140
+
 (/usr/share/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+)
+(/usr/share/texmf-dist/tex/latex/fontspec/fontspec.cfg)))
+luaotfload | aux : font no 19 (nil) defines no feature for script latn
+luaotfload | aux : font no 19 (nil) does not define feature smcp for script dflt
+ with language dflt
+luaotfload | aux : font no 20 (nil) does not define feature smcp for script dflt
+ with language dflt
+luaotfload | aux : font no 21 (nil) does not define feature smcp for script dflt
+ with language dflt
+luaotfload | aux : font no 22 (nil) does not define feature smcp for script dflt
+ with language dflt
 
-(/usr/share/texmf-dist/tex/latex/ly1/ly1enc.def
-File: ly1enc.def 2009/07/22 v0.7 TeX 'n ANSI encoding (DPC/KB)
-Now handling font encoding LY1 ...
-... processing UTF-8 mapping file for font encoding LY1
+Package fontspec Info: Font family 'ComicNeue(0)' created for font 'ComicNeue'
+(fontspec)             with options
+(fontspec)             [Ligatures=TeX,Scale=1,Extension=.otf,BoldFont=*-Bold,Bo
+ldItalicFont=*-BoldItalic,Ligatures=TeX,UprightFont=*-Regular,ItalicFont=*-Regu
+larItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[ComicNeue-Regular.otf]:mode=node;script=DFLT;l
+anguage=dflt;+tlig;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[ComicNeue-Bold.otf]:mode=node;script=DFLT;lang
+uage=dflt;+tlig;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[ComicNeue-RegularItalic.otf]:mode=node;script=
+DFLT;language=dflt;+tlig;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[ComicNeue-BoldItalic.otf]:mode=node;script=DFL
+T;language=dflt;+tlig;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
 
-(/usr/share/texmf-dist/tex/latex/base/ly1enc.dfu
-File: ly1enc.dfu 2021/06/21 v1.2n UTF-8 support
-   defining Unicode char U+00A0 (decimal 160)
-   defining Unicode char U+00A1 (decimal 161)
-   defining Unicode char U+00A2 (decimal 162)
-   defining Unicode char U+00A3 (decimal 163)
-   defining Unicode char U+00A4 (decimal 164)
-   defining Unicode char U+00A5 (decimal 165)
-   defining Unicode char U+00A6 (decimal 166)
-   defining Unicode char U+00A7 (decimal 167)
-   defining Unicode char U+00AA (decimal 170)
-   defining Unicode char U+00AB (decimal 171)
-   defining Unicode char U+00AD (decimal 173)
-   defining Unicode char U+00AE (decimal 174)
-   defining Unicode char U+00B0 (decimal 176)
-   defining Unicode char U+00B5 (decimal 181)
-   defining Unicode char U+00B6 (decimal 182)
-   defining Unicode char U+00B7 (decimal 183)
-   defining Unicode char U+00BA (decimal 186)
-   defining Unicode char U+00BB (decimal 187)
-   defining Unicode char U+00BC (decimal 188)
-   defining Unicode char U+00BD (decimal 189)
-   defining Unicode char U+00BE (decimal 190)
-   defining Unicode char U+00BF (decimal 191)
-   defining Unicode char U+00C0 (decimal 192)
-   defining Unicode char U+00C1 (decimal 193)
-   defining Unicode char U+00C2 (decimal 194)
-   defining Unicode char U+00C3 (decimal 195)
-   defining Unicode char U+00C4 (decimal 196)
-   defining Unicode char U+00C5 (decimal 197)
-   defining Unicode char U+00C6 (decimal 198)
-   defining Unicode char U+00C7 (decimal 199)
-   defining Unicode char U+00C8 (decimal 200)
-   defining Unicode char U+00C9 (decimal 201)
-   defining Unicode char U+00CA (decimal 202)
-   defining Unicode char U+00CB (decimal 203)
-   defining Unicode char U+00CC (decimal 204)
-   defining Unicode char U+00CD (decimal 205)
-   defining Unicode char U+00CE (decimal 206)
-   defining Unicode char U+00CF (decimal 207)
-   defining Unicode char U+00D0 (decimal 208)
-   defining Unicode char U+00D1 (decimal 209)
-   defining Unicode char U+00D2 (decimal 210)
-   defining Unicode char U+00D3 (decimal 211)
-   defining Unicode char U+00D4 (decimal 212)
-   defining Unicode char U+00D5 (decimal 213)
-   defining Unicode char U+00D6 (decimal 214)
-   defining Unicode char U+00D8 (decimal 216)
-   defining Unicode char U+00D9 (decimal 217)
-   defining Unicode char U+00DA (decimal 218)
-   defining Unicode char U+00DB (decimal 219)
-   defining Unicode char U+00DC (decimal 220)
-   defining Unicode char U+00DD (decimal 221)
-   defining Unicode char U+00DE (decimal 222)
-   defining Unicode char U+00DF (decimal 223)
-   defining Unicode char U+00E0 (decimal 224)
-   defining Unicode char U+00E1 (decimal 225)
-   defining Unicode char U+00E2 (decimal 226)
-   defining Unicode char U+00E3 (decimal 227)
-   defining Unicode char U+00E4 (decimal 228)
-   defining Unicode char U+00E5 (decimal 229)
-   defining Unicode char U+00E6 (decimal 230)
-   defining Unicode char U+00E7 (decimal 231)
-   defining Unicode char U+00E8 (decimal 232)
-   defining Unicode char U+00E9 (decimal 233)
-   defining Unicode char U+00EA (decimal 234)
-   defining Unicode char U+00EB (decimal 235)
-   defining Unicode char U+00EC (decimal 236)
-   defining Unicode char U+00ED (decimal 237)
-   defining Unicode char U+00EE (decimal 238)
-   defining Unicode char U+00EF (decimal 239)
-   defining Unicode char U+00F0 (decimal 240)
-   defining Unicode char U+00F1 (decimal 241)
-   defining Unicode char U+00F2 (decimal 242)
-   defining Unicode char U+00F3 (decimal 243)
-   defining Unicode char U+00F4 (decimal 244)
-   defining Unicode char U+00F5 (decimal 245)
-   defining Unicode char U+00F6 (decimal 246)
-   defining Unicode char U+00F8 (decimal 248)
-   defining Unicode char U+00F9 (decimal 249)
-   defining Unicode char U+00FA (decimal 250)
-   defining Unicode char U+00FB (decimal 251)
-   defining Unicode char U+00FC (decimal 252)
-   defining Unicode char U+00FD (decimal 253)
-   defining Unicode char U+00FE (decimal 254)
-   defining Unicode char U+00FF (decimal 255)
-   defining Unicode char U+0131 (decimal 305)
-   defining Unicode char U+0141 (decimal 321)
-   defining Unicode char U+0142 (decimal 322)
-   defining Unicode char U+0152 (decimal 338)
-   defining Unicode char U+0153 (decimal 339)
-   defining Unicode char U+0160 (decimal 352)
-   defining Unicode char U+0161 (decimal 353)
-   defining Unicode char U+0174 (decimal 372)
-   defining Unicode char U+0175 (decimal 373)
-   defining Unicode char U+0176 (decimal 374)
-   defining Unicode char U+0177 (decimal 375)
-   defining Unicode char U+0178 (decimal 376)
-   defining Unicode char U+017D (decimal 381)
-   defining Unicode char U+017E (decimal 382)
-   defining Unicode char U+0192 (decimal 402)
-   defining Unicode char U+0218 (decimal 536)
-   defining Unicode char U+0219 (decimal 537)
-   defining Unicode char U+021A (decimal 538)
-   defining Unicode char U+021B (decimal 539)
-   defining Unicode char U+0237 (decimal 567)
-   defining Unicode char U+02C6 (decimal 710)
-   defining Unicode char U+02DC (decimal 732)
-   defining Unicode char U+2013 (decimal 8211)
-   defining Unicode char U+2014 (decimal 8212)
-   defining Unicode char U+201C (decimal 8220)
-   defining Unicode char U+201D (decimal 8221)
-   defining Unicode char U+2020 (decimal 8224)
-   defining Unicode char U+2021 (decimal 8225)
-   defining Unicode char U+2022 (decimal 8226)
-   defining Unicode char U+2026 (decimal 8230)
-   defining Unicode char U+2030 (decimal 8240)
-   defining Unicode char U+2039 (decimal 8249)
-   defining Unicode char U+203A (decimal 8250)
-   defining Unicode char U+2122 (decimal 8482)
-   defining Unicode char U+FB00 (decimal 64256)
-   defining Unicode char U+FB01 (decimal 64257)
-   defining Unicode char U+FB02 (decimal 64258)
-   defining Unicode char U+FB03 (decimal 64259)
-   defining Unicode char U+FB04 (decimal 64260)
-   defining Unicode char U+FB05 (decimal 64261)
-   defining Unicode char U+FB06 (decimal 64262)
-))))
+luaotfload | aux : font no 19 (nil) defines no feature for script latn
+luaotfload | aux : font no 19 (nil) does not define feature smcp for script dflt
+ with language dflt
+luaotfload | aux : font no 20 (nil) does not define feature smcp for script dflt
+ with language dflt
+luaotfload | aux : font no 21 (nil) does not define feature smcp for script dflt
+ with language dflt
+luaotfload | aux : font no 22 (nil) does not define feature smcp for script dflt
+ with language dflt
+
+Package fontspec Info: Font family 'ComicNeue(1)' created for font 'ComicNeue'
+(fontspec)             with options
+(fontspec)             [Ligatures=TeX,Scale=1,Extension=.otf,BoldFont=*-Bold,Bo
+ldItalicFont=*-BoldItalic,UprightFont=*-Regular,ItalicFont=*-RegularItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[ComicNeue-Regular.otf]:mode=node;script=DFLT;l
+anguage=dflt;+tlig;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[ComicNeue-Bold.otf]:mode=node;script=DFLT;lang
+uage=dflt;+tlig;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[ComicNeue-RegularItalic.otf]:mode=node;script=
+DFLT;language=dflt;+tlig;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[ComicNeue-BoldItalic.otf]:mode=node;script=DFL
+T;language=dflt;+tlig;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
+
+luaotfload | aux : font no 24 (nil) defines no feature for script latn
+luaotfload | aux : font no 24 (nil) does not define feature smcp for script dflt
+ with language dflt
+luaotfload | aux : font no 20 (nil) does not define feature smcp for script dflt
+ with language dflt
+luaotfload | aux : font no 25 (nil) does not define feature smcp for script dflt
+ with language dflt
+luaotfload | aux : font no 22 (nil) does not define feature smcp for script dflt
+ with language dflt
+
+Package fontspec Info: Font family 'ComicNeue(2)' created for font 'ComicNeue'
+(fontspec)             with options
+(fontspec)             [Ligatures=TeX,Scale=1,Extension=.otf,BoldFont=*-Bold,Bo
+ldItalicFont=*-BoldItalic,UprightFont=*-Light,ItalicFont=*-LightItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[ComicNeue-Light.otf]:mode=node;script=DFLT;lan
+guage=dflt;+tlig;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[ComicNeue-Bold.otf]:mode=node;script=DFLT;lang
+uage=dflt;+tlig;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[ComicNeue-LightItalic.otf]:mode=node;script=DF
+LT;language=dflt;+tlig;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[ComicNeue-BoldItalic.otf]:mode=node;script=DFL
+T;language=dflt;+tlig;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
+
+luaotfload | aux : font no 28 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 29 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 30 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 31 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'ComicNeueAngular(0)' created for font
+(fontspec)             'ComicNeueAngular' with options
+(fontspec)             [Ligatures=TeX,Scale=1,Extension=.otf,BoldFont=*-Bold,Bo
+ldItalicFont=*-BoldItalic,UprightFont=*-Regular,ItalicFont=*-RegularItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[ComicNeueAngular-Regular.otf]:mode=node;script
+=latn;language=dflt;+tlig;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[ComicNeueAngular-Bold.otf]:mode=node;script=la
+tn;language=dflt;+tlig;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[ComicNeueAngular-RegularItalic.otf]:mode=node;
+script=latn;language=dflt;+tlig;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[ComicNeueAngular-BoldItalic.otf]:mode=node;scr
+ipt=latn;language=dflt;+tlig;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
+
+luaotfload | aux : font no 34 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 29 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 35 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 31 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'ComicNeueAngular(1)' created for font
+(fontspec)             'ComicNeueAngular' with options
+(fontspec)             [Ligatures=TeX,Scale=1,Extension=.otf,BoldFont=*-Bold,Bo
+ldItalicFont=*-BoldItalic,UprightFont=*-Light,ItalicFont=*-LightItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[ComicNeueAngular-Light.otf]:mode=node;script=l
+atn;language=dflt;+tlig;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[ComicNeueAngular-Bold.otf]:mode=node;script=la
+tn;language=dflt;+tlig;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[ComicNeueAngular-LightItalic.otf]:mode=node;sc
+ript=latn;language=dflt;+tlig;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[ComicNeueAngular-BoldItalic.otf]:mode=node;scr
+ipt=latn;language=dflt;+tlig;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
+
+)
 (/usr/share/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks16
 \inpenc@posthook=\toks17
-)
-(/usr/share/texmf-dist/tex/generic/babel/babel.sty
+
+
+Package inputenc Warning: inputenc package ignored with utf8 based engines.
+
+) (/usr/share/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2022/02/26 3.73 The Babel package
-\babel@savecnt=\count195
-\U@D=\dimen139
-\l@unhyphenated=\language87
 
-(/usr/share/texmf-dist/tex/generic/babel/txtbabel.def)
+(/usr/share/texmf-dist/tex/generic/babel/luababel.def
 \bbl@readstream=\read2
-\bbl@dirlevel=\count196
+\l@dumylang=\language2
+Package babel Info: Non-standard hyphenation setup on input line 118.
+\l@nohyphenation=\language3
+\l@german-x-2022-03-16=\language4
+\l@ngerman-x-2022-03-16=\language5
+\l@afrikaans=\language6
+\l@ancientgreek=\language7
+\l@ibycus=\language8
+\l@arabic=\language9
+\l@armenian=\language10
+\l@basque=\language11
+\l@belarusian=\language12
+\l@bulgarian=\language13
+\l@catalan=\language14
+\l@pinyin=\language15
+\l@churchslavonic=\language16
+\l@coptic=\language17
+\l@croatian=\language18
+\l@czech=\language19
+\l@danish=\language20
+\l@dutch=\language21
+\l@ukenglish=\language22
+\l@usenglishmax=\language23
+\l@esperanto=\language24
+\l@estonian=\language25
+\l@ethiopic=\language26
+\l@farsi=\language27
+\l@finnish=\language28
+\l@schoolfinnish=\language29
+\l@french=\language30
+\l@friulan=\language31
+\l@galician=\language32
+\l@georgian=\language33
+\l@german=\language34
+\l@ngerman=\language35
+\l@swissgerman=\language36
+\l@greek=\language37
+\l@monogreek=\language38
+\l@hungarian=\language39
+\l@icelandic=\language40
+\l@assamese=\language41
+\l@bengali=\language42
+\l@gujarati=\language43
+\l@hindi=\language44
+\l@kannada=\language45
+\l@malayalam=\language46
+\l@marathi=\language47
+\l@oriya=\language48
+\l@pali=\language49
+\l@panjabi=\language50
+\l@tamil=\language51
+\l@telugu=\language52
+\l@indonesian=\language53
+\l@interlingua=\language54
+\l@irish=\language55
+\l@italian=\language56
+\l@kurmanji=\language57
+\l@classiclatin=\language58
+\l@latin=\language59
+\l@liturgicallatin=\language60
+\l@latvian=\language61
+\l@lithuanian=\language62
+\l@macedonian=\language63
+\l@mongolian=\language64
+\l@mongolianlmc=\language65
+\l@bokmal=\language66
+\l@nynorsk=\language67
+\l@occitan=\language68
+\l@piedmontese=\language69
+\l@polish=\language70
+\l@portuguese=\language71
+\l@romanian=\language72
+\l@romansh=\language73
+\l@russian=\language74
+\l@sanskrit=\language75
+\l@serbian=\language76
+\l@serbianc=\language77
+\l@slovak=\language78
+\l@slovenian=\language79
+\l@spanish=\language80
+\l@swedish=\language81
+\l@thai=\language82
+\l@turkish=\language83
+\l@turkmen=\language84
+\l@ukrainian=\language85
+\l@uppersorbian=\language86
+\l@welsh=\language87
+\babelcatcodetablenum=\catcodetable12
+\bbl@pattcodes=\catcodetable13
+)
+\babel@savecnt=\count270
+\U@D=\dimen141
+\l@unhyphenated=\language88
 
+(/usr/share/texmf-dist/tex/generic/babel/luababel.def
+\bbl@attr@locale=\attribute4
+)
 (/usr/share/texmf-dist/tex/generic/babel-english/english.ldf
 Language: english 2017/06/06 v3.3r English support from the babel system
 Package babel Info: Hyphen rules for 'canadian' set to \l@english
 (babel)             (\language0). Reported on input line 102.
 Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
-(babel)             (\language21). Reported on input line 105.
+(babel)             (\language22). Reported on input line 105.
 Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
-(babel)             (\language21). Reported on input line 108.
+(babel)             (\language22). Reported on input line 108.
 ))
 (/usr/share/texmf-dist/tex/latex/csquotes/csquotes.sty
 Package: csquotes 2021-02-22 v5.2l context-sensitive quotations (JAW)
 
 (/usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count197
+\etb@tempcnta=\count271
 )
 (/usr/share/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks18
 )
-\csq@reset=\count198
-\csq@gtype=\count199
-\csq@glevel=\count266
-\csq@qlevel=\count267
-\csq@maxlvl=\count268
-\csq@tshold=\count269
+\csq@reset=\count272
+\csq@gtype=\count273
+\csq@glevel=\count274
+\csq@qlevel=\count275
+\csq@maxlvl=\count276
+\csq@tshold=\count277
 \csq@ltx@everypar=\toks19
 
 (/usr/share/texmf-dist/tex/latex/csquotes/csquotes.def
@@ -273,23 +474,23 @@ Package csquotes Info: ... configuration file loaded successfully.
 File: csquotes.cfg 
 ))
 (/usr/share/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count270
+\lst@mode=\count278
 \lst@gtempboxa=\box51
 \lst@token=\toks20
-\lst@length=\count271
-\lst@currlwidth=\dimen140
-\lst@column=\count272
-\lst@pos=\count273
-\lst@lostspace=\dimen141
-\lst@width=\dimen142
-\lst@newlines=\count274
-\lst@lineno=\count275
-\lst@maxwidth=\dimen143
+\lst@length=\count279
+\lst@currlwidth=\dimen142
+\lst@column=\count280
+\lst@pos=\count281
+\lst@lostspace=\dimen143
+\lst@width=\dimen144
+\lst@newlines=\count282
+\lst@lineno=\count283
+\lst@maxwidth=\dimen145
 
 (/usr/share/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
-\c@lstnumber=\count276
-\lst@skipnumbers=\count277
+\c@lstnumber=\count284
+\lst@skipnumbers=\count285
 \lst@framebox=\box52
 )
 (/usr/share/texmf-dist/tex/latex/listings/listings.cfg
@@ -306,31 +507,31 @@ Package: pict2e 2020/09/30 v0.4b Improved picture commands (HjG,RN,JT)
 (/usr/share/texmf-dist/tex/latex/pict2e/pict2e.cfg
 File: pict2e.cfg 2016/02/05 v0.1u pict2e configuration for teTeX/TeXLive
 )
-Package pict2e Info: Driver file: pdftex.def on input line 112.
+Package pict2e Info: Driver file: luatex.def on input line 112.
 
-(/usr/share/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+(/usr/share/texmf-dist/tex/latex/graphics-def/luatex.def
+File: luatex.def 2021/06/01 v1.2c Graphics/color driver for luatex
 )
-Package pict2e Info: Driver file for pict2e: p2e-pdftex.def on input line 114.
+Package pict2e Info: Driver file for pict2e: p2e-luatex.def on input line 114.
 
-(/usr/share/texmf-dist/tex/latex/pict2e/p2e-pdftex.def
-File: p2e-pdftex.def 2016/02/05 v0.1u Driver-dependant file (RN,HjG,JT)
+(/usr/share/texmf-dist/tex/latex/pict2e/p2e-luatex.def
+File: p2e-luatex.def 2016/02/05 v0.1u Driver-dependant file (RN,HjG,JT)
 )
 (/usr/share/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
 )
 \pIIe@GRAPH=\toks21
-\@arclen=\dimen144
-\@arcrad=\dimen145
-\pIIe@tempdima=\dimen146
-\pIIe@tempdimb=\dimen147
-\pIIe@tempdimc=\dimen148
-\pIIe@tempdimd=\dimen149
-\pIIe@tempdime=\dimen150
-\pIIe@tempdimf=\dimen151
+\@arclen=\dimen146
+\@arcrad=\dimen147
+\pIIe@tempdima=\dimen148
+\pIIe@tempdimb=\dimen149
+\pIIe@tempdimc=\dimen150
+\pIIe@tempdimd=\dimen151
+\pIIe@tempdime=\dimen152
+\pIIe@tempdimf=\dimen153
 )
-\c@treecount=\count278
-\c@branchcount=\count279
+\c@treecount=\count286
+\c@branchcount=\count287
 \parentbox=\box53
 \treebox=\box54
 \treeboxone=\box55
@@ -429,9 +630,9 @@ Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
 \treewidth=\skip122
 \qta=\toks22
 \qtb=\toks23
-\nbranches=\count280
-\qroofx=\count281
-\qroofy=\count282
+\nbranches=\count288
+\qroofx=\count289
+\qroofy=\count290
 \@qrscratchbox=\box75
 )
 (/usr/share/texmf-dist/tex/latex/graphics/graphicx.sty
@@ -443,16 +644,16 @@ Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
 (/usr/share/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 107.
+Package graphics Info: Driver file: luatex.def on input line 107.
 )
-\Gin@req@height=\dimen152
-\Gin@req@width=\dimen153
+\Gin@req@height=\dimen154
+\Gin@req@width=\dimen155
 )
 (/usr/share/texmf-dist/tex/latex/tools/array.sty
 Package: array 2021/10/04 v2.5f Tabular extension package (FMi)
-\col@sep=\dimen154
+\col@sep=\dimen156
 \ar@mcellbox=\box76
-\extrarowheight=\dimen155
+\extrarowheight=\dimen157
 \NC@list=\toks24
 \extratabsurround=\skip123
 \backup@length=\skip124
@@ -464,17 +665,17 @@ Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
 \LTright=\skip126
 \LTpre=\skip127
 \LTpost=\skip128
-\LTchunksize=\count283
-\LTcapwidth=\dimen156
+\LTchunksize=\count291
+\LTcapwidth=\dimen158
 \LT@head=\box78
 \LT@firsthead=\box79
 \LT@foot=\box80
 \LT@lastfoot=\box81
 \LT@gbox=\box82
-\LT@cols=\count284
-\LT@rows=\count285
-\c@LT@tables=\count286
-\c@LT@chunks=\count287
+\LT@cols=\count292
+\LT@rows=\count293
+\c@LT@tables=\count294
+\c@LT@chunks=\count295
 \LT@p@ftn=\toks25
 )
 (/usr/share/texmf-dist/tex/latex/tocbibind/tocbibind.sty
@@ -490,26 +691,23 @@ Package: fourier 2022/02/05 2.3 fourier-GUTenberg package
 (/usr/share/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2022/02/03 v1.0f TeX engine tests
 )
-Now handling font encoding FML ...
-... no UTF-8 mapping file for font encoding FML
-Now handling font encoding FMS ...
-... no UTF-8 mapping file for font encoding FMS
-Now handling font encoding FMX ...
-... no UTF-8 mapping file for font encoding FMX
+
+Package fourier Warning: Please consider loading "fourier-otf.sty" instead of
+(fourier)                "fourier.sty" with Unicode engines LuaTeX or XeTeX,
+(fourier)                so that Type1 fonts get replaced by OpenType fonts.
+(fourier)                See file "Erewhon-Math.pdf" for more information.
 
 (/usr/share/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
-LaTeX Font Info:    Trying to load font information for T1+ComicNeue-TLF on inp
-ut line 112.
+LaTeX Font Info:    Trying to load font information for T1+ComicNeue(0) on inpu
+t line 112.
+LaTeX Font Info:    No file T1ComicNeue(0).fd. on input line 112.
 
-(/usr/share/texmf-dist/tex/latex/comicneue/T1ComicNeue-TLF.fd
-File: T1ComicNeue-TLF.fd 2020/04/26 (autoinst) Font definitions for T1/ComicNeu
-e-TLF.
-)
-LaTeX Font Info:    Font shape `T1/ComicNeue-TLF/m/n' aliased to
-(Font)              `T1/ComicNeue-TLF/regular/n' on input line 112.
-)
-(/usr/share/texmf-dist/tex/latex/base/textcomp.sty
+
+LaTeX Font Warning: Font shape `T1/ComicNeue(0)/m/n' undefined
+(Font)              using `T1/cmr/m/n' instead on input line 112.
+
+) (/usr/share/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 )
 (/usr/share/texmf-dist/tex/latex/fourier/fourier-orns.sty
@@ -613,12 +811,12 @@ LaTeX Font Info:    Redeclaring math accent \mathring on input line 269.
 )
 (/usr/share/texmf-dist/tex/latex/tools/tabularx.sty
 Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
-\TX@col@width=\dimen157
-\TX@old@table=\dimen158
-\TX@old@col=\dimen159
-\TX@target=\dimen160
-\TX@delta=\dimen161
-\TX@cols=\count288
+\TX@col@width=\dimen159
+\TX@old@table=\dimen160
+\TX@old@col=\dimen161
+\TX@target=\dimen162
+\TX@delta=\dimen163
+\TX@cols=\count296
 \TX@ftn=\toks26
 )
 (/usr/share/texmf-dist/tex/latex/caption/caption.sty
@@ -626,18 +824,18 @@ Package: caption 2022/03/01 v3.6b Customizing captions (AR)
 
 (/usr/share/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2022/03/17 v2.3b caption3 kernel (AR)
-\caption@tempdima=\dimen162
-\captionmargin=\dimen163
-\caption@leftmargin=\dimen164
-\caption@rightmargin=\dimen165
-\caption@width=\dimen166
-\caption@indent=\dimen167
-\caption@parindent=\dimen168
-\caption@hangindent=\dimen169
+\caption@tempdima=\dimen164
+\captionmargin=\dimen165
+\caption@leftmargin=\dimen166
+\caption@rightmargin=\dimen167
+\caption@width=\dimen168
+\caption@indent=\dimen169
+\caption@parindent=\dimen170
+\caption@hangindent=\dimen171
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count289
-\c@continuedfloat=\count290
+\c@caption@flags=\count297
+\c@continuedfloat=\count298
 Package caption Info: listings package is loaded.
 Package caption Info: longtable package is loaded.
 
@@ -660,6 +858,7 @@ Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
+\pdftexcmds@toks=\toks27
 )
 (/usr/share/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
@@ -669,7 +868,7 @@ Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
 ))
 (/usr/share/texmf-dist/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count291
+\lrq@indent=\count299
 
 (/usr/share/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
@@ -681,48 +880,48 @@ Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
 \Urlmuskip=\muskip16
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-\c@tabx@nest=\count292
-\c@listtotal=\count293
-\c@listcount=\count294
-\c@liststart=\count295
-\c@liststop=\count296
-\c@citecount=\count297
-\c@citetotal=\count298
-\c@multicitecount=\count299
-\c@multicitetotal=\count300
-\c@instcount=\count301
-\c@maxnames=\count302
-\c@minnames=\count303
-\c@maxitems=\count304
-\c@minitems=\count305
-\c@citecounter=\count306
-\c@maxcitecounter=\count307
-\c@savedcitecounter=\count308
-\c@uniquelist=\count309
-\c@uniquename=\count310
-\c@refsection=\count311
-\c@refsegment=\count312
-\c@maxextratitle=\count313
-\c@maxextratitleyear=\count314
-\c@maxextraname=\count315
-\c@maxextradate=\count316
-\c@maxextraalpha=\count317
-\c@abbrvpenalty=\count318
-\c@highnamepenalty=\count319
-\c@lownamepenalty=\count320
-\c@maxparens=\count321
-\c@parenlevel=\count322
-\blx@tempcnta=\count323
-\blx@tempcntb=\count324
-\blx@tempcntc=\count325
-\c@blx@maxsection=\count326
-\c@blx@maxsegment@0=\count327
-\blx@notetype=\count328
-\blx@parenlevel@text=\count329
-\blx@parenlevel@foot=\count330
-\c@blx@sectionciteorder@0=\count331
-\blx@entrysetcounter=\count332
-\blx@biblioinstance=\count333
+\c@tabx@nest=\count300
+\c@listtotal=\count301
+\c@listcount=\count302
+\c@liststart=\count303
+\c@liststop=\count304
+\c@citecount=\count305
+\c@citetotal=\count306
+\c@multicitecount=\count307
+\c@multicitetotal=\count308
+\c@instcount=\count309
+\c@maxnames=\count310
+\c@minnames=\count311
+\c@maxitems=\count312
+\c@minitems=\count313
+\c@citecounter=\count314
+\c@maxcitecounter=\count315
+\c@savedcitecounter=\count316
+\c@uniquelist=\count317
+\c@uniquename=\count318
+\c@refsection=\count319
+\c@refsegment=\count320
+\c@maxextratitle=\count321
+\c@maxextratitleyear=\count322
+\c@maxextraname=\count323
+\c@maxextradate=\count324
+\c@maxextraalpha=\count325
+\c@abbrvpenalty=\count326
+\c@highnamepenalty=\count327
+\c@lownamepenalty=\count328
+\c@maxparens=\count329
+\c@parenlevel=\count330
+\blx@tempcnta=\count331
+\blx@tempcntb=\count332
+\blx@tempcntc=\count333
+\c@blx@maxsection=\count334
+\c@blx@maxsegment@0=\count335
+\blx@notetype=\count336
+\blx@parenlevel@text=\count337
+\blx@parenlevel@foot=\count338
+\c@blx@sectionciteorder@0=\count339
+\blx@entrysetcounter=\count340
+\blx@biblioinstance=\count341
 \labelnumberwidth=\skip129
 \labelalphawidth=\skip130
 \biblabelsep=\skip131
@@ -733,10 +932,10 @@ Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 \bibhang=\skip136
 \blx@bcfin=\read3
 \blx@bcfout=\write3
-\blx@langwohyphens=\language88
-\c@mincomprange=\count334
-\c@maxcomprange=\count335
-\c@mincompwidth=\count336
+\blx@langwohyphens=\language89
+\c@mincomprange=\count342
+\c@maxcomprange=\count343
+\c@mincompwidth=\count344
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
 
@@ -747,74 +946,74 @@ Package biblatex Info: Trying to load biblatex style data model...
 Package biblatex Info: ... file 'verbose.dbx' not found.
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count337
-\c@savedafterword=\count338
-\c@annotator=\count339
-\c@savedannotator=\count340
-\c@author=\count341
-\c@savedauthor=\count342
-\c@bookauthor=\count343
-\c@savedbookauthor=\count344
-\c@commentator=\count345
-\c@savedcommentator=\count346
-\c@editor=\count347
-\c@savededitor=\count348
-\c@editora=\count349
-\c@savededitora=\count350
-\c@editorb=\count351
-\c@savededitorb=\count352
-\c@editorc=\count353
-\c@savededitorc=\count354
-\c@foreword=\count355
-\c@savedforeword=\count356
-\c@holder=\count357
-\c@savedholder=\count358
-\c@introduction=\count359
-\c@savedintroduction=\count360
-\c@namea=\count361
-\c@savednamea=\count362
-\c@nameb=\count363
-\c@savednameb=\count364
-\c@namec=\count365
-\c@savednamec=\count366
-\c@translator=\count367
-\c@savedtranslator=\count368
-\c@shortauthor=\count369
-\c@savedshortauthor=\count370
-\c@shorteditor=\count371
-\c@savedshorteditor=\count372
-\c@labelname=\count373
-\c@savedlabelname=\count374
-\c@institution=\count375
-\c@savedinstitution=\count376
-\c@lista=\count377
-\c@savedlista=\count378
-\c@listb=\count379
-\c@savedlistb=\count380
-\c@listc=\count381
-\c@savedlistc=\count382
-\c@listd=\count383
-\c@savedlistd=\count384
-\c@liste=\count385
-\c@savedliste=\count386
-\c@listf=\count387
-\c@savedlistf=\count388
-\c@location=\count389
-\c@savedlocation=\count390
-\c@organization=\count391
-\c@savedorganization=\count392
-\c@origlocation=\count393
-\c@savedoriglocation=\count394
-\c@origpublisher=\count395
-\c@savedorigpublisher=\count396
-\c@publisher=\count397
-\c@savedpublisher=\count398
-\c@language=\count399
-\c@savedlanguage=\count400
-\c@origlanguage=\count401
-\c@savedoriglanguage=\count402
-\c@pageref=\count403
-\c@savedpageref=\count404
+\c@afterword=\count345
+\c@savedafterword=\count346
+\c@annotator=\count347
+\c@savedannotator=\count348
+\c@author=\count349
+\c@savedauthor=\count350
+\c@bookauthor=\count351
+\c@savedbookauthor=\count352
+\c@commentator=\count353
+\c@savedcommentator=\count354
+\c@editor=\count355
+\c@savededitor=\count356
+\c@editora=\count357
+\c@savededitora=\count358
+\c@editorb=\count359
+\c@savededitorb=\count360
+\c@editorc=\count361
+\c@savededitorc=\count362
+\c@foreword=\count363
+\c@savedforeword=\count364
+\c@holder=\count365
+\c@savedholder=\count366
+\c@introduction=\count367
+\c@savedintroduction=\count368
+\c@namea=\count369
+\c@savednamea=\count370
+\c@nameb=\count371
+\c@savednameb=\count372
+\c@namec=\count373
+\c@savednamec=\count374
+\c@translator=\count375
+\c@savedtranslator=\count376
+\c@shortauthor=\count377
+\c@savedshortauthor=\count378
+\c@shorteditor=\count379
+\c@savedshorteditor=\count380
+\c@labelname=\count381
+\c@savedlabelname=\count382
+\c@institution=\count383
+\c@savedinstitution=\count384
+\c@lista=\count385
+\c@savedlista=\count386
+\c@listb=\count387
+\c@savedlistb=\count388
+\c@listc=\count389
+\c@savedlistc=\count390
+\c@listd=\count391
+\c@savedlistd=\count392
+\c@liste=\count393
+\c@savedliste=\count394
+\c@listf=\count395
+\c@savedlistf=\count396
+\c@location=\count397
+\c@savedlocation=\count398
+\c@organization=\count399
+\c@savedorganization=\count400
+\c@origlocation=\count401
+\c@savedoriglocation=\count402
+\c@origpublisher=\count403
+\c@savedorigpublisher=\count404
+\c@publisher=\count405
+\c@savedpublisher=\count406
+\c@language=\count407
+\c@savedlanguage=\count408
+\c@origlanguage=\count409
+\c@savedoriglanguage=\count410
+\c@pageref=\count411
+\c@savedpageref=\count412
 \shorthandwidth=\skip137
 \shortjournalwidth=\skip138
 \shortserieswidth=\skip139
@@ -829,6 +1028,10 @@ Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
 \localshorttitlewidth=\skip148
 \localshortauthorwidth=\skip149
 \localshorteditorwidth=\skip150
+Package biblatex Info: Trying to load enhanced support for Unicode engines...
+Package biblatex Info: ... file 'blx-unicode.def' found.
+
+(/usr/share/texmf-dist/tex/latex/biblatex/blx-unicode.def)
 Package biblatex Info: Trying to load compatibility code...
 Package biblatex Info: ... file 'blx-compat.def' found.
 
@@ -850,19 +1053,19 @@ Package biblatex Info: Trying to load generic definitions...
 Package biblatex Info: ... file 'biblatex.def' found.
  (/usr/share/texmf-dist/tex/latex/biblatex/biblatex.def
 File: biblatex.def 2022/02/02 v3.17 biblatex compatibility (PK/MW)
-\c@textcitecount=\count405
-\c@textcitetotal=\count406
-\c@textcitemaxnames=\count407
-\c@biburlbigbreakpenalty=\count408
-\c@biburlbreakpenalty=\count409
-\c@biburlnumpenalty=\count410
-\c@biburlucpenalty=\count411
-\c@biburllcpenalty=\count412
+\c@textcitecount=\count413
+\c@textcitetotal=\count414
+\c@textcitemaxnames=\count415
+\c@biburlbigbreakpenalty=\count416
+\c@biburlbreakpenalty=\count417
+\c@biburlnumpenalty=\count418
+\c@biburlucpenalty=\count419
+\c@biburllcpenalty=\count420
 \biburlbigskip=\muskip17
 \biburlnumskip=\muskip18
 \biburlucskip=\muskip19
 \biburllcskip=\muskip20
-\c@smartand=\count413
+\c@smartand=\count421
 )
 Package biblatex Info: Trying to load bibliography style 'verbose'...
 Package biblatex Info: ... file 'verbose.bbx' found.
@@ -879,8 +1082,8 @@ Package biblatex Info: ... file 'standard.bbx' found.
 
 (/usr/share/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
 File: standard.bbx 2022/02/02 v3.17 biblatex bibliography style (PK/MW)
-\c@bbx:relatedcount=\count414
-\c@bbx:relatedtotal=\count415
+\c@bbx:relatedcount=\count422
+\c@bbx:relatedtotal=\count423
 )))
 Package biblatex Info: Trying to load citation style 'verbose'...
 Package biblatex Info: ... file 'verbose.cbx' found.
@@ -901,7 +1104,8 @@ Package biblatex Info: ... file 'biblatex.cfg' found.
 (/usr/share/texmf-dist/tex/latex/biblatex/biblatex.cfg
 File: biblatex.cfg 
 )
-Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: LuaTeX detected.
+(biblatex)             Assuming input encoding 'utf8'.
 Package biblatex Info: Document encoding is UTF8 ....
 Package biblatex Info: ... and expl3
 (biblatex)             2022-04-10 L3 programming layer (loader) 
@@ -913,41 +1117,41 @@ Package: blx-case-expl3 2022/02/02 v3.17 expl3 case changing code for biblatex
 ))
 (/usr/share/texmf-dist/tex/latex/siunitx/siunitx.sty
 Package: siunitx 2022-04-04 v3.0.50 A comprehensive (SI) units package
-\l__siunitx_angle_tmp_dim=\dimen170
+\l__siunitx_angle_tmp_dim=\dimen172
 \l__siunitx_angle_marker_box=\box83
 \l__siunitx_angle_unit_box=\box84
-\l__siunitx_compound_count_int=\count416
+\l__siunitx_compound_count_int=\count424
 
 (/usr/share/texmf-dist/tex/latex/translations/translations.sty
 Package: translations 2022/02/05 v1.12 internationalization of LaTeX2e packages
  (CN)
 )
-\l__siunitx_number_exponent_fixed_int=\count417
-\l__siunitx_number_min_decimal_int=\count418
-\l__siunitx_number_min_integer_int=\count419
-\l__siunitx_number_round_precision_int=\count420
-\l__siunitx_number_group_minimum_int=\count421
+\l__siunitx_number_exponent_fixed_int=\count425
+\l__siunitx_number_min_decimal_int=\count426
+\l__siunitx_number_min_integer_int=\count427
+\l__siunitx_number_round_precision_int=\count428
+\l__siunitx_number_group_minimum_int=\count429
 
 (/usr/share/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2021/08/26 v2.01 AMS text
 
 (/usr/share/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks27
-\ex@=\dimen171
+\@emptytoks=\toks28
+\ex@=\dimen173
 ))
 \l__siunitx_table_tmp_box=\box85
-\l__siunitx_table_tmp_dim=\dimen172
-\l__siunitx_table_column_width_dim=\dimen173
+\l__siunitx_table_tmp_dim=\dimen174
+\l__siunitx_table_column_width_dim=\dimen175
 \l__siunitx_table_integer_box=\box86
 \l__siunitx_table_decimal_box=\box87
 \l__siunitx_table_before_box=\box88
 \l__siunitx_table_after_box=\box89
-\l__siunitx_table_before_dim=\dimen174
-\l__siunitx_table_carry_dim=\dimen175
-\l__siunitx_unit_tmp_int=\count422
-\l__siunitx_unit_position_int=\count423
-\l__siunitx_unit_total_int=\count424
+\l__siunitx_table_before_dim=\dimen176
+\l__siunitx_table_carry_dim=\dimen177
+\l__siunitx_unit_tmp_int=\count430
+\l__siunitx_unit_position_int=\count431
+\l__siunitx_unit_total_int=\count432
 )
 (/usr/share/texmf-dist/tex/latex/brushscr/pbsi.sty
 Package: pbsi 2001/09/17 - BrushScriptX-Italic selection command 'textbsi'
@@ -957,10 +1161,10 @@ File: t1pbsi.fd 2001/09/24 Fontinst v1.801 font definitions for T1/pbsi.
 ))
 (/usr/share/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count425
-\float@exts=\toks28
+\c@float@type=\count433
+\float@exts=\toks29
 \float@box=\box90
-\@float@everytoks=\toks29
+\@float@everytoks=\toks30
 \@floatcapt=\box91
 )
 (/usr/share/texmf-dist/tex/latex/lastpage/lastpage.sty
@@ -983,9 +1187,9 @@ rs
 (/usr/share/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
 (/usr/share/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
 (/usr/share/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
-\pgfutil@everybye=\toks30
-\pgfutil@tempdima=\dimen176
-\pgfutil@tempdimb=\dimen177
+\pgfutil@everybye=\toks31
+\pgfutil@tempdima=\dimen178
+\pgfutil@tempdimb=\dimen179
 
 (/usr/share/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-lists.tex))
 (/usr/share/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
@@ -1003,48 +1207,48 @@ Package: pgf 2021/05/15 v3.1.9a (3.1.9a)
 Package: pgfsys 2021/05/15 v3.1.9a (3.1.9a)
 
 (/usr/share/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks31
-\pgfkeys@temptoks=\toks32
+\pgfkeys@pathtoks=\toks32
+\pgfkeys@temptoks=\toks33
 
 (/usr/share/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.code.tex
-\pgfkeys@tmptoks=\toks33
+\pgfkeys@tmptoks=\toks34
 ))
-\pgf@x=\dimen178
-\pgf@y=\dimen179
-\pgf@xa=\dimen180
-\pgf@ya=\dimen181
-\pgf@xb=\dimen182
-\pgf@yb=\dimen183
-\pgf@xc=\dimen184
-\pgf@yc=\dimen185
-\pgf@xd=\dimen186
-\pgf@yd=\dimen187
+\pgf@x=\dimen180
+\pgf@y=\dimen181
+\pgf@xa=\dimen182
+\pgf@ya=\dimen183
+\pgf@xb=\dimen184
+\pgf@yb=\dimen185
+\pgf@xc=\dimen186
+\pgf@yc=\dimen187
+\pgf@xd=\dimen188
+\pgf@yd=\dimen189
 \w@pgf@writea=\write4
 \r@pgf@reada=\read4
-\c@pgf@counta=\count426
-\c@pgf@countb=\count427
-\c@pgf@countc=\count428
-\c@pgf@countd=\count429
-\t@pgf@toka=\toks34
-\t@pgf@tokb=\toks35
-\t@pgf@tokc=\toks36
-\pgf@sys@id@count=\count430
+\c@pgf@counta=\count434
+\c@pgf@countb=\count435
+\c@pgf@countc=\count436
+\c@pgf@countd=\count437
+\t@pgf@toka=\toks35
+\t@pgf@tokb=\toks36
+\t@pgf@tokc=\toks37
+\pgf@sys@id@count=\count438
 
 (/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2021/05/15 v3.1.9a (3.1.9a)
 )
-Driver file for pgf: pgfsys-pdftex.def
+Driver file for pgf: pgfsys-luatex.def
 
-(/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
-File: pgfsys-pdftex.def 2021/05/15 v3.1.9a (3.1.9a)
+(/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-luatex.def
+File: pgfsys-luatex.def 2021/05/15 v3.1.9a (3.1.9a)
 
 (/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
 File: pgfsys-common-pdf.def 2021/05/15 v3.1.9a (3.1.9a)
 )))
 (/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfsyssoftpath@smallbuffer@items=\count431
-\pgfsyssoftpath@bigbuffer@items=\count432
+\pgfsyssoftpath@smallbuffer@items=\count439
+\pgfsyssoftpath@bigbuffer@items=\count440
 )
 (/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2021/05/15 v3.1.9a (3.1.9a)
@@ -1055,7 +1259,7 @@ Package: xcolor 2021/10/31 v2.13 LaTeX color extensions (UK)
 (/usr/share/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package xcolor Info: Driver file: pdftex.def on input line 227.
+Package xcolor Info: Driver file: luatex.def on input line 227.
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1352.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1356.
 Package xcolor Info: Model `RGB' extended on input line 1368.
@@ -1073,12 +1277,12 @@ Package: pgfcore 2021/05/15 v3.1.9a (3.1.9a)
 (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
 (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
 (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
-\pgfmath@dimen=\dimen188
-\pgfmath@count=\count433
+\pgfmath@dimen=\dimen190
+\pgfmath@count=\count441
 \pgfmath@box=\box93
-\pgfmath@toks=\toks37
-\pgfmath@stack@operand=\toks38
-\pgfmath@stack@operation=\toks39
+\pgfmath@toks=\toks38
+\pgfmath@stack@operand=\toks39
+\pgfmath@stack@operation=\toks40
 )
 (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex
 (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex)
@@ -1091,51 +1295,51 @@ x) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex)
 (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex)
 (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics
 .code.tex))) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count434
+\c@pgfmathroundto@lastzeros=\count442
 )) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
 (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@picminx=\dimen189
-\pgf@picmaxx=\dimen190
-\pgf@picminy=\dimen191
-\pgf@picmaxy=\dimen192
-\pgf@pathminx=\dimen193
-\pgf@pathmaxx=\dimen194
-\pgf@pathminy=\dimen195
-\pgf@pathmaxy=\dimen196
-\pgf@xx=\dimen197
-\pgf@xy=\dimen198
-\pgf@yx=\dimen199
-\pgf@yy=\dimen256
-\pgf@zx=\dimen257
-\pgf@zy=\dimen258
+\pgf@picminx=\dimen191
+\pgf@picmaxx=\dimen192
+\pgf@picminy=\dimen193
+\pgf@picmaxy=\dimen194
+\pgf@pathminx=\dimen195
+\pgf@pathmaxx=\dimen196
+\pgf@pathminy=\dimen197
+\pgf@pathmaxy=\dimen198
+\pgf@xx=\dimen199
+\pgf@xy=\dimen256
+\pgf@yx=\dimen257
+\pgf@yy=\dimen258
+\pgf@zx=\dimen259
+\pgf@zy=\dimen260
 )
 (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
 File: pgfcorepathconstruct.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@path@lastx=\dimen259
-\pgf@path@lasty=\dimen260
+\pgf@path@lastx=\dimen261
+\pgf@path@lasty=\dimen262
 ) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
 File: pgfcorepathusage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@shorten@end@additional=\dimen261
-\pgf@shorten@start@additional=\dimen262
+\pgf@shorten@end@additional=\dimen263
+\pgf@shorten@start@additional=\dimen264
 )
 (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
 File: pgfcorescopes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgfpic=\box94
 \pgf@hbox=\box95
 \pgf@layerbox@main=\box96
-\pgf@picture@serial@count=\count435
+\pgf@picture@serial@count=\count443
 )
 (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgflinewidth=\dimen263
+\pgflinewidth=\dimen265
 )
 (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.t
 ex
 File: pgfcoretransformations.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@pt@x=\dimen264
-\pgf@pt@y=\dimen265
-\pgf@pt@temp=\dimen266
+\pgf@pt@x=\dimen266
+\pgf@pt@y=\dimen267
+\pgf@pt@temp=\dimen268
 ) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
 File: pgfcorequick.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
@@ -1147,13 +1351,13 @@ x
 File: pgfcorepathprocessing.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 ) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
 File: pgfcorearrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfarrowsep=\dimen267
+\pgfarrowsep=\dimen269
 )
 (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@max=\dimen268
-\pgf@sys@shading@range@num=\count436
-\pgf@shadingcount=\count437
+\pgf@max=\dimen270
+\pgf@sys@shading@range@num=\count444
+\pgf@shadingcount=\count445
 )
 (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
@@ -1182,8 +1386,8 @@ File: pgfmoduleplot.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
 (/usr/share/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
 Package: pgfcomp-version-0-65 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@nodesepstart=\dimen269
-\pgf@nodesepend=\dimen270
+\pgf@nodesepstart=\dimen271
+\pgf@nodesepend=\dimen272
 )
 (/usr/share/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
 Package: pgfcomp-version-1-18 2021/05/15 v3.1.9a (3.1.9a)
@@ -1197,10 +1401,10 @@ Package: pgfcomp-version-1-18 2021/05/15 v3.1.9a (3.1.9a)
 Package: pgffor 2021/05/15 v3.1.9a (3.1.9a)
 
 (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
-\pgffor@iter=\dimen271
-\pgffor@skip=\dimen272
-\pgffor@stack=\toks40
-\pgffor@toks=\toks41
+\pgffor@iter=\dimen273
+\pgffor@skip=\dimen274
+\pgffor@stack=\toks41
+\pgffor@toks=\toks42
 ))
 (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
 Package: tikz 2021/05/15 v3.1.9a (3.1.9a)
@@ -1208,32 +1412,32 @@ Package: tikz 2021/05/15 v3.1.9a (3.1.9a)
 (/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.te
 x
 File: pgflibraryplothandlers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@plot@mark@count=\count438
-\pgfplotmarksize=\dimen273
+\pgf@plot@mark@count=\count446
+\pgfplotmarksize=\dimen275
 )
-\tikz@lastx=\dimen274
-\tikz@lasty=\dimen275
-\tikz@lastxsaved=\dimen276
-\tikz@lastysaved=\dimen277
-\tikz@lastmovetox=\dimen278
-\tikz@lastmovetoy=\dimen279
-\tikzleveldistance=\dimen280
-\tikzsiblingdistance=\dimen281
+\tikz@lastx=\dimen276
+\tikz@lasty=\dimen277
+\tikz@lastxsaved=\dimen278
+\tikz@lastysaved=\dimen279
+\tikz@lastmovetox=\dimen280
+\tikz@lastmovetoy=\dimen281
+\tikzleveldistance=\dimen282
+\tikzsiblingdistance=\dimen283
 \tikz@figbox=\box99
 \tikz@figbox@bg=\box100
 \tikz@tempbox=\box101
 \tikz@tempbox@bg=\box102
-\tikztreelevel=\count439
-\tikznumberofchildren=\count440
-\tikznumberofcurrentchild=\count441
-\tikz@fig@count=\count442
+\tikztreelevel=\count447
+\tikznumberofchildren=\count448
+\tikznumberofcurrentchild=\count449
+\tikz@fig@count=\count450
  (/usr/share/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfmatrixcurrentrow=\count443
-\pgfmatrixcurrentcolumn=\count444
-\pgf@matrix@numberofcolumns=\count445
+\pgfmatrixcurrentrow=\count451
+\pgfmatrixcurrentcolumn=\count452
+\pgf@matrix@numberofcolumns=\count453
 )
-\tikz@expandcount=\count446
+\tikz@expandcount=\count454
 
 (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
 topaths.code.tex
@@ -1245,60 +1449,60 @@ Package: amsmath 2021/10/15 v2.17l AMS math features
 For additional information on amsmath, use the `?' option.
 (/usr/share/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen282
+\pmbraise@=\dimen284
 )
 (/usr/share/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2021/08/26 v2.02 operator names
 )
-\inf@bad=\count447
-LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count448
-\leftroot@=\count449
+\inf@bad=\count455
+LaTeX Info: Redefining \frac on input line 236.
+\uproot@=\count456
+\leftroot@=\count457
 LaTeX Info: Redefining \overline on input line 399.
-\classnum@=\count450
-\DOTSCASE@=\count451
+\classnum@=\count458
+\DOTSCASE@=\count459
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
 \Mathstrutbox@=\box103
 \strutbox@=\box104
-\big@size=\dimen283
+\big@size=\dimen285
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count452
-\c@MaxMatrixCols=\count453
+\macc@depth=\count460
+\c@MaxMatrixCols=\count461
 \dotsspace@=\muskip21
-\c@parentequation=\count454
-\dspbrk@lvl=\count455
-\tag@help=\toks42
-\row@=\count456
-\column@=\count457
-\maxfields@=\count458
-\andhelp@=\toks43
-\eqnshift@=\dimen284
-\alignsep@=\dimen285
-\tagshift@=\dimen286
-\tagwidth@=\dimen287
-\totwidth@=\dimen288
-\lineht@=\dimen289
-\@envbody=\toks44
+\c@parentequation=\count462
+\dspbrk@lvl=\count463
+\tag@help=\toks43
+\row@=\count464
+\column@=\count465
+\maxfields@=\count466
+\andhelp@=\toks44
+\eqnshift@=\dimen286
+\alignsep@=\dimen287
+\tagshift@=\dimen288
+\tagwidth@=\dimen289
+\totwidth@=\dimen290
+\lineht@=\dimen291
+\@envbody=\toks45
 \multlinegap=\skip161
 \multlinetaggap=\skip162
-\mathdisplay@stack=\toks45
+\mathdisplay@stack=\toks46
 LaTeX Info: Redefining \[ on input line 2938.
 LaTeX Info: Redefining \] on input line 2939.
 )
 (/usr/share/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2020/05/29 v2.20.6
-\thm@style=\toks46
-\thm@bodyfont=\toks47
-\thm@headfont=\toks48
-\thm@notefont=\toks49
-\thm@headpunct=\toks50
+\thm@style=\toks47
+\thm@bodyfont=\toks48
+\thm@headfont=\toks49
+\thm@notefont=\toks50
+\thm@headpunct=\toks51
 \thm@preskip=\skip163
 \thm@postskip=\skip164
 \thm@headsep=\skip165
-\dth@everypar=\toks51
+\dth@everypar=\toks52
 )
 (/usr/share/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
@@ -1359,14 +1563,12 @@ Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
 (/usr/share/texmf-dist/tex/latex/auxhook/auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 )
-\@linkdim=\dimen290
-\Hy@linkcounter=\count459
-\Hy@pagecounter=\count460
+\@linkdim=\dimen292
+\Hy@linkcounter=\count467
+\Hy@pagecounter=\count468
 
 (/usr/share/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2022-02-21 v7.00n Hyperref: PDFDocEncoding definition (HO)
-Now handling font encoding PD1 ...
-... no UTF-8 mapping file for font encoding PD1
 )
 (/usr/share/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
@@ -1374,12 +1576,10 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 (/usr/share/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count461
+\Hy@SavedSpaceFactor=\count469
 
 (/usr/share/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2022-02-21 v7.00n Hyperref: PDF Unicode definition (HO)
-Now handling font encoding PU ...
-... no UTF-8 mapping file for font encoding PU
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 4018.
 Package hyperref Info: Hyper figures OFF on input line 4137.
@@ -1389,9 +1589,9 @@ Package hyperref Info: Plain pages OFF on input line 4152.
 Package hyperref Info: Backreferencing OFF on input line 4157.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4390.
-\c@Hy@tempcnt=\count462
+\c@Hy@tempcnt=\count470
 LaTeX Info: Redefining \url on input line 4749.
-\XeTeXLinkMargin=\dimen291
+\XeTeXLinkMargin=\dimen293
 
 (/usr/share/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -1400,9 +1600,9 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count463
-\Field@Width=\dimen292
-\Fld@charsize=\dimen293
+\Fld@menulength=\count471
+\Field@Width=\dimen294
+\Fld@charsize=\dimen295
 Package hyperref Info: Hyper figures OFF on input line 6027.
 Package hyperref Info: Link nesting OFF on input line 6032.
 Package hyperref Info: Hyper index ON on input line 6035.
@@ -1417,22 +1617,26 @@ LaTeX Info: Redefining \pageref on input line 6101.
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count464
-\c@Item=\count465
-\c@Hfootnote=\count466
+\Hy@abspage=\count472
+\c@Item=\count473
+\c@Hfootnote=\count474
 )
-Package hyperref Info: Driver (autodetected): hpdftex.
+Package hyperref Info: Driver (autodetected): hluatex.
 
-(/usr/share/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2022-02-21 v7.00n Hyperref driver for pdfTeX
+(/usr/share/texmf-dist/tex/latex/hyperref/hluatex.def
+File: hluatex.def 2022-02-21 v7.00n Hyperref driver for luaTeX
 
+(/usr/share/texmf-dist/tex/generic/stringenc/stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
+)
+)
 (/usr/share/texmf-dist/tex/latex/base/atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
 kage
 with kernel methods
 )
-\Fld@listcount=\count467
-\c@bookmark@seq@number=\count468
+\Fld@listcount=\count475
+\c@bookmark@seq@number=\count476
 
 (/usr/share/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
@@ -1455,22 +1659,24 @@ Package: titling 2009/09/04 v2.1d maketitle typesetting
 )
 (/usr/share/texmf-dist/tex/latex/microtype/microtype.sty
 Package: microtype 2022/03/14 v3.0d Micro-typographical refinements (RS)
-\MT@toks=\toks52
+\MT@toks=\toks53
 \MT@tempbox=\box105
-\MT@count=\count469
+\MT@count=\count477
 LaTeX Info: Redefining \noprotrusionifhmode on input line 1027.
 LaTeX Info: Redefining \leftprotrusion on input line 1028.
 LaTeX Info: Redefining \rightprotrusion on input line 1036.
 LaTeX Info: Redefining \textls on input line 1195.
-\MT@outer@kern=\dimen294
+\MT@outer@kern=\dimen296
 LaTeX Info: Redefining \textmicrotypecontext on input line 1781.
-\MT@listname@count=\count470
+\MT@listname@count=\count478
 
-(/usr/share/texmf-dist/tex/latex/microtype/microtype-pdftex.def
-File: microtype-pdftex.def 2022/03/14 v3.0d Definitions specific to pdftex (RS)
+(/usr/share/texmf-dist/tex/latex/microtype/microtype-luatex.def
+File: microtype-luatex.def 2022/03/14 v3.0d Definitions specific to luatex (RS)
 
-LaTeX Info: Redefining \lsstyle on input line 900.
-LaTeX Info: Redefining \lslig on input line 900.
+Lua module: microtype 2022/03/14 3.0d microtype module.
+Module microtype Info: overwriting function `keepligature' on input line 63
+LaTeX Info: Redefining \lsstyle on input line 686.
+LaTeX Info: Redefining \lslig on input line 686.
 \MT@outer@space=\skip170
 )
 Package microtype Info: Loading configuration file microtype.cfg.
@@ -1480,7 +1686,7 @@ File: microtype.cfg 2022/03/14 v3.0d microtype main configuration file (RS)
 ))
 (/usr/share/texmf-dist/tex/latex/hyphenat/hyphenat.sty
 Package: hyphenat 2009/09/02 v2.3c hyphenation utilities
-\langwohyphens=\language89
+\langwohyphens=\language90
 LaTeX Info: Redefining \_ on input line 43.
 )
 (/usr/share/texmf-dist/tex/latex/ragged2e/ragged2e.sty
@@ -1505,50 +1711,50 @@ Package: pdfpages 2022/01/29 v0.5u Insert pages of external PDF documents (AM)
 
 (/usr/share/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count471
-\calc@Bcount=\count472
-\calc@Adimen=\dimen295
-\calc@Bdimen=\dimen296
+\calc@Acount=\count479
+\calc@Bcount=\count480
+\calc@Adimen=\dimen297
+\calc@Bdimen=\dimen298
 \calc@Askip=\skip185
 \calc@Bskip=\skip186
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count473
+\calc@Ccount=\count481
 \calc@Cskip=\skip187
 )
 (/usr/share/texmf-dist/tex/latex/eso-pic/eso-pic.sty
 Package: eso-pic 2020/10/14 v3.0a eso-pic (RN)
-\ESO@tempdima=\dimen297
-\ESO@tempdimb=\dimen298
+\ESO@tempdima=\dimen299
+\ESO@tempdimb=\dimen300
 )
-\AM@pagewidth=\dimen299
-\AM@pageheight=\dimen300
-\AM@fboxrule=\dimen301
+\AM@pagewidth=\dimen301
+\AM@pageheight=\dimen302
+\AM@fboxrule=\dimen303
 
-(/usr/share/texmf-dist/tex/latex/pdfpages/pppdftex.def
-File: pppdftex.def 2022/01/29 v0.5u Pdfpages driver for pdfTeX (AM)
+(/usr/share/texmf-dist/tex/latex/pdfpages/ppluatex.def
+File: ppluatex.def 2022/01/29 v0.5u Pdfpages driver for LuaTeX (AM)
 )
-\pdfpages@includegraphics@status=\count474
+\pdfpages@includegraphics@status=\count482
 \AM@pagebox=\box106
-\AM@global@opts=\toks53
-\AM@pagecnt=\count475
-\AM@toc@title=\toks54
-\c@AM@survey=\count476
+\AM@global@opts=\toks54
+\AM@pagecnt=\count483
+\AM@toc@title=\toks55
+\c@AM@survey=\count484
 \AM@templatesizebox=\box107
 )
 (/usr/share/texmf-dist/tex/latex/subfig/subfig.sty
 Package: subfig 2005/06/28 ver: 1.3 subfig package
-\c@KVtest=\count477
+\c@KVtest=\count485
 \sf@farskip=\skip188
-\sf@captopadj=\dimen302
+\sf@captopadj=\dimen304
 \sf@capskip=\skip189
 \sf@nearskip=\skip190
-\c@subfigure=\count478
-\c@subfigure@save=\count479
-\c@lofdepth=\count480
-\c@subtable=\count481
-\c@subtable@save=\count482
-\c@lotdepth=\count483
+\c@subfigure=\count486
+\c@subfigure@save=\count487
+\c@lofdepth=\count488
+\c@subtable=\count489
+\c@subtable@save=\count490
+\c@lotdepth=\count491
 \sf@top=\skip191
 \sf@bottom=\skip192
 )
@@ -1558,52 +1764,54 @@ Package: geometry 2020/01/02 v5.9 Page Geometry
 (/usr/share/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count484
-\Gm@cntv=\count485
-\c@Gm@tempcnt=\count486
-\Gm@bindingoffset=\dimen303
-\Gm@wd@mp=\dimen304
-\Gm@odd@mp=\dimen305
-\Gm@even@mp=\dimen306
-\Gm@layoutwidth=\dimen307
-\Gm@layoutheight=\dimen308
-\Gm@layouthoffset=\dimen309
-\Gm@layoutvoffset=\dimen310
-\Gm@dimlist=\toks55
+\Gm@cnth=\count492
+\Gm@cntv=\count493
+\c@Gm@tempcnt=\count494
+\Gm@bindingoffset=\dimen305
+\Gm@wd@mp=\dimen306
+\Gm@odd@mp=\dimen307
+\Gm@even@mp=\dimen308
+\Gm@layoutwidth=\dimen309
+\Gm@layoutheight=\dimen310
+\Gm@layouthoffset=\dimen311
+\Gm@layoutvoffset=\dimen312
+\Gm@dimlist=\toks56
 )
 (/usr/share/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2021/07/05 v2.14 Sectioning titles
 \ttl@box=\box108
 \beforetitleunit=\skip193
 \aftertitleunit=\skip194
-\ttl@plus=\dimen311
-\ttl@minus=\dimen312
-\ttl@toksa=\toks56
-\titlewidth=\dimen313
-\titlewidthlast=\dimen314
-\titlewidthfirst=\dimen315
+\ttl@plus=\dimen313
+\ttl@minus=\dimen314
+\ttl@toksa=\toks57
+\titlewidth=\dimen315
+\titlewidthlast=\dimen316
+\titlewidthfirst=\dimen317
 )
 (/usr/share/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2019/06/20 v3.9 Customized lists
 \labelindent=\skip195
-\enit@outerparindent=\dimen316
-\enit@toks=\toks57
+\enit@outerparindent=\dimen318
+\enit@toks=\toks58
 \enit@inbox=\box109
-\enit@count@id=\count487
-\enitdp@description=\count488
+\enit@count@id=\count495
+\enitdp@description=\count496
 ))
 ! Emergency stop.
 <*> latex-template.tex
-                      
+                   
 *** (job aborted, no legal \end found)
 
- 
-Here is how much of TeX's memory you used:
- 38218 strings out of 478238
- 738205 string characters out of 5850456
- 1191253 words of memory out of 5000000
- 55932 multiletter control sequences out of 15000+600000
- 476353 words of font info for 31 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 84i,0n,89p,1854b,261s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+
+Here is how much of LuaTeX's memory you used:
+ 41397 strings out of 477762
+ 125134,1648299 words of node,token memory allocated 626 words of node memory still in use:
+   3 hlist, 1 rule, 1 dir, 3 kern, 1 glyph, 5 attribute, 94 glue_spec, 5 attribu
+te_list, 1 write, 1 pdf_colorstack nodes
+   avail lists: 1:2,2:21,3:4,4:3,5:5,7:5,8:2,9:2
+ 60800 multiletter control sequences out of 65536+600000
+ 36 fonts using 1903271 bytes
+ 84i,0n,97p,1853b,262s stack positions out of 5000i,500n,10000p,200000b,80000s
 !  ==> Fatal error occurred, no output PDF file produced!
