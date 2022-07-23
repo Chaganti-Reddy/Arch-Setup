@@ -3,6 +3,7 @@
 ### ADDING TO THE PATH
 # First line removes the path; second line sets it.  Without the first line,
 # your path gets massive and fish becomes very slow.
+#load_nvm > /dev/stderr
 set -e fish_user_paths
 set -U fish_user_paths /usr/bin $fish_user_paths
 set -U fish_user_paths $HOME/.emacs.d/bin $HOME/Applications $fish_user_paths
