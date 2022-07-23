@@ -59,5 +59,6 @@ sudo modprobe vboxdrv
 #source /usr/share/nvm/bash_completion
 #source /usr/share/nvm/install-nvm-exec
 sudo pacman -R i3-wm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 fisher install edc/bass
 printf "\e[1;32mCHANGE NECESSARY FILES BEFORE REBOOT\e[0m"
