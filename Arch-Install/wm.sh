@@ -52,7 +52,7 @@ pip install pandas seaborn keras numpy jovian wordcloud jedi nltk tensorflow imu
 # install.packages("httpgd")
 # install.packages("jsonlite")
 paru -S js-beautify
-pip install "jupyterlab-kite>=2.0.2"
+pip install "jupyterlab-kite>=2.0.2" pyarrow
 sudo modprobe vboxdrv
 
 #source /usr/share/nvm/nvm.sh
