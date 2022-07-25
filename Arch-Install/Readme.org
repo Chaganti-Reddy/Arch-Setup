@@ -93,7 +93,7 @@ hwclock --systohc
 
 #+begin_src shell
 # Edit locale.gen file
-nano /etc/locale.gen
+nvim /etc/locale.gen
 
 # Now uncomment the line which is your locale
 # Myne is en_US.UTF-8 UTF-8 so i will uncomment that
