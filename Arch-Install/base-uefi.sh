@@ -35,7 +35,7 @@ systemctl enable acpid
 
 useradd -m reddy
 echo reddy:password | chpasswd
-usermod -aG reddy libvirt
+usermod -aG libvirt reddy
 
 echo "reddy ALL=(ALL) ALL" >> /etc/sudoers.d/reddy
 
