@@ -55,6 +55,7 @@ paru -S js-beautify
 pip install "jupyterlab-kite>=2.0.2" pyarrow
 sudo modprobe vboxdrv
 
+fisher install edc/bass
 #source /usr/share/nvm/nvm.sh
 #source /usr/share/nvm/bash_completion
 #source /usr/share/nvm/install-nvm-exec
@@ -62,5 +63,4 @@ sudo pacman -R i3-wm
 cd ~/ || exit
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-fisher install edc/bass
 printf "\e[1;32mCHANGE NECESSARY FILES BEFORE REBOOT\e[0m"

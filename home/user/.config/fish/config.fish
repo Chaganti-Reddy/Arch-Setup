@@ -438,4 +438,4 @@ function gccr --argument repo
 end
 
 bind \cl 'clear; commandline -f repaint'
-bind \cw 'backward-kill-path-component'
+bind \cH 'backward-kill-path-component'
