@@ -608,30 +608,32 @@ Meant for `doom-change-font-size-hook'."
 (map! :leader
       :desc "Clone indirect buffer other window" "b c" #'clone-indirect-buffer-other-window)
 
+;; Change the direction of window split when there are only two windows.
+
 (defun toggle-window-split ()
   (interactive)
   (if (= (count-windows) 2)
       (let* ((this-win-buffer (window-buffer))
-         (next-win-buffer (window-buffer (next-window)))
-         (this-win-edges (window-edges (selected-window)))
-         (next-win-edges (window-edges (next-window)))
-         (this-win-2nd (not (and (<= (car this-win-edges)
-                     (car next-win-edges))
-                     (<= (cadr this-win-edges)
-                     (cadr next-win-edges)))))
-         (splitter
-          (if (= (car this-win-edges)
-             (car (window-edges (next-window))))
-          'split-window-horizontally
-        'split-window-vertically)))
-    (delete-other-windows)
-    (let ((first-win (selected-window)))
-      (funcall splitter)
-      (if this-win-2nd (other-window 1))
-      (set-window-buffer (selected-window) this-win-buffer)
-      (set-window-buffer (next-window) next-win-buffer)
-      (select-window first-win)
-      (if this-win-2nd (other-window 1))))))
+             (next-win-buffer (window-buffer (next-window)))
+             (this-win-edges (window-edges (selected-window)))
+             (next-win-edges (window-edges (next-window)))
+             (this-win-2nd (not (and (<= (car this-win-edges)
+                                         (car next-win-edges))
+                                     (<= (cadr this-win-edges)
+                                         (cadr next-win-edges)))))
+             (splitter
+              (if (= (car this-win-edges)
+                     (car (window-edges (next-window))))
+                  'split-window-horizontally
+                'split-window-vertically)))
+        (delete-other-windows)
+        (let ((first-win (selected-window)))
+          (funcall splitter)
+          (if this-win-2nd (other-window 1))
+          (set-window-buffer (selected-window) this-win-buffer)
+          (set-window-buffer (next-window) next-win-buffer)
+          (select-window first-win)
+          (if this-win-2nd (other-window 1))))))
 
 (global-set-key (kbd "C-x |") 'toggle-window-split)
 
@@ -2096,17 +2098,16 @@ is selected, only the bare key is returned."
   :config
   (pyvenv-mode 1))
 
-(add-hook 'ess-julia-mode-hook #'lsp-mode)
+(add-hook 'ess-julia-mode-hook #'jedi:ac-setup)
+;; (add-hook 'ess-julia-mode-hook #'company-tabnine)
 
 (use-package julia-mode
   ;; :hook (julia-mode . lsp-deferred)
-  :custom
-  (company-mode t)
   :config
   (require 'julia-formatter)
   (require 'lsp-julia)
   (require 'julia-repl)
-  ;; (setq lsp-julia-default-environment "~/.julia/environments/v1.7")
+  (setq lsp-julia-default-environment "~/.julia/environments/v1.7")
   (require 'julia-vterm)
   )
 
@@ -2119,7 +2120,6 @@ is selected, only the bare key is returned."
 (require 'eglot)
 (add-to-list 'eglot-server-programs '((cpp-mode) "clangd"))
 (add-hook 'cpp-mode-hook 'eglot-ensure 'lsp 'company-tabnine)
-;; (add-hook 'ess-julia-mode 'company-tabnine)
 
 ;; For python
 (add-hook 'python-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
@@ -2136,7 +2136,6 @@ is selected, only the bare key is returned."
 (set-company-backend! 'ess-r-mode '(company-R-args company-R-objects company-dabbrev-code :separate))
 
 (add-hook 'c++-mode-hook #'lsp)
-;; (add-hook 'julia-mode-hook #'lsp)
 (add-hook 'python-mode-hook #'lsp)
 (add-hook 'python-mode-hook #'jedi:ac-setup)
 (add-hook 'c-mode-hook #'lsp)
@@ -3094,56 +3093,56 @@ is selected, only the bare key is returned."
 ;;   (package-install 'visual-fill-column))
 
 ;; Configure fill width
-(setq visual-fill-column-width 110
-      visual-fill-column-center-text t)
+;; (setq visual-fill-column-width 110
+;;       visual-fill-column-center-text t)
 
-(defun my/org-present-start ()
-  ;; Tweak font sizes
-  (setq-local face-remapping-alist '((default (:height 1.5) variable-pitch)
-                                     (header-line (:height 4.0) variable-pitch)
-                                     (org-document-title (:height 1.75) org-document-title)
-                                     (org-code (:height 1.55) org-code)
-                                     (org-verbatim (:height 1.55) org-verbatim)
-                                     (org-block (:height 1.25) org-block)
-                                     (org-block-begin-line (:height 0.7) org-block)))
+;; (defun my/org-present-start ()
+;;   ;; Tweak font sizes
+;;   (setq-local face-remapping-alist '((default (:height 1.5) variable-pitch)
+;;                                      (header-line (:height 4.0) variable-pitch)
+;;                                      (org-document-title (:height 1.75) org-document-title)
+;;                                      (org-code (:height 1.55) org-code)
+;;                                      (org-verbatim (:height 1.55) org-verbatim)
+;;                                      (org-block (:height 1.25) org-block)
+;;                                      (org-block-begin-line (:height 0.7) org-block)))
 
-  ;; Set a blank header line string to create blank space at the top
-  (setq header-line-format " ")
+;;   ;; Set a blank header line string to create blank space at the top
+;;   (setq header-line-format " ")
 
-  ;; Center the presentation and wrap lines
-  (visual-fill-column-mode 1)
-  (visual-line-mode 1))
+;;   ;; Center the presentation and wrap lines
+;;   (visual-fill-column-mode 1)
+;;   (visual-line-mode 1))
 
-(defun my/org-present-end ()
-  ;; Reset font customizations
-  (setq-local face-remapping-alist '((default variable-pitch default)))
+;; (defun my/org-present-end ()
+;;   ;; Reset font customizations
+;;   (setq-local face-remapping-alist '((default variable-pitch default)))
 
-  ;; Clear the header line format by setting to `nil'
-  (setq header-line-format nil)
+;;   ;; Clear the header line format by setting to `nil'
+;;   (setq header-line-format nil)
 
-  ;; Stop centering the document
-  (visual-fill-column-mode 0)
-  (visual-line-mode 0))
+;;   ;; Stop centering the document
+;;   (visual-fill-column-mode 0)
+;;   (visual-line-mode 0))
 
-;; ;; Turn on variable pitch fonts in Org Mode buffers
-;; (add-hook 'org-mode-hook 'variable-pitch-mode)
-(add-hook 'org-mode-hook 'pixel-scroll-mode)
+;; ;; ;; Turn on variable pitch fonts in Org Mode buffers
+;; ;; (add-hook 'org-mode-hook 'variable-pitch-mode)
+;; (add-hook 'org-mode-hook 'pixel-scroll-mode)
 
-;; Register hooks with org-present
-(add-hook 'org-present-mode-hook 'my/org-present-start)
-(add-hook 'org-present-mode-quit-hook 'my/org-present-end)
+;; ;; Register hooks with org-present
+;; (add-hook 'org-present-mode-hook 'my/org-present-start)
+;; (add-hook 'org-present-mode-quit-hook 'my/org-present-end)
 
-(defun my/org-present-prepare-slide (buffer-name heading)
-  ;; Show only top-level headlines
-  (org-overview)
+;; (defun my/org-present-prepare-slide (buffer-name heading)
+;;   ;; Show only top-level headlines
+;;   (org-overview)
 
-  ;; Unfold the current entry
-  (org-show-entry)
+;;   ;; Unfold the current entry
+;;   (org-show-entry)
 
-  ;; Show only direct subheadings of the slide but don't expand them
-  (org-show-children))
+;;   ;; Show only direct subheadings of the slide but don't expand them
+;;   (org-show-children))
 
-(add-hook 'org-present-after-navigate-functions 'my/org-present-prepare-slide)
+;; (add-hook 'org-present-after-navigate-functions 'my/org-present-prepare-slide)
 
 ;; ----------------------------------------------------------------------------------------------------------------------
 
@@ -3292,326 +3291,326 @@ allowfullscreen>%s</iframe>" path (or "" desc)))
 
 ;; XKCD Comics
 
-(use-package! xkcd
-  :commands (xkcd-get-json
-             xkcd-download xkcd-get
-             ;; now for funcs from my extension of this pkg
-             +xkcd-find-and-copy +xkcd-find-and-view
-             +xkcd-fetch-info +xkcd-select)
-  :config
-  (setq xkcd-cache-dir (expand-file-name "xkcd/" doom-cache-dir)
-        xkcd-cache-latest (concat xkcd-cache-dir "latest"))
-  (unless (file-exists-p xkcd-cache-dir)
-    (make-directory xkcd-cache-dir))
-  (after! evil-snipe
-    (add-to-list 'evil-snipe-disabled-modes 'xkcd-mode))
-  :general (:states 'normal
-            :keymaps 'xkcd-mode-map
-            "<right>" #'xkcd-next
-            "n"       #'xkcd-next       ; evil-ish
-            "<left>"  #'xkcd-prev
-            "N"       #'xkcd-prev       ; evil-ish
-            "r"       #'xkcd-rand
-            "a"       #'xkcd-rand       ; because image-rotate can interfere
-            "t"       #'xkcd-alt-text
-            "q"       #'xkcd-kill-buffer
-            "o"       #'xkcd-open-browser
-            "e"       #'xkcd-open-explanation-browser
-            ;; extras
-            "s"       #'+xkcd-find-and-view
-            "/"       #'+xkcd-find-and-view
-            "y"       #'+xkcd-copy))
+;; (use-package! xkcd
+;;   :commands (xkcd-get-json
+;;              xkcd-download xkcd-get
+;;              ;; now for funcs from my extension of this pkg
+;;              +xkcd-find-and-copy +xkcd-find-and-view
+;;              +xkcd-fetch-info +xkcd-select)
+;;   :config
+;;   (setq xkcd-cache-dir (expand-file-name "xkcd/" doom-cache-dir)
+;;         xkcd-cache-latest (concat xkcd-cache-dir "latest"))
+;;   (unless (file-exists-p xkcd-cache-dir)
+;;     (make-directory xkcd-cache-dir))
+;;   (after! evil-snipe
+;;     (add-to-list 'evil-snipe-disabled-modes 'xkcd-mode))
+;;   :general (:states 'normal
+;;             :keymaps 'xkcd-mode-map
+;;             "<right>" #'xkcd-next
+;;             "n"       #'xkcd-next       ; evil-ish
+;;             "<left>"  #'xkcd-prev
+;;             "N"       #'xkcd-prev       ; evil-ish
+;;             "r"       #'xkcd-rand
+;;             "a"       #'xkcd-rand       ; because image-rotate can interfere
+;;             "t"       #'xkcd-alt-text
+;;             "q"       #'xkcd-kill-buffer
+;;             "o"       #'xkcd-open-browser
+;;             "e"       #'xkcd-open-explanation-browser
+;;             ;; extras
+;;             "s"       #'+xkcd-find-and-view
+;;             "/"       #'+xkcd-find-and-view
+;;             "y"       #'+xkcd-copy))
 
-;; Let’s also extend the functionality a whole bunch.
+;; ;; Let’s also extend the functionality a whole bunch.
 
-(after! xkcd
-  (require 'emacsql-sqlite)
+;; (after! xkcd
+;;   (require 'emacsql-sqlite)
 
-  (defun +xkcd-select ()
-    "Prompt the user for an xkcd using `completing-read' and `+xkcd-select-format'. Return the xkcd number or nil"
-    (let* (prompt-lines
-           (-dummy (maphash (lambda (key xkcd-info)
-                              (push (+xkcd-select-format xkcd-info) prompt-lines))
-                            +xkcd-stored-info))
-           (num (completing-read (format "xkcd (%s): " xkcd-latest) prompt-lines)))
-      (if (equal "" num) xkcd-latest
-        (string-to-number (replace-regexp-in-string "\\([0-9]+\\).*" "\\1" num)))))
+;;   (defun +xkcd-select ()
+;;     "Prompt the user for an xkcd using `completing-read' and `+xkcd-select-format'. Return the xkcd number or nil"
+;;     (let* (prompt-lines
+;;            (-dummy (maphash (lambda (key xkcd-info)
+;;                               (push (+xkcd-select-format xkcd-info) prompt-lines))
+;;                             +xkcd-stored-info))
+;;            (num (completing-read (format "xkcd (%s): " xkcd-latest) prompt-lines)))
+;;       (if (equal "" num) xkcd-latest
+;;         (string-to-number (replace-regexp-in-string "\\([0-9]+\\).*" "\\1" num)))))
 
-  (defun +xkcd-select-format (xkcd-info)
-    "Creates each completing-read line from an xkcd info plist. Must start with the xkcd number"
-    (format "%-4s  %-30s %s"
-            (propertize (number-to-string (plist-get xkcd-info :num))
-                        'face 'counsel-key-binding)
-            (plist-get xkcd-info :title)
-            (propertize (plist-get xkcd-info :alt)
-                        'face '(variable-pitch font-lock-comment-face))))
+;;   (defun +xkcd-select-format (xkcd-info)
+;;     "Creates each completing-read line from an xkcd info plist. Must start with the xkcd number"
+;;     (format "%-4s  %-30s %s"
+;;             (propertize (number-to-string (plist-get xkcd-info :num))
+;;                         'face 'counsel-key-binding)
+;;             (plist-get xkcd-info :title)
+;;             (propertize (plist-get xkcd-info :alt)
+;;                         'face '(variable-pitch font-lock-comment-face))))
 
-  (defun +xkcd-fetch-info (&optional num)
-    "Fetch the parsed json info for comic NUM. Fetches latest when omitted or 0"
-    (require 'xkcd)
-    (when (or (not num) (= num 0))
-      (+xkcd-check-latest)
-      (setq num xkcd-latest))
-    (let ((res (or (gethash num +xkcd-stored-info)
-                   (puthash num (+xkcd-db-read num) +xkcd-stored-info))))
-      (unless res
-        (+xkcd-db-write
-         (let* ((url (format "https://xkcd.com/%d/info.0.json" num))
-                (json-assoc
-                 (if (gethash num +xkcd-stored-info)
-                     (gethash num +xkcd-stored-info)
-                   (json-read-from-string (xkcd-get-json url num)))))
-           json-assoc))
-        (setq res (+xkcd-db-read num)))
-      res))
+;;   (defun +xkcd-fetch-info (&optional num)
+;;     "Fetch the parsed json info for comic NUM. Fetches latest when omitted or 0"
+;;     (require 'xkcd)
+;;     (when (or (not num) (= num 0))
+;;       (+xkcd-check-latest)
+;;       (setq num xkcd-latest))
+;;     (let ((res (or (gethash num +xkcd-stored-info)
+;;                    (puthash num (+xkcd-db-read num) +xkcd-stored-info))))
+;;       (unless res
+;;         (+xkcd-db-write
+;;          (let* ((url (format "https://xkcd.com/%d/info.0.json" num))
+;;                 (json-assoc
+;;                  (if (gethash num +xkcd-stored-info)
+;;                      (gethash num +xkcd-stored-info)
+;;                    (json-read-from-string (xkcd-get-json url num)))))
+;;            json-assoc))
+;;         (setq res (+xkcd-db-read num)))
+;;       res))
 
-  ;; since we've done this, we may as well go one little step further
-  (defun +xkcd-find-and-copy ()
-    "Prompt for an xkcd using `+xkcd-select' and copy url to clipboard"
-    (interactive)
-    (+xkcd-copy (+xkcd-select)))
+;;   ;; since we've done this, we may as well go one little step further
+;;   (defun +xkcd-find-and-copy ()
+;;     "Prompt for an xkcd using `+xkcd-select' and copy url to clipboard"
+;;     (interactive)
+;;     (+xkcd-copy (+xkcd-select)))
 
-  (defun +xkcd-copy (&optional num)
-    "Copy a url to xkcd NUM to the clipboard"
-    (interactive "i")
-    (let ((num (or num xkcd-cur)))
-      (gui-select-text (format "https://xkcd.com/%d" num))
-      (message "xkcd.com/%d copied to clipboard" num)))
+;;   (defun +xkcd-copy (&optional num)
+;;     "Copy a url to xkcd NUM to the clipboard"
+;;     (interactive "i")
+;;     (let ((num (or num xkcd-cur)))
+;;       (gui-select-text (format "https://xkcd.com/%d" num))
+;;       (message "xkcd.com/%d copied to clipboard" num)))
 
-  (defun +xkcd-find-and-view ()
-    "Prompt for an xkcd using `+xkcd-select' and view it"
-    (interactive)
-    (xkcd-get (+xkcd-select))
-    (switch-to-buffer "*xkcd*"))
+;;   (defun +xkcd-find-and-view ()
+;;     "Prompt for an xkcd using `+xkcd-select' and view it"
+;;     (interactive)
+;;     (xkcd-get (+xkcd-select))
+;;     (switch-to-buffer "*xkcd*"))
 
-  (defvar +xkcd-latest-max-age (* 60 60) ; 1 hour
-    "Time after which xkcd-latest should be refreshed, in seconds")
+;;   (defvar +xkcd-latest-max-age (* 60 60) ; 1 hour
+;;     "Time after which xkcd-latest should be refreshed, in seconds")
 
-  ;; initialise `xkcd-latest' and `+xkcd-stored-info' with latest xkcd
-  (add-transient-hook! '+xkcd-select
-    (require 'xkcd)
-    (+xkcd-fetch-info xkcd-latest)
-    (setq +xkcd-stored-info (+xkcd-db-read-all)))
+;;   ;; initialise `xkcd-latest' and `+xkcd-stored-info' with latest xkcd
+;;   (add-transient-hook! '+xkcd-select
+;;     (require 'xkcd)
+;;     (+xkcd-fetch-info xkcd-latest)
+;;     (setq +xkcd-stored-info (+xkcd-db-read-all)))
 
-  (add-transient-hook! '+xkcd-fetch-info
-    (xkcd-update-latest))
+;;   (add-transient-hook! '+xkcd-fetch-info
+;;     (xkcd-update-latest))
 
-  (defun +xkcd-check-latest ()
-    "Use value in `xkcd-cache-latest' as long as it isn't older thabn `+xkcd-latest-max-age'"
-    (unless (and (file-exists-p xkcd-cache-latest)
-                 (< (- (time-to-seconds (current-time))
-                       (time-to-seconds (file-attribute-modification-time (file-attributes xkcd-cache-latest))))
-                    +xkcd-latest-max-age))
-      (let* ((out (xkcd-get-json "http://xkcd.com/info.0.json" 0))
-             (json-assoc (json-read-from-string out))
-             (latest (cdr (assoc 'num json-assoc))))
-        (when (/= xkcd-latest latest)
-          (+xkcd-db-write json-assoc)
-          (with-current-buffer (find-file xkcd-cache-latest)
-            (setq xkcd-latest latest)
-            (erase-buffer)
-            (insert (number-to-string latest))
-            (save-buffer)
-            (kill-buffer (current-buffer)))))
-      (shell-command (format "touch %s" xkcd-cache-latest))))
+;;   (defun +xkcd-check-latest ()
+;;     "Use value in `xkcd-cache-latest' as long as it isn't older thabn `+xkcd-latest-max-age'"
+;;     (unless (and (file-exists-p xkcd-cache-latest)
+;;                  (< (- (time-to-seconds (current-time))
+;;                        (time-to-seconds (file-attribute-modification-time (file-attributes xkcd-cache-latest))))
+;;                     +xkcd-latest-max-age))
+;;       (let* ((out (xkcd-get-json "http://xkcd.com/info.0.json" 0))
+;;              (json-assoc (json-read-from-string out))
+;;              (latest (cdr (assoc 'num json-assoc))))
+;;         (when (/= xkcd-latest latest)
+;;           (+xkcd-db-write json-assoc)
+;;           (with-current-buffer (find-file xkcd-cache-latest)
+;;             (setq xkcd-latest latest)
+;;             (erase-buffer)
+;;             (insert (number-to-string latest))
+;;             (save-buffer)
+;;             (kill-buffer (current-buffer)))))
+;;       (shell-command (format "touch %s" xkcd-cache-latest))))
 
-  (defvar +xkcd-stored-info (make-hash-table :test 'eql)
-    "Basic info on downloaded xkcds, in the form of a hashtable")
+;;   (defvar +xkcd-stored-info (make-hash-table :test 'eql)
+;;     "Basic info on downloaded xkcds, in the form of a hashtable")
 
-  (defadvice! xkcd-get-json--and-cache (url &optional num)
-    "Fetch the Json coming from URL.
-If the file NUM.json exists, use it instead.
-If NUM is 0, always download from URL.
-The return value is a string."
-    :override #'xkcd-get-json
-    (let* ((file (format "%s%d.json" xkcd-cache-dir num))
-           (cached (and (file-exists-p file) (not (eq num 0))))
-           (out (with-current-buffer (if cached
-                                         (find-file file)
-                                       (url-retrieve-synchronously url))
-                  (goto-char (point-min))
-                  (unless cached (re-search-forward "^$"))
-                  (prog1
-                      (buffer-substring-no-properties (point) (point-max))
-                    (kill-buffer (current-buffer))))))
-      (unless (or cached (eq num 0))
-        (xkcd-cache-json num out))
-      out))
+;;   (defadvice! xkcd-get-json--and-cache (url &optional num)
+;;     "Fetch the Json coming from URL.
+;; If the file NUM.json exists, use it instead.
+;; If NUM is 0, always download from URL.
+;; The return value is a string."
+;;     :override #'xkcd-get-json
+;;     (let* ((file (format "%s%d.json" xkcd-cache-dir num))
+;;            (cached (and (file-exists-p file) (not (eq num 0))))
+;;            (out (with-current-buffer (if cached
+;;                                          (find-file file)
+;;                                        (url-retrieve-synchronously url))
+;;                   (goto-char (point-min))
+;;                   (unless cached (re-search-forward "^$"))
+;;                   (prog1
+;;                       (buffer-substring-no-properties (point) (point-max))
+;;                     (kill-buffer (current-buffer))))))
+;;       (unless (or cached (eq num 0))
+;;         (xkcd-cache-json num out))
+;;       out))
 
-  (defadvice! +xkcd-get (num)
-    "Get the xkcd number NUM."
-    :override 'xkcd-get
-    (interactive "nEnter comic number: ")
-    (xkcd-update-latest)
-    (get-buffer-create "*xkcd*")
-    (switch-to-buffer "*xkcd*")
-    (xkcd-mode)
-    (let (buffer-read-only)
-      (erase-buffer)
-      (setq xkcd-cur num)
-      (let* ((xkcd-data (+xkcd-fetch-info num))
-             (num (plist-get xkcd-data :num))
-             (img (plist-get xkcd-data :img))
-             (safe-title (plist-get xkcd-data :safe-title))
-             (alt (plist-get xkcd-data :alt))
-             title file)
-        (message "Getting comic...")
-        (setq file (xkcd-download img num))
-        (setq title (format "%d: %s" num safe-title))
-        (insert (propertize title
-                            'face 'outline-1))
-        (center-line)
-        (insert "\n")
-        (xkcd-insert-image file num)
-        (if (eq xkcd-cur 0)
-            (setq xkcd-cur num))
-        (setq xkcd-alt alt)
-        (message "%s" title))))
+;;   (defadvice! +xkcd-get (num)
+;;     "Get the xkcd number NUM."
+;;     :override 'xkcd-get
+;;     (interactive "nEnter comic number: ")
+;;     (xkcd-update-latest)
+;;     (get-buffer-create "*xkcd*")
+;;     (switch-to-buffer "*xkcd*")
+;;     (xkcd-mode)
+;;     (let (buffer-read-only)
+;;       (erase-buffer)
+;;       (setq xkcd-cur num)
+;;       (let* ((xkcd-data (+xkcd-fetch-info num))
+;;              (num (plist-get xkcd-data :num))
+;;              (img (plist-get xkcd-data :img))
+;;              (safe-title (plist-get xkcd-data :safe-title))
+;;              (alt (plist-get xkcd-data :alt))
+;;              title file)
+;;         (message "Getting comic...")
+;;         (setq file (xkcd-download img num))
+;;         (setq title (format "%d: %s" num safe-title))
+;;         (insert (propertize title
+;;                             'face 'outline-1))
+;;         (center-line)
+;;         (insert "\n")
+;;         (xkcd-insert-image file num)
+;;         (if (eq xkcd-cur 0)
+;;             (setq xkcd-cur num))
+;;         (setq xkcd-alt alt)
+;;         (message "%s" title))))
 
-  (defconst +xkcd-db--sqlite-available-p
-    (with-demoted-errors "+org-xkcd initialization: %S"
-      (emacsql-sqlite-ensure-binary)
-      t))
+;;   (defconst +xkcd-db--sqlite-available-p
+;;     (with-demoted-errors "+org-xkcd initialization: %S"
+;;       (emacsql-sqlite-ensure-binary)
+;;       t))
 
-  (defvar +xkcd-db--connection (make-hash-table :test #'equal)
-    "Database connection to +org-xkcd database.")
+;;   (defvar +xkcd-db--connection (make-hash-table :test #'equal)
+;;     "Database connection to +org-xkcd database.")
 
-  (defun +xkcd-db--get ()
-    "Return the sqlite db file."
-    (expand-file-name "xkcd.db" xkcd-cache-dir))
+;;   (defun +xkcd-db--get ()
+;;     "Return the sqlite db file."
+;;     (expand-file-name "xkcd.db" xkcd-cache-dir))
 
-  (defun +xkcd-db--get-connection ()
-    "Return the database connection, if any."
-    (gethash (file-truename xkcd-cache-dir)
-             +xkcd-db--connection))
+;;   (defun +xkcd-db--get-connection ()
+;;     "Return the database connection, if any."
+;;     (gethash (file-truename xkcd-cache-dir)
+;;              +xkcd-db--connection))
 
-  (defconst +xkcd-db--table-schema
-    '((xkcds
-       [(num integer :unique :primary-key)
-        (year        :not-null)
-        (month       :not-null)
-        (link        :not-null)
-        (news        :not-null)
-        (safe_title  :not-null)
-        (title       :not-null)
-        (transcript  :not-null)
-        (alt         :not-null)
-        (img         :not-null)])))
+;;   (defconst +xkcd-db--table-schema
+;;     '((xkcds
+;;        [(num integer :unique :primary-key)
+;;         (year        :not-null)
+;;         (month       :not-null)
+;;         (link        :not-null)
+;;         (news        :not-null)
+;;         (safe_title  :not-null)
+;;         (title       :not-null)
+;;         (transcript  :not-null)
+;;         (alt         :not-null)
+;;         (img         :not-null)])))
 
-  (defun +xkcd-db--init (db)
-    "Initialize database DB with the correct schema and user version."
-    (emacsql-with-transaction db
-      (pcase-dolist (`(,table . ,schema) +xkcd-db--table-schema)
-        (emacsql db [:create-table $i1 $S2] table schema))))
+;;   (defun +xkcd-db--init (db)
+;;     "Initialize database DB with the correct schema and user version."
+;;     (emacsql-with-transaction db
+;;       (pcase-dolist (`(,table . ,schema) +xkcd-db--table-schema)
+;;         (emacsql db [:create-table $i1 $S2] table schema))))
 
-  (defun +xkcd-db ()
-    "Entrypoint to the +org-xkcd sqlite database.
-Initializes and stores the database, and the database connection.
-Performs a database upgrade when required."
-    (unless (and (+xkcd-db--get-connection)
-                 (emacsql-live-p (+xkcd-db--get-connection)))
-      (let* ((db-file (+xkcd-db--get))
-             (init-db (not (file-exists-p db-file))))
-        (make-directory (file-name-directory db-file) t)
-        (let ((conn (emacsql-sqlite db-file)))
-          (set-process-query-on-exit-flag (emacsql-process conn) nil)
-          (puthash (file-truename xkcd-cache-dir)
-                   conn
-                   +xkcd-db--connection)
-          (when init-db
-            (+xkcd-db--init conn)))))
-    (+xkcd-db--get-connection))
+;;   (defun +xkcd-db ()
+;;     "Entrypoint to the +org-xkcd sqlite database.
+;; Initializes and stores the database, and the database connection.
+;; Performs a database upgrade when required."
+;;     (unless (and (+xkcd-db--get-connection)
+;;                  (emacsql-live-p (+xkcd-db--get-connection)))
+;;       (let* ((db-file (+xkcd-db--get))
+;;              (init-db (not (file-exists-p db-file))))
+;;         (make-directory (file-name-directory db-file) t)
+;;         (let ((conn (emacsql-sqlite db-file)))
+;;           (set-process-query-on-exit-flag (emacsql-process conn) nil)
+;;           (puthash (file-truename xkcd-cache-dir)
+;;                    conn
+;;                    +xkcd-db--connection)
+;;           (when init-db
+;;             (+xkcd-db--init conn)))))
+;;     (+xkcd-db--get-connection))
 
-  (defun +xkcd-db-query (sql &rest args)
-    "Run SQL query on +org-xkcd database with ARGS.
-SQL can be either the emacsql vector representation, or a string."
-    (if  (stringp sql)
-        (emacsql (+xkcd-db) (apply #'format sql args))
-      (apply #'emacsql (+xkcd-db) sql args)))
+;;   (defun +xkcd-db-query (sql &rest args)
+;;     "Run SQL query on +org-xkcd database with ARGS.
+;; SQL can be either the emacsql vector representation, or a string."
+;;     (if  (stringp sql)
+;;         (emacsql (+xkcd-db) (apply #'format sql args))
+;;       (apply #'emacsql (+xkcd-db) sql args)))
 
-  (defun +xkcd-db-read (num)
-    (when-let ((res
-                (car (+xkcd-db-query [:select * :from xkcds
-                                      :where (= num $s1)]
-                                     num
-                                     :limit 1))))
-      (+xkcd-db-list-to-plist res)))
+;;   (defun +xkcd-db-read (num)
+;;     (when-let ((res
+;;                 (car (+xkcd-db-query [:select * :from xkcds
+;;                                       :where (= num $s1)]
+;;                                      num
+;;                                      :limit 1))))
+;;       (+xkcd-db-list-to-plist res)))
 
-  (defun +xkcd-db-read-all ()
-    (let ((xkcd-table (make-hash-table :test 'eql :size 4000)))
-      (mapcar (lambda (xkcd-info-list)
-                (puthash (car xkcd-info-list) (+xkcd-db-list-to-plist xkcd-info-list) xkcd-table))
-              (+xkcd-db-query [:select * :from xkcds]))
-      xkcd-table))
+;;   (defun +xkcd-db-read-all ()
+;;     (let ((xkcd-table (make-hash-table :test 'eql :size 4000)))
+;;       (mapcar (lambda (xkcd-info-list)
+;;                 (puthash (car xkcd-info-list) (+xkcd-db-list-to-plist xkcd-info-list) xkcd-table))
+;;               (+xkcd-db-query [:select * :from xkcds]))
+;;       xkcd-table))
 
-  (defun +xkcd-db-list-to-plist (xkcd-datalist)
-    `(:num ,(nth 0 xkcd-datalist)
-      :year ,(nth 1 xkcd-datalist)
-      :month ,(nth 2 xkcd-datalist)
-      :link ,(nth 3 xkcd-datalist)
-      :news ,(nth 4 xkcd-datalist)
-      :safe-title ,(nth 5 xkcd-datalist)
-      :title ,(nth 6 xkcd-datalist)
-      :transcript ,(nth 7 xkcd-datalist)
-      :alt ,(nth 8 xkcd-datalist)
-      :img ,(nth 9 xkcd-datalist)))
+;;   (defun +xkcd-db-list-to-plist (xkcd-datalist)
+;;     `(:num ,(nth 0 xkcd-datalist)
+;;       :year ,(nth 1 xkcd-datalist)
+;;       :month ,(nth 2 xkcd-datalist)
+;;       :link ,(nth 3 xkcd-datalist)
+;;       :news ,(nth 4 xkcd-datalist)
+;;       :safe-title ,(nth 5 xkcd-datalist)
+;;       :title ,(nth 6 xkcd-datalist)
+;;       :transcript ,(nth 7 xkcd-datalist)
+;;       :alt ,(nth 8 xkcd-datalist)
+;;       :img ,(nth 9 xkcd-datalist)))
 
-  (defun +xkcd-db-write (data)
-    (+xkcd-db-query [:insert-into xkcds
-                     :values $v1]
-                    (list (vector
-                           (cdr (assoc 'num        data))
-                           (cdr (assoc 'year       data))
-                           (cdr (assoc 'month      data))
-                           (cdr (assoc 'link       data))
-                           (cdr (assoc 'news       data))
-                           (cdr (assoc 'safe_title data))
-                           (cdr (assoc 'title      data))
-                           (cdr (assoc 'transcript data))
-                           (cdr (assoc 'alt        data))
-                           (cdr (assoc 'img        data))
-                           )))))
+;;   (defun +xkcd-db-write (data)
+;;     (+xkcd-db-query [:insert-into xkcds
+;;                      :values $v1]
+;;                     (list (vector
+;;                            (cdr (assoc 'num        data))
+;;                            (cdr (assoc 'year       data))
+;;                            (cdr (assoc 'month      data))
+;;                            (cdr (assoc 'link       data))
+;;                            (cdr (assoc 'news       data))
+;;                            (cdr (assoc 'safe_title data))
+;;                            (cdr (assoc 'title      data))
+;;                            (cdr (assoc 'transcript data))
+;;                            (cdr (assoc 'alt        data))
+;;                            (cdr (assoc 'img        data))
+;;                            )))))
 
-(org-link-set-parameters "xkcd"
-                         :image-data-fun #'+org-xkcd-image-fn
-                         :follow #'+org-xkcd-open-fn
-                         :export #'+org-xkcd-export
-                         :complete #'+org-xkcd-complete)
+;; (org-link-set-parameters "xkcd"
+;;                          :image-data-fun #'+org-xkcd-image-fn
+;;                          :follow #'+org-xkcd-open-fn
+;;                          :export #'+org-xkcd-export
+;;                          :complete #'+org-xkcd-complete)
 
-(defun +org-xkcd-open-fn (link)
-  (+org-xkcd-image-fn nil link nil))
+;; (defun +org-xkcd-open-fn (link)
+;;   (+org-xkcd-image-fn nil link nil))
 
-(defun +org-xkcd-image-fn (protocol link description)
-  "Get image data for xkcd num LINK"
-  (let* ((xkcd-info (+xkcd-fetch-info (string-to-number link)))
-         (img (plist-get xkcd-info :img))
-         (alt (plist-get xkcd-info :alt)))
-    (message alt)
-    (+org-image-file-data-fn protocol (xkcd-download img (string-to-number link)) description)))
+;; (defun +org-xkcd-image-fn (protocol link description)
+;;   "Get image data for xkcd num LINK"
+;;   (let* ((xkcd-info (+xkcd-fetch-info (string-to-number link)))
+;;          (img (plist-get xkcd-info :img))
+;;          (alt (plist-get xkcd-info :alt)))
+;;     (message alt)
+;;     (+org-image-file-data-fn protocol (xkcd-download img (string-to-number link)) description)))
 
-(defun +org-xkcd-export (num desc backend _com)
-  "Convert xkcd to html/LaTeX form"
-  (let* ((xkcd-info (+xkcd-fetch-info (string-to-number num)))
-         (img (plist-get xkcd-info :img))
-         (alt (plist-get xkcd-info :alt))
-         (title (plist-get xkcd-info :title))
-         (file (xkcd-download img (string-to-number num))))
-    (cond ((org-export-derived-backend-p backend 'html)
-           (format "<img class='invertible' src='%s' title=\"%s\" alt='%s'>" img (subst-char-in-string ?\" ?“ alt) title))
-          ((org-export-derived-backend-p backend 'latex)
-           (format "\\begin{figure}[!htb]
-  \\centering
-  \\includegraphics[scale=0.4]{%s}%s
-\\end{figure}" file (if (equal desc (format "xkcd:%s" num)) ""
-                      (format "\n  \\caption*{\\label{xkcd:%s} %s}"
-                              num
-                              (or desc
-                                  (format "\\textbf{%s} %s" title alt))))))
-          (t (format "https://xkcd.com/%s" num)))))
+;; (defun +org-xkcd-export (num desc backend _com)
+;;   "Convert xkcd to html/LaTeX form"
+;;   (let* ((xkcd-info (+xkcd-fetch-info (string-to-number num)))
+;;          (img (plist-get xkcd-info :img))
+;;          (alt (plist-get xkcd-info :alt))
+;;          (title (plist-get xkcd-info :title))
+;;          (file (xkcd-download img (string-to-number num))))
+;;     (cond ((org-export-derived-backend-p backend 'html)
+;;            (format "<img class='invertible' src='%s' title=\"%s\" alt='%s'>" img (subst-char-in-string ?\" ?“ alt) title))
+;;           ((org-export-derived-backend-p backend 'latex)
+;;            (format "\\begin{figure}[!htb]
+;;   \\centering
+;;   \\includegraphics[scale=0.4]{%s}%s
+;; \\end{figure}" file (if (equal desc (format "xkcd:%s" num)) ""
+;;                       (format "\n  \\caption*{\\label{xkcd:%s} %s}"
+;;                               num
+;;                               (or desc
+;;                                   (format "\\textbf{%s} %s" title alt))))))
+;;           (t (format "https://xkcd.com/%s" num)))))
 
-(defun +org-xkcd-complete (&optional arg)
-  "Complete xkcd using `+xkcd-stored-info'"
-  (format "xkcd:%d" (+xkcd-select)))
+;; (defun +org-xkcd-complete (&optional arg)
+;;   "Complete xkcd using `+xkcd-stored-info'"
+;;   (format "xkcd:%d" (+xkcd-select)))
 
 ;; ----------------------------------------------------------------------------------------------------------------------
 
@@ -3635,28 +3634,28 @@ SQL can be either the emacsql vector representation, or a string."
 ;; [remote "mysourcegraph.sourcegraph"]
 ;;  url = https://my.sourcegraph.host/my.git.host/myrespository
 
-(use-package git-link
-  ;; :ensure t
-  :config
-  (defun git-link-sourcegraph (hostname dirname filename _branch commit start end)
-    (let ((line-or-range (if end (format "%s-%s" start end) start)))
-      (format "https://%s/%s@%s/-/blob/%s#L%s"
-              hostname
-              dirname
-              commit
-              filename
-              line-or-range)))
+;; (use-package git-link
+;;   ;; :ensure t
+;;   :config
+;;   (defun git-link-sourcegraph (hostname dirname filename _branch commit start end)
+;;     (let ((line-or-range (if end (format "%s-%s" start end) start)))
+;;       (format "https://%s/%s@%s/-/blob/%s#L%s"
+;;               hostname
+;;               dirname
+;;               commit
+;;               filename
+;;               line-or-range)))
 
-  (defun git-link-commit-sourcegraph (hostname dirname commit)
-    (format "https://%s/%s@%s"
-            hostname
-            dirname
-            commit))
+;;   (defun git-link-commit-sourcegraph (hostname dirname commit)
+;;     (format "https://%s/%s@%s"
+;;             hostname
+;;             dirname
+;;             commit))
 
-  (add-to-list 'git-link-remote-alist '("sourcegraph" git-link-sourcegraph))
-  (add-to-list 'git-link-commit-remote-alist '("sourcegraph" git-link-commit-sourcegraph))
+;;   (add-to-list 'git-link-remote-alist '("sourcegraph" git-link-sourcegraph))
+;;   (add-to-list 'git-link-commit-remote-alist '("sourcegraph" git-link-commit-sourcegraph))
 
-  (setq git-link-open-in-browser 't))
+;;   (setq git-link-open-in-browser 't))
 
 ;; ----------------------------------------------------------------------------------------------------------------------
 
