@@ -146,3 +146,8 @@
 (package! org-present)
 ;; (package! lsp-latex)
 (package! typescript-mode)
+(package! julia-mode)
+(package! lsp-julia)
+(package! julia-vterm)
+(package! julia-formatter)
+(package! julia-repl)

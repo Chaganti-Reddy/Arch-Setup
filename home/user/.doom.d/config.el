@@ -257,7 +257,7 @@
 ;; SQL-INDENT
 (require 'sql-indent)
 (require 'windresize)
-
+(require 'julia-mode)
 (mode-icons-mode)
 
 (require 'ox-reveal)
@@ -2080,6 +2080,7 @@ is selected, only the bare key is returned."
 ;; ----------------------------------------------------------------------------------------------------------------------
 
 ;; Programming
+(add-hook 'after-init-hook 'global-company-mode)
 (use-package python-mode
   :hook (python-mode . lsp-deferred)
   :custom
@@ -2095,30 +2096,47 @@ is selected, only the bare key is returned."
   :config
   (pyvenv-mode 1))
 
+(add-hook 'ess-julia-mode-hook #'lsp-mode)
+
+(use-package julia-mode
+  ;; :hook (julia-mode . lsp-deferred)
+  :custom
+  (company-mode t)
+  :config
+  (require 'julia-formatter)
+  (require 'lsp-julia)
+  (require 'julia-repl)
+  ;; (setq lsp-julia-default-environment "~/.julia/environments/v1.7")
+  (require 'julia-vterm)
+  )
+
 ;; (use-package! python-black
-  ;; :after python
-  ;; :hook (python-mode . python-black-on-save-mode-enable-dwim))
+;; :after python
+;; :hook (python-mode . python-black-on-save-mode-enable-dwim))
 
 (add-hook 'prog-mode-hook 'format-all-mode)
 
 (require 'eglot)
 (add-to-list 'eglot-server-programs '((cpp-mode) "clangd"))
 (add-hook 'cpp-mode-hook 'eglot-ensure 'lsp 'company-tabnine)
+;; (add-hook 'ess-julia-mode 'company-tabnine)
 
 ;; For python
 (add-hook 'python-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
 ;; julia
-;; (add-hook 'julia-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+(add-hook 'julia-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
 ;; For Javascript
 (add-hook 'js2-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
 ;; ;; For ruby
 ;; (add-hook 'ruby-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
 
 (add-to-list 'auto-mode-alist '("\\.R\\'" . ess-r-mode))
+(add-to-list 'auto-mode-alist '("\\.jl\\'" . ess-julia-mode))
 
 (set-company-backend! 'ess-r-mode '(company-R-args company-R-objects company-dabbrev-code :separate))
 
 (add-hook 'c++-mode-hook #'lsp)
+;; (add-hook 'julia-mode-hook #'lsp)
 (add-hook 'python-mode-hook #'lsp)
 (add-hook 'python-mode-hook #'jedi:ac-setup)
 (add-hook 'c-mode-hook #'lsp)

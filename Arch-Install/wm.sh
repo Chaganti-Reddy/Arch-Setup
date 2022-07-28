@@ -40,7 +40,7 @@ sudo usermod -aG vboxusers reddy
 # If you want install doo emacs by uncommenting it
 # git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
 # ~/.emacs.d/bin/doom install
-
+sudo pacman -S julia
 # If you want to install python packages uncomment this
 pip install pandas seaborn keras numpy jovian wordcloud jedi nltk tensorflow imutils matplotlib scikit-learn sklearn jupyterlab notebook voila JLDracula opencv-python numba urllib3 pygame nose python-lsp-server[all] debugpy radian plotly statsmodels "jupyterlab>=3" "ipywidgets>=7.6" jupyter-dash kaleido yellowbrick tqdm cufflinks wakatime torch torchvision torchaudio black opendatasets folium ptvsd iwlib
 #pip3 install jupyter-tabnine --user
