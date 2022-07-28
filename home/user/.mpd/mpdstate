@@ -1,9 +1,9 @@
 sw_volume: 100
 audio_device_state:1:pulse audio
 audio_device_state:1:my_fifo
-state: play
-current: 3
-time: 87.779000
+state: pause
+current: 16
+time: 192.680000
 random: 0
 repeat: 0
 single: 0
@@ -13,35 +13,25 @@ mixrampdb: 0.000000
 mixrampdelay: -1.000000
 playlist_begin
 0:MUS/Ammaye Challo Antu.mp3
-1:MUS/[iSongs.info] 05 - Telusaa Telusaa.mp3
-2:MUS/Kola Kalle Ilaa.mp3
-3:MUS/Beast Mode.mp3
+1:MUS/Kola Kalle Ilaa - SenSongsMp3.Com.mp3
+2:MUS/[iSongs.info] 01 - Dhruva Dhruva.mp3
+3:MUS/[iSongs.info] 04 - Neethoney Dance.mp3
 4:MUS/Sulthana.mp3
 5:MUS/Toofan.mp3
 6:MUS/Mehabooba.mp3
-7:MUS/Athiloka Sundari.mp3
-8:MUS/Challaga oka merupula.mp3
-9:MUS/Naa Dooja Koi.mp3
-10:MUS/Ee Raathale.mp3
-11:MUS/Kung Fu Kumaari.mp3
-12:MUS/Halamithi Habibo.mp3
-13:MUS/Rave Na Cheliya.mp3
-14:MUS/Gundegilli.mp3
-15:MUS/Kalaavathi.mp3
-16:MUS/Love Me.mp3
-17:MUS/Gaali Vaaluga.mp3
-18:MUS/Leharaayi.mp3
-19:MUS/Ria.mp3
-20:MUS/Guche Gulabi.mp3
-21:MUS/Shape of You.mp3
-22:MUS/Run.mp3
-23:MUS/Chiru Chiru Chiru.mp3
-24:MUS/Chuttesai Chuttesai.mp3
-25:MUS/Nee Yadalo Naaku.mp3
-26:MUS/Seeti Maar.mp3
-27:MUS/Adhento Gaani Vunnapaatuga.mp3
-28:MUS/Katha Vintava.mp3
-29:MUS/The Karma Theme.mp3
-30:MUS/Ye_Chota_Nuvvunna.mp3
-31:MUS/Yadagara Yadagara.mp3
+7:MUS/[iSongs.info] 02 - Nuvve Samastham.mp3
+8:MUS/Yadagara Yadagara.mp3
+9:MUS/[iSongs.info] 08 - Nuvvani Idhi Needani.mp3
+10:MUS/Telusaa Telusaa.mp3
+11:MUS/[iSongs.info] 03 - Beast Mode.mp3
+12:MUS/[iSongs.info] 01 - Athiloka Sundari.mp3
+13:MUS/[iSongs.info] 03 - Kung Fu Kumaari.mp3
+14:MUS/Naa Dooja Koi - Rakul Preet Singh _ Pavail Gulati _ Arko feat. Jyotica Tangri _ Zee Music Originals(MP3_320K).mp3
+15:MUS/[iSongs.info] 04 - Seeti Maar.mp3
+16:MUS/Leharaayi.mp3
+17:MUS/[iSongs.info] 02 - Ria.mp3
+18:MUS/[iSongs.info] 01 - Run.mp3
+19:MUS/[iSongs.info] 01 - Ee Raathale.mp3
+20:MUS/[iSongs.info] 01 - Kalaavathi.mp3
+21:MUS/Ye_Chota_Nuvvunna_Saaho_Prabhas_Shraddha_K_Guru_Randhawa_Tulsi_Kumar.mp3
 playlist_end
