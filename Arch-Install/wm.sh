@@ -26,7 +26,7 @@ sudo mysql_secure_installation
 sudo corepack enable
 sudo updatedb
 
-paru -S pass-otp ksuperkey zathura zathura-djvu zathura-pdf-mupdf zathura-ps zathura-cb polybar-git qalculate-gtk ttf-icomoon-feather shell-color-scripts zoxide alacritty-ligatures-git ttf-mononoki visual-studio-code-bin imagemagick qbittorrent brave-bin fisher fnm-bin telegram-desktop-bin nerd-fonts-mononoki zig android-tools android-udev lazygit libxft-bgra noto-fonts-emoji pamixer prettier screenkey stow tree ttf-joypixels ttf-unifont wireless_tools xbanish stylua xsel picom-jonaburg-git udiskie github-desktop-bin otf-raleway otf-font-awesome otf-font-awesome timeshift-bin xmonad xmobar xmonad-contrib graphviz tidy stylelint auctex-latexmk gromit-mpx jq appimagelauncher-git mu mbsync-git sddm-sugar-candy-git ttf-overpass ttf-juliamono nvm didyoumean reddio texlive-tlpdb ttf-ms-fonts virtualbox-ext-oracle whitesur-icon-theme whitesur-gtk-theme-git whitesur-cursor-theme-git
+paru -S pass-otp ksuperkey zathura zathura-djvu zathura-pdf-mupdf zathura-ps zathura-cb polybar-git qalculate-gtk ttf-icomoon-feather shell-color-scripts zoxide alacritty-ligatures-git ttf-mononoki visual-studio-code-bin imagemagick qbittorrent brave-bin fisher fnm-bin telegram-desktop-bin nerd-fonts-mononoki zig android-tools android-udev lazygit libxft-bgra noto-fonts-emoji pamixer prettier screenkey stow tree ttf-joypixels ttf-unifont wireless_tools xbanish stylua xsel picom-jonaburg-git udiskie github-desktop-bin otf-raleway otf-font-awesome otf-font-awesome timeshift-bin xmonad xmobar xmonad-contrib graphviz tidy stylelint auctex-latexmk gromit-mpx jq appimagelauncher-git mu mbsync-git sddm-sugar-candy-git ttf-overpass ttf-juliamono nvm didyoumean reddio texlive-tlpdb ttf-ms-fonts virtualbox-ext-oracle whitesur-icon-theme whitesur-gtk-theme-git whitesur-cursor-theme-git julia-bin
 #yay -S  protonvpn filezilla pamac-all obsidian sublime-text-4 gromit-mpx lightdm-webkit2-greeter newsflash newsflash newsflash raven-reader-bin beekeeper-studio-bin mailspring stockfish
 
 #sudo systemctl enable snapd.service
@@ -40,7 +40,6 @@ sudo usermod -aG vboxusers reddy
 # If you want install doo emacs by uncommenting it
 # git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
 # ~/.emacs.d/bin/doom install
-sudo pacman -S julia
 # If you want to install python packages uncomment this
 pip install pandas seaborn keras numpy jovian wordcloud jedi nltk tensorflow imutils matplotlib scikit-learn sklearn jupyterlab notebook voila JLDracula opencv-python numba urllib3 pygame nose python-lsp-server[all] debugpy radian plotly statsmodels "jupyterlab>=3" "ipywidgets>=7.6" jupyter-dash kaleido yellowbrick tqdm cufflinks wakatime torch torchvision torchaudio black opendatasets folium ptvsd iwlib
 #pip3 install jupyter-tabnine --user
