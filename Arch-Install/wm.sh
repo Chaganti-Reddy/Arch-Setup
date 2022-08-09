@@ -51,7 +51,7 @@ pip install pandas seaborn keras numpy jovian wordcloud jedi nltk tensorflow imu
 # install.packages("httpgd")
 # install.packages("jsonlite")
 paru -S js-beautify
-pip install "jupyterlab-kite>=2.0.2" pyarrow
+pip install "jupyterlab-kite>=2.0.2" pyarrow octave_kernel
 sudo modprobe vboxdrv
 
 fisher install edc/bass
