@@ -35,15 +35,14 @@ alias ls='ls --color=auto'
 # 		s/[<>£§]//g')\n\n";
 # fi
 
-
 # fnm
-export PATH=/home/reddy/.local/bin:$PATH
-export PATH=/home/reddy/.emacs.d/bin:$PATH
-export PATH=/home/reddy/.local/go/bin:$PATH
-export PATH=/home/reddy/.local/yarn/bin:$PATH
-eval "`fnm env`"
+export PATH=/home/ram/.local/bin:$PATH
+export PATH=/homeram/.emacs.d/bin:$PATH
+export PATH=/home/ram/.local/go/bin:$PATH
+export PATH=/home/ram/.local/yarn/bin:$PATH
+eval "$(fnm env)"
 
-export PATH=/home/reddy/SDK/flutter/bin:$PATH
+export PATH=/home/ram/SDK/flutter/bin:$PATH
 
 source /usr/share/fzf/completion.bash
 source /usr/share/fzf/key-bindings.bash
@@ -52,46 +51,45 @@ eval "$(starship init bash)"
 SUDO_EDITOR=/usr/bin/nvim
 export SUDO_EDITOR
 
-
 export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
 
-function ctime(){
-  g++ -std=c++17 $1".cpp" -o $1; 
-  time ./$1
+function ctime() {
+    g++ -std=c++17 $1".cpp" -o $1
+    time ./$1
 }
 
-function mosscc(){
-  perl -i moss.pl -l cc $1 $2
+function mosscc() {
+    perl -i moss.pl -l cc $1 $2
 }
 
-function mosspy(){
-  perl -i moss.pl -l python $1 $2
+function mosspy() {
+    perl -i moss.pl -l python $1 $2
 }
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 cdnvm() {
-    command cd "$@";
+    command cd "$@"
     nvm_path=$(nvm_find_up .nvmrc | tr -d '\n')
 
     # If there are no .nvmrc file, use the default nvm version
     if [[ ! $nvm_path = *[^[:space:]]* ]]; then
 
-        declare default_version;
-        default_version=$(nvm version default);
+        declare default_version
+        default_version=$(nvm version default)
 
         # If there is no default version, set it to `node`
         # This will use the latest version on your machine
         if [[ $default_version == "N/A" ]]; then
-            nvm alias default node;
-            default_version=$(nvm version default);
+            nvm alias default node
+            default_version=$(nvm version default)
         fi
 
         # If the current version is not the default version, set it to use the default version
         if [[ $(nvm current) != "$default_version" ]]; then
-            nvm use default;
+            nvm use default
         fi
 
     elif [[ -s $nvm_path/.nvmrc && -r $nvm_path/.nvmrc ]]; then
@@ -108,9 +106,9 @@ cdnvm() {
         # If it is not already installed, install it
         # `nvm install` will implicitly use the newly-installed version
         if [[ "$locally_resolved_nvm_version" == "N/A" ]]; then
-            nvm install "$nvm_version";
+            nvm install "$nvm_version"
         elif [[ $(nvm current) != "$locally_resolved_nvm_version" ]]; then
-            nvm use "$nvm_version";
+            nvm use "$nvm_version"
         fi
     fi
 }

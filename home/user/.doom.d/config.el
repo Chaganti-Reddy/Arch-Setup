@@ -89,9 +89,9 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "/home/reddy/Documents/GitHub/dotfiles/org")
+(setq org-directory "/home/ram/Documents/GitHub/dotfiles/org")
 (setq org-roam-db-gc-threshold most-positive-fixnum)
-(setq org-agenda-files (directory-files-recursively "/home/reddy/Documents/GitHub/dotfiles/org" "\\.org$"))
+(setq org-agenda-files (directory-files-recursively "/home/ram/Documents/GitHub/dotfiles/org" "\\.org$"))
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
@@ -311,7 +311,7 @@
 (global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease)
 
 ;; Enables archiving of tasks. Replaces the in-built version which only works for single tasks.
-(defun reddy/org-archive-done-tasks ()
+(defun ram/org-archive-done-tasks ()
   "Attempt to archive all done tasks in file"
   (interactive)
   (org-map-entries
@@ -320,7 +320,7 @@
      (setq org-map-continue-from (org-element-property :begin (org-element-at-point))))
    "/DONE" 'file))
 
-(map! :map org-mode-map :desc "Archive tasks marked DONE" "C-c DEL a" #'reddy/org-archive-done-tasks)
+(map! :map org-mode-map :desc "Archive tasks marked DONE" "C-c DEL a" #'ram/org-archive-done-tasks)
 
 (map! :leader
       (:prefix "g"
@@ -1659,7 +1659,7 @@ is selected, only the bare key is returned."
   :init
   (setq org-roam-v2-ack t)
   :custom
-  (org-roam-directory "/home/reddy/Documents/GitHub/dotfiles/org/roam")
+  (org-roam-directory "/home/ram/Documents/GitHub/dotfiles/org/roam")
   (org-roam-complete-everywhere t)
   (org-roam-capture-templates
    '(("d" "default" plain
@@ -1671,11 +1671,11 @@ is selected, only the bare key is returned."
       :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
       :unnarrowed t)
      ("b" "book notes" plain
-      (file "/home/reddy/Documents/GitHub/dotfiles/org/roam/Templates/BookNote.org")
+      (file "/home/ram/Documents/GitHub/dotfiles/org/roam/Templates/BookNote.org")
       :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
       :unnarrowed t)
      ("p" "project" plain
-      (file "/home/reddy/Documents/GitHub/dotfiles/org/roam/Templates/Project.org")
+      (file "/home/ram/Documents/GitHub/dotfiles/org/roam/Templates/Project.org")
       :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n#+filetags: Project")
       :unnarrowed t)))
   :config
@@ -2592,7 +2592,7 @@ is selected, only the bare key is returned."
 
 ;; CALENDAR
 ;; https://stackoverflow.com/questions/9547912/emacs-calendar-show-more-than-3-months
-(defun reddy/year-calendar (&optional year)
+(defun ram/year-calendar (&optional year)
   (interactive)
   (require 'calendar)
   (let* (
@@ -2624,7 +2624,7 @@ is selected, only the bare key is returned."
     (goto-char (point-min))
     (setq buffer-read-only t)))
 
-(defun reddy/scroll-year-calendar-forward (&optional arg event)
+(defun ram/scroll-year-calendar-forward (&optional arg event)
   "Scroll the yearly calendar by year in a forward direction."
   (interactive (list (prefix-numeric-value current-prefix-arg)
                      last-nonmenu-event))
@@ -2634,21 +2634,21 @@ is selected, only the bare key is returned."
     (unless (zerop arg)
       (let* (
              (year (+ displayed-year arg)))
-        (reddy/year-calendar year)))
+        (ram/year-calendar year)))
     (goto-char (point-min))
     (run-hooks 'calendar-move-hook)))
 
-(defun reddy/scroll-year-calendar-backward (&optional arg event)
+(defun ram/scroll-year-calendar-backward (&optional arg event)
   "Scroll the yearly calendar by year in a backward direction."
   (interactive (list (prefix-numeric-value current-prefix-arg)
                      last-nonmenu-event))
-  (reddy/scroll-year-calendar-forward (- (or arg 1)) event))
+  (ram/scroll-year-calendar-forward (- (or arg 1)) event))
 
 (map! :leader
-      :desc "Scroll year calendar backward" "<left>" #'reddy/scroll-year-calendar-backward
-      :desc "Scroll year calendar forward" "<right>" #'reddy/scroll-year-calendar-forward)
+      :desc "Scroll year calendar backward" "<left>" #'ram/scroll-year-calendar-backward
+      :desc "Scroll year calendar forward" "<right>" #'ram/scroll-year-calendar-forward)
 
-(defalias 'year-calendar 'reddy/year-calendar)
+(defalias 'year-calendar 'ram/year-calendar)
 
 ;; ----------------------------------------------------------------------------------------------------------------------
 

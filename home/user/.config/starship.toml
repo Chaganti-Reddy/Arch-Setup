@@ -12,6 +12,9 @@ error_symbol = "[➜](bold red)"
 [c]
 format = "via [$name $version]($style)"
 
+[java]
+style = "blue"
+
 [username]
 format = "[$user]($style)"
 

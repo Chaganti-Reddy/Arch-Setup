@@ -512,3 +512,6 @@ Jul 27 21:58 : player: played "MUS/[iSongs.info] 03 - Kung Fu Kumaari.mp3"
 Jul 27 22:01 : player: played "MUS/Naa Dooja Koi - Rakul Preet Singh _ Pavail Gulati _ Arko feat. Jyotica Tangri _ Zee Music Originals(MP3_320K).mp3"
 Jul 27 22:06 : player: played "MUS/[iSongs.info] 04 - Seeti Maar.mp3"
 Jul 27 22:09 : player: played "MUS/Leharaayi.mp3"
+Oct 08 14:42 : exception: Failed to decode /home/ram/Music/MUS/Leharaayi.mp3; Failed to open '/home/ram/Music/MUS/Leharaayi.mp3': No such file or directory
+Oct 08 14:42 : player: played "MUS/Leharaayi.mp3"
+Oct 08 14:46 : exception: Failed to open /home/ram/.mpd/playlists: No such file or directory
