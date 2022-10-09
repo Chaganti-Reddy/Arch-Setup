@@ -2,23 +2,15 @@
 # See fstab(5) for details.
 
 # <file system> <dir> <type> <options> <dump> <pass>
-# /dev/nvme1n1p2
-UUID=efabcbd1-1b58-403d-b3b7-bfb609dac8ec	/         	ext4      	rw,relatime	0 1
+# /dev/nvme0n1p2
+UUID=3ce5ea80-f8bf-482b-aab5-cf1760cf60b7	/         	ext4      	rw,relatime	0 1
 
-# /dev/nvme1n1p1
-UUID=A67F-06D5      	/boot/efi 	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro	0 2
+# /dev/nvme0n1p1
+UUID=66E9-FD99      	/boot/efi 	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro	0 2
 
-# /dev/nvme1n1p3
-UUID=a3163dad-480d-4334-a6b8-16208aabc08c	none      	swap      	defaults  	0 0
+# /dev/nvme0n1p3
+UUID=324cfe0f-2879-4170-8dd7-7d387fba2374	none      	swap      	defaults  	0 0
 
-# OS (/dev/nvme0n1p3)
-UUID=62604D66604D41D1  /media/OS   ntfs-3g    defaults    0   0
-
-# Documents (/dev/nvme0n1p4)
-UUID=A06660B666608EBA	media/Documents   ntfs-3g    defaults    0   0
-
-# Downloads (/dev/nvme0n1p5)
-UUID=9C8E76628E7634BC  /media/Downloads   ntfs-3g    defaults    0   0
-
-# Projects (/dev/nvme0n1p6)
-UUID=4E987E7C987E627F	media/Projects   ntfs-3g    defaults    0   0
+UUID=0cf908b5-9c65-44c6-bd94-6b24b1d2615b	/media/Files         	xfs      	defaults	0 1
+UUID=c84cfba4-5a36-4c64-a13d-024d6affde50	/media/Projects         	xfs      	defaults	0 1
+UUID=dfe9ac22-5a58-41ba-9005-78894f4dd8c3	/media/Virtual         	xfs      	defaults	0 1
