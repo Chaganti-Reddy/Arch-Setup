@@ -52,9 +52,9 @@ paru -S js-beautify
 pip install pyarrow octave_kernel
 
 fisher install edc/bass
-#source /usr/share/nvm/nvm.sh
-#source /usr/share/nvm/bash_completion
-#source /usr/share/nvm/install-nvm-exec
+source /usr/share/nvm/nvm.sh
+source /usr/share/nvm/bash_completion
+source /usr/share/nvm/install-nvm-exec
 sudo pacman -R i3-wm
 cd ~/ || exit
 
