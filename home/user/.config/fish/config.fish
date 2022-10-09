@@ -267,7 +267,7 @@ alias l+="xbacklight -inc"
 alias l-="xbacklight -dec"
 alias ip="ip -color"
 
-alias cat='bat --style header --style rules --style snip --style changes --style header'
+alias cat='bat --style header --style snip --style changes --style header'
 
 # pacman and yay
 alias update='sudo pacman -Syu'                 # update only standard pkgs
