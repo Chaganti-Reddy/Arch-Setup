@@ -5,7 +5,7 @@ sudo pacman -Syy
 
 echo "MAIN PACKAGES"
 
-sudo pacman -S emacs-nativecomp clang lolcat exa fish flameshot ueberzug tcl tk ranger fzf wget bspwm sxhkd pandoc nitrogen lxappearance arandr pulseaudio-alsa pavucontrol dina-font tamsyn-font ttf-bitstream-vera ttf-croscore ttf-dejavu ttf-droid gnu-free-fonts ttf-ibm-plex ttf-liberation ttf-linux-libertine noto-fonts ttf-roboto tex-gyre-fonts ttf-ubuntu-font-family ttf-anonymous-pro ttf-cascadia-code ttf-fantasque-sans-mono ttf-fira-mono ttf-hack ttf-fira-code ttf-inconsolata ttf-jetbrains-mono ttf-monofur inter-font ttf-opensans gentium-plus-font ttf-junicode adobe-source-han-sans-otc-fonts adobe-source-han-serif-otc-fonts noto-fonts-cjk noto-fonts-emoji ttf-font-awesome awesome-terminal-fonts rofi mpc mpd ncmpcpp polkit-gnome dunst pacman-contrib bluez bluez-utils qemu virt-manager python python-pip python-wheel ebtables starship iwd htop lua xclip neofetch mariadb ripgrep fd swtpm bat hwinfo rofi-emoji rofimoji rofi-calc expac baobab gnome-disk-utility python-pywal sxiv feh amfora sddm texlive-most texlive-lang yad discord vlc libreoffice-fresh python-pylint numlockx arch-wiki-docs avidemux-qt grub-customizer plantuml libvterm acpilight qt5ct kvantum-qt5 pass rofi-pass php pwgen python-black python-pyflakes python-isort python-pipenv python-pytest shellcheck  trayer nim ncdu mlocate mplayer ispell jdk-openjdk jre-openjdk hsetroot r cmatrix xscreensaver gpick lfs git-lfs translate-shell slop xwallpaper imv youtube-dl mpv python2 pcmanfm-qt file-roller python-opengl virtualbox  virtualbox-guest-iso virtualbox-host-dkms qtile xorg-server xorg-xinit xterm conky spice-vdagent unrar texstudio cmake shfmt base-devel libpng zlib poppler-glib octave lshw
+sudo pacman -S emacs-nativecomp alacritty clang lolcat exa fish flameshot ueberzug tcl tk ranger fzf wget bspwm sxhkd pandoc nitrogen lxappearance arandr alacritty pulseaudio-alsa pavucontrol dina-font tamsyn-font ttf-bitstream-vera ttf-croscore ttf-dejavu ttf-droid gnu-free-fonts ttf-ibm-plex ttf-liberation ttf-linux-libertine noto-fonts ttf-roboto tex-gyre-fonts ttf-ubuntu-font-family ttf-anonymous-pro ttf-cascadia-code ttf-fantasque-sans-mono ttf-fira-mono ttf-hack ttf-fira-code ttf-inconsolata ttf-jetbrains-mono ttf-monofur inter-font ttf-opensans gentium-plus-font ttf-junicode adobe-source-han-sans-otc-fonts adobe-source-han-serif-otc-fonts noto-fonts-cjk noto-fonts-emoji ttf-font-awesome awesome-terminal-fonts rofi mpc mpd ncmpcpp polkit-gnome dunst pacman-contrib bluez bluez-utils qemu virt-manager python python-pip python-wheel ebtables starship iwd htop lua xclip neofetch mariadb ripgrep fd swtpm bat hwinfo rofi-emoji rofimoji rofi-calc expac baobab gnome-disk-utility python-pywal sxiv feh amfora sddm texlive-most texlive-lang yad discord vlc libreoffice-fresh python-pylint numlockx arch-wiki-docs avidemux-qt libvterm acpilight qt5ct kvantum-qt5 pass rofi-pass php pwgen python-black python-pyflakes python-isort python-pipenv python-pytest shellcheck  trayer nim ncdu mlocate mplayer ispell jdk-openjdk jre-openjdk hsetroot xscreensaver gpick lfs git-lfs translate-shell xwallpaper imv mpv pcmanfm-qt file-roller python-opengl conky spice-vdagent unrar texstudio cmake shfmt base-devel libpng zlib poppler-glib lshw
 # sudo pacman -S xfce4-terminal zsh xfce4-power-manager feh cronie lightdm kitty jq volumeicon languagetool ifuse i3-gaps r
 
 # sudo systemctl enable lightdm
@@ -23,25 +23,23 @@ sudo mysql_secure_installation
 # that's it.
 # Now to launch the sql database use sudo mysql -u username -p
 
-sudo corepack enable
 sudo updatedb
 
-paru -S pass-otp timeshift-bin ksuperkey zathura zathura-djvu zathura-pdf-mupdf zathura-ps zathura-cb polybar-git qalculate-gtk ttf-icomoon-feather shell-color-scripts zoxide alacritty-ligatures-git ttf-mononoki visual-studio-code-bin imagemagick qbittorrent brave-bin fisher fnm-bin telegram-desktop-bin nerd-fonts-mononoki zig android-tools android-udev lazygit libxft-bgra noto-fonts-emoji pamixer prettier screenkey stow tree ttf-joypixels ttf-unifont wireless_tools xbanish stylua xsel picom-jonaburg-git udiskie github-desktop-bin otf-raleway otf-font-awesome timeshift-bin xmonad xmobar xmonad-contrib graphviz tidy stylelint auctex-latexmk gromit-mpx jq appimagelauncher-git mu mbsync-git sddm-sugar-candy-git ttf-overpass ttf-juliamono nvm didyoumean reddio texlive-tlpdb ttf-ms-fonts virtualbox-ext-oracle whitesur-icon-theme whitesur-gtk-theme-git whitesur-cursor-theme-git julia-bin geary sublime-text-4
+paru -S pass-otp ksuperkey zathura zathura-djvu zathura-pdf-mupdf zathura-ps zathura-cb polybar-git qalculate-gtk ttf-icomoon-feather shell-color-scripts zoxide ttf-mononoki imagemagick qbittorrent brave-bin fisher fnm-bin telegram-desktop-bin nerd-fonts-mononoki zig android-tools android-udev lazygit noto-fonts-emoji pamixer prettier screenkey stow tree ttf-joypixels ttf-unifont wireless_tools xbanish stylua xsel picom-jonaburg-git udiskie github-desktop-bin otf-raleway otf-font-awesome xmonad xmobar xmonad-contrib graphviz tidy stylelint auctex-latexmk jq mu mbsync-git sddm-sugar-candy-git ttf-overpass ttf-juliamono nvm didyoumean reddio texlive-tlpdb ttf-ms-fonts whitesur-icon-theme whitesur-gtk-theme-git whitesur-cursor-theme-git sublime-text-4
 #yay -S  protonvpn filezilla pamac-all obsidian gromit-mpx lightdm-webkit2-greeter newsflash newsflash raven-reader-bin beekeeper-studio-bin mailspring stockfish
 
 #sudo systemctl enable snapd.service
 sudo systemctl enable bluetooth.service
 sudo virsh net-start default
 sudo virsh net-autostart default
-sudo usermod -aG video reddy
-sudo usermod -aG vboxusers reddy
+sudo usermod -aG video ram
 #sudo systemctl enable cronie.service --now
 
 # If you want install doo emacs by uncommenting it
 # git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
 # ~/.emacs.d/bin/doom install
 # If you want to install python packages uncomment this
-pip install pandas seaborn keras numpy jovian wordcloud jedi nltk tensorflow imutils matplotlib scikit-learn sklearn jupyterlab notebook voila JLDracula opencv-python numba urllib3 pygame nose python-lsp-server[all] debugpy radian plotly statsmodels "jupyterlab>=3" "ipywidgets>=7.6" jupyter-dash kaleido yellowbrick tqdm cufflinks wakatime torch torchvision torchaudio black opendatasets folium ptvsd iwlib
+pip install pandas seaborn keras numpy tensorflow imutils matplotlib scikit-learn sklearn jupyterlab voila JLDracula opencv-python urllib3 pygame plotly statsmodels "jupyterlab>=3" "ipywidgets>=7.6" jupyter-dash torch torchvision torchaudio black opendatasets folium ptvsd iwlib
 #pip3 install jupyter-tabnine --user
 #jupyter nbextension install --py jupyter_tabnine --user
 #jupyter nbextension enable --py jupyter_tabnine --user
@@ -51,8 +49,7 @@ pip install pandas seaborn keras numpy jovian wordcloud jedi nltk tensorflow imu
 # install.packages("httpgd")
 # install.packages("jsonlite")
 paru -S js-beautify
-pip install "jupyterlab-kite>=2.0.2" pyarrow octave_kernel
-sudo modprobe vboxdrv
+pip install pyarrow octave_kernel
 
 fisher install edc/bass
 #source /usr/share/nvm/nvm.sh
