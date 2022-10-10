@@ -412,6 +412,7 @@ alias music="cd ~/Music/"
 alias pict="cd ~/Pictures/"
 alias dow="cd ~/Downloads/"
 alias doc="cd ~/Documents/"
+alias greenclear='greenclip clear'
 alias sql="sudo mysql -u DSAI -p"
 alias precompile="sudo g++ -std=c++17 stdc++.h"
 alias grub="sudo nvim /etc/default/grub"

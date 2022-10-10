@@ -15,10 +15,11 @@ SETUVAR Z_EXCLUDE:\x5e/home/ram\x24
 SETUVAR __fish_initialized:3400
 SETUVAR _fisher_PatrickF1_2F_fzf_2E_fish_files:/home/ram/\x2econfig/fish/functions/_fzf_configure_bindings_help\x2efish\x1e/home/ram/\x2econfig/fish/functions/_fzf_extract_var_info\x2efish\x1e/home/ram/\x2econfig/fish/functions/_fzf_preview_file\x2efish\x1e/home/ram/\x2econfig/fish/functions/_fzf_report_file_type\x2efish\x1e/home/ram/\x2econfig/fish/functions/_fzf_search_directory\x2efish\x1e/home/ram/\x2econfig/fish/functions/_fzf_search_git_log\x2efish\x1e/home/ram/\x2econfig/fish/functions/_fzf_search_git_status\x2efish\x1e/home/ram/\x2econfig/fish/functions/_fzf_search_history\x2efish\x1e/home/ram/\x2econfig/fish/functions/_fzf_search_variables\x2efish\x1e/home/ram/\x2econfig/fish/functions/_fzf_wrapper\x2efish\x1e/home/ram/\x2econfig/fish/functions/fzf_configure_bindings\x2efish\x1e/home/ram/\x2econfig/fish/conf\x2ed/fzf\x2efish\x1e/home/ram/\x2econfig/fish/completions/fzf_configure_bindings\x2efish
 SETUVAR _fisher_dracula_2F_fish_files:/home/ram/\x2econfig/fish/conf\x2ed/dracula\x2efish
+SETUVAR _fisher_edc_2F_bass_files:\x7e/\x2econfig/fish/functions/__bass\x2epy\x1e\x7e/\x2econfig/fish/functions/bass\x2efish
 SETUVAR _fisher_gazorby_2F_fish_2D_exa_files:/home/ram/\x2econfig/fish/functions/exa_git\x2efish\x1e/home/ram/\x2econfig/fish/conf\x2ed/fish\x2dexa\x2efish
 SETUVAR _fisher_jethrokuan_2F_z_files:\x7e/\x2econfig/fish/functions/__z\x2efish\x1e\x7e/\x2econfig/fish/functions/__z_add\x2efish\x1e\x7e/\x2econfig/fish/functions/__z_clean\x2efish\x1e\x7e/\x2econfig/fish/functions/__z_complete\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/z\x2efish
 SETUVAR _fisher_jorgebucaran_2F_autopair_2E_fish_files:/home/ram/\x2econfig/fish/functions/_autopair_backspace\x2efish\x1e/home/ram/\x2econfig/fish/functions/_autopair_insert_left\x2efish\x1e/home/ram/\x2econfig/fish/functions/_autopair_insert_right\x2efish\x1e/home/ram/\x2econfig/fish/functions/_autopair_insert_same\x2efish\x1e/home/ram/\x2econfig/fish/functions/_autopair_tab\x2efish\x1e/home/ram/\x2econfig/fish/conf\x2ed/autopair\x2efish
-SETUVAR _fisher_plugins:gazorby/fish\x2dexa\x1ejethrokuan/z\x1ejorgebucaran/autopair\x2efish\x1ePatrickF1/fzf\x2efish\x1edracula/fish
+SETUVAR _fisher_plugins:gazorby/fish\x2dexa\x1ejethrokuan/z\x1ejorgebucaran/autopair\x2efish\x1ePatrickF1/fzf\x2efish\x1edracula/fish\x1eedc/bass
 SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr

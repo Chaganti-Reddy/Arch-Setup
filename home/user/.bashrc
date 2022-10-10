@@ -112,5 +112,6 @@ cdnvm() {
         fi
     fi
 }
-alias cd='cdnvm'
+#alias cd='cdnvm'
 cd "$PWD"
+alias greenclear='greenclip clear'
