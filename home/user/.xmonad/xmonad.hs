@@ -123,12 +123,15 @@ myStartupHook = do
     -- spawn "killall redshift-gtk"
 
     spawnOnce "lxsession"
+    spawnOnce "greenclip daemon"
+    spawn "greenclip daemon"
     spawn "mpv"
     spawnOnce "eww daemon"
     spawnOnce "~/.xmonad/startsound.sh"
     spawnOnce "picom"
     -- spawnOnce "mailspring"
     spawnOnce "nm-applet"
+    spawnOnce "pamixer --set-volume 45"
     -- spawnOnce "volumeicon"
     spawnOnce "/usr/bin/emacs --daemon" -- emacs daemon for the emacsclient
     spawnOnce "udiskie"
@@ -142,8 +145,8 @@ myStartupHook = do
     spawnOnce "gpg-connect-agent /bye"
 
     spawn ("sleep 2 && conky -c $HOME/.config/conky/xmonad/" ++ colorScheme ++ "-01.conkyrc")
-    spawn ("sleep 2 && trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 " ++ colorTrayer ++ " --height 22")
-    spawn ("pamixer --set-volume 45")
+    spawn ("sleep 2 && trayer --edge top --align right --widthtype request --padding 8 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 " ++ colorTrayer ++ " --height 20")
+    spawn "pamixer --set-volume 45"
     spawn ("~/.xmonad/wall_change.sh")
     -- spawnOnce "xargs xwallpaper --stretch < ~/Pictures/Wallpapers"
     -- spawnOnce "~/.fehbg &"  -- set last saved feh wallpaper
@@ -402,6 +405,7 @@ myManageHook = composeAll
      , className =? "file_progress"   --> doCenterFloat
      , className =? "dialog"          --> doCenterFloat
      , className =? "download"        --> doCenterFloat
+     , className =? "Archive Manager"        --> doCenterFloat
      , className =? "error"           --> doCenterFloat
      , className =? "Gimp"            --> doFloat
      , className =? "notification"    --> doFloat
@@ -447,6 +451,7 @@ myKeys c =
   , ("M-q",   addName "Kill focused window"      $ kill1)
   , ("M-S-a", addName "Kill all windows on WS" $ killAll)
   , ("M-d",   addName "Run prompt"               $ spawn "rofi -modi drun -show drun")
+  , ("M-S-c",   addName "Run clipboard"               $ spawn "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'")
   , ("M-S-/", addName "List of Keybinds"       $ spawn "~/.xmonad/xmonad_keys.sh")]
 
     ^++^ subKeys "Switch to workspace"
