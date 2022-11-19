@@ -92,7 +92,7 @@ myTerminal :: String
 myTerminal = "alacritty"    -- Sets default terminal
 
 myBrowser :: String
-myBrowser = "brave"  -- Sets Brave as browser
+myBrowser = "firefox"  -- Sets Firefox as browser
 
 myEmacs :: String
 myEmacs = "emacsclient -c -a 'emacs' "  -- Makes emacs keybindings easier to type
@@ -208,7 +208,7 @@ spawnSelected' lst = gridselect conf lst >>= flip whenJust spawn
                    }
 
 myAppGrid = [ ("Virtual Manager", "virt-manager")
-                 , ("Brave", "brave")
+                 , ("Firefox", "firefox")
                  , ("File Manager", "pcmanfm-qt")
                  , ("Emacs", "emacsclient -c -a emacs")
                  , ("Sublime Text", "subl")
@@ -224,20 +224,20 @@ myAppGrid = [ ("Virtual Manager", "virt-manager")
                  , ("Discord", "discord")
                  ]
 
-myPersonalGrid = [ ("Gmail", "brave gmail.com")
-                 , ("Youtube", "brave youtube.com")
-                 , ("Colab", "brave colab.research.google.com/")
+myPersonalGrid = [ ("Gmail", "firefox gmail.com")
+                 , ("Youtube", "firefox youtube.com")
+                 , ("Colab", "firefox colab.research.google.com/")
                  , ("Jupyter Lab", "~/.local/bin/jupyter-lab")
-                 , ("G Meet", "brave meet.google.com")
+                 , ("G Meet", "firefox meet.google.com")
                  , ("CP 1", "emacs ~/CP/1.cpp")
                  , ("CP 2", "emacs ~/cp/2.cpp")
                  , ("Dotfiles", "pcmanfm-qt ~/Documents/GitHub/dotfiles/")
-                 , ("LeetCode", "brave https://leetcode.com/problemset/all/?difficulty=EASY&page=1&status=NOT_STARTED")
-                 , ("Whatsapp", "brave web.whatsapp.com/")
-                 , ("Word Doc", "brave docs.google.com")
-                 , ("Github", "brave github.com/Chaganti-Reddy")
+                 , ("LeetCode", "firefox https://leetcode.com/problemset/all/?difficulty=EASY&page=1&status=NOT_STARTED")
+                 , ("Whatsapp", "firefox web.whatsapp.com/")
+                 , ("Word Doc", "firefox docs.google.com")
+                 , ("Github", "firefox github.com/Chaganti-Reddy")
                  , ("Notes", "emacs ~/Documents/GitHub/My_Notes/")
-                 , ("G Classroom", "brave classroom.google.com")
+                 , ("G Classroom", "firefox classroom.google.com")
                  , ("Paint", "gromit-mpx")
                  ]
 
@@ -557,8 +557,8 @@ myKeys c =
         , ("M1-r", addName "Open ROfi Scripts" $ spawn "~/.local/bin/Rofi-Scripts")
         , ("M-S-p", addName "OPen Password Menu" $ spawn "rofi-pass")
         , ("M1-<Tab>", addName "Show ALternative Windows" $ spawn "rofi -show window")
-        , ("M-<F10>", addName "Decrease Brightness" $ spawn "xbacklight -dec 5")
-        , ("M-<F11>", addName "Increase Brightness" $ spawn "xbacklight -inc 5")
+        , ("M-<F10>", addName "Decrease Brightness" $ spawn "xbacklight -dec 3")
+        , ("M-<F11>", addName "Increase Brightness" $ spawn "xbacklight -inc 3")
         , ("M-S-s", addName "Take a ScreenShot" $ spawn "flameshot gui") ]
 
     -- KB_GROUP Grid Select (CTR-g followed by a key)
