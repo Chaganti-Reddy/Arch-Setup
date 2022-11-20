@@ -26,7 +26,7 @@ sudo systemctl start libvirtd
 
 sudo updatedb
 
-yay -S pass-otp ksuperkey zathura zathura-djvu zathura-pdf-mupdf zathura-ps zathura-cb polybar-git qalculate-gtk ttf-icomoon-feather shell-color-scripts zoxide ttf-mononoki imagemagick qbittorrent firefox fisher fnm-bin telegram-desktop-bin nerd-fonts-mononoki zig android-tools android-udev lazygit noto-fonts-emoji pamixer prettier screenkey stow tree ttf-joypixels ttf-unifont wireless_tools xbanish stylua xsel picom-jonaburg-git udiskie github-desktop-bin otf-raleway otf-font-awesome xmonad xmobar xmonad-contrib graphviz tidy stylelint jq sddm-sugar-candy-git ttf-overpass ttf-juliamono nvm didyoumean reddio texlive-tlpdb ttf-ms-fonts whitesur-icon-theme whitesur-gtk-theme-git whitesur-cursor-theme-git rofi-greenclip neuron
+yay -S pass-otp ksuperkey zathura zathura-djvu zathura-pdf-mupdf zathura-ps zathura-cb polybar-git qalculate-gtk ttf-icomoon-feather shell-color-scripts zoxide ttf-mononoki imagemagick qbittorrent firefox fisher fnm-bin telegram-desktop-bin nerd-fonts-mononoki zig android-tools android-udev lazygit noto-fonts-emoji pamixer prettier screenkey stow tree ttf-joypixels ttf-unifont wireless_tools xbanish stylua xsel picom-jonaburg-git udiskie github-desktop-bin otf-raleway otf-font-awesome xmonad xmobar xmonad-contrib graphviz tidy stylelint jq sddm-sugar-candy-git ttf-overpass ttf-juliamono nvm didyoumean reddio texlive-tlpdb ttf-ms-fonts whitesur-icon-theme whitesur-gtk-theme-git whitesur-cursor-theme-git rofi-greenclip 
 #yay -S  protonvpn filezilla pamac-all obsidian gromit-mpx lightdm-webkit2-greeter newsflash newsflash raven-reader-bin beekeeper-studio-bin mailspring stockfish
 
 #sudo systemctl enable snapd.service
