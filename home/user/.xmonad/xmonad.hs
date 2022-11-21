@@ -117,7 +117,7 @@ myStartupHook :: X ()
 myStartupHook = do
     spawn "killall conky"   -- kill current conky on each restart
     spawn "killall trayer"  -- kill current trayer on each restart
-    spawn "killall /usr/bin/emacs --daemon" -- emacs daemon for the emacsclient
+    -- spawn "killall /usr/bin/emacs --daemon" -- emacs daemon for the emacsclient
     spawn "killall wall_change.sh"
     spawn "xscreensaver -nosplash &"
     -- spawn "killall redshift-gtk"
@@ -127,13 +127,13 @@ myStartupHook = do
     spawn "greenclip daemon"
     spawn "mpv"
     spawnOnce "eww daemon"
-    spawnOnce "~/.xmonad/startsound.sh"
+    -- spawnOnce "~/.xmonad/startsound.sh"
     spawnOnce "picom"
     -- spawnOnce "mailspring"
     spawnOnce "nm-applet"
-    spawnOnce "pamixer --set-volume 45"
+    spawn "pamixer --set-volume 45"
     -- spawnOnce "volumeicon"
-    spawnOnce "/usr/bin/emacs --daemon" -- emacs daemon for the emacsclient
+    -- spawnOnce "/usr/bin/emacs --daemon" -- emacs daemon for the emacsclient
     spawnOnce "udiskie"
     spawnOnce "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 "
     spawnOnce "mpd &"
@@ -146,7 +146,6 @@ myStartupHook = do
 
     spawn ("sleep 2 && conky -c $HOME/.config/conky/xmonad/" ++ colorScheme ++ "-01.conkyrc")
     spawn ("sleep 2 && trayer --edge top --align right --widthtype request --padding 8 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 " ++ colorTrayer ++ " --height 20")
-    spawn "pamixer --set-volume 45"
     spawn ("~/.xmonad/wall_change.sh")
     -- spawnOnce "xargs xwallpaper --stretch < ~/Pictures/Wallpapers"
     -- spawnOnce "~/.fehbg &"  -- set last saved feh wallpaper
@@ -210,18 +209,19 @@ spawnSelected' lst = gridselect conf lst >>= flip whenJust spawn
 myAppGrid = [ ("Virtual Manager", "virt-manager")
                  , ("Firefox", "firefox")
                  , ("File Manager", "pcmanfm-qt")
-                 , ("Emacs", "emacsclient -c -a emacs")
-                 , ("Sublime Text", "subl")
+                 -- , ("Emacs", "emacsclient -c -a emacs")
+                 , ("Code", "code")
+                 -- , ("Sublime Text", "subl")
                  , ("Telegram", "telegram-desktop")
                  , ("Office", "libreoffice")
-                 , ("Neovim", "alacritty -e nvim")
+                 , ("Lunar vim", "alacritty -e lvim")
                  , ("Zathura", "zathura")
                  -- , ("MYSql", "beekeeper-studio")
                  , ("Github", "github-desktop")
-                 , ("Chess", "cd LucasChessR/bin/ && ./LucasR &")
+                 -- , ("Chess", "cd LucasChessR/bin/ && ./LucasR &")
                  , ("TimeShift", "timeshift-launcher")
                  -- , ("OBS", "obs")
-                 , ("Discord", "discord")
+                 -- , ("Discord", "discord")
                  ]
 
 myPersonalGrid = [ ("Gmail", "firefox gmail.com")
@@ -544,7 +544,7 @@ myKeys c =
         ^++^ subKeys "Personal Apps"
         [ ("M-<Return>", addName "Open Terminal" $ spawn myTerminal)
         , ("M-w", addName "Open Browser" $ spawn myBrowser)
-        , ("M-a", addName "Open Emacs" $ spawn "emacsclient -c -a 'emacs'")
+        , ("M-a", addName "Open Vim" $ spawn "emacsclient -c -a 'nvim'")
         , ("M-S-n", addName "Open File Manager" $ spawn "pcmanfm-qt")
         , ("M-n", addName "Open Ranger" $ spawn (myTerminal ++ " -e ranger"))
         , ("M-C-n", addName "Open Music Player" $ spawn (myTerminal ++ " -e ncmpcpp"))
@@ -552,10 +552,10 @@ myKeys c =
         -- , ("M-S-d", spawn "~/.config/eww/dashboard/launch_dashboard")
         , ("M1-w", addName "Open ArchWiki" $ spawn "~/.local/bin/dm-wiki")
         , ("M1-e", addName "Open Emoji's" $ spawn "rofi -show emoji")
-        , ("S-e", addName "Open Sublime Text" $ spawn "subl")
+        , ("S-e", addName "Open Visual Studio Code" $ spawn "code")
         , ("M1-t", addName "Change System ColorScheme" $ spawn "~/.local/bin/dtos-colorscheme")
-        , ("M1-r", addName "Open ROfi Scripts" $ spawn "~/.local/bin/Rofi-Scripts")
-        , ("M-S-p", addName "OPen Password Menu" $ spawn "rofi-pass")
+        , ("M1-r", addName "Open Rofi Scripts" $ spawn "~/.local/bin/Rofi-Scripts")
+        , ("M-S-p", addName "Open Password Menu" $ spawn "rofi-pass")
         , ("M1-<Tab>", addName "Show ALternative Windows" $ spawn "rofi -show window")
         , ("M-<F10>", addName "Decrease Brightness" $ spawn "xbacklight -dec 3")
         , ("M-<F11>", addName "Increase Brightness" $ spawn "xbacklight -inc 3")

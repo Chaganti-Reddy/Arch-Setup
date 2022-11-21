@@ -249,7 +249,7 @@ alias .4='cd ../../../..'
 alias .5='cd ../../../../..'
 
 # vim and emacs
-#alias vim='nvim'
+alias vim='lvim'
 alias em='/usr/bin/emacs -nw'
 #alias emacs="emacsclient -c -a 'emacs'"
 alias doomsync="~/.emacs.d/bin/doom sync"
@@ -389,8 +389,9 @@ colorscript random
 #starship init fish | source
 fnm env | source
 zoxide init fish | source
-alias vi="nvim"
-alias svi="sudoedit"
+alias vi="lvim"
+alias nvim="lvim"
+alias svi="sudo nvim"
 alias su="sudo fish"
 alias r="radian"
 #alias cl="clear"
@@ -440,3 +441,8 @@ end
 
 bind \cl 'clear; commandline -f repaint'
 bind \cH 'backward-kill-path-component'
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+eval /home/ram/anaconda3/bin/conda "shell.fish" "hook" $argv | source
+# <<< conda initialize <<<
