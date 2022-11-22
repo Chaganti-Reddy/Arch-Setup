@@ -419,8 +419,6 @@ alias precompile="sudo g++ -std=c++17 stdc++.h"
 alias grub="sudo nvim /etc/default/grub"
 alias gpgkeys="gpg --list-secret-keys --keyid-format=long"
 alias lock="betterlockscreen -l"
-alias activate="source my_env/bin/activate.fish"
-alias createvirtual="python3 -m virtualenv my_env"
 alias createvirtual2="virtualenv --python="/usr/bin/python2.7" "my_env""
 
 ## Starship prompt
@@ -439,10 +437,19 @@ function gccr --argument repo
   git clone https://github.com/Chaganti-Reddy/$repo
 end
 
+function virtual --argument dir
+  python3 -m virtualenv $dir
+  source $dir/bin/activate.fish
+end
+
+function activate --argument dir 
+  source $dir/bin/activate.fish
+end
+
 bind \cl 'clear; commandline -f repaint'
 bind \cH 'backward-kill-path-component'
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-eval /home/ram/anaconda3/bin/conda "shell.fish" "hook" $argv | source
+# eval /home/ram/anaconda3/bin/conda "shell.fish" "hook" $argv | source
 # <<< conda initialize <<<
