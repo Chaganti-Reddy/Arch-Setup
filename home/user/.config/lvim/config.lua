@@ -10,7 +10,7 @@ an executable
 
 -- general
 lvim.log.level = "warn"
-lvim.format_on_save.enabled = true
+lvim.format_on_save.enabled = false
 lvim.colorscheme = "lunar"
 vim.opt.relativenumber = true
 vim.opt.cursorline = true -- highlight the current line
@@ -50,9 +50,6 @@ vim.g.vimtex_compiler_latexmk = {
 -- set keybind to compile vimtex and open zathura
 vim.api.nvim_set_keymap("n", "<leader>z", ":VimtexCompile<CR>", { noremap = true, silent = true })
 
--- Remove hovering of errors from file and press <gl> wherever there is an error
--- lvim.lsp.diagnostics.virtual_text = false
-
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
@@ -65,6 +62,8 @@ lvim.keys.normal_mode["<C-x>"] = ":q!<cr>"
 lvim.keys.normal_mode["<C-a>"] = "ggVG"
 lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
+-- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
+-- lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 -- unmap a default keymapping
 -- vim.keymap.del("n", "<C-Up>")
 -- override a default keymapping
@@ -92,6 +91,7 @@ lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 -- lvim.builtin.theme.options.dim_inactive = true
 -- lvim.builtin.theme.options.style = "storm"
 
+
 -- Use which-key to add extra bindings with the leader-key prefix
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 lvim.builtin.which_key.mappings["b"] = {
@@ -115,6 +115,17 @@ lvim.builtin.which_key.mappings["t"] = {
 lvim.builtin.which_key.mappings["m"] = {
   name = "+Markdown",
   p = { "<cmd>Glow<cr>", "Preview" },
+}
+
+-- Latex preview Keybinds
+lvim.builtin.which_key.mappings["v"] = {
+  name = "+Latex",
+  p = { "<cmd>VimtexCompile<cr>", "Compile & Preview" },
+}
+
+lvim.builtin.which_key.mappings["a"] = {
+  name = "+Terminal",
+  t = { "<cmd>FloatermToggle<cr>", "Float Terminal Toggle" },
 }
 
 -- TODO: User Config for predefined plugins
@@ -141,17 +152,18 @@ lvim.builtin.treesitter.ensure_installed = {
   "yaml",
 }
 
+-- lvim.lsp.override = { "clangd" }
+
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enable = true
 
 -- generic LSP settings
 
 -- -- make sure server will always be installed even if the server is in skipped_servers list
-lvim.lsp.installer.setup.ensure_installed = {
-  "sumneko_lua",
-  "jsonls",
-}
-
+-- lvim.lsp.installer.setup.ensure_installed = {
+--     "sumneko_lua",
+--     "jsonls",
+-- }
 -- -- change UI setting of `LspInstallInfo`
 -- -- see <https://github.com/williamboman/nvim-lsp-installer#default-configuration>
 -- lvim.lsp.installer.setup.ui.check_outdated_servers_on_open = false
@@ -202,10 +214,10 @@ formatters.setup {
   },
 }
 
--- -- set additional linters
+-- set additional linters
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
-  -- { command = "flake8", filetypes = { "python" } },
+  { command = "flake8", filetypes = { "python" } },
   {
     -- each linter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
     command = "shellcheck",
@@ -213,7 +225,6 @@ linters.setup {
     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
     extra_args = { "--severity", "warning" },
   },
-
   {
     command = "codespell",
     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
@@ -223,20 +234,10 @@ linters.setup {
 
 -- Additional Plugins
 lvim.plugins = {
-  -- {
-  --   'numToStr/Comment.nvim',
-  --   config = function()
-  --     require('Comment').setup() {
-  --       ---Add a space b/w comment and the line
-  --       padding = true,
-  --     }
-  --   end
-  -- },
-  {
-    "folke/trouble.nvim",
-    cmd = "TroubleToggle",
-  },
-
+    {
+      "folke/trouble.nvim",
+      cmd = "TroubleToggle",
+    },
   {
     "folke/todo-comments.nvim",
     event = "BufRead",
@@ -342,6 +343,9 @@ lvim.plugins = {
   },
 
   {
+    "voldikss/vim-floaterm"
+  },
+  {
     "ethanholz/nvim-lastplace",
     event = "BufRead",
     config = function()
@@ -403,10 +407,10 @@ lvim.plugins = {
     end
   },
 
-  -- {
-  --   'metakirby5/codi.vim',
-  --   cmd = "Codi"
-  -- },
+  -- -- {
+  -- --   'metakirby5/codi.vim',
+  -- --   cmd = "Codi"
+  -- -- },
 
   {
     "ellisonleao/glow.nvim",
@@ -492,23 +496,23 @@ lvim.plugins = {
       require("spectre").setup()
     end,
   },
+  -- -- {
+  -- -- 'nvim-lua/popup.nvim'
+  -- -- },
+  -- -- { 'nvim-lua/plenary.nvim' },
+  -- -- { 'nvim-telescope/telescope.nvim' },
   -- {
-  -- 'nvim-lua/popup.nvim'
+  --   "oberblastmeister/neuron.nvim",
+  --   config = function()
+  --     require("neuron").setup {
+  --       virtual_titles = true,
+  --       mappings = true,
+  --       run = nil, -- function to run when in neuron dir
+  --       neuron_dir = "~/neuron", -- main directory of neuron notes
+  --       leader = "gz", -- leader key to for all mappings, remember with 'go zettel'
+  --     }
+  --   end,
   -- },
-  -- { 'nvim-lua/plenary.nvim' },
-  -- { 'nvim-telescope/telescope.nvim' },
-  {
-    "oberblastmeister/neuron.nvim",
-    config = function()
-      require("neuron").setup {
-        virtual_titles = true,
-        mappings = true,
-        run = nil, -- function to run when in neuron dir
-        neuron_dir = "~/neuron", -- main directory of neuron notes
-        leader = "gz", -- leader key to for all mappings, remember with 'go zettel'
-      }
-    end,
-  },
 
   {
     "kevinhwang91/rnvimr",
