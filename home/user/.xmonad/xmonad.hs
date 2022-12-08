@@ -117,7 +117,7 @@ myStartupHook :: X ()
 myStartupHook = do
     spawn "killall conky"   -- kill current conky on each restart
     spawn "killall trayer"  -- kill current trayer on each restart
-    -- spawn "killall /usr/bin/emacs --daemon" -- emacs daemon for the emacsclient
+    spawn "killall /usr/bin/emacs --daemon" -- emacs daemon for the emacsclient
     spawn "killall wall_change.sh"
     spawn "xscreensaver -nosplash &"
     -- spawn "killall redshift-gtk"
@@ -127,13 +127,14 @@ myStartupHook = do
     spawn "greenclip daemon"
     spawn "mpv"
     spawnOnce "eww daemon"
+    spawnOnce "firewall-applet"
     -- spawnOnce "~/.xmonad/startsound.sh"
     spawnOnce "picom"
     -- spawnOnce "mailspring"
     spawnOnce "nm-applet"
     spawn "pamixer --set-volume 45"
     -- spawnOnce "volumeicon"
-    -- spawnOnce "/usr/bin/emacs --daemon" -- emacs daemon for the emacsclient
+    spawnOnce "/usr/bin/emacs --daemon" -- emacs daemon for the emacsclient
     spawnOnce "udiskie"
     spawnOnce "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 "
     spawnOnce "mpd &"
@@ -249,7 +250,7 @@ myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
                 , NS "calculator" spawnCalc findCalc manageCalc
                 ]
   where
-    spawnTerm  = myTerminal ++ " -t scratchpad"
+    spawnTerm  = "alacritty -t scratchpad"
     findTerm   = title =? "scratchpad"
     manageTerm = customFloating $ W.RationalRect l t w h
                where
@@ -448,6 +449,7 @@ myKeys c =
   [ ("M-C-r", addName "Recompile XMonad"       $ spawn "xmonad --recompile")
   , ("M-S-r", addName "Restart XMonad"         $ spawn "xmonad --restart")
   , ("M-S-q", addName "Quit XMonad"            $ io exitSuccess)
+  , ("M-S-l", addName "Quit XMonad"            $ spawn "~/.xmonad/lock.sh")
   , ("M-q",   addName "Kill focused window"      $ kill1)
   , ("M-S-a", addName "Kill all windows on WS" $ killAll)
   , ("M-d",   addName "Run prompt"               $ spawn "rofi -modi drun -show drun")
