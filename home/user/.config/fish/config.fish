@@ -391,7 +391,7 @@ fnm env | source
 zoxide init fish | source
 alias vi="lvim"
 alias nvim="lvim"
-alias svi="sudo nvim"
+alias svi="sudo lvim"
 alias su="sudo fish"
 alias r="radian"
 #alias cl="clear"
@@ -416,7 +416,7 @@ alias doc="cd ~/Documents/"
 alias greenclear='greenclip clear'
 alias sql="sudo mysql -u DSAI -p"
 alias precompile="sudo g++ -std=c++17 stdc++.h"
-alias grub="sudo nvim /etc/default/grub"
+alias grub="sudo lvim /etc/default/grub"
 alias gpgkeys="gpg --list-secret-keys --keyid-format=long"
 alias lock="betterlockscreen -l"
 alias createvirtual2="virtualenv --python="/usr/bin/python2.7" "my_env""
