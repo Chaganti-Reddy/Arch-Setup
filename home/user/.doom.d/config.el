@@ -80,8 +80,8 @@
   '(font-lock-comment-face :slant italic)
   '(font-lock-keyword-face :slant italic))
 
-(setq doom-fallback-buffer-name "► Doom"
-      +doom-dashboard-name "► Doom")
+;; (setq doom-fallback-buffer-name "► Doom"
+;;       +doom-dashboard-name "► Doom")
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -294,7 +294,7 @@
 (map! "C-a" #'mark-whole-buffer)
 (map! :after evil :gnvi "C-f" #'consult-line)
 (map! :g "C-c b" #'+ivy/switch-buffer)
-(map! "C-c d m" #'+doom-dashboard/open)
+;; (map! "C-c d m" #'+doom-dashboard/open)
 
 ;; Use cmd key for meta
 ;; https://superuser.com/questions/297259/set-emacs-meta-key-to-be-the-mac-key
@@ -337,18 +337,27 @@
 (map! :g "C-c w" #'windresize)
 (map! :g "C-c W" #'windresize-balance-windows)
 
+(map! :leader
+      :desc "Switch to perspective NAME" "DEL" #'persp-switch
+      :desc "Switch to buffer in perspective" "," #'persp-switch-to-buffer
+      :desc "Switch to next perspective" "]" #'persp-next
+      :desc "Switch to previous perspective" "[" #'persp-prev
+      :desc "Add a buffer current perspective" "+" #'persp-add-buffer
+      :desc "Remove perspective by name" "-" #'persp-remove-by-name)
+
+
 ;; --------------------------------------------------------------------------------------------------------------------
 
 ;; CENTAUR TABS
 
-;; ;; Enable centaur-tabs without faulty theming in daemon mode.
-;; (if (not (daemonp))
-;; 	 (centaur-tabs-mode)
+;; Enable centaur-tabs without faulty theming in daemon mode.
+(if (not (daemonp))
+	 (centaur-tabs-mode)
 
-;;   (defun centaur-tabs-daemon-mode (frame)
-;; 	 (unless (and (featurep 'centaur-tabs) (centaur-tabs-mode-on-p))
-;; 		(run-at-time nil nil (lambda () (centaur-tabs-mode)))))
-;;   (add-hook 'after-make-frame-functions #'centaur-tabs-daemon-mode))
+  (defun centaur-tabs-daemon-mode (frame)
+	 (unless (and (featurep 'centaur-tabs) (centaur-tabs-mode-on-p))
+		(run-at-time nil nil (lambda () (centaur-tabs-mode)))))
+  (add-hook 'after-make-frame-functions #'centaur-tabs-daemon-mode))
 
 (use-package centaur-tabs
   :demand
@@ -358,9 +367,13 @@
   ("M-<left>" . centaur-tabs-backward)
   ("M-<right>" . centaur-tabs-forward))
 (after! centaur-tabs
-  (setq centaur-tabs-height 36)
-  (setq centaur-tabs-style "wave")
-  (setq centaur-tabs-set-icons t)
+  (setq centaur-tabs-set-bar 'over
+      centaur-tabs-set-icons t
+      centaur-tabs-gray-out-icons 'buffer
+      centaur-tabs-height 24
+      centaur-tabs-set-modified-marker t
+      centaur-tabs-style "bar"
+      centaur-tabs-modified-marker "•")
   ;; (setq centaur-tabs-set-bar 'left)
   ;; (setq centaur-tabs-set-close-button nil)
   ;; (setq centaur-tabs-close-button "X")
@@ -482,7 +495,7 @@ Meant for `doom-change-font-size-hook'."
   (add-hook 'after-setting-font-hook #'+modeline-resize-for-font-h)
   (add-hook 'doom-load-theme-hook #'doom-modeline-refresh-bars)
 
-  (add-hook '+doom-dashboard-mode-hook #'doom-modeline-set-project-modeline)
+  ;; (add-hook '+doom-dashboard-mode-hook #'doom-modeline-set-project-modeline)
 
   (add-hook! 'magit-mode-hook
     (defun +modeline-hide-in-non-status-buffer-h ()
@@ -867,6 +880,214 @@ Meant for `doom-change-font-size-hook'."
 ;; show hidden files
 (setq-default neo-show-hidden-files t)
 
+(map! :leader
+      (:prefix ("=" . "open file")
+       :desc "Edit agenda file" "a" #'(lambda () (interactive) (find-file "~/nc/Org/agenda.org"))
+       :desc "Edit doom config.org" "c" #'(lambda () (interactive) (find-file "~/.config/doom/config.org"))
+       :desc "Edit doom init.el" "i" #'(lambda () (interactive) (find-file "~/.config/doom/init.el"))
+       :desc "Edit doom packages.el" "p" #'(lambda () (interactive) (find-file "~/.config/doom/packages.el"))))
+(map! :leader
+      (:prefix ("= e" . "open eshell files")
+       :desc "Edit eshell aliases" "a" #'(lambda () (interactive) (find-file "~/.config/doom/eshell/aliases"))
+       :desc "Edit eshell profile" "p" #'(lambda () (interactive) (find-file "~/.config/doom/eshell/profile"))))
+
+(map! :leader
+      :desc "Org babel tangle" "m B" #'org-babel-tangle)
+(after! org
+  (setq org-directory "~/nc/Org/"
+        org-agenda-files '("~/nc/Org/agenda.org")
+        org-default-notes-file (expand-file-name "notes.org" org-directory)
+        org-ellipsis " ▼ "
+        org-superstar-headline-bullets-list '("◉" "●" "○" "◆" "●" "○" "◆")
+        org-superstar-itembullet-alist '((?+ . ?➤) (?- . ?✦)) ; changes +/- symbols in item lists
+        org-log-done 'time
+        org-hide-emphasis-markers t
+        ;; ex. of org-link-abbrev-alist in action
+        ;; [[arch-wiki:Name_of_Page][Description]]
+        org-link-abbrev-alist    ; This overwrites the default Doom org-link-abbrev-list
+          '(("google" . "http://www.google.com/search?q=")
+            ("arch-wiki" . "https://wiki.archlinux.org/index.php/")
+            ("ddg" . "https://duckduckgo.com/?q=")
+            ("wiki" . "https://en.wikipedia.org/wiki/"))
+        org-table-convert-region-max-lines 20000
+        org-todo-keywords        ; This overwrites the default Doom org-todo-keywords
+          '((sequence
+             "TODO(t)"           ; A task that is ready to be tackled
+             "BLOG(b)"           ; Blog writing assignments
+             "GYM(g)"            ; Things to accomplish at the gym
+             "PROJ(p)"           ; A project that contains other tasks
+             "VIDEO(v)"          ; Video assignments
+             "WAIT(w)"           ; Something is holding up this task
+             "|"                 ; The pipe necessary to separate "active" states and "inactive" states
+             "DONE(d)"           ; Task has been completed
+             "CANCELLED(c)" )))) ; Task has been cancelled
+
+(defun dt/org-colors-doom-one ()
+  "Enable Doom One colors for Org headers."
+  (interactive)
+  (dolist
+      (face
+       '((org-level-1 1.7 "#51afef" ultra-bold)
+         (org-level-2 1.6 "#c678dd" extra-bold)
+         (org-level-3 1.5 "#98be65" bold)
+         (org-level-4 1.4 "#da8548" semi-bold)
+         (org-level-5 1.3 "#5699af" normal)
+         (org-level-6 1.2 "#a9a1e1" normal)
+         (org-level-7 1.1 "#46d9ff" normal)
+         (org-level-8 1.0 "#ff6c6b" normal)))
+    (set-face-attribute (nth 0 face) nil :font doom-variable-pitch-font :weight (nth 3 face) :height (nth 1 face) :foreground (nth 2 face)))
+    (set-face-attribute 'org-table nil :font doom-font :weight 'normal :height 1.0 :foreground "#bfafdf"))
+
+(defun dt/org-colors-dracula ()
+  "Enable Dracula colors for Org headers."
+  (interactive)
+  (dolist
+      (face
+       '((org-level-1 1.7 "#8be9fd" ultra-bold)
+         (org-level-2 1.6 "#bd93f9" extra-bold)
+         (org-level-3 1.5 "#50fa7b" bold)
+         (org-level-4 1.4 "#ff79c6" semi-bold)
+         (org-level-5 1.3 "#9aedfe" normal)
+         (org-level-6 1.2 "#caa9fa" normal)
+         (org-level-7 1.1 "#5af78e" normal)
+         (org-level-8 1.0 "#ff92d0" normal)))
+    (set-face-attribute (nth 0 face) nil :font doom-variable-pitch-font :weight (nth 3 face) :height (nth 1 face) :foreground (nth 2 face)))
+    (set-face-attribute 'org-table nil :font doom-font :weight 'normal :height 1.0 :foreground "#bfafdf"))
+
+(defun ram/org-colors-gruvbox-dark ()
+  "Enable Gruvbox Dark colors for Org headers."
+  (interactive)
+  (dolist
+      (face
+       '((org-level-1 1.7 "#458588" ultra-bold)
+         (org-level-2 1.6 "#b16286" extra-bold)
+         (org-level-3 1.5 "#98971a" bold)
+         (org-level-4 1.4 "#fb4934" semi-bold)
+         (org-level-5 1.3 "#83a598" normal)
+         (org-level-6 1.2 "#d3869b" normal)
+         (org-level-7 1.1 "#d79921" normal)
+         (org-level-8 1.0 "#8ec07c" normal)))
+    (set-face-attribute (nth 0 face) nil :font doom-variable-pitch-font :weight (nth 3 face) :height (nth 1 face) :foreground (nth 2 face)))
+    (set-face-attribute 'org-table nil :font doom-font :weight 'normal :height 1.0 :foreground "#bfafdf"))
+
+(defun ram/org-colors-monokai-pro ()
+  "Enable Monokai Pro colors for Org headers."
+  (interactive)
+  (dolist
+      (face
+       '((org-level-1 1.7 "#78dce8" ultra-bold)
+         (org-level-2 1.6 "#ab9df2" extra-bold)
+         (org-level-3 1.5 "#a9dc76" bold)
+         (org-level-4 1.4 "#fc9867" semi-bold)
+         (org-level-5 1.3 "#ff6188" normal)
+         (org-level-6 1.2 "#ffd866" normal)
+         (org-level-7 1.1 "#78dce8" normal)
+         (org-level-8 1.0 "#ab9df2" normal)))
+    (set-face-attribute (nth 0 face) nil :font doom-variable-pitch-font :weight (nth 3 face) :height (nth 1 face) :foreground (nth 2 face)))
+    (set-face-attribute 'org-table nil :font doom-font :weight 'normal :height 1.0 :foreground "#bfafdf"))
+
+(defun ram/org-colors-nord ()
+  "Enable Nord colors for Org headers."
+  (interactive)
+  (dolist
+      (face
+       '((org-level-1 1.7 "#81a1c1" ultra-bold)
+         (org-level-2 1.6 "#b48ead" extra-bold)
+         (org-level-3 1.5 "#a3be8c" bold)
+         (org-level-4 1.4 "#ebcb8b" semi-bold)
+         (org-level-5 1.3 "#bf616a" normal)
+         (org-level-6 1.2 "#88c0d0" normal)
+         (org-level-7 1.1 "#81a1c1" normal)
+         (org-level-8 1.0 "#b48ead" normal)))
+    (set-face-attribute (nth 0 face) nil :font doom-variable-pitch-font :weight (nth 3 face) :height (nth 1 face) :foreground (nth 2 face)))
+    (set-face-attribute 'org-table nil :font doom-font :weight 'normal :height 1.0 :foreground "#bfafdf"))
+
+(defun ram/org-colors-oceanic-next ()
+  "Enable Oceanic Next colors for Org headers."
+  (interactive)
+  (dolist
+      (face
+       '((org-level-1 1.7 "#6699cc" ultra-bold)
+         (org-level-2 1.6 "#c594c5" extra-bold)
+         (org-level-3 1.5 "#99c794" bold)
+         (org-level-4 1.4 "#fac863" semi-bold)
+         (org-level-5 1.3 "#5fb3b3" normal)
+         (org-level-6 1.2 "#ec5f67" normal)
+         (org-level-7 1.1 "#6699cc" normal)
+         (org-level-8 1.0 "#c594c5" normal)))
+    (set-face-attribute (nth 0 face) nil :font doom-variable-pitch-font :weight (nth 3 face) :height (nth 1 face) :foreground (nth 2 face)))
+    (set-face-attribute 'org-table nil :font doom-font :weight 'normal :height 1.0 :foreground "#bfafdf"))
+
+(defun ram/org-colors-palenight ()
+  "Enable Palenight colors for Org headers."
+  (interactive)
+  (dolist
+      (face
+       '((org-level-1 1.7 "#82aaff" ultra-bold)
+         (org-level-2 1.6 "#c792ea" extra-bold)
+         (org-level-3 1.5 "#c3e88d" bold)
+         (org-level-4 1.4 "#ffcb6b" semi-bold)
+         (org-level-5 1.3 "#a3f7ff" normal)
+         (org-level-6 1.2 "#e1acff" normal)
+         (org-level-7 1.1 "#f07178" normal)
+         (org-level-8 1.0 "#ddffa7" normal)))
+    (set-face-attribute (nth 0 face) nil :font doom-variable-pitch-font :weight (nth 3 face) :height (nth 1 face) :foreground (nth 2 face)))
+    (set-face-attribute 'org-table nil :font doom-font :weight 'normal :height 1.0 :foreground "#bfafdf"))
+
+(defun ram/org-colors-solarized-dark ()
+  "Enable Solarized Dark colors for Org headers."
+  (interactive)
+  (dolist
+      (face
+       '((org-level-1 1.7 "#268bd2" ultra-bold)
+         (org-level-2 1.6 "#d33682" extra-bold)
+         (org-level-3 1.5 "#859900" bold)
+         (org-level-4 1.4 "#b58900" semi-bold)
+         (org-level-5 1.3 "#cb4b16" normal)
+         (org-level-6 1.2 "#6c71c4" normal)
+         (org-level-7 1.1 "#2aa198" normal)
+         (org-level-8 1.0 "#657b83" normal)))
+    (set-face-attribute (nth 0 face) nil :font doom-variable-pitch-font :weight (nth 3 face) :height (nth 1 face) :foreground (nth 2 face)))
+    (set-face-attribute 'org-table nil :font doom-font :weight 'normal :height 1.0 :foreground "#bfafdf"))
+
+(defun ram/org-colors-solarized-light ()
+  "Enable Solarized Light colors for Org headers."
+  (interactive)
+  (dolist
+      (face
+       '((org-level-1 1.7 "#268bd2" ultra-bold)
+         (org-level-2 1.6 "#d33682" extra-bold)
+         (org-level-3 1.5 "#859900" bold)
+         (org-level-4 1.4 "#b58900" semi-bold)
+         (org-level-5 1.3 "#cb4b16" normal)
+         (org-level-6 1.2 "#6c71c4" normal)
+         (org-level-7 1.1 "#2aa198" normal)
+         (org-level-8 1.0 "#657b83" normal)))
+    (set-face-attribute (nth 0 face) nil :font doom-variable-pitch-font :weight (nth 3 face) :height (nth 1 face) :foreground (nth 2 face)))
+    (set-face-attribute 'org-table nil :font doom-font :weight 'normal :height 1.0 :foreground "#bfafdf"))
+
+(defun ram/org-colors-tomorrow-night ()
+  "Enable Tomorrow Night colors for Org headers."
+  (interactive)
+  (dolist
+      (face
+       '((org-level-1 1.7 "#81a2be" ultra-bold)
+         (org-level-2 1.6 "#b294bb" extra-bold)
+         (org-level-3 1.5 "#b5bd68" bold)
+         (org-level-4 1.4 "#e6c547" semi-bold)
+         (org-level-5 1.3 "#cc6666" normal)
+         (org-level-6 1.2 "#70c0ba" normal)
+         (org-level-7 1.1 "#b77ee0" normal)
+         (org-level-8 1.0 "#9ec400" normal)))
+    (set-face-attribute (nth 0 face) nil :font doom-variable-pitch-font :weight (nth 3 face) :height (nth 1 face) :foreground (nth 2 face)))
+    (set-face-attribute 'org-table nil :font doom-font :weight 'normal :height 1.0 :foreground "#bfafdf"))
+
+;; Load our desired ram/org-colors-* theme on startup
+(ram/org-colors-doom-one)
+
+(use-package ox-man)
+(use-package ox-gemini)
+
 ;; --------------------------------------------------------------------------------------------------------------------
 
 ;; TreeMacs
@@ -911,6 +1132,33 @@ Meant for `doom-change-font-size-hook'."
         :desc "Clippy describes function under pointer" "f" #'clippy-describe-function
         :desc "Clippy describes variable under pointer" "v" #'clippy-describe-variable))
 
+
+(use-package dashboard
+  :init      ;; tweak dashboard config before loading it
+  (setq dashboard-set-heading-icons t)
+  (setq dashboard-set-file-icons t)
+  (setq dashboard-banner-logo-title "\nKEYBINDINGS:\
+\nFind file               (SPC .)     \
+Open buffer list    (SPC b i)\
+\nFind recent files       (SPC f r)   \
+Open the eshell     (SPC e s)\
+\nOpen dired file manager (SPC d d)   \
+List of keybindings (SPC h b b)")
+  ;;(setq dashboard-startup-banner 'logo) ;; use standard emacs logo as banner
+  (setq dashboard-startup-banner "~/.doom/doom-emacs-dash.png")  ;; use custom image as banner
+  (setq dashboard-center-content nil) ;; set to 't' for centered content
+  (setq dashboard-items '((recents . 5)
+                          (agenda . 5 )
+                          (bookmarks . 5)
+                          (projects . 5)
+                          (registers . 5)))
+  :config
+  (dashboard-setup-startup-hook)
+  (dashboard-modify-heading-icons '((recents . "file-text")
+                                    (bookmarks . "book"))))
+
+(setq doom-fallback-buffer-name "*dashboard*")
+
 ;; --------------------------------------------------------------------------------------------------------------------
 
 ;; Minimap
@@ -937,12 +1185,34 @@ Meant for `doom-change-font-size-hook'."
        :desc "Eww web browser" "w" #'eww
        :desc "Eww reload page" "R" #'eww-reload))
 
+(map! :leader
+      (:prefix ("e". "evaluate/ERC/EWW")
+       :desc "Evaluate elisp in buffer" "b" #'eval-buffer
+       :desc "Evaluate defun" "d" #'eval-defun
+       :desc "Evaluate elisp expression" "e" #'eval-expression
+       :desc "Evaluate last sexpression" "l" #'eval-last-sexp
+       :desc "Evaluate elisp in region" "r" #'eval-region))
+
 ;; ----------------------------------------------------------------------------------------------------------------------
 
 ;; RAINBOW MODE
 (define-globalized-minor-mode global-rainbow-mode rainbow-mode
   (lambda () (rainbow-mode 1)))
 (global-rainbow-mode 1 )
+
+(map! :leader
+      (:prefix ("r" . "registers")
+       :desc "Copy to register" "c" #'copy-to-register
+       :desc "Frameset to register" "f" #'frameset-to-register
+       :desc "Insert contents of register" "i" #'insert-register
+       :desc "Jump to register" "j" #'jump-to-register
+       :desc "List registers" "l" #'list-registers
+       :desc "Number to register" "n" #'number-to-register
+       :desc "Interactively choose a register" "r" #'counsel-register
+       :desc "View a register" "v" #'view-register
+       :desc "Window configuration to register" "w" #'window-configuration-to-register
+       :desc "Increment register" "+" #'increment-register
+       :desc "Point to register" "SPC" #'point-to-register))
 
 ;; ----------------------------------------------------------------------------------------------------------------------
 
@@ -1228,14 +1498,24 @@ Meant for `doom-change-font-size-hook'."
 
 (add-hook 'org-mode-hook #'+org-pretty-mode)
 
+(use-package! org-auto-tangle
+  :defer t
+  :hook (org-mode . org-auto-tangle-mode)
+  :config
+  (setq org-auto-tangle-default t))
+
 ;; ----------------------------------------------------------------------------------------------------------------------
 
 ;; MARKDOWN
 (custom-set-faces
  '(markdown-header-face ((t (:inherit font-lock-function-name-face :weight bold :family "variable-pitch"))))
- '(markdown-header-face-1 ((t (:inherit markdown-header-face :height 1.8))))
- '(markdown-header-face-2 ((t (:inherit markdown-header-face :height 1.4))))
- '(markdown-header-face-3 ((t (:inherit markdown-header-face :height 1.2)))))
+ '(markdown-header-face-1 ((t (:inherit markdown-header-face :height 1.7))))
+ '(markdown-header-face-2 ((t (:inherit markdown-header-face :height 1.6))))
+ '(markdown-header-face-3 ((t (:inherit markdown-header-face :height 1.5))))
+ '(markdown-header-face-4 ((t (:inherit markdown-header-face :height 1.4))))
+ '(markdown-header-face-5 ((t (:inherit markdown-header-face :height 1.3))))
+ '(markdown-header-face-6 ((t (:inherit markdown-header-face :height 1.2)))))
+
 
 (add-to-list 'load-path (expand-file-name "~/.doom.d/emacs-livedown"))
 (require 'livedown)
@@ -1250,6 +1530,7 @@ Meant for `doom-change-font-size-hook'."
   :ensure t
   :mode ("\\.md\\'" . gfm-mode)
   :commands (markdown-mode gfm-mode)
+  :init (setq markdown-command "multimarkdown"))
   :config
   (setq markdown-command "pandoc --standalone --mathjax -f markdown -t html5"))
 
@@ -1272,7 +1553,14 @@ Meant for `doom-change-font-size-hook'."
   (imp-set-user-filter 'my-markdown-filter)
   (imp-visit-buffer))
 
-(add-to-list 'auto-mode-alist '("\\.mdx\\'" . markdown-mode))
+(autoload 'markdown-mode "markdown-mode"
+   "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist
+             '("\\.\\(?:md\\|markdown\\|mkd\\|mdown\\|mkdn\\|mdwn\\)\\'" . markdown-mode))
+
+(autoload 'gfm-mode "markdown-mode"
+   "Major mode for editing GitHub Flavored Markdown files" t)
+(add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
 
 ;; ----------------------------------------------------------------------------------------------------------------------
 
@@ -2031,28 +2319,28 @@ is selected, only the bare key is returned."
 
 ;; Github Copilot
 
-;; (use-package copilot
-;;   ;; :straight (:host github :repo "zerolfx/copilot.el" :files ("dist" "*.el"))
-;;   :ensure t)
+(use-package copilot
+  ;; :straight (:host github :repo "zerolfx/copilot.el" :files ("dist" "*.el"))
+  :ensure t)
 
-;; ;; accept completion from copilot and fallback to company
-;; (defun my-tab ()
-;;   (interactive)
-;;   (or (copilot-accept-completion)
-;;       (company-indent-or-complete-common nil)))
+;; accept completion from copilot and fallback to company
+(defun my-tab ()
+  (interactive)
+  (or (copilot-accept-completion)
+      (company-indent-or-complete-common nil)))
 
-;; (use-package! copilot
-;;   ;; :hook (prog-mode . copilot-mode)
-;;   :bind (("C-M-<right>" . 'copilot-accept-completion-by-line)
-;;          ;; ("<tab>" . 'copilot-accept-completion-by-word)
-;;          ;; :map company-active-map
-;;          ;; ("<tab>" . 'my-tab)
-;;          ;; ("TAB" . 'my-tab)
-;;          ;; :map company-mode-map
-;;          ;; ("<tab>" . 'my-tab)
-;;          ;; ("TAB" . 'my-tab)
-;;          )
-;;   )
+(use-package! copilot
+  ;; :hook (prog-mode . copilot-mode)
+  :bind (("C-M-<right>" . 'copilot-accept-completion-by-line)
+         ;; ("<tab>" . 'copilot-accept-completion-by-word)
+         ;; :map company-active-map
+         ;; ("<tab>" . 'my-tab)
+         ;; ("TAB" . 'my-tab)
+         ;; :map company-mode-map
+         ;; ("<tab>" . 'my-tab)
+         ;; ("TAB" . 'my-tab)
+         )
+  )
 
 ;; ----------------------------------------------------------------------------------------------------------------------
 
@@ -2098,7 +2386,7 @@ is selected, only the bare key is returned."
   :config
   (pyvenv-mode 1))
 
-(add-hook 'ess-julia-mode-hook #'jedi:ac-setup)
+;; (add-hook 'ess-julia-mode-hook #'jedi:ac-setup)
 ;; (add-hook 'ess-julia-mode-hook #'company-tabnine)
 
 (use-package julia-mode
@@ -2130,17 +2418,17 @@ is selected, only the bare key is returned."
 ;; ;; For ruby
 ;; (add-hook 'ruby-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
 
-(add-to-list 'auto-mode-alist '("\\.R\\'" . ess-r-mode))
-(add-to-list 'auto-mode-alist '("\\.jl\\'" . ess-julia-mode))
+;; (add-to-list 'auto-mode-alist '("\\.R\\'" . ess-r-mode))
+;; (add-to-list 'auto-mode-alist '("\\.jl\\'" . ess-julia-mode))
 
-(set-company-backend! 'ess-r-mode '(company-R-args company-R-objects company-dabbrev-code :separate))
+;; (set-company-backend! 'ess-r-mode '(company-R-args company-R-objects company-dabbrev-code :separate))
 
 (add-hook 'c++-mode-hook #'lsp)
 (add-hook 'python-mode-hook #'lsp)
 (add-hook 'python-mode-hook #'jedi:ac-setup)
 (add-hook 'c-mode-hook #'lsp)
-(add-hook 'ess-r-mode-hook #'lsp)
-(add-hook 'ess-r-mode-hook #'jedi:ac-setup)
+;; (add-hook 'ess-r-mode-hook #'lsp)
+;; (add-hook 'ess-r-mode-hook #'jedi:ac-setup)
 ;; (add-hook 'haskell-mode-hook #'lsp)
 
 (map! :g "C-c h" #'lsp-headerline-breadcrumb-mode)
@@ -2358,108 +2646,108 @@ is selected, only the bare key is returned."
 
 ;; MU4E (Emacs Mail Client)
 
-(use-package mu4e
-  :config
+;; (use-package mu4e
+;;   :config
 
-  (require 'mu4e-org)
+;;   (require 'mu4e-org)
 
-  ;; This is set to 't' to avoid mail syncing issues when using mbsync
-  (setq mu4e-change-filenames-when-moving t)
+;;   ;; This is set to 't' to avoid mail syncing issues when using mbsync
+;;   (setq mu4e-change-filenames-when-moving t)
 
-  (setq mu4e-compose-context-policy 'ask)
+;;   (setq mu4e-compose-context-policy 'ask)
 
-  ;; Refresh mail using isync every 10 minutes
-  (setq mu4e-update-interval (* 10 60))
-  (setq mu4e-get-mail-command "mbsync -a")
-  (setq mu4e-root-maildir "~/Mail")
+;;   ;; Refresh mail using isync every 10 minutes
+;;   (setq mu4e-update-interval (* 10 60))
+;;   (setq mu4e-get-mail-command "mbsync -a")
+;;   (setq mu4e-root-maildir "~/Mail")
 
-  ;; Make sure plain text mails flow correctly for recipients
-  (setq mu4e-compose-format-flowed t)
+;;   ;; Make sure plain text mails flow correctly for recipients
+;;   (setq mu4e-compose-format-flowed t)
 
-  ;; Configure the function to use for sending mail
-  (setq message-send-mail-function 'smtpmail-send-it)
+;;   ;; Configure the function to use for sending mail
+;;   (setq message-send-mail-function 'smtpmail-send-it)
 
-  ;; NOTE: Only use this if you have set up a GPG key!
-  ;; Automatically sign all outgoing mails
-  ;; (add-hook 'message-send-hook 'mml-secure-message-sign-pgpmime)
+;;   ;; NOTE: Only use this if you have set up a GPG key!
+;;   ;; Automatically sign all outgoing mails
+;;   ;; (add-hook 'message-send-hook 'mml-secure-message-sign-pgpmime)
 
-  (setq mu4e-contexts
-        (list
-         ;; Work account
-         (make-mu4e-context
-          :name "Work"
-          :match-func
-          (lambda (msg)
-            (when msg
-              (string-prefix-p "/Gmail" (mu4e-message-field msg :maildir))))
-          :vars '((user-mail-address . "chagantivenkataramireddy1@gmail.com")
-                  (user-full-name    . "Chaganti Reddy")
-                  (smtpmail-smtp-server  . "smtp.gmail.com")
-                  (smtpmail-smtp-service . 465)
-                  (smtpmail-stream-type  . ssl)
-                  (mu4e-compose-signature . "Chaganti Reddy Via Gmail/")
-                  (mu4e-drafts-folder  . "/Gmail/[Gmail]/Drafts/")
-                  (mu4e-sent-folder  . "/Gmail/[Gmail]/Sent Mail/")
-                  (mu4e-refile-folder  . "/Gmail/[Gmail]/All Mail/")
-                  (mu4e-trash-folder  . "/Gmail/[Gmail]/Trash/")))
+;;   (setq mu4e-contexts
+;;         (list
+;;          ;; Work account
+;;          (make-mu4e-context
+;;           :name "Work"
+;;           :match-func
+;;           (lambda (msg)
+;;             (when msg
+;;               (string-prefix-p "/Gmail" (mu4e-message-field msg :maildir))))
+;;           :vars '((user-mail-address . "chagantivenkataramireddy1@gmail.com")
+;;                   (user-full-name    . "Chaganti Reddy")
+;;                   (smtpmail-smtp-server  . "smtp.gmail.com")
+;;                   (smtpmail-smtp-service . 465)
+;;                   (smtpmail-stream-type  . ssl)
+;;                   (mu4e-compose-signature . "Chaganti Reddy Via Gmail/")
+;;                   (mu4e-drafts-folder  . "/Gmail/[Gmail]/Drafts/")
+;;                   (mu4e-sent-folder  . "/Gmail/[Gmail]/Sent Mail/")
+;;                   (mu4e-refile-folder  . "/Gmail/[Gmail]/All Mail/")
+;;                   (mu4e-trash-folder  . "/Gmail/[Gmail]/Trash/")))
 
-         ;; Personal account
-         ;; (make-mu4e-context
-         ;;  :name "Personal"
-         ;;  :match-func
-         ;;  (lambda (msg)
-         ;;    (when msg
-         ;;      (string-prefix-p "/4mail" (mu4e-message-field msg :maildir))))
-         ;;  :vars '((user-mail-address . "chagantivenkataramireddy4@gmail.com")
-         ;;          (user-full-name    . "Chaganti RamiReddy")
-         ;;          (smtpmail-smtp-server  . "smtp.gmail.com")
-         ;;          (smtpmail-smtp-service . 465)
-         ;;          (smtpmail-stream-type  . ssl)
-         ;;          (mu4e-compose-signature . "Chaganti RamiReddy via Gmail")
-         ;;          (mu4e-drafts-folder  . "/4mail/Drafts")
-         ;;          (mu4e-sent-folder  . "/4mail/Sent")
-         ;;          (mu4e-refile-folder  . "/4mail/Archive")
-         ;;          (mu4e-trash-folder  . "/4mail/Trash")))
-         ))
+;;          ;; Personal account
+;;          ;; (make-mu4e-context
+;;          ;;  :name "Personal"
+;;          ;;  :match-func
+;;          ;;  (lambda (msg)
+;;          ;;    (when msg
+;;          ;;      (string-prefix-p "/4mail" (mu4e-message-field msg :maildir))))
+;;          ;;  :vars '((user-mail-address . "chagantivenkataramireddy4@gmail.com")
+;;          ;;          (user-full-name    . "Chaganti RamiReddy")
+;;          ;;          (smtpmail-smtp-server  . "smtp.gmail.com")
+;;          ;;          (smtpmail-smtp-service . 465)
+;;          ;;          (smtpmail-stream-type  . ssl)
+;;          ;;          (mu4e-compose-signature . "Chaganti RamiReddy via Gmail")
+;;          ;;          (mu4e-drafts-folder  . "/4mail/Drafts")
+;;          ;;          (mu4e-sent-folder  . "/4mail/Sent")
+;;          ;;          (mu4e-refile-folder  . "/4mail/Archive")
+;;          ;;          (mu4e-trash-folder  . "/4mail/Trash")))
+;;          ))
 
-  (setq org-capture-templates
-        `(("m" "Email Workflow")
-          ("mf" "Follow Up" entry (file+headline "~/Documents/GitHub/dotfiles/org/Mail.org" "Follow Up")
-           "* TODO Follow up with %:fromname on %a\nSCHEDULED:%t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n\n%i")
-          ("mr" "Read Later" entry (file+headline "~/Documents/GitHub/dotfiles/org/Mail.org" "Read Later")
-           "* TODO Read %:subject\nSCHEDULED:%t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n\n%a\n\n%i")))
+;;   (setq org-capture-templates
+;;         `(("m" "Email Workflow")
+;;           ("mf" "Follow Up" entry (file+headline "~/Documents/GitHub/dotfiles/org/Mail.org" "Follow Up")
+;;            "* TODO Follow up with %:fromname on %a\nSCHEDULED:%t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n\n%i")
+;;           ("mr" "Read Later" entry (file+headline "~/Documents/GitHub/dotfiles/org/Mail.org" "Read Later")
+;;            "* TODO Read %:subject\nSCHEDULED:%t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n\n%a\n\n%i")))
 
-  (defun efs/capture-mail-follow-up (msg)
-    (interactive)
-    (call-interactively 'org-store-link)
-    (org-capture nil "mf"))
+;;   (defun efs/capture-mail-follow-up (msg)
+;;     (interactive)
+;;     (call-interactively 'org-store-link)
+;;     (org-capture nil "mf"))
 
-  (defun efs/capture-mail-read-later (msg)
-    (interactive)
-    (call-interactively 'org-store-link)
-    (org-capture nil "mr"))
+;;   (defun efs/capture-mail-read-later (msg)
+;;     (interactive)
+;;     (call-interactively 'org-store-link)
+;;     (org-capture nil "mr"))
 
-  ;; Add custom actions for our capture templates
-  (add-to-list 'mu4e-headers-actions
-               '("follow up" . efs/capture-mail-follow-up) t)
-  (add-to-list 'mu4e-view-actions
-               '("follow up" . efs/capture-mail-follow-up) t)
-  (add-to-list 'mu4e-headers-actions
-               '("read later" . efs/capture-mail-read-later) t)
-  (add-to-list 'mu4e-view-actions
-               '("read later" . efs/capture-mail-read-later) t)
+;;   ;; Add custom actions for our capture templates
+;;   (add-to-list 'mu4e-headers-actions
+;;                '("follow up" . efs/capture-mail-follow-up) t)
+;;   (add-to-list 'mu4e-view-actions
+;;                '("follow up" . efs/capture-mail-follow-up) t)
+;;   (add-to-list 'mu4e-headers-actions
+;;                '("read later" . efs/capture-mail-read-later) t)
+;;   (add-to-list 'mu4e-view-actions
+;;                '("read later" . efs/capture-mail-read-later) t)
 
-  (defun efs/store-link-to-mu4e-query ()
-    (interactive)
-    (let ((mu4e-org-link-query-in-headers-mode t))
-      (call-interactively 'org-store-link)))
+;;   (defun efs/store-link-to-mu4e-query ()
+;;     (interactive)
+;;     (let ((mu4e-org-link-query-in-headers-mode t))
+;;       (call-interactively 'org-store-link)))
 
-  (setq mu4e-maildir-shortcuts
-        '(("/Inbox/"             . ?i)
-          ("/[Gmail]/Sent Mail/" . ?s)
-          ("/[Gmail]/Trash/"     . ?t)
-          ("/[Gmail]/Drafts/"    . ?d)
-          ("/[Gmail]/All Mail/"  . ?a))))
+;;   (setq mu4e-maildir-shortcuts
+;;         '(("/Inbox/"             . ?i)
+;;           ("/[Gmail]/Sent Mail/" . ?s)
+;;           ("/[Gmail]/Trash/"     . ?t)
+;;           ("/[Gmail]/Drafts/"    . ?d)
+;;           ("/[Gmail]/All Mail/"  . ?a))))
 
 (use-package org-mime
   :config
@@ -2543,35 +2831,35 @@ is selected, only the bare key is returned."
 
 ;; EIN Jupyter Notebook In Emacs
 
-(use-package ein
-  :init
-  (add-hook 'ein:notebook-mode-hook 'jedi:setup)
-  (add-hook 'ein:notebook-mode-hook 'pixel-scroll-mode)
-  (setq ob-ein-languages
-        (quote
-         (("ein-python" . python)
-          ("ein-R" . R)
-          ("ein-r" . R)
-          ("ein-rust" . rust)
-          ("ein-haskell" . haskell)
-          ("ein-julia" . julia))))
-  (setq ein:truncate-long-cell-output nil)
-  (setq ein:output-area-inlined-images t)
-  (setq ein:slice-image t)
-  (setq ein:urls "8888")
+;; (use-package ein
+;;   :init
+;;   (add-hook 'ein:notebook-mode-hook 'jedi:setup)
+;;   (add-hook 'ein:notebook-mode-hook 'pixel-scroll-mode)
+;;   (setq ob-ein-languages
+;;         (quote
+;;          (("ein-python" . python)
+;;           ("ein-R" . R)
+;;           ("ein-r" . R)
+;;           ("ein-rust" . rust)
+;;           ("ein-haskell" . haskell)
+;;           ("ein-julia" . julia))))
+;;   (setq ein:truncate-long-cell-output nil)
+;;   (setq ein:output-area-inlined-images t)
+;;   (setq ein:slice-image t)
+;;   (setq ein:urls "8888")
 
-  :bind
-  ("C-c C-x C-c" . ein:worksheet-clear-all-output)
-  ("C-c C-x C-f" . ein:new-notebook))
+;;   :bind
+;;   ("C-c C-x C-c" . ein:worksheet-clear-all-output)
+;;   ("C-c C-x C-f" . ein:new-notebook))
 
-(add-hook 'ein-ipynb-mode #'format-all-mode)
+;; (add-hook 'ein-ipynb-mode #'format-all-mode)
 
-(setq ein:completion-backend 'ein:use-ac-jedi-backend)
+;; (setq ein:completion-backend 'ein:use-ac-jedi-backend)
 
-(after! ein:ipynb-mode                  ;
-  (poly-ein-mode 1)
-  (hungry-delete-mode -1)
-  )
+;; (after! ein:ipynb-mode                  ;
+;;   (poly-ein-mode 1)
+;;   (hungry-delete-mode -1)
+;;   )
 
 ;; ----------------------------------------------------------------------------------------------------------------------
 
@@ -2592,6 +2880,24 @@ is selected, only the bare key is returned."
 
 ;; CALENDAR
 ;; https://stackoverflow.com/questions/9547912/emacs-calendar-show-more-than-3-months
+
+(require 'calendar)
+(defun ram/insert-any-date (date)
+  "Insert DATE using the current locale."
+  (interactive (list (calendar-read-date)))
+  (insert (calendar-date-string date)))
+(defun ram/insert-todays-date (prefix)
+  (interactive "P")
+  (let ((format (cond
+                 ((not prefix) "%A, %B %d, %Y")
+                 ((equal prefix '(4)) "%m-%d-%Y")
+                 ((equal prefix '(16)) "%Y-%m-%d"))))
+    (insert (format-time-string format))))
+(map! :leader
+      (:prefix ("i d" . "Insert date")
+        :desc "Insert any date" "a" #'ram/insert-any-date
+        :desc "Insert todays date" "t" #'ram/insert-todays-date))
+
 (defun ram/year-calendar (&optional year)
   (interactive)
   (require 'calendar)
@@ -2870,26 +3176,26 @@ is selected, only the bare key is returned."
 (evil-define-key 'normal elfeed-search-mode-map
   (kbd "J") 'elfeed-goodies/split-show-next
   (kbd "K") 'elfeed-goodies/split-show-prev)
-;; (setq elfeed-feeds (quote
-;;                     (("http://planetpython.org/rss20.xml" python)
-;;                      ("https://www.reddit.com/r/linux.rss" reddit linux)
-;;                      ("https://www.reddit.com/r/commandline.rss" reddit commandline)
-;;                      ("https://www.reddit.com/r/distrotube.rss" reddit distrotube)
-;;                      ("https://www.reddit.com/r/emacs.rss" reddit emacs)
-;;                      ("https://www.gamingonlinux.com/article_rss.php" gaming linux)
-;;                      ("https://hackaday.com/blog/feed/" hackaday linux)
-;;                      ("https://opensource.com/feed" opensource linux)
-;;                      ("https://linux.softpedia.com/backend.xml" softpedia linux)
-;;                      ("https://itsfoss.com/feed/" itsfoss linux)
-;;                      ("https://www.zdnet.com/topic/linux/rss.xml" zdnet linux)
-;;                      ("https://www.phoronix.com/rss.php" phoronix linux)
-;;                      ("http://feeds.feedburner.com/d0od" omgubuntu linux)
-;;                      ("https://www.computerworld.com/index.rss" computerworld linux)
-;;                      ("https://www.networkworld.com/category/linux/index.rss" networkworld linux)
-;;                      ("https://www.techrepublic.com/rssfeeds/topic/open-source/" techrepublic linux)
-;;                      ("https://betanews.com/feed" betanews linux)
-;;                      ("http://lxer.com/module/newswire/headlines.rss" lxer linux)
-;;                      ("https://distrowatch.com/news/dwd.xml" distrowatch linux))))
+(setq elfeed-feeds (quote
+                    (("https://www.reddit.com/r/linux.rss" reddit linux)
+                     ("https://www.reddit.com/r/commandline.rss" reddit commandline)
+                     ("https://www.reddit.com/r/distrotube.rss" reddit distrotube)
+                     ("https://www.reddit.com/r/emacs.rss" reddit emacs)
+                     ("https://www.gamingonlinux.com/article_rss.php" gaming linux)
+                     ("https://hackaday.com/blog/feed/" hackaday linux)
+                     ("https://opensource.com/feed" opensource linux)
+                     ("https://linux.softpedia.com/backend.xml" softpedia linux)
+                     ("https://itsfoss.com/feed/" itsfoss linux)
+                     ("https://www.zdnet.com/topic/linux/rss.xml" zdnet linux)
+                     ("https://www.phoronix.com/rss.php" phoronix linux)
+                     ("http://feeds.feedburner.com/d0od" omgubuntu linux)
+                     ("https://www.computerworld.com/index.rss" computerworld linux)
+                     ("https://www.networkworld.com/category/linux/index.rss" networkworld linux)
+                     ("https://www.techrepublic.com/rssfeeds/topic/open-source/" techrepublic linux)
+                     ("https://betanews.com/feed" betanews linux)
+                     ("http://lxer.com/module/newswire/headlines.rss" lxer linux)
+                     ("https://distrowatch.com/news/dwd.xml" distrowatch linux))))
+
 
 (setq elfeed-search-title-max-width 150)
 (setq elfeed-search-trailing-width 30)
@@ -3065,21 +3371,21 @@ is selected, only the bare key is returned."
 ;; EMMS
 ;; One of the media players available for Emacs is emms, which stands for Emacs Multimedia System.  By default, Doom Emacs does not use ‘SPC a’,’ so the format I use for these bindings is ‘SPC a’ plus ‘key’.
 
-;; (emms-all)
-;; (emms-default-players)
-;; (emms-mode-line 1)
-;; (emms-playing-time 1)
-;; (setq emms-source-file-default-directory "~/Music/MUS"
-;;       emms-playlist-buffer-name "*Music*"
-;;       emms-info-asynchronously t
-;;       emms-source-file-directory-tree-function 'emms-source-file-directory-tree-find)
-;; (map! :leader
-;;       (:prefix ("m" . "EMMS audio player")
-;;        :desc "Go to emms playlist" "a" #'emms-playlist-mode-go
-;;        :desc "Emms pause track" "x" #'emms-pause
-;;        :desc "Emms stop track" "s" #'emms-stop
-;;        :desc "Emms play previous track" "p" #'emms-previous
-;;        :desc "Emms play next track" "n" #'emms-next))
+(emms-all)
+(emms-default-players)
+(emms-mode-line 1)
+(emms-playing-time 1)
+(setq emms-source-file-default-directory "~/Music/MUS"
+      emms-playlist-buffer-name "*Music*"
+      emms-info-asynchronously t
+      emms-source-file-directory-tree-function 'emms-source-file-directory-tree-find)
+(map! :leader
+      (:prefix ("m" . "EMMS audio player")
+       :desc "Go to emms playlist" "a" #'emms-playlist-mode-go
+       :desc "Emms pause track" "x" #'emms-pause
+       :desc "Emms stop track" "s" #'emms-stop
+       :desc "Emms play previous track" "p" #'emms-previous
+       :desc "Emms play next track" "n" #'emms-next))
 
 ;; ----------------------------------------------------------------------------------------------------------------------
 
@@ -3279,13 +3585,13 @@ allowfullscreen>%s</iframe>" path (or "" desc)))
 ;; Wakatime
 ;; Wakatime is a monitoring tool for time spent while programming that gives metrics per language or per project. Currently I’m dabbling on Emacs specifically Doom Emacs. Wakatime is avaiable in almost all text editor.
 ;; Time Tracking
-;; (use-package wakatime-mode
-;;   :diminish 'wakatime-mode
-;;   :init
-;;   (add-hook 'prog-mode-hook 'wakatime-mode)
-;;   :config (progn (setq wakatime-cli-path "~/.local/bin/wakatime")
-;;                  (setq wakatime-python-bin nil)
-;;                  (global-wakatime-mode)))
+(use-package wakatime-mode
+  :diminish 'wakatime-mode
+  :init
+  (add-hook 'prog-mode-hook 'wakatime-mode)
+  :config (progn (setq wakatime-cli-path "~/.local/bin/wakatime")
+                 (setq wakatime-python-bin nil)
+                 (global-wakatime-mode)))
 
 ;; ----------------------------------------------------------------------------------------------------------------------
 
@@ -3661,24 +3967,24 @@ allowfullscreen>%s</iframe>" path (or "" desc)))
 
 ;; COMPILE AND RUN C++
 
-(defun my/vterm-execute-cpp ()
-  "Insert text of current line in vterm and execute."
-  (interactive)
-  (require 'vterm)
-  (eval-when-compile (require 'subr-x))
-  (let ((command (concat "g++ -std=c++17 " (buffer-name) " -o a.out && ./a.out")))
-    (let ((buf (current-buffer)))
-      (unless (get-buffer vterm-buffer-name)
-        (vterm))
-      (display-buffer vterm-buffer-name t)
-      ;; (switch-to-buffer-other-window vterm-buffer-name)
-      (vterm--goto-line -1)
-      (message command)
-      (vterm-send-string command)
-      (vterm-send-return)
-      ;; (switch-to-buffer-other-window buf)
-      )))
+;; (defun my/vterm-execute-cpp ()
+;;   "Insert text of current line in vterm and execute."
+;;   (interactive)
+;;   (require 'vterm)
+;;   (eval-when-compile (require 'subr-x))
+;;   (let ((command (concat "g++ -std=c++17 " (buffer-name) " -o a.out && ./a.out")))
+;;     (let ((buf (current-buffer)))
+;;       (unless (get-buffer vterm-buffer-name)
+;;         (vterm))
+;;       (display-buffer vterm-buffer-name t)
+;;       ;; (switch-to-buffer-other-window vterm-buffer-name)
+;;       (vterm--goto-line -1)
+;;       (message command)
+;;       (vterm-send-string command)
+;;       (vterm-send-return)
+;;       ;; (switch-to-buffer-other-window buf)
+;;       )))
 
-(global-set-key [f9] 'my/vterm-execute-cpp)
+;; (global-set-key [f9] 'my/vterm-execute-cpp)
 
 ;; ----------------------------------------------------------------------------------------------------------------------
