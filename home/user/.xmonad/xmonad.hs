@@ -128,6 +128,7 @@ myStartupHook = do
     spawn "mpv"
     spawnOnce "eww daemon"
     spawnOnce "firewall-applet"
+    spawnOnce "pcmanfm-qt -d &"
     -- spawnOnce "~/.xmonad/startsound.sh"
     spawnOnce "picom"
     -- spawnOnce "mailspring"
@@ -210,16 +211,16 @@ spawnSelected' lst = gridselect conf lst >>= flip whenJust spawn
 myAppGrid = [ ("Virtual Manager", "virt-manager")
                  , ("Firefox", "firefox")
                  , ("File Manager", "pcmanfm-qt")
-                 -- , ("Emacs", "emacsclient -c -a emacs")
+                 , ("Emacs", "emacsclient -c -a emacs")
                  , ("Code", "code")
-                 -- , ("Sublime Text", "subl")
+                 , ("Sublime Text", "subl")
                  , ("Telegram", "telegram-desktop")
                  , ("Office", "libreoffice")
                  , ("Lunar vim", "alacritty -e lvim")
                  , ("Zathura", "zathura")
                  -- , ("MYSql", "beekeeper-studio")
                  , ("Github", "github-desktop")
-                 -- , ("Chess", "cd LucasChessR/bin/ && ./LucasR &")
+                 , ("Chess", "firefox chess.com")
                  , ("TimeShift", "timeshift-launcher")
                  -- , ("OBS", "obs")
                  -- , ("Discord", "discord")
@@ -416,7 +417,7 @@ myManageHook = composeAll
      , className =? "Yad"             --> doCenterFloat
      , className =? "Tk"             --> doCenterFloat
      , title =? "Oracle VM VirtualBox Manager"  --> doFloat
-     , title =? "Mozilla Firefox"     --> doShift ( myWorkspaces !! 1 )
+     , title =? "Firefox"     --> doShift ( myWorkspaces !! 1 )
      , className =? "Brave-browser"   --> doShift ( myWorkspaces !! 1 )
      , title =? "Discord"             --> doShift ( myWorkspaces !! 5 )
      --, className =? "mpv"             --> doShift ( myWorkspaces !! 7 )
@@ -546,7 +547,7 @@ myKeys c =
         ^++^ subKeys "Personal Apps"
         [ ("M-<Return>", addName "Open Terminal" $ spawn myTerminal)
         , ("M-w", addName "Open Browser" $ spawn myBrowser)
-        , ("M-a", addName "Open Vim" $ spawn "emacsclient -c -a 'nvim'")
+        , ("M-a", addName "Open Emacs" $ spawn "emacsclient -c -a 'emacs'")
         , ("M-S-n", addName "Open File Manager" $ spawn "pcmanfm-qt")
         , ("M-n", addName "Open Ranger" $ spawn (myTerminal ++ " -e ranger"))
         , ("M-C-n", addName "Open Music Player" $ spawn (myTerminal ++ " -e ncmpcpp"))
