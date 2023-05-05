@@ -60,9 +60,10 @@ ramp-foreground = ${color.background}
 [module/volume]
 type = internal/pulseaudio
 
-sink = alsa_output.pci-0000_12_00.3.analog-stereo
+#sink = alsa_output.pci-0000_12_00.3.analog-stereo
+sink = bluez_sink.9C_43_1E_01_B4_C3.handsfree_head_unit
 
-use-ui-max = false
+use-ui-max = true
 
 interval =3 
 
@@ -314,7 +315,7 @@ content-font =
 content-foreground= ${color.background}
 content-background = ${color.green} 
 content-padding = 1
-click-left=~/.local/bin/rofi-wifi-menu.sh | rofi
+click-left=~/.local/bin/rofi-wifi-menu.sh
 
 [module/bluetooth]
 type = custom/text

@@ -181,12 +181,12 @@ super + {Left,Down,Up,Right}
 
 # Multimedia keys
 XF86AudioRaiseVolume
- pamixer -i 3 
+ pamixer -i 3 --allow-boost 
 # amixer -q set Master 5%+ unmute
 
 # Still muøltimedia
 XF86AudioLowerVolume
- pamixer -d 3
+ pamixer -d 3 --allow-boost
 #amixer -q set Master 5%- unmute
 
 # still
