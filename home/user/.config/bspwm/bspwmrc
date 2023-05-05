@@ -14,7 +14,8 @@ numlockx &
 #dropbox &
 gpg-connect-agent /bye &
 /usr/bin/emacs --daemon &
-whatsie &
+#whatsie &
+xscreensaver -nosplash &
 
 
 workspaces() {
@@ -105,7 +106,7 @@ ksuperkey -e 'Super_R=Alt_L|F1' &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 #/usr/lib/geoclue-2.0/demos/agent &
 # redshift-gtk &
-~/.xmonad/startsound.sh &
+~/.config/bspwm/startsound.sh &
 # Launch keybindings daemon
 sxhkd &
 # Low battery notifier
@@ -132,4 +133,4 @@ picom --config $HOME/.config/bspwm/picom.conf &
 #XFCE_TERM_PATH="$HOME/.config/xfce4/terminal"
 #cp "$XFCE_TERM_PATH"/colorschemes/tokyo-night "$XFCE_TERM_PATH"/terminalrc
 
-~/.xmonad/wall_change.sh
+~/.config/bspwm/wall_change.sh
