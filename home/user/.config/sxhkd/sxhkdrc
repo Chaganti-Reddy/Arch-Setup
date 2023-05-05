@@ -20,7 +20,7 @@ super + alt + {1,2,3,4,5,6,7,8,9}
 
 #Lock Screen
 super + l
-    slock
+    xscreensaver-command -lock
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -209,22 +209,16 @@ super + F10
 # Shortcuts
 
 super + w
-  brave 
-
-super + shift + w
-  qutebrowser
+  firefox 
 
 ctrl + shift + w
   whatsdesk
   
-ctrl + shift + t
-  telegram-desktop
-
 super + shift + n
   pcmanfm-qt
 
 super + n
-  alacritty -e ranger
+  kitty -e ranger
 
 # Expanding windows
 super + control + {Left,Right,Up,Down}
@@ -244,7 +238,7 @@ super + F8
 	mpc next
 
 super + shift + m
-	alacritty -e ncmpcpp
+	kitty -e ncmpcpp
 
 #shift + r
 #  rstudio-bin
