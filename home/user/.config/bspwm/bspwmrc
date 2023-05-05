@@ -10,7 +10,6 @@ $HOME/.config/bspwm/polybar/launch.sh
 mpd &
 mpc &
 numlockx &
-pamixer --set-volume 0
 #blueman-applet &
 #dropbox &
 gpg-connect-agent /bye &

@@ -84,3 +84,4 @@ exec mpd
 exec mpc
 xsetroot -cursor_name left_ptr
 numlockx &
+pamixer --set-volume 0
