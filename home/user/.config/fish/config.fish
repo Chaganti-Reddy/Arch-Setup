@@ -297,7 +297,7 @@ alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
 alias hw='hwinfo --short'                                   # Hardware Info
 alias big="expac -H M '%m\t%n' | sort -h | nl"              # Sort installed packages according to size in MB
-alias gitpkg='pacman -Q | grep -i "\-git" | wc -l'			# List amount of -git packages
+#alias gitpkg='pacman -Q | grep -i "\-git" | wc -l'			# List amount of -git packages
 
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 
@@ -324,15 +324,16 @@ alias pscpu='ps auxf | sort -nr -k 3'
 #alias merge='xrdb -merge ~/.Xresources'
 
 # git
+alias gs='git status'
 #alias addup='git add -u'
-#alias addall='git add .'
+alias addall='git add .'
 #alias branch='git branch'
 #alias checkout='git checkout'
-#alias clone='git clone'
-#alias commit='git commit -m'
+alias gc='git clone'
+alias commit='git commit -m'
 #alias fetch='git fetch'
-#alias pull='git pull origin'
-#alias push='git push origin'
+alias pull='git pull origin'
+alias push='git push origin'
 #alias tag='git tag'
 #alias newtag='git tag -a'
 
@@ -389,13 +390,10 @@ colorscript random
 #starship init fish | source
 fnm env | source
 zoxide init fish | source
-alias vi="lvim"
-alias nvim="lvim"
-alias svi="sudo lvim"
+alias svi="sudo nvim"
 alias su="sudo fish"
 alias r="radian"
 #alias cl="clear"
-alias gc="git clone"
 alias grub-update="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 alias bspr="bspc wm -r"
 alias jl="jupyter-lab"
