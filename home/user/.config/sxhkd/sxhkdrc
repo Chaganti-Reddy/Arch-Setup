@@ -4,7 +4,8 @@
 
 # terminal emulator
 super + Return
-	alacritty
+#	alacritty
+  kitty
 
 # program launcher
 super + d
@@ -237,10 +238,10 @@ super + space
 #alt + Tab
 #  bspc node @/ -C {backward}
 
-ctrl +e 
+alt +e 
   rofi -show emoji
 
-shift + c 
+ctrl + alt + c 
   rofi -show calc
 
 alt + Tab

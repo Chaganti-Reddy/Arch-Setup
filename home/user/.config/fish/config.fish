@@ -420,14 +420,10 @@ alias lock="betterlockscreen -l"
 alias createvirtual2="virtualenv --python="/usr/bin/python2.7" "my_env""
 
 ## Starship prompt
-if status --is-interactive
-   source ("/usr/bin/starship" init fish --print-full-init | psub)
-end
-
-## Run neofetch if session is interactive
-#if status --is-interactive && type -q neofetch
-#   neofetch
-#end
+#if status --is-interactive
+  # source ("/usr/bin/starship" init fish --print-full-init | psub)
+   #end
+starship init fish | source
 
 set -Ux FZF_DEFAULT_OPTS "--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4"
 
@@ -447,7 +443,5 @@ end
 bind \cl 'clear; commandline -f repaint'
 bind \cH 'backward-kill-path-component'
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-# eval /home/ram/anaconda3/bin/conda "shell.fish" "hook" $argv | source
-# <<< conda initialize <<<
+alias CP='cd /media/Files/CP'
+alias vim='nvim'
