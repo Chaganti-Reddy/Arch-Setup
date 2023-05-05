@@ -61,7 +61,7 @@ ramp-foreground = ${color.background}
 type = internal/pulseaudio
 
 #sink = alsa_output.pci-0000_12_00.3.analog-stereo
-sink = bluez_sink.9C_43_1E_01_B4_C3.handsfree_head_unit
+sink = bluez_sink.9C_43_1E_01_B4_C3.a2dp_sink
 
 use-ui-max = true
 
