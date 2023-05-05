@@ -53,15 +53,6 @@ super + y
 super + g
 	bspc node -s biggest.window
 
-super + shift + c
-  gnome-chess
-
-#super + shift + j
-#  obsidian
-
-super + shift + b
-  beekeeper-studio
-
 #
 # state/flags
 #
@@ -74,30 +65,18 @@ super + f
 #	bspc desktop -l next
     bspc node -t "~"fullscreen
 
-# Sublime Text
-#shift + e
-#	subl
-
-
-
 # Visual Studio Code
 shift + v
 	code
 
 super + v
-	alacritty -e nvim
+	kitty -e nvim
 
-super + a
-  emacsclient -c -a 'emacs'
-
-ctrl +shift + g
-      github-desktop
+# super + a
+  # emacsclient -c -a 'emacs'
 
 super + shift + v
 	virt-manager
-
-super + shift + d
-	discord
 
 super + alt + h
 	alacritty -e htop
@@ -106,7 +85,6 @@ super + alt + h
 super + ctrl + {m,x,y,z}
 	bspc node -g {marked,locked,sticky,private}
 
-#
 # focus/swap
 #
 
@@ -211,9 +189,6 @@ super + F10
 super + w
   firefox 
 
-ctrl + shift + w
-  whatsdesk
-  
 super + shift + n
   pcmanfm-qt
 
@@ -239,9 +214,6 @@ super + F8
 
 super + shift + m
 	kitty -e ncmpcpp
-
-#shift + r
-#  rstudio-bin
 
 shift + super + s 
   flameshot gui
