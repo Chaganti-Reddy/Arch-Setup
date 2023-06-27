@@ -65,7 +65,7 @@ Note : All the commands in the quotes should be type without quotes...
 #+begin_quote
 + Here you can use linux and linux-headers instead of linux-lts if you want to use latest unstable kernal, but if you want to use latest stable kernal then do it for linux-lts
 
-+ Also you have to install amd-ucode if your machine is amd and also install your favourite terminal text-editor (nano is better in my opinion)
++ Also you have to install amd-ucode if your machine is amd and also install your favourite terminal text-editor (neovim is better in my opinion)
 #+end_quote
 
 **** Now after completition of installation we have to generate fstab file which is useful for loading our disks on start-up of machine
