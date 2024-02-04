@@ -1,8 +1,0 @@
-#+title: My Agendas
-
-* Feynn Labs project 1
-*** DONE Feynn lab project 1
-DEADLINE: <2022-05-02 Mon>
-
-* Microsoft Azure AI Exam
-** TODO Microsoft Azure AI 900 Exam SCHEDULED: <2022-06-30 Thu>
