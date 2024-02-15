@@ -57,6 +57,7 @@ static const Rule rules[] = {
 	 */
 	/* class                instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
 	{ "TelegramDesktop",    NULL,     NULL,           0,          1,          0,           0,        -1 },
+	{ "Blueman-manager",    NULL,     NULL,           0,          1,          0,           0,        -1 },
 	{ "obs",                NULL,     NULL,           0,          1,          0,           0,        -1 },
 	{ "floorp",   		      NULL,     NULL,           1 << 1,     0,          0,          -1,        -1 },
 	{ "thorium-browser",    NULL,     NULL,           1 << 2,     0,          0,          -1,        -1 },
