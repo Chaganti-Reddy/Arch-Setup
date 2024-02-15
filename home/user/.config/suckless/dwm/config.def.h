@@ -174,7 +174,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ControlMask|ShiftMask,	XK_r,      quit,           {1} },
 	{ MODKEY|ControlMask|ShiftMask,	XK_q,      quit,           {0} },
-  { MODKEY,            			      XK_y,  	   togglescratch,  {.ui = 0 } },
+  { 0,            			          XK_F12,  	   togglescratch,  {.ui = 0 } },
 	{ MODKEY,            			      XK_u,	     togglescratch,  {.ui = 1 } },
 	{ MODKEY,            			      XK_x,	     togglescratch,  {.ui = 2 } },
  	// { MODKEY,									  XK_F10,	 	 spawn,		       SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-; kill -44 $(pidof dwmblocks)") },
@@ -186,7 +186,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,						  XK_F11,	   spawn,		       SHCMD("brightnessctl s 5%+; dunstify 'Brightness Raised by 5%'")},
 	{ MODKEY|ShiftMask,						  XK_F10,	   spawn,		       SHCMD("brightnessctl s 5%-; dunstify 'Brightness Lowered by 5%'")},
 	{ MODKEY,         						  XK_v,	     spawn,		       SHCMD("clipmenu -i -fn JetBrainsMonoNL:10")},
-	{ MODKEY,         						  XK_n,	     spawn,		       SHCMD("~/.dwm/dbdb")},
+	{ MODKEY,         						  XK_n,	     spawn,		       SHCMD("dfm")},
   { MODKEY,                       XK_w,      spawn,          {.v = browser } },
   { MODKEY|ShiftMask,             XK_n,      spawn,          {.v = files } },
 };
