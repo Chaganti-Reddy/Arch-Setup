@@ -1,0 +1,46 @@
+#!/bin/bash
+
+function get_volume {
+    wpctl get-volume @DEFAULT_SINK@ | awk '{print int($2 * 100)}'
+}
+
+
+function is_mute {
+    wpctl get-volume @DEFAULT_SINK@ | grep -q "\[MUTED\]"
+}
+
+
+
+function send_notification {
+    volume=$(get_volume)
+    icon="🔊" # Volume icon
+
+    if is_mute; then
+        mute_status=" [MUTED]"
+    else
+        mute_status=""
+    fi
+
+    bar=$(seq -s "─" $(($volume / 5)) | sed 's/[0-9]//g')
+    dunstify -i audio-volume-muted-blocking -r 2593 -u normal "$icon   $volume%$mute_status"
+}
+
+case $1 in
+    up)
+        wpctl set-volume @DEFAULT_SINK@ 5%+
+        send_notification
+        ;;
+    down)
+        wpctl set-volume @DEFAULT_SINK@ 5%-
+        send_notification
+        ;;
+    mute)
+        wpctl set-mute @DEFAULT_SINK@ toggle
+        if is_mute ; then
+            # dunstify -i audio-volume-muted -r 2593 -u normal "Mute"
+            send_notification
+        else
+            send_notification
+        fi
+        ;;
+esac
