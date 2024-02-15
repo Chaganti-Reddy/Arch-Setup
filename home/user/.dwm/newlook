@@ -1,0 +1,12 @@
+#!/bin/bash
+
+wall=$(find /mnt/Extras/dotfiles/home/user/Pictures/Wall -type f -name "*.jpg"  -o -name "*.png" | shuf -n 1)
+
+xwallpaper --zoom $wall
+
+wal -c
+wal -i $wall
+
+xdotool key super+F5
+
+dunstify "Colours changed according to Wallpaper..."
