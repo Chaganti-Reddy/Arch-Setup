@@ -105,6 +105,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
 
+eval "$(zoxide init zsh)"
 
 ## Functions
 
@@ -158,6 +159,7 @@ function mosspy() {
 ## Aliases
 
 #list
+alias cd="z"
 alias la='exa -al --colour=always --group-directories-first'
 alias ll='exa -a --colour=always --group-directories-first'
 alias ls='exa -l --colour=always --group-directories-first'
