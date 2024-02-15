@@ -1,5 +1,6 @@
 #!/bin/bash
 #
+#
 /home/ram/.dwm/newlook &
 /usr/lib/polkit-kde-authentication-agent-1 &
 numlockx &
