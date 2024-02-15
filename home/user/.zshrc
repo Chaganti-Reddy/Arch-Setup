@@ -160,6 +160,7 @@ function mosspy() {
 
 #list
 alias cd="z"
+alias cdi="zi"
 alias la='exa -al --colour=always --group-directories-first'
 alias ll='exa -a --colour=always --group-directories-first'
 alias ls='exa -l --colour=always --group-directories-first'
