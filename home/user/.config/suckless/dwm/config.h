@@ -186,7 +186,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,						  XK_F11,	   spawn,		       SHCMD("brightnessctl s 5%+; dunstify 'Brightness Raised by 5%'")},
 	{ MODKEY|ShiftMask,						  XK_F10,	   spawn,		       SHCMD("brightnessctl s 5%-; dunstify 'Brightness Lowered by 5%'")},
 	{ MODKEY,         						  XK_v,	     spawn,		       SHCMD("clipmenu -i -fn JetBrainsMonoNL:10")},
-	{ MODKEY,         						  XK_n,	     spawn,		       SHCMD("dfm")},
+	{ MODKEY,         						  XK_n,	     spawn,		       SHCMD("dfm -f -o")},
   { MODKEY,                       XK_w,      spawn,          {.v = browser } },
   { MODKEY|ShiftMask,             XK_n,      spawn,          {.v = files } },
 };
