@@ -281,6 +281,19 @@ alias rg="rg --sort path"
 alias ssn="sudo shutdown now"
 alias sr="reboot"
 
+# DWM 
+alias makedwm="cd ~/.config/suckless/dwm && rm config.h --f && sudo make clean install && rm config.h --f"
+alias dwmcon="nvim ~/.config/suckless/dwm/config.def.h"
+alias slstatuscon="nvim ~/.config/suckless/slstatus/config.def.h"
+alias updatedwmdot="rm -rf /mnt/Extras/dotfiles/home/user/.config/suckless && cp -r ~/.config/suckless/ /mnt/Extras/dotfiles/home/user/.config/ && rm -rf /mnt/Extras/dotfiles/home/user/.dwm && cp -r ~/.dwm /mnt/Extras/dotfiles/home/user/"
+alias dotfiles="cd /mnt/Extras/dotfiles/"
+
+#git 
+alias gs="git status"
+alias ga="git add"
+alias gc="git commit -m"
+alias gp="git push"
+
 
 ## ---------------------------------------------------------------------------------------
 
@@ -289,6 +302,7 @@ alias sr="reboot"
 export EDITOR='nvim'
 export PAGER='bat'
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 SUDO_EDITOR=/usr/bin/nvim
 export SUDO_EDITOR
