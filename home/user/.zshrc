@@ -282,7 +282,7 @@ alias ssn="sudo shutdown now"
 alias sr="reboot"
 
 # DWM 
-alias makedwm="cd ~/.config/suckless/dwm && rm config.h --f && sudo make clean install && rm config.h --f"
+alias makedwm="cd ~/.config/suckless/dwm && rm config.h --f && sudo make clean install"
 alias dwmcon="nvim ~/.config/suckless/dwm/config.def.h"
 alias slstatuscon="nvim ~/.config/suckless/slstatus/config.def.h"
 alias updatedwmdot="rm -rf /mnt/Extras/dotfiles/home/user/.config/suckless && cp -r ~/.config/suckless/ /mnt/Extras/dotfiles/home/user/.config/ && rm -rf /mnt/Extras/dotfiles/home/user/.dwm && cp -r ~/.dwm /mnt/Extras/dotfiles/home/user/"
