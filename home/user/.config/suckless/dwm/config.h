@@ -17,7 +17,14 @@ static       int smartgaps          = 1;        /* 1 means no outer gap when the
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "JetBrains Mono:size=11", "JoyPixels:pixelsize=11:antialias=true:autohint=true"};
+// static const char *fonts[]          = { "JetBrains Mono:size=11", "JoyPixels:pixelsize=11:antialias=true:autohint=true"};
+
+static const char *fonts[]     ={"JetBrainsMonoNL:weight=bold:size=11:antialias=true:hinting=true",
+                                  "Ubuntu:weight=bold:size=11:antialias=true:hinting=true",
+                                  "Hack:size=11:antialias=true:autohint=true",
+                                  "fontawesome:size=11:antialias=true:hinting=true",
+                                  "JoyPixels:size=11:antialias=true:autohint=true"
+						     	};
 static const char dmenufont[]       = "JetBrains Mono:size=11";
 static char normbgcolor[]           = "#222222";
 static char normbordercolor[]       = "#444444";
@@ -47,8 +54,9 @@ static Sp scratchpads[] = {
 
 
 /* tagging */
-//static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+// static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
+static const char *tags[] = { "", "", "", "", "",  "", "", "",  "" };
+// static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -184,8 +192,11 @@ static Key keys[] = {
 	{ MODKEY,         						  XK_F9,	   spawn,		       SHCMD("~/.dwm/volume mute")},
 	{ MODKEY,         						  XK_F10,	   spawn,		       SHCMD("~/.dwm/volume down")},
 	{ MODKEY,         						  XK_F11,	   spawn,		       SHCMD("~/.dwm/volume up")},
-	{ MODKEY|ShiftMask,						  XK_F11,	   spawn,		       SHCMD("brightnessctl s 5%+; dunstify 'Brightness Raised by 5%'")},
-	{ MODKEY|ShiftMask,						  XK_F10,	   spawn,		       SHCMD("brightnessctl s 5%-; dunstify 'Brightness Lowered by 5%'")},
+	{ MODKEY|ShiftMask,         		XK_F9,	   spawn,		       SHCMD("~/.dwm/volume micmute")},
+	// { MODKEY|ShiftMask,						  XK_F11,	   spawn,		       SHCMD("brightnessctl s 5%+; dunstify 'Brightness Raised by 5%'")},
+	// { MODKEY|ShiftMask,						  XK_F10,	   spawn,		       SHCMD("brightnessctl s 5%-; dunstify 'Brightness Lowered by 5%'")},
+  { MODKEY|ShiftMask,						  XK_F11,	   spawn,		       SHCMD("brightnessctl s 5%+")},
+	{ MODKEY|ShiftMask,						  XK_F10,	   spawn,		       SHCMD("brightnessctl s 5%-")},
 	{ MODKEY,         						  XK_v,	     spawn,		       SHCMD("clipmenu -i -fn JetBrainsMonoNL:10")},
 	{ MODKEY,         						  XK_n,	     spawn,		       SHCMD("~/.dwm/dmenu_file")},
   { MODKEY,                       XK_w,      spawn,          {.v = browser } },
