@@ -27,7 +27,7 @@ case $ACTION in
         # fi
         # ;;
         # SELECTED_WALLPAPER=$(find "$WALLPAPER_DIR" -type f | sxiv -t -o . | awk '{print $NF}')
-        SELECTED_WALLPAPER=$(sxiv -to /mnt/Extrasbetterlockscreen -l -u ~/.walcache/1 --display 1/dotfiles/home/user/Pictures/Wall | awk '{print $NF}')
+        SELECTED_WALLPAPER=$(sxiv -to /mnt/Extras/dotfiles/home/user/Pictures/Wall | awk '{print $NF}')
         # Check if a wallpaper was selected
         if [ -n "$SELECTED_WALLPAPER" ]; then
             # Set the wallpaper
