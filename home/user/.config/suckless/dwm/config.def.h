@@ -207,7 +207,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,         		XK_p,	     spawn,		       SHCMD("~/.dwm/scripts/power")},
 	{ MODKEY|ShiftMask,         		XK_a,	     spawn,		       SHCMD("~/.dwm/scripts/script")},
 	{ MODKEY|ShiftMask,         		XK_s,	     spawn,		       SHCMD("flameshot gui")},
-	{ MODKEY|Mod1Mask,         		  XK_s,	     spawn,		       SHCMD("betterlockscreen -l -q")},
+	{ MODKEY|Mod1Mask,         		  XK_l,	     spawn,		       SHCMD("betterlockscreen -l -q")},
 	{ MODKEY|ControlMask|ShiftMask, XK_i,	     spawn,		       SHCMD("networkmanager_dmenu")},
   { MODKEY,                       XK_w,      spawn,          {.v = browser } },
   { MODKEY|ShiftMask,             XK_n,      spawn,          {.v = files } },
