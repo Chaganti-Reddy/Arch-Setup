@@ -11,22 +11,6 @@ ACTION=$(echo -e "Choose\nRandom\nExit" | dmenu -i -l 5 -p "What would you like 
 
 case $ACTION in
     "Choose")
-        # Prompt user to select a wallpaper using dmenu
-        # SELECTED_WALLPAPER=$(echo "$WALLPAPERS" | dmenu -i -l 8 -p "Select wallpaper:")
-        #
-        # # Check if a wallpaper was selected
-        # if [ -n "$SELECTED_WALLPAPER" ]; then
-        #     # Set the wallpaper
-        #     xwallpaper --zoom "$WALLPAPER_DIR/$SELECTED_WALLPAPER"
-        #     wal -c
-        #     wal -i "$WALLPAPER_DIR/$SELECTED_WALLPAPER"
-        #     xdotool key super+F5
-        #     dunstify "Wallpaper Changed..."
-        # else
-        #     echo "No wallpaper selected."
-        # fi
-        # ;;
-        # SELECTED_WALLPAPER=$(find "$WALLPAPER_DIR" -type f | sxiv -t -o . | awk '{print $NF}')
         SELECTED_WALLPAPER=$(sxiv -to /mnt/Extras/dotfiles/home/user/Pictures/Wall | awk '{print $NF}')
         # Check if a wallpaper was selected
         if [ -n "$SELECTED_WALLPAPER" ]; then
@@ -38,10 +22,9 @@ case $ACTION in
             rm -rf ~/.walcache/
             mkdir ~/.walcache
             cp "$SELECTED_WALLPAPER" ~/.walcache/1
-            dunstify "Wallpaper Changed..."
             betterlockscreen -u ~/.walcache/1
         else
-            echo "No wallpaper selected."
+            dunstify "No wallpaper selected."
         fi
         ;;
 
@@ -58,24 +41,12 @@ case $ACTION in
             cp "$WALLPAPER_DIR/$RANDOM_WALLPAPER" ~/.walcache/1
             valid_paper="$(printf "Yes\nNo" | dmenu -i -l 2 -p "Do you like the new wallpaper?")"
         done
-         dunstify "Wallpaper Changed..."
          betterlockscreen -u ~/.walcache/1
         ;;
-    # "Random")
-    #     # Choose a random wallpaper
-    #     RANDOM_WALLPAPER=$(ls "$WALLPAPER_DIR" | shuf -n 1)
-    #
-    #     # Set the random wallpaper
-    #     xwallpaper --zoom "$WALLPAPER_DIR/$RANDOM_WALLPAPER"
-    #     wal -c
-    #     wal -i "$WALLPAPER_DIR/$RANDOM_WALLPAPER"
-    #     xdotool key super+F5
-    #     dunstify "Wallpaper Changed..."
-    #     ;;
-
-    "Exit") echo "Program terminated" && exit 1 ;;
+    
+    "Exit") dunstify "Program terminated" && exit 1 ;;
     *)
-        echo "Invalid option."
+        dunstify "Invalid option."
         ;;
 esac
 
