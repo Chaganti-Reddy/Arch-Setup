@@ -1,0 +1,4 @@
+#!/bin/bash
+
+invidious_instance="https://vid.puffyan.us" ytfzf --rii -D
+
