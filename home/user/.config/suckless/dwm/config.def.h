@@ -43,15 +43,13 @@ typedef struct {
 	const void *cmd;
 } Sp;
 const char *spcmd1[] = {"st", "-n", "spterm", "-g", "120x34", NULL };
-const char *spcmd2[] = {"st", "-n", "spfm", "-g", "144x41", "-e", "ranger", NULL };
-const char *spcmd3[] = {"st", "-n", "spmusic", "-g", "120x34", "-e", "ncmpcpp", NULL };
-const char *spcmd4[] = {"st", "-n", "spcal","-f", "JetBrainsMonoNL:weight=bold:size=14", "-g", "50x20", "-e", "bc", "-lq",  NULL };
+const char *spcmd2[] = {"st", "-n", "spmusic", "-g", "120x34", "-e", "ncmpcpp", NULL };
+const char *spcmd3[] = {"st", "-n", "spcal","-f", "JetBrainsMonoNL:weight=bold:size=14", "-g", "50x20", "-e", "bc", "-lq",  NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"spterm",      spcmd1},
-	{"spranger",    spcmd2},
-	{"spmusic",     spcmd3},
-	{"spcal",     spcmd4},
+	{"spmusic",     spcmd2},
+	{"spcal",     spcmd3},
 };
 
 
@@ -76,9 +74,8 @@ static const Rule rules[] = {
 	{ "St",                 NULL,     NULL,           0,          0,          1,           0,        -1 },
 	{ NULL,                 NULL,     "Event Tester", 0,          0,          0,           1,        -1 }, /* xev */
 	{ NULL,		              "spterm",	NULL,		        SPTAG(0),		1,			                           -1 },
-	{ NULL,		              "spfm",		NULL,		        SPTAG(1),	  1,			                           -1 },
-	{ NULL,		              "spmusic",NULL,		        SPTAG(2),	  1,			                           -1 },
-	{ NULL,		              "spcal",  NULL,		        SPTAG(3),	  1,			                           -1 },
+	{ NULL,		              "spmusic",NULL,		        SPTAG(1),	  1,			                           -1 },
+	{ NULL,		              "spcal",  NULL,		        SPTAG(2),	  1,			                           -1 },
 
 };
 
@@ -125,7 +122,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont};
 static const char *termcmd[]  = { "st", NULL };
 static const char *browser[]  = { "floorp", NULL };
-static const char *files[]    = { "dolphin", NULL };
+static const char *files[]    = { "st", "-e", "ranger", NULL };
 
 #include "movestack.c"
 static Key keys[] = {
@@ -188,9 +185,8 @@ static Key keys[] = {
 	{ MODKEY|ControlMask|ShiftMask,	XK_r,      quit,           {1} },
 	{ MODKEY|ControlMask|ShiftMask,	XK_q,      quit,           {0} },
   { 0,            			          XK_F12,  	 togglescratch,  {.ui = 0 } },
-	{ MODKEY,            			      XK_u,	     togglescratch,  {.ui = 1 } },
-	{ MODKEY|ShiftMask,  			      XK_m,	     togglescratch,  {.ui = 2 } },
-	{ MODKEY|ShiftMask,  			      XK_c,	     togglescratch,  {.ui = 3 } },
+	{ MODKEY|ShiftMask,  			      XK_m,	     togglescratch,  {.ui = 1 } },
+	{ MODKEY|ShiftMask,  			      XK_c,	     togglescratch,  {.ui = 2 } },
  	// { MODKEY,									  XK_F10,	 	 spawn,		       SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-; kill -44 $(pidof dwmblocks)") },
 	// { MODKEY|ShiftMask,				  XK_F9,	 	 spawn,		       SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0%; kill -44 $(pidof dwmblocks)") },
 	// { MODKEY,									  XK_F11,	   spawn,		       SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+; kill -44 $(pidof dwmblocks)") },
