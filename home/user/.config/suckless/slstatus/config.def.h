@@ -80,7 +80,8 @@ static const struct arg args[] = {
         { run_command,          " %s%% | ",      brightness },
         { battery_perc,         " %s%%",       "BAT0" },
         { battery_state,        "(%s) | ",        "BAT0" },
+        { run_command,          "%s",      "date +'%a %b %d %H:%M:%S'" },
         // { keymap,               " %s ",        NULL },
 	      // { datetime, "%s",           "%F %T" },
-	      { datetime, "%s",           "%a %b %d %T" },
+	      // { datetime, "%s",           "%a %b %d %T" },
 };
