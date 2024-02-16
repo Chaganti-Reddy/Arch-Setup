@@ -159,6 +159,7 @@ function mosspy() {
 ## Aliases
 
 #list
+alias zathura="~/.local/bin/zathura"
 alias cd="z"
 alias cdi="zi"
 alias la='exa -al --colour=always --group-directories-first'
@@ -295,7 +296,8 @@ alias dotfiles="cd /mnt/Extras/dotfiles/"
 #git 
 alias gs="git status"
 alias ga="git add"
-alias gc="git commit -m"
+alias gcm="git commit -m"
+alias gc="git clone"
 alias gp="git push"
 
 

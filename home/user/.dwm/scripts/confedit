@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+#
+# Script name: dm-confedit
+# Description: Choose from a list of configuration files to edit.
+# Dependencies: dmenu, emacsclient
+
+# Set with the flags "-e", "-u","-o pipefail" cause the script to fail
+# if certain things happen, which is a good thing.  Otherwise, we can
+# get hidden bugs that are hard to discover.
+set -euo pipefail
+
+DMEDITOR="st -e nvim"
+
+declare -A confedit_list
+# confedit_list[alacritty]="$HOME/.config/alacritty/alacritty.yml"
+confedit_list[bash]="$HOME/.bashrc"
+# confedit_list[dunst]="$HOME/.config/dunst/dunstrc"
+confedit_list[dwm]="$HOME/.config/suckless/dwm/config.def.h"
+confedit_list[dwm startup]="$HOME/.dwm/autostart.sh"
+# confedit_list[fish]="$HOME/.config/fish/config.fish"
+confedit_list[mpd]="$HOME/.mpd/mpd.conf"
+confedit_list[ncmpcpp]="$HOME/.ncmpcpp/config"
+confedit_list[neovim]="$HOME/.config/nvim/init.lua"
+#confedit_list[picom]="$HOME/.config/picom/picom.conf"
+#confedit_list[ssh]="$HOME/.ssh/config"
+confedit_list[st]="$HOME/.config/suckless/st/config.h"
+confedit_list[slstatus]="$HOME/.config/suckless/slstatus/config.def.h"
+# confedit_list[xinitrc]="$HOME/.xinitrc"
+# confedit_list[xresources]="$HOME/.Xresources"
+confedit_list[zsh]="$HOME/.zshrc"
+
+main() {
+  # Clean options array making sure that the files exist
+  declare -A _clean_list
+  # As this is loaded from other file it is technically not defined
+  # shellcheck disable=SC2154
+  for i in "${!confedit_list[@]}"; do
+    [[ -f ${confedit_list["${i}"]} ]] && _clean_list["${i}"]=${confedit_list["${i}"]}
+  done
+
+  # Piping the above array (cleaned) into dmenu.
+  # We use "printf '%s\n'" to format the array one item to a line.
+  choice=$(printf '%s\n' "${!_clean_list[@]}" | sort | dmenu -i -l 15 -p 'Edit config:' "$@")
+
+  # What to do when/if we choose a file to edit.
+  if [ "$choice" ]; then
+    cfg=$(printf '%s\n' "${_clean_list["${choice}"]}")
+    # shellcheck disable=SC2154
+    $DMEDITOR "$cfg"
+  # What to do if we just escape without choosing anything.
+  else
+      echo "Program terminated." && exit 0
+  fi
+}
+
+[[ "${BASH_SOURCE[0]}" == "${0}" ]] && main "$@"

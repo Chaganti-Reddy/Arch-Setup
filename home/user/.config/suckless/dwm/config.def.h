@@ -44,12 +44,14 @@ typedef struct {
 } Sp;
 const char *spcmd1[] = {"st", "-n", "spterm", "-g", "120x34", NULL };
 const char *spcmd2[] = {"st", "-n", "spfm", "-g", "144x41", "-e", "ranger", NULL };
-//const char *spcmd3[] = {"keepassxc", NULL };
+const char *spcmd3[] = {"st", "-n", "spmusic", "-g", "120x34", "-e", "ncmpcpp", NULL };
+const char *spcmd4[] = {"st", "-n", "spcal","-f", "JetBrainsMonoNL:weight=bold:size=14", "-g", "50x20", "-e", "bc", "-lq",  NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"spterm",      spcmd1},
 	{"spranger",    spcmd2},
-//	{"keepassxc",   spcmd3},
+	{"spmusic",     spcmd3},
+	{"spcal",     spcmd4},
 };
 
 
@@ -66,6 +68,7 @@ static const Rule rules[] = {
 	/* class                instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
 	{ "TelegramDesktop",    NULL,     NULL,           0,          1,          0,           0,        -1 },
 	{ "Blueman-manager",    NULL,     NULL,           0,          1,          0,           0,        -1 },
+	{ "flameshot",          NULL,     NULL,           0,          1,          0,           0,        -1 },
 	{ "obs",                NULL,     NULL,           0,          1,          0,           0,        -1 },
 	{ "floorp",   		      NULL,     NULL,           1 << 1,     0,          0,          -1,        -1 },
 	{ "thorium-browser",    NULL,     NULL,           1 << 2,     0,          0,          -1,        -1 },
@@ -74,7 +77,8 @@ static const Rule rules[] = {
 	{ NULL,                 NULL,     "Event Tester", 0,          0,          0,           1,        -1 }, /* xev */
 	{ NULL,		              "spterm",	NULL,		        SPTAG(0),		1,			                           -1 },
 	{ NULL,		              "spfm",		NULL,		        SPTAG(1),	  1,			                           -1 },
-//	{ NULL,		  "keepassxc",	NULL,		SPTAG(2),		0,			 -1 },
+	{ NULL,		              "spmusic",NULL,		        SPTAG(2),	  1,			                           -1 },
+	{ NULL,		              "spcal",  NULL,		        SPTAG(3),	  1,			                           -1 },
 
 };
 
@@ -183,9 +187,10 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ControlMask|ShiftMask,	XK_r,      quit,           {1} },
 	{ MODKEY|ControlMask|ShiftMask,	XK_q,      quit,           {0} },
-  { 0,            			          XK_F12,  	   togglescratch,  {.ui = 0 } },
+  { 0,            			          XK_F12,  	 togglescratch,  {.ui = 0 } },
 	{ MODKEY,            			      XK_u,	     togglescratch,  {.ui = 1 } },
-	{ MODKEY,            			      XK_x,	     togglescratch,  {.ui = 2 } },
+	{ MODKEY|ShiftMask,  			      XK_m,	     togglescratch,  {.ui = 2 } },
+	{ MODKEY|ShiftMask,  			      XK_c,	     togglescratch,  {.ui = 3 } },
  	// { MODKEY,									  XK_F10,	 	 spawn,		       SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-; kill -44 $(pidof dwmblocks)") },
 	// { MODKEY|ShiftMask,				  XK_F9,	 	 spawn,		       SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0%; kill -44 $(pidof dwmblocks)") },
 	// { MODKEY,									  XK_F11,	   spawn,		       SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+; kill -44 $(pidof dwmblocks)") },
@@ -199,8 +204,15 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,						  XK_F10,	   spawn,		       SHCMD("brightnessctl s 5%-")},
 	{ MODKEY,         						  XK_v,	     spawn,		       SHCMD("clipmenu -i -fn JetBrainsMonoNL:10")},
 	{ MODKEY,         						  XK_n,	     spawn,		       SHCMD("~/.dwm/dmenu_file")},
+	{ MODKEY|ShiftMask,         		XK_p,	     spawn,		       SHCMD("~/.dwm/scripts/power")},
+	{ MODKEY|ShiftMask,         		XK_a,	     spawn,		       SHCMD("~/.dwm/scripts/script")},
+	{ MODKEY|ShiftMask,         		XK_s,	     spawn,		       SHCMD("flameshot gui")},
   { MODKEY,                       XK_w,      spawn,          {.v = browser } },
   { MODKEY|ShiftMask,             XK_n,      spawn,          {.v = files } },
+  { MODKEY,                       XK_F8,		 spawn,		       {.v = (const char*[]){ "mpc", "next", NULL } } },
+  { MODKEY,                       XK_F7,		 spawn,		       {.v = (const char*[]){ "mpc", "toggle", NULL } } },
+  { MODKEY,                       XK_F6,		 spawn,		       {.v = (const char*[]){ "mpc", "prev", NULL } } },
+  { MODKEY|ShiftMask,             XK_F7,		 spawn,		       {.v = (const char*[]){ "mpc", "stop", NULL } } },
 };
 
 /* button definitions */

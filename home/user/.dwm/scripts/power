@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Define options for the power menu
+options="Lock\nLogout\nSuspend\nRestart\nShutdown"
+
+# Prompt the user with dmenu
+selected_option=$(echo -e "$options" | dmenu -i -l 5 -p "Power Menu:")
+
+# Execute the selected option
+case "$selected_option" in
+    "Shutdown")
+        systemctl poweroff
+        ;;
+    "Restart")
+        systemctl reboot
+        ;;
+    "Suspend")
+        systemctl suspend
+        ;;
+
+    "Lock")
+        betterlockscreen -l -q
+        ;;
+    "Logout")
+        pkill -KILL -u "$USER"
+        ;;
+    *)
+        echo "Invalid option selected."
+        ;;
+esac
+
