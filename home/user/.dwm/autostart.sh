@@ -4,7 +4,7 @@
 /home/ram/.dwm/newlook &
 /usr/lib/polkit-kde-authentication-agent-1 &
 numlockx &
-nm-applet &
+# nm-applet &
 dunst &
 clipmenud &
 # flameshot &
