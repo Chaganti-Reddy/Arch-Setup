@@ -22,15 +22,15 @@ external_menu () {
 }
 
 #use vlc instead of mpv
-video_player () {
-   #check if detach is enabled
-   case "$is_detach" in
-      #disabled
-      0) vlc "$@" ;;
-      #enabled
-      1) setsid -f vlc "$@" > /dev/null 2>&1 ;;
-     esac
-}
+#video_player () {
+#    #check if detach is enabled
+#    case "$is_detach" in
+      #	#disabled
+      #	0) vlc "$@" ;;
+      #	#enabled
+      #	1) setsid -f vlc "$@" > /dev/null 2>&1 ;;
+  #    esac
+#}
 
 #on_opt_parse_c () {
 #    arg="$1"
