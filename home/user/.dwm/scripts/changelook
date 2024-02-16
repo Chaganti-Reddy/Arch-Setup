@@ -34,11 +34,11 @@ case $ACTION in
             xwallpaper --zoom "$SELECTED_WALLPAPER"
             wal -c
             wal -i "$SELECTED_WALLPAPER"
+            xdotool key super+F5
             rm -rf ~/.walcache/
             mkdir ~/.walcache
             cp "$SELECTED_WALLPAPER" ~/.walcache/1
             betterlockscreen -u ~/.walcache/1
-            xdotool key super+F5
             dunstify "Wallpaper Changed..."
         else
             echo "No wallpaper selected."
@@ -52,11 +52,11 @@ case $ACTION in
             xwallpaper --zoom "$WALLPAPER_DIR/$RANDOM_WALLPAPER"
             wal -c
             wal -i "$WALLPAPER_DIR/$RANDOM_WALLPAPER"
+            xdotool key super+F5
             rm -rf ~/.walcache/
             mkdir ~/.walcache
             cp "$WALLPAPER_DIR/$RANDOM_WALLPAPER" ~/.walcache/1
             betterlockscreen -u ~/.walcache/1
-            xdotool key super+F5
             valid_paper="$(printf "Yes\nNo" | dmenu -i -l 2 -p "Do you like the new wallpaper?")"
         done
          dunstify "Wallpaper Changed..."
