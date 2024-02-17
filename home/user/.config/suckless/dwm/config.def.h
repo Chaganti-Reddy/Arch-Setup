@@ -67,6 +67,7 @@ static const Rule rules[] = {
 	{ "TelegramDesktop",    NULL,     NULL,           0,          1,          0,           0,        -1 },
 	{ "Blueman-manager",    NULL,     NULL,           0,          1,          0,           0,        -1 },
 	{ "baobab",             NULL,     NULL,           0,          1,          0,           0,        -1 },
+	{ "qBittorrent",        NULL,     NULL,           1 << 5,     0,          0,           0,        -1 },
 	{ "pinentry-qt",        NULL,     NULL,           0,          1,          0,           0,        -1 },
 	{ "Gnome-disks",        NULL,     NULL,           0,          1,          0,           0,        -1 },
 	{ "Nm-connection-editor",NULL,    NULL,           0,          1,          0,           0,        -1 },
