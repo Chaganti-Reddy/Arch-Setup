@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Directory containing wallpapers
-WALLPAPER_DIR="/mnt/Extras/dotfiles/home/user/Pictures/Wall/"
+WALLPAPER_DIR="/mnt/Ram/Extras/dotfiles/home/user/Pictures/Wall/"
 
 # List wallpapers in the directory
 WALLPAPERS=$(ls "$WALLPAPER_DIR")
@@ -10,43 +10,42 @@ WALLPAPERS=$(ls "$WALLPAPER_DIR")
 ACTION=$(echo -e "Choose\nRandom\nExit" | dmenu -i -l 5 -p "What would you like to do?")
 
 case $ACTION in
-    "Choose")
-        SELECTED_WALLPAPER=$(sxiv -to /mnt/Extras/dotfiles/home/user/Pictures/Wall | awk '{print $NF}')
-        # Check if a wallpaper was selected
-        if [ -n "$SELECTED_WALLPAPER" ]; then
-            # Set the wallpaper
-            xwallpaper --zoom "$SELECTED_WALLPAPER"
-            wal -c
-            wal -i "$SELECTED_WALLPAPER"
-            xdotool key super+F5
-            rm -rf ~/.walcache/
-            mkdir ~/.walcache
-            cp "$SELECTED_WALLPAPER" ~/.walcache/1
-            betterlockscreen -u ~/.walcache/1
-        else
-            dunstify "No wallpaper selected."
-        fi
-        ;;
+"Choose")
+	SELECTED_WALLPAPER=$(sxiv -to /mnt/Extras/dotfiles/home/user/Pictures/Wall | awk '{print $NF}')
+	# Check if a wallpaper was selected
+	if [ -n "$SELECTED_WALLPAPER" ]; then
+		# Set the wallpaper
+		xwallpaper --zoom "$SELECTED_WALLPAPER"
+		wal -c
+		wal -i "$SELECTED_WALLPAPER"
+		xdotool key super+F5
+		rm -rf ~/.walcache/
+		mkdir ~/.walcache
+		cp "$SELECTED_WALLPAPER" ~/.walcache/1
+		betterlockscreen -u ~/.walcache/1
+	else
+		dunstify "No wallpaper selected."
+	fi
+	;;
 
-    "Random")
-        valid_paper="No"
-        until [ "$valid_paper" = "Yes" ]; do
-            RANDOM_WALLPAPER=$(ls "$WALLPAPER_DIR" | shuf -n 1)
-            xwallpaper --zoom "$WALLPAPER_DIR/$RANDOM_WALLPAPER"
-            wal -c
-            wal -i "$WALLPAPER_DIR/$RANDOM_WALLPAPER"
-            xdotool key super+F5
-            rm -rf ~/.walcache/
-            mkdir ~/.walcache
-            cp "$WALLPAPER_DIR/$RANDOM_WALLPAPER" ~/.walcache/1
-            valid_paper="$(printf "Yes\nNo" | dmenu -i -l 2 -p "Do you like the new wallpaper?")"
-        done
-         betterlockscreen -u ~/.walcache/1
-        ;;
-    
-    "Exit") dunstify "Program terminated" && exit 1 ;;
-    *)
-        dunstify "Invalid option."
-        ;;
+"Random")
+	valid_paper="No"
+	until [ "$valid_paper" = "Yes" ]; do
+		RANDOM_WALLPAPER=$(ls "$WALLPAPER_DIR" | shuf -n 1)
+		xwallpaper --zoom "$WALLPAPER_DIR/$RANDOM_WALLPAPER"
+		wal -c
+		wal -i "$WALLPAPER_DIR/$RANDOM_WALLPAPER"
+		xdotool key super+F5
+		rm -rf ~/.walcache/
+		mkdir ~/.walcache
+		cp "$WALLPAPER_DIR/$RANDOM_WALLPAPER" ~/.walcache/1
+		valid_paper="$(printf "Yes\nNo" | dmenu -i -l 2 -p "Do you like the new wallpaper?")"
+	done
+	betterlockscreen -u ~/.walcache/1
+	;;
+
+"Exit") dunstify "Program terminated" && exit 1 ;;
+*)
+	dunstify "Invalid option."
+	;;
 esac
-
