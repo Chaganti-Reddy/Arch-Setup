@@ -7,9 +7,7 @@ set pages-per-row 1
 
 #stop at page boundries
 set scroll-page-aware "true"
-set smooth-scroll "true"
 set scroll-full-overlap 0.01
-set scroll-step 100
 #
 set guioptions 'v s'
 #set adjust-open width
@@ -28,8 +26,7 @@ map R rotate
 map p print
 map i recolor
 map / goto
-set show-scrollbars "true"
-set show-v-scrollbar "true" 
+#set show-scrollbars "true"
 set sandbox none
 
 
