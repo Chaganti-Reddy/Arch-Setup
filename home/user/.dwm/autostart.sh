@@ -7,7 +7,7 @@ numlockx &
 # nm-applet &
 dunst &
 clipmenud &
-# st -e walogram &
+st -e walogram &
 # rsibreak &
 # flameshot &
 xinput set-prop "DLL09D9:00 04F3:3147 Touchpad" "libinput Tapping Enabled" 1
