@@ -10,8 +10,10 @@
 #Variables {{{
 #ytdl_pref="248+bestaudio/best"
 ##scrape 1 video link per channel instead of the default 2
-#sub_link_count=1
+sub_link_count=10
 #show_thumbnails=1
+notify_playing=1
+fancy_subs=1
 ##}}}
 #
 ##Functions {{{

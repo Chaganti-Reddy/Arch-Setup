@@ -159,7 +159,7 @@ function mosspy() {
 ## Aliases
 
 #list
-alias zathura="~/.local/bin/zathura"
+alias zathura="/home/ram/.local/bin/zathura"
 alias cd="z"
 alias cdi="zi"
 alias la='exa -al --colour=always --group-directories-first'
@@ -259,7 +259,8 @@ alias yta-best="yt-dlp --extract-audio --audio-format best --embed-thumbnail"
 alias yta-flac="yt-dlp --extract-audio --audio-format flac --embed-thumbnail"
 alias yta-mp3="yt-dlp --extract-audio --audio-format mp3 --embed-thumbnail"
 alias ytv-best="yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --embed-thumbnail --merge-output-format mp4 "
-alias ytfzf="invidious_instance="https://vid.puffyan.us" ytfzf -t --rii"
+alias ytfzf="invidious_instance='https://vid.puffyan.us' ytfzf --rii"
+alias ytfzfsub="ytfzf -fcS"
 alias jellyown="sudo chown -R jellyfin:jellyfin"
 alias jellyper="sudo chmod -R 777"
 
