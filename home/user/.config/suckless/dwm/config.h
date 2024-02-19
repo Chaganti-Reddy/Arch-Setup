@@ -65,7 +65,7 @@ const char *spcmd4[] = {
     "llama2", "-i",     NULL};
 const char *spcmd5[] = {
     "st", "-n",     "spnews", "-f",       "JetBrainsMonoNL:weight=bold:size=11",
-    "-g", "150x50", "-e",     "newsboat", NULL};
+    "-g", "120x34", "-e",     "newsboat", NULL};
 
 static Sp scratchpads[] = {
     /* name          cmd  */
@@ -88,6 +88,7 @@ static const Rule rules[] = {
     /* class                instance  title           tags mask  isfloating
        isterminal  noswallow  monitor */
     {"TelegramDesktop", NULL, NULL, 0, 1, 0, 0, -1},
+    {"Pavucontrol", NULL, NULL, 0, 1, 0, 0, -1},
     {"Blueman-manager", NULL, NULL, 0, 1, 0, 0, -1},
     {"baobab", NULL, NULL, 0, 1, 0, 0, -1},
     {"qBittorrent", NULL, NULL, 1 << 5, 0, 0, 0, -1},
