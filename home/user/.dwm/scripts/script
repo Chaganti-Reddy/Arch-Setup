@@ -6,9 +6,9 @@ options=(["Edit Config Files"]=~/.dwm/scripts/confedit ["Record The Screen"]=~/.
 choice=$(printf '%s\n' "${!options[@]}" | sort -g | dmenu -i -l 15 -p 'Choose an Option: ' "${@}")
 
 if [ "$choice" ]; then
-    sh "${options[$choice]}"
+	sh "${options[$choice]}"
 
 # What to do if we just escape without choosing anything.
 else
-  echo "Program terminated." && exit 0
+	echo "Program terminated." && exit 0
 fi
