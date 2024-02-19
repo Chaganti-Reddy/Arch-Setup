@@ -63,12 +63,14 @@ const char *spcmd4[] = {
     "st",     "-n",     "spgpt", "-f",   "JetBrainsMonoNL:weight=bold:size=11",
     "-g",     "120x34", "-e",    "tgpt", "--model",
     "llama2", "-i",     NULL};
+const char *spcmd5[] = {
+    "st", "-n",     "spnews", "-f",       "JetBrainsMonoNL:weight=bold:size=11",
+    "-g", "150x50", "-e",     "newsboat", NULL};
+
 static Sp scratchpads[] = {
     /* name          cmd  */
-    {"spterm", spcmd1},
-    {"spmusic", spcmd2},
-    {"spcal", spcmd3},
-    {"spgpt", spcmd4},
+    {"spterm", spcmd1}, {"spmusic", spcmd2}, {"spcal", spcmd3},
+    {"spgpt", spcmd4},  {"spgpt", spcmd5},
 };
 
 /* tagging */
@@ -103,7 +105,7 @@ static const Rule rules[] = {
     {NULL, "spmusic", NULL, SPTAG(1), 1, -1},
     {NULL, "spcal", NULL, SPTAG(2), 1, -1},
     {NULL, "spgpt", NULL, SPTAG(3), 1, -1},
-
+    {NULL, "spnews", NULL, SPTAG(4), 1, -1},
 };
 
 /* layout(s) */
@@ -214,6 +216,7 @@ static Key keys[] = {
     {MODKEY | ShiftMask, XK_m, togglescratch, {.ui = 1}},
     {MODKEY | ShiftMask, XK_c, togglescratch, {.ui = 2}},
     {MODKEY | ShiftMask, XK_g, togglescratch, {.ui = 3}},
+    {MODKEY | Mod1Mask, XK_n, togglescratch, {.ui = 4}},
     // { MODKEY,			XK_F10,	   spawn,
     // SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-; kill -44 $(pidof
     // dwmblocks)") }, { MODKEY|ShiftMask,		XK_F9,	   spawn,
@@ -226,7 +229,9 @@ static Key keys[] = {
     {MODKEY, XK_F11, spawn, SHCMD("~/.dwm/volume up")},
     {MODKEY | ShiftMask, XK_F9, spawn, SHCMD("~/.dwm/volume micmute")},
     // { MODKEY|ShiftMask,		XK_F11,	   spawn,
-    // SHCMD("brightnessctl s 5%+; dunstify 'Brightness Raised by 5%'")}, { MODKEY|ShiftMask,		XK_F10,	   spawn,		       SHCMD("brightnessctl s 5%-; dunstify 'Brightness Lowered by 5%'")},
+    // SHCMD("brightnessctl s 5%+; dunstify 'Brightness Raised by 5%'")}, {
+    // MODKEY|ShiftMask,		XK_F10,	   spawn,
+    // SHCMD("brightnessctl s 5%-; dunstify 'Brightness Lowered by 5%'")},
     {MODKEY | ShiftMask, XK_F11, spawn, SHCMD("brightnessctl s 5%+")},
     {MODKEY | ShiftMask, XK_F10, spawn, SHCMD("brightnessctl s 5%-")},
     {MODKEY, XK_v, spawn, SHCMD("clipmenu -i -fn JetBrainsMonoNL:10")},
