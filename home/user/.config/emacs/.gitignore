@@ -1,0 +1,15 @@
+# add auto-save-list and elpaca to gitignore
+auto-save-list /
+elpaca/
+transient/
+recentf
+sessions
+projectile-bookmarks.eld
+
+
+# add .DS_Store to gitignore
+.DS_Store
+
+# add .vscode to gitignore
+.vscode
+
