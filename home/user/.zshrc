@@ -308,6 +308,7 @@ alias makeslstatus="cd ~/.config/suckless/slstatus/ && rm config.h --f && make &
 alias dwmcon="nvim ~/.config/suckless/dwm/config.def.h"
 alias slstatuscon="nvim ~/.config/suckless/slstatus/config.def.h"
 alias updatedwmdot="rm -rf /mnt/Extras/dotfiles/home/user/.config/suckless && cp -r ~/.config/suckless/ /mnt/Extras/dotfiles/home/user/.config/ && rm -rf /mnt/Extras/dotfiles/home/user/.dwm && cp -r ~/.dwm /mnt/Extras/dotfiles/home/user/"
+alias updateemacs="rm -rf /mnt/Extras/dotfiles/home/user/.config/emacs/ && cp -r ~/.config/emacs/ /mnt/Extras/dotfiles/home/user/.config/"
 alias dotfiles="cd /mnt/Extras/dotfiles/"
 
 #git 
