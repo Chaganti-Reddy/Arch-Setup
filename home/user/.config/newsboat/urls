@@ -3,14 +3,30 @@ https://www.dj-bauer.de/feeds/all.atom.xml Blog "~Dj-Bauer" Tech Lifestyle
 http://lukesmith.xyz/rss.xml Blog "~Luke Smith" Tech
 
 Youtube
+https://www.youtube.com/feeds/videos.xml?channel_id=UCngn7SVujlvskHRvRKc1cTw Youtube "~BugsWriter" Tech
 https://www.youtube.com/feeds/videos.xml?channel_id=UCR1I8lG-fhpVuS7s20iTSgA Youtube "~301 Diaries" Entertainment
 https://www.youtube.com/feeds/videos.xml?channel_id=UCtMsK12pzp5tO4NX1H8E8HQ Youtube "~Sanjeev Sriram" US Vlogs
 https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA Youtube "~Luke Smith" Tech
 https://www.youtube.com/feeds/videos.xml?channel_id=UCVls1GmFKf6WlTraIb_IaJg Youtube "~DistroTube" Tech
 
 Reddit
-https://www.reddit.com/r/linux.rss Reddit "~Linux" Entertainment
+https://www.reddit.com/r/linux.rss Reddit "~Linux" Tech
 https://www.reddit.com/r/linuxmemes.rss Reddit "~Arch Linux memes" Entertainment
 https://www.reddit.com/r/unixporn.rss Reddit "~Unixporn" Tech
+https://www.reddit.com/r/commandline.rss "Commandline" Tech
+https://www.reddit.com/r/distrotube.rss "Distrotube" Tech
+https://www.reddit.com/r/emacs.rss "Emacs" Tech
+https://www.gamingonlinux.com/article_rss.php "Gaming on Linux" Gaming
+https://hackaday.com/blog/feed/ "Hackaday" Tech
+https://opensource.com/feed "Opensource" Tech
+https://linux.softpedia.com/backend.xml "Softpedia" Tech
+https://itsfoss.com/feed/ "It's FOSS" Tech
+https://www.zdnet.com/topic/linux/rss.xml "ZDNet" Tech
+https://www.phoronix.com/rss.php "Phoronix" Tech
+http://feeds.feedburner.com/d0od "OMG! Ubuntu!" Tech
+https://www.computerworld.com/index.rss "Computerworld" Tech
+https://www.techrepublic.com/rssfeeds/topic/open-source/ "Techrepublic" Tech
+http://lxer.com/module/newswire/headlines.rss "LXER" Tech
+https://distrowatch.com/news/dwd.xml "Distrowatch" Tech
 ═══
 
