@@ -152,6 +152,19 @@ function mosspy() {
     perl -i moss.pl -l python $1 $2
 }
 
+##Exports
+
+export EDITOR='/usr/bin/emacs'
+export PAGER='bat'
+export PATH="$HOME/bin:/usr/local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+
+SUDO_EDITOR=/usr/bin/emacs
+export SUDO_EDITOR
+
+export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
+
+
 
 ## ---------------------------------------------------------------------------------------
 
@@ -306,21 +319,6 @@ alias gp="git push"
 
 
 ## ---------------------------------------------------------------------------------------
-
-##Exports
-
-export EDITOR='nvim'
-export PAGER='bat'
-export PATH="$HOME/bin:/usr/local/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-
-SUDO_EDITOR=/usr/bin/nvim
-export SUDO_EDITOR
-
-export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
-
-
-
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
