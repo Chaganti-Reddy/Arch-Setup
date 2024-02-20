@@ -5,7 +5,8 @@ transient/
 recentf
 sessions
 projectile-bookmarks.eld
-
+.cache/
+elpa/
 
 # add .DS_Store to gitignore
 .DS_Store

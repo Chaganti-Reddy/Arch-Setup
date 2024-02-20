@@ -1,5 +1,5 @@
-#+TITLE: DT's GNU Emacs Config
-#+AUTHOR: Derek Taylor (DT)
+#+TITLE: RAM's GNU Emacs Config
+#+AUTHOR: RAM (ArcaneSeal)
 #+DESCRIPTION: DT's personal Emacs config.
 #+STARTUP: showeverything
 #+OPTIONS: toc:2
@@ -24,6 +24,7 @@
 - [[#git-programs][GIT PROGRAMS]]
   - [[#git-time-machine][Git Time Machine]]
   - [[#magit][Magit]]
+- [[#github-copilot][GITHUB COPILOT]]
 - [[#highlight-todo][HIGHLIGHT TODO]]
 - [[#ivy-counsel][IVY (COUNSEL)]]
 - [[#language-support][LANGUAGE SUPPORT]]
@@ -528,6 +529,64 @@ You can use the bindings CTRL plus =/- for zooming in/out.  You can also use CTR
 
 #+end_src
 
+* GITHUB COPILOT
+AI Based code completion
+
+#+begin_src emacs-lisp
+        (use-package copilot
+          :load-path (lambda () (expand-file-name "copilot.el" user-emacs-directory))
+          ;; don't show in mode line
+          :diminish)
+
+          (require 'copilot)
+          (add-hook 'prog-mode-hook 'copilot-mode)
+          ;;  Copilot.el detects the programming language of a buffer based on the major-mode name, stripping the -mode part. Resulting languageId should match table here. You can add unusual major-mode mappings to copilot-major-mode-alist. Without the proper language set suggestions may be of poorer quality.
+          (add-to-list 'copilot-major-mode-alist '("enh-ruby" . "ruby"))
+          (add-to-list 'copilot-major-mode-alist '("c++" . "cpp"))
+          (add-to-list 'copilot-major-mode-alist '("py" . "python"))
+  
+    (defun ram/copilot-tab ()
+      "Tab command that will complet with copilot if a completion is
+    available. Otherwise will try company, yasnippet or normal
+    tab-indent."
+      (interactive)
+      (or (copilot-accept-completion)
+          (company-yasnippet-or-completion)
+          (copilot-accept-completion-by-word)
+          (indent-for-tab-command)))
+
+    (define-key global-map (kbd "<tab>") #'ram/copilot-tab)
+
+  ;; global-copilot-mode will sometimes be a bit too eager, so we disable in some modes completely:
+      (defun ram/no-copilot-mode ()
+        "Helper for `rk/no-copilot-modes'."
+        (copilot-mode -1))
+
+      (defvar ram/no-copilot-modes '(shell-mode
+                                    inferior-python-mode
+                                    eshell-mode
+                                    term-mode
+                                    vterm-mode
+                                    comint-mode
+                                    compilation-mode
+                                    debugger-mode
+                                    dired-mode-hook
+                                    compilation-mode-hook
+                                    flutter-mode-hook
+                                    minibuffer-mode-hook)
+        "Modes in which copilot is inconvenient.")
+
+      (defun ram/copilot-disable-predicate ()
+        "When copilot should not automatically show completions."
+        (or ram/copilot-manual-mode
+            (member major-mode rk/no-copilot-modes)
+            (company--active-p)))
+
+      (add-to-list 'copilot-disable-predicates #'ram/copilot-disable-predicate)
+
+
+#+end_src
+
 * HIGHLIGHT TODO
 Adding highlights to TODO and related words.
 
@@ -896,8 +955,7 @@ The first line below designates the directory where will place all of our custom
 With Emacs version 29, true transparency has been added.  I have turned transparency off by setting the alpha to '100'.  If you want some slight transparency, try setting alpha to '90'.  Of course, if you set alpha to '0', the background of Emacs would completely transparent.
 
 #+begin_src emacs-lisp
-(add-to-list 'default-frame-alist '(alpha-background . 90)) ; For all new frames henceforth
-
+(add-to-list 'default-frame-alist '(alpha-background . 85)) ; For all new frames henceforth
 #+end_src
 
 * WHICH-KEY
