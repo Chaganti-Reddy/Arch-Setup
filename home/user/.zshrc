@@ -158,6 +158,7 @@ export EDITOR='/usr/bin/emacs'
 export PAGER='bat'
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.config/emacs/bin:$PATH"
 
 SUDO_EDITOR=/usr/bin/emacs
 export SUDO_EDITOR
@@ -172,6 +173,7 @@ export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f
 ## Aliases
 
 #list
+# alias emacs="emacsclient -c -a ''"
 alias zathura="/home/ram/.local/bin/zathura"
 alias cd="z"
 alias cdi="zi"
@@ -307,9 +309,9 @@ alias makedwm="cd ~/.config/suckless/dwm && rm config.h --f && sudo make clean i
 alias makeslstatus="cd ~/.config/suckless/slstatus/ && rm config.h --f && make && sudo make install"
 alias dwmcon="nvim ~/.config/suckless/dwm/config.def.h"
 alias slstatuscon="nvim ~/.config/suckless/slstatus/config.def.h"
-alias updatedwmdot="rm -rf /mnt/Extras/dotfiles/home/user/.config/suckless && cp -r ~/.config/suckless/ /mnt/Extras/dotfiles/home/user/.config/ && rm -rf /mnt/Extras/dotfiles/home/user/.dwm && cp -r ~/.dwm /mnt/Extras/dotfiles/home/user/"
-alias updateemacs="rm -rf /mnt/Extras/dotfiles/home/user/.config/emacs/ && cp -r ~/.config/emacs/ /mnt/Extras/dotfiles/home/user/.config/"
-alias dotfiles="cd /mnt/Extras/dotfiles/"
+alias updatedwmdot="rm -rf ~/dotfiles/home/user/.config/suckless && cp -r ~/.config/suckless/ ~/dotfiles/home/user/.config/ && rm -rf ~/dotfiles/home/user/.dwm && cp -r ~/.dwm ~/dotfiles/home/user/"
+alias updateemacs="rm -rf ~/dotfiles/home/user/.config/emacs/ && cp -r ~/.config/emacs/ ~/dotfiles/home/user/.config/"
+alias dotfiles="cd ~/dotfiles/"
 
 #git 
 alias gs="git status"
