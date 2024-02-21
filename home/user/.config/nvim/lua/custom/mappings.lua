@@ -16,6 +16,8 @@ M.general = {
     ["<leader>cc"] = { ":VimtexCompile<CR>", "compile vimtex" },
     -- view using vintex
     ["<leader>cv"] = { ":VimtexView<CR>", "view vimtex" },
+    -- Enter Zen Mode using z 
+    ["<leader>z"] = { ":ZenMode<CR>", "zen mode" },
   },
   v = {
     [">"] = { ">gv", "indent" },

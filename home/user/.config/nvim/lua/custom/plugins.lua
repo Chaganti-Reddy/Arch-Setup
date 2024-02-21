@@ -104,7 +104,24 @@ local plugins = {
       vim.g.vimtex_syntax_enabled = 1
     end,
   },
-
+  {
+    "nvimdev/dashboard-nvim",
+    event = "VimEnter",
+    config = function()
+      require("dashboard").setup {
+        -- config
+      }
+      require("custom.configs.dashboard-nvim")
+    end,
+    dependencies = { { "nvim-tree/nvim-web-devicons" } },
+  },
+{
+    "folke/zen-mode.nvim",
+    cmd = "ZenMode",
+    config = function()
+      require("custom.configs.zen-mode")
+    end,
+  },
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",
