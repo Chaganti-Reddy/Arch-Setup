@@ -129,9 +129,9 @@
 ;;   :config
 ;;   (dashboard-setup-startup-hook))
 
-;; (map! :leader
-;;       (:prefix ("o")
-;;        :desc "Open Dashboard"  "D" #'dashboard-open))
+(map! :leader
+      (:prefix ("o")
+       :desc "Open Dashboard"  "D" #'+doom-dashboard/open))
 
 (map! :leader
       (:prefix ("d" . "dired")
@@ -170,6 +170,13 @@
   (kbd "; d") 'epa-dired-do-decrypt
   (kbd "; e") 'epa-dired-do-encrypt)
 ;; Get file icons in dired
+(use-package all-the-icons-ivy-rich
+  :ensure t
+  :init (all-the-icons-ivy-rich-mode 1))
+
+(use-package ivy-rich
+  :ensure t
+  :init (ivy-rich-mode 1))
 (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
 ;; With dired-open plugin, you can launch external programs for certain extensions
 ;; For example, I set all .png files to open in 'sxiv' and all .mp4 files to open in 'mpv'
@@ -281,13 +288,13 @@
        :desc "Evaluate last sexpression" "l" #'eval-last-sexp
        :desc "Evaluate elisp in region"  "r" #'eval-region))
 
-(setq browse-url-browser-function 'eww-browse-url)
-(map! :leader
-      :desc "Search web for text between BEG/END"
-      "s w" #'eww-search-words
-      (:prefix ("e" . "evaluate/ERC/EWW")
-       :desc "Eww web browser" "w" #'eww
-       :desc "Eww reload page" "R" #'eww-reload))
+;; (setq browse-url-browser-function 'eww-browse-url)
+;; (map! :leader
+;;       :desc "Search web for text between BEG/END"
+;;       "s w" #'eww-search-words
+;;       (:prefix ("e" . "evaluate/ERC/EWW")
+;;        :desc "Eww web browser" "w" #'eww
+;;        :desc "Eww reload page" "R" #'eww-reload))
 
 ;; (autoload 'exwm-enable "exwm-config.el")
 
@@ -305,10 +312,15 @@
 (use-package! copilot
   :hook (prog-mode . copilot-mode)
   :bind (:map copilot-completion-map
-              ("<tab>" . 'copilot-accept-completion)
-              ("TAB" . 'copilot-accept-completion)
-              ("C-TAB" . 'copilot-accept-completion-by-word)
-              ("C-<tab>" . 'copilot-accept-completion-by-word)))
+              ("M-l" . 'copilot-accept-completion)
+              ("M-l" . 'copilot-accept-completion)
+              ("C-J" . 'copilot-accept-completion-by-word)
+              ("C-J" . 'copilot-accept-completion-by-word)))
+
+(map!
+ :leader
+        (:prefix ("c" . "code")
+        :desc "Copilot" "g" #'copilot-mode))
 
 (setq imenu-list-focus-after-activation t)
 
@@ -372,6 +384,13 @@
        :desc "Toggle line highlight in frame" "h" #'hl-line-mode
        :desc "Toggle line highlight globally" "H" #'global-hl-line-mode
        :desc "Toggle truncate lines"          "t" #'toggle-truncate-lines))
+
+;; For Python
+(use-package lsp-pyright
+  :ensure t
+  :hook (python-mode . (lambda ()
+                          (require 'lsp-pyright)
+                          (lsp))))  ; or lsp-deferred
 
 (custom-set-faces
  '(markdown-header-face ((t (:inherit font-lock-function-name-face :weight bold :family "variable-pitch"))))
@@ -445,6 +464,8 @@
              "|"                 ; The pipe necessary to separate "active" states and "inactive" states
              "DONE(d)"           ; Task has been completed
              "CANCELLED(c)" )))) ; Task has been cancelled
+
+(add-hook 'org-mode-hook 'org-fragtog-mode)
 
 (after! org
   (setq org-agenda-files '("~/dorfiles/Org/agenda.org")))
@@ -709,6 +730,37 @@
       :desc "Switch to previous perspective"   "[" #'persp-prev
       :desc "Add a buffer current perspective" "+" #'persp-add-buffer
       :desc "Remove perspective by name"       "-" #'persp-remove-by-name)
+
+(use-package pdf-tools
+  :defer t
+  :commands (pdf-loader-install)
+  :mode "\\.pdf\\'"
+  :bind (:map pdf-view-mode-map
+              ("j" . pdf-view-next-line-or-next-page)
+              ("k" . pdf-view-previous-line-or-previous-page)
+              ("C-=" . pdf-view-enlarge)
+              ("C--" . pdf-view-shrink))
+  :init (pdf-loader-install)
+  :config (add-to-list 'revert-without-query ".pdf"))
+
+(add-hook 'pdf-view-mode-hook #'(lambda () (interactive) (display-line-numbers-mode -1)
+                                                         (blink-cursor-mode -1)
+                                                         (doom-modeline-mode -1)))
+(setq pdf-view-midnight-colors '("#f8f8f2" . "#282a36"))
+(setq pdf-view-midnight-minor-mode 1)
+(map!
+ :leader
+ (:prefix ("t")
+  :desc "Open Dark Mode in PDF Viewer" "d" #'pdf-view-midnight-minor-mode))
+;; Latex
+(setq +latex-viewers '(pdf-tools))
+;; (setq +latex-viewers '(zathura))
+;; (setq lsp-tex-server 'digestif)
+(setq lsp-tex-server 'texlab)
+(add-hook 'latex-mode-hook #'xenops-mode)
+(add-hook 'LaTeX-mode-hook #'xenops-mode)
+(require 'latex-preview-pane)
+(latex-preview-pane-enable)
 
 (define-globalized-minor-mode global-rainbow-mode rainbow-mode
   (lambda ()

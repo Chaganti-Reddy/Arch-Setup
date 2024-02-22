@@ -85,3 +85,11 @@
 
 (package! copilot
   :recipe (:host github :repo "copilot-emacs/copilot.el" :files ("*.el" "dist")))
+
+(package! org-fragtog)
+(package! xenops)
+(package! latex-preview-pane)
+(package! all-the-icons)
+(package! ivy-rich)
+(package! all-the-icons-ivy-rich)
+(package! lsp-pyright)
