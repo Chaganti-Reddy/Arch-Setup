@@ -157,6 +157,7 @@ static char dmenumon[2] =
     "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = {"dmenu_run", "-m", dmenumon, "-fn", dmenufont};
 static const char *termcmd[] = {"st", NULL};
+static const char *emacs[] = {"emacs", NULL};
 static const char *browser[] = {"floorp", NULL};
 static const char *files[] = {"st", "-e", "ranger", NULL};
 
@@ -201,6 +202,7 @@ static Key keys[] = {
     {MODKEY, XK_t, setlayout, {0}},
     {MODKEY, XK_d, spawn, {.v = dmenucmd}},
     {MODKEY, XK_Return, spawn, {.v = termcmd}},
+    {MODKEY, XK_e, spawn, {.v = emacs}},
     {MODKEY, XK_Tab, view, {0}},
     {MODKEY, XK_0, view, {.ui = ~0}},
     {MODKEY | ShiftMask, XK_0, tag, {.ui = ~0}},
