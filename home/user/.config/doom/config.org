@@ -1312,6 +1312,14 @@ Perspective provides multiple named workspaces (or "perspectives") in Emacs, sim
 (add-hook 'LaTeX-mode-hook #'xenops-mode)
 (require 'latex-preview-pane)
 (latex-preview-pane-enable)
+
+;; (require 'ox-latex)
+;; (unless (boundp 'org-latex-classes)
+;;   (setq org-latex-classes nil))
+;; (add-to-list 'org-latex-classes
+;;              '("article"
+;;                "\\documentclass{article}"
+;;                ("\\section{%s}" . "\\section*{%s}")))
 #+end_src
 
 

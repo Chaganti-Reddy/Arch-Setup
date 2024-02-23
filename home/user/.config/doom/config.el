@@ -762,6 +762,14 @@
 (require 'latex-preview-pane)
 (latex-preview-pane-enable)
 
+;; (require 'ox-latex)
+;; (unless (boundp 'org-latex-classes)
+;;   (setq org-latex-classes nil))
+;; (add-to-list 'org-latex-classes
+;;              '("article"
+;;                "\\documentclass{article}"
+;;                ("\\section{%s}" . "\\section*{%s}")))
+
 (define-globalized-minor-mode global-rainbow-mode rainbow-mode
   (lambda ()
     (when (not (memq major-mode

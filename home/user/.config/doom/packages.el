@@ -90,6 +90,8 @@
 (package! xenops)
 (package! latex-preview-pane)
 (package! all-the-icons)
+(package! all-the-icons-dired)
 (package! ivy-rich)
 (package! all-the-icons-ivy-rich)
 (package! lsp-pyright)
+(package! ein)
