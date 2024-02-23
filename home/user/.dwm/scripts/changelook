@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Directory containing wallpapers
-WALLPAPER_DIR="~/dotfiles/home/user/Pictures/Wall/"
+WALLPAPER_DIR="/home/ram/dotfiles/home/user/Pictures/Wall/"
 
 # List wallpapers in the directory
 WALLPAPERS=$(ls "$WALLPAPER_DIR")
@@ -11,7 +11,7 @@ ACTION=$(echo -e "Choose\nRandom\nExit" | dmenu -i -l 5 -p "What would you like 
 
 case $ACTION in
 "Choose")
-	SELECTED_WALLPAPER=$(sxiv -to /mnt/Extras/dotfiles/home/user/Pictures/Wall | awk '{print $NF}')
+	SELECTED_WALLPAPER=$(sxiv -to /home/ram/dotfiles/home/user/Pictures/Wall | awk '{print $NF}')
 	# Check if a wallpaper was selected
 	if [ -n "$SELECTED_WALLPAPER" ]; then
 		# Set the wallpaper
