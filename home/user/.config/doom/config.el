@@ -467,6 +467,15 @@
 
 (add-hook 'org-mode-hook 'org-fragtog-mode)
 
+(defun ddate ()
+  (interactive)
+  (insert "Time - ")
+  (insert (propertize (format-time-string "[%I:%M]:  ") 'face 'bold)))
+
+;; Map a key to call the function ddate
+(map! :leader
+      :desc "Insert current time" "i t" #'ddate)
+
 (after! org
   (setq org-agenda-files '("~/dorfiles/Org/agenda.org")))
 
