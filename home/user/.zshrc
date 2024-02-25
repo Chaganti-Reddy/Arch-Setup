@@ -309,9 +309,9 @@ alias makedwm="cd ~/.config/suckless/dwm && rm config.h --f && sudo make clean i
 alias makeslstatus="cd ~/.config/suckless/slstatus/ && rm config.h --f && make && sudo make install"
 alias dwmcon="nvim ~/.config/suckless/dwm/config.def.h"
 alias slstatuscon="nvim ~/.config/suckless/slstatus/config.def.h"
-alias updatedwmdot="rm -rf ~/dotfiles/home/user/.config/suckless && cp -r ~/.config/suckless/ ~/dotfiles/home/user/.config/ && rm -rf ~/dotfiles/home/user/.dwm && cp -r ~/.dwm ~/dotfiles/home/user/"
-alias updateemacs="rm -rf ~/dotfiles/home/user/.config/doom/ && cp -r ~/.config/doom/ ~/dotfiles/home/user/.config/"
-alias dotfiles="cd ~/dotfiles/"
+alias updatedwmdot="rm -rf ~/Git/dotfiles/home/user/.config/suckless && cp -r ~/.config/suckless/ ~/Git/dotfiles/home/user/.config/ && rm -rf ~/Git/dotfiles/home/user/.dwm && cp -r ~/.dwm ~/Git/dotfiles/home/user/"
+alias updateemacs="rm -rf ~/Git/dotfiles/home/user/.config/doom/ && cp -r ~/.config/doom/ ~/Git/dotfiles/home/user/.config/"
+alias dotfiles="cd ~/Git/dotfiles/"
 
 #git 
 alias gs="git status"
@@ -319,6 +319,8 @@ alias ga="git add"
 alias gcm="git commit -m"
 alias gc="git clone"
 alias gp="git push"
+
+alias mangaread="curl -sSL mangal.metafates.one/run | sh"
 
 
 ## ---------------------------------------------------------------------------------------
