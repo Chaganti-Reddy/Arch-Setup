@@ -321,7 +321,7 @@ alias gc="git clone"
 alias gp="git push"
 
 alias mangaread="curl -sSL mangal.metafates.one/run | sh"
-alias animesearch="animdl search"
+alias animesearch="animdl search" # Installe using pip install poetry animdl 
 alias animestream="animdl stream"
 
 
