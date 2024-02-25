@@ -1,6 +1,27 @@
 Blogs
-https://www.dj-bauer.de/feeds/all.atom.xml Blog "~Dj-Bauer" Tech Lifestyle
 http://lukesmith.xyz/rss.xml Blog "~Luke Smith" Tech
+
+NewYorkTimes
+https://rss.nytimes.com/services/xml/rss/nyt/World.xml NYT "~NYT World" News
+https://rss.nytimes.com/services/xml/rss/nyt/Business.xml NYT "~NYT Business" News
+https://rss.nytimes.com/services/xml/rss/nyt/Sports.xml NYT "~NYT Sports" News
+https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml NYT "~NYT Technology" News
+https://rss.nytimes.com/services/xml/rss/nyt/Science.xml NYT "~NYT Science" News
+https://rss.nytimes.com/services/xml/rss/nyt/Space.xml NYT "~NYT Space & Comics" News
+https://rss.nytimes.com/services/xml/rss/nyt/AsiaPacific.xml NYT "~NYT Asia Pacific" News
+
+NewYorkerMagazine
+https://www.newyorker.com/feed/news New Yorker "~New Yorker All News" News
+https://www.newyorker.com/feed/everything New Yorker "~New Yorker Everything" News
+https://www.newyorker.com/feed/magazine/rss New Yorker "~New Yorker Magazine" News
+https://www.newyorker.com/feed/posts New Yorker "~New Yorker Web Posts" News
+https://www.newyorker.com/feed/culture New Yorker "~New Yorker Culture" News
+https://www.newyorker.com/feed/humor New Yorker "~New Yorker Humor" News
+https://www.newyorker.com/feed/cartoons/daily-cartoon New Yorker "~New Yorker Daily Cartoons" News
+https://www.newyorker.com/feed/tag/books/rss New Yorker "~New Yorker Books" News
+https://www.newyorker.com/feed/tech New Yorker "~New Yorker Tech" News
+https://www.newyorker.com/feed/news/sporting-scene New Yorker "~New Yorker Sporting Scene" News
+https://www.newyorker.com/feed/podcast/fiction New Yorker "~New Yorker Fiction Podcast" News
 
 Youtube
 https://www.youtube.com/feeds/videos.xml?channel_id=UCngn7SVujlvskHRvRKc1cTw Youtube "~BugsWriter" Tech
