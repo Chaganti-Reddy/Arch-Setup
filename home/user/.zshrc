@@ -321,6 +321,8 @@ alias gc="git clone"
 alias gp="git push"
 
 alias mangaread="curl -sSL mangal.metafates.one/run | sh"
+alias animesearch="animdl search"
+alias animestream="animdl stream"
 
 
 ## ---------------------------------------------------------------------------------------
