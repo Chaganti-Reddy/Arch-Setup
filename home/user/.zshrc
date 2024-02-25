@@ -325,9 +325,8 @@ alias animesearch="animdl search" # Installe using pip install poetry animdl
 alias animestream="animdl stream"
 alias gonchillmov="cd ~/Git/dotfiles/gonchill/ && go run . movies -m"
 alias gonchillser="cd ~/Git/dotfiles/gonchill/ && go run . series -m"
-function torrentwatch() {
-    peerflix -a -q "$1" --vlc
-}
+alias torrentwatch1="peerflix -k -a -q"
+alias torrentwatch2="webtorrent --mpv"
 
 
 ## ---------------------------------------------------------------------------------------
