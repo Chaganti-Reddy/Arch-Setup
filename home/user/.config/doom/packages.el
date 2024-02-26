@@ -95,3 +95,4 @@
 (package! all-the-icons-ivy-rich)
 (package! lsp-pyright)
 (package! ein)
+(package! multiple-cursors)
