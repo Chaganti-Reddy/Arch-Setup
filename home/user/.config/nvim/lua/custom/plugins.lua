@@ -111,16 +111,33 @@ local plugins = {
       require("dashboard").setup {
         -- config
       }
-      require("custom.configs.dashboard-nvim")
+      require "custom.configs.dashboard-nvim"
     end,
     dependencies = { { "nvim-tree/nvim-web-devicons" } },
   },
-{
+  {
     "folke/zen-mode.nvim",
     cmd = "ZenMode",
     config = function()
-      require("custom.configs.zen-mode")
+      require "custom.configs.zen-mode"
     end,
+  },
+  {
+    "smoka7/multicursors.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "smoka7/hydra.nvim",
+    },
+    opts = {},
+    cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern", "MCvisualPattern", "MCunderCursor" },
+    keys = {
+      {
+        mode = { "v", "n" },
+        "<Leader>m",
+        "<cmd>MCstart<cr>",
+        desc = "Create a selection for selected text or word under the cursor",
+      },
+    },
   },
   -- To make a plugin not be loaded
   -- {

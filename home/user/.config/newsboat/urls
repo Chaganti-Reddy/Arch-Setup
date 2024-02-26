@@ -11,17 +11,17 @@ https://rss.nytimes.com/services/xml/rss/nyt/Space.xml NYT "~NYT Space & Comics"
 https://rss.nytimes.com/services/xml/rss/nyt/AsiaPacific.xml NYT "~NYT Asia Pacific" News
 
 NewYorkerMagazine
-https://www.newyorker.com/feed/news New Yorker "~New Yorker All News" News
-https://www.newyorker.com/feed/everything New Yorker "~New Yorker Everything" News
-https://www.newyorker.com/feed/magazine/rss New Yorker "~New Yorker Magazine" News
-https://www.newyorker.com/feed/posts New Yorker "~New Yorker Web Posts" News
-https://www.newyorker.com/feed/culture New Yorker "~New Yorker Culture" News
-https://www.newyorker.com/feed/humor New Yorker "~New Yorker Humor" News
-https://www.newyorker.com/feed/cartoons/daily-cartoon New Yorker "~New Yorker Daily Cartoons" News
-https://www.newyorker.com/feed/tag/books/rss New Yorker "~New Yorker Books" News
-https://www.newyorker.com/feed/tech New Yorker "~New Yorker Tech" News
-https://www.newyorker.com/feed/news/sporting-scene New Yorker "~New Yorker Sporting Scene" News
-https://www.newyorker.com/feed/podcast/fiction New Yorker "~New Yorker Fiction Podcast" News
+https://www.newyorker.com/feed/news NYM "~NYM All News" News
+https://www.newyorker.com/feed/everything NYM "~NYM Everything" News
+https://www.newyorker.com/feed/magazine/rss NYM "~NYM Magazine" News
+https://www.newyorker.com/feed/posts NYM "~NYM Web Posts" News
+https://www.newyorker.com/feed/culture NYM "~NYM Culture" News
+https://www.newyorker.com/feed/humor NYM "~NYM Humor" News
+https://www.newyorker.com/feed/cartoons/daily-cartoon NYM "~NYM Daily Cartoons" News
+https://www.newyorker.com/feed/tag/books/rss NYM "~NYM Books" News
+https://www.newyorker.com/feed/tech NYM "~NYM Tech" News
+https://www.newyorker.com/feed/news/sporting-scene NYM "~NYM Sporting Scene" News
+https://www.newyorker.com/feed/podcast/fiction NYM "~NYM Fiction Podcast" News
 
 Youtube
 https://www.youtube.com/feeds/videos.xml?channel_id=UCngn7SVujlvskHRvRKc1cTw Youtube "~BugsWriter" Tech
