@@ -98,7 +98,7 @@ static const Rule rules[] = {
     {"flameshot", NULL, NULL, 0, 1, 0, 0, -1},
     {"obs", NULL, NULL, 0, 1, 0, 0, -1},
     {"floorp", NULL, NULL, 1 << 1, 0, 0, -1, -1},
-    {"thorium-browser", NULL, NULL, 1 << 2, 0, 0, -1, -1},
+    {"Thorium-browser", NULL, NULL, 1 << 2, 0, 0, -1, -1},
     {"discord", NULL, NULL, 1 << 5, 0, 0, -1, -1},
     {"St", NULL, NULL, 0, 0, 1, 0, -1},
     {NULL, NULL, "Event Tester", 0, 0, 0, 1, -1}, /* xev */
@@ -159,6 +159,7 @@ static const char *dmenucmd[] = {"dmenu_run", "-m", dmenumon, "-fn", dmenufont};
 static const char *termcmd[] = {"st", NULL};
 static const char *emacs[] = {"emacs", NULL};
 static const char *browser[] = {"floorp", NULL};
+static const char *browser1[] = {"thorium-browser", NULL};
 static const char *files[] = {"st", "-e", "ranger", NULL};
 
 #include "movestack.c"
@@ -246,6 +247,7 @@ static Key keys[] = {
     {MODKEY | ControlMask | ShiftMask, XK_i, spawn,
      SHCMD("networkmanager_dmenu")},
     {MODKEY, XK_w, spawn, {.v = browser}},
+    {MODKEY | ShiftMask, XK_w, spawn, {.v = browser1}},
     {MODKEY | ShiftMask, XK_n, spawn, {.v = files}},
     {MODKEY, XK_F8, spawn, {.v = (const char *[]){"mpc", "next", NULL}}},
     {MODKEY, XK_F7, spawn, {.v = (const char *[]){"mpc", "toggle", NULL}}},
