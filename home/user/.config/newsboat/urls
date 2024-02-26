@@ -10,19 +10,6 @@ https://rss.nytimes.com/services/xml/rss/nyt/Science.xml NYT "~NYT Science" News
 https://rss.nytimes.com/services/xml/rss/nyt/Space.xml NYT "~NYT Space & Comics" News
 https://rss.nytimes.com/services/xml/rss/nyt/AsiaPacific.xml NYT "~NYT Asia Pacific" News
 
-NewYorkerMagazine
-https://www.newyorker.com/feed/news NYM "~NYM All News" News
-https://www.newyorker.com/feed/everything NYM "~NYM Everything" News
-https://www.newyorker.com/feed/magazine/rss NYM "~NYM Magazine" News
-https://www.newyorker.com/feed/posts NYM "~NYM Web Posts" News
-https://www.newyorker.com/feed/culture NYM "~NYM Culture" News
-https://www.newyorker.com/feed/humor NYM "~NYM Humor" News
-https://www.newyorker.com/feed/cartoons/daily-cartoon NYM "~NYM Daily Cartoons" News
-https://www.newyorker.com/feed/tag/books/rss NYM "~NYM Books" News
-https://www.newyorker.com/feed/tech NYM "~NYM Tech" News
-https://www.newyorker.com/feed/news/sporting-scene NYM "~NYM Sporting Scene" News
-https://www.newyorker.com/feed/podcast/fiction NYM "~NYM Fiction Podcast" News
-
 Youtube
 https://www.youtube.com/feeds/videos.xml?channel_id=UCngn7SVujlvskHRvRKc1cTw Youtube "~BugsWriter" Tech
 https://www.youtube.com/feeds/videos.xml?channel_id=UCXUPKJO5MZQN11PqgIvyuvQ Youtube "~Andrej Karapathy" ML&DL
