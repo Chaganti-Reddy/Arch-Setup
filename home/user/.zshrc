@@ -327,6 +327,7 @@ alias gonchillmov="cd ~/Git/dotfiles/gonchill/ && go run . movies -m"
 alias gonchillser="cd ~/Git/dotfiles/gonchill/ && go run . series -m"
 alias torrentwatch1="peerflix -k -a -q"
 alias torrentwatch2="webtorrent --mpv"
+alias anime="anipy-cli"
 
 
 ## ---------------------------------------------------------------------------------------
