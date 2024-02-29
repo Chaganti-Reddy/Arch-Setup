@@ -1,0 +1,27 @@
+anime_types:
+- sub
+- dub
+auto_map_mal_to_gogo: false
+auto_open_dl_defaultcli: false
+auto_sync_mal_to_seasonals: false
+dc_presence: false
+download_folder_path: /home/ram/Downloads/anipy_cli
+download_name_format: '{show_name}_{episode_number}.mp4'
+download_remove_dub_from_folder_name: false
+ffmpeg_hls: false
+ffmpeg_log_path: /home/ram/miniconda3/lib/python3.10/site-packages/anipy_cli/user_files/ffmpeg_log
+gogoanime_url: https://gogoanime.gg/
+history_file_path: /home/ram/miniconda3/lib/python3.10/site-packages/anipy_cli/user_files/history.json
+mal_local_user_list_path: /home/ram/miniconda3/lib/python3.10/site-packages/anipy_cli/user_files/mal_list.json
+mal_password: ''
+mal_status_categories:
+- watching
+mal_user: ''
+mpv_commandline_options:
+- --keep-open=no
+player_path: mpv
+reuse_mpv_window: false
+seasonal_file_path: /home/ram/miniconda3/lib/python3.10/site-packages/anipy_cli/user_files/seasonals.json
+seasonals_dl_path: /home/ram/miniconda3/lib/python3.10/site-packages/anipy_cli/download/seasonals
+user_files_path: /home/ram/miniconda3/lib/python3.10/site-packages/anipy_cli/user_files
+vlc_commandline_options: []
