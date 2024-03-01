@@ -4,6 +4,7 @@
 /home/ram/.dwm/newlook &
 /usr/lib/polkit-kde-authentication-agent-1 &
 /usr/bin/emacs --daemon &
+/home/ram/.dwm/scripts/whatsapp_start &
 numlockx &
 # nm-applet &
 dunst &

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Check if WhatsApp is already running
+if pgrep -f "/home/ram/Whatsapp-linux-x64/Whatsapp" > /dev/null
+then
+    dunstify "WhatsApp is already running"
+else
+    # Start WhatsApp
+    /home/ram/Whatsapp-linux-x64/Whatsapp &
+    dunstify "WhatsApp started"
+fi
+
