@@ -327,7 +327,12 @@ alias gonchillmov="cd ~/Git/dotfiles/gonchill/ && go run . movies -m"
 alias gonchillser="cd ~/Git/dotfiles/gonchill/ && go run . series -m"
 alias torrentwatch1="peerflix -k -a -q"
 alias torrentwatch2="webtorrent --mpv"
+alias torrentdownload="webtorrent download"
 alias anime="anipy-cli"
+
+#Web Apps
+alias notion="/home/ram/Notion-linux-x64/Notion"
+alias whatsapp="/home/ram/Whatsapp-linux-x64/Whatsapp"
 
 
 ## ---------------------------------------------------------------------------------------
