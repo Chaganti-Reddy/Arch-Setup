@@ -45,16 +45,16 @@ case $chosen_option in
 	choice=$(printf "Relevent\nDate\nRating\nViews" | dmenu -i -l 10 -p "Sort by:")
 	case $choice in
 	"Relevent")
-		cd ~/Downloads && invidious_instance="https://vid.puffyan.us" ytfzf --rii -d -D --sort-by=relevance
+		cd ~/Downloads && invidious_instance="https://vid.puffyan.us" ytfzf --rii -fd -D --sort-by=relevance
 		;;
 	"Date")
-		cd ~/Downloads && invidious_instance="https://vid.puffyan.us" ytfzf --rii -d -D --sort-by=upload_date
+		cd ~/Downloads && invidious_instance="https://vid.puffyan.us" ytfzf --rii -fd -D --sort-by=upload_date
 		;;
 	"Rating")
-		cd ~/Downloads && invidious_instance="https://vid.puffyan.us" ytfzf --rii -d -D --sort-by=rating
+		cd ~/Downloads && invidious_instance="https://vid.puffyan.us" ytfzf --rii -fd -D --sort-by=rating
 		;;
 	"Views")
-		cd ~/Downloads && invidious_instance="https://vid.puffyan.us" ytfzf --rii -d -D --sort-by=view_count
+		cd ~/Downloads && invidious_instance="https://vid.puffyan.us" ytfzf --rii -fd -D --sort-by=view_count
 		;;
 	*)
 		# If an invalid option is chosen
