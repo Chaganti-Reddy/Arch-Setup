@@ -428,7 +428,7 @@
 
 (xterm-mouse-mode 1)
 
-(require 'evil-multiedit)
+;; (require 'evil-multiedit)
 ;; (evil-multiedit-default-keybinds)
 
 ;; now lets add a binding with leader to use these. those will be SPC > and then different keybinds

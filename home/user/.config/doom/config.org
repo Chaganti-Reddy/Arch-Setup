@@ -875,7 +875,7 @@ Adding mouse support in the terminal version of Emacs.
 Evil-multiedit is a multiple cursors package for evil-mode.  It is a package that allows you to select multiple instances of a word or phrase and edit them all at once.
 
 #+begin_src emacs-lisp
-(require 'evil-multiedit)
+;; (require 'evil-multiedit)
 ;; (evil-multiedit-default-keybinds)
 
 ;; now lets add a binding with leader to use these. those will be SPC > and then different keybinds
