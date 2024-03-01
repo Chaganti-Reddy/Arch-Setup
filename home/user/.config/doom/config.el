@@ -766,7 +766,9 @@
 
 (after! org
   (setq org-roam-directory "~/dotfiles/Org/roam/"
-        org-roam-graph-viewer "/usr/bin/floorp"))
+        ;; org-roam-graph-viewer "/usr/bin/floorp"
+        org-roam-graph-viewer "/usr/bin/qutebrowser"
+        ))
 
 (map! :leader
       (:prefix ("n r" . "org-roam")
