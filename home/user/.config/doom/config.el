@@ -392,6 +392,19 @@
                           (require 'lsp-pyright)
                           (lsp))))  ; or lsp-deferred
 
+(require 'conda)
+;; if you want interactive shell support, include:
+(conda-env-initialize-interactive-shells)
+;; if you want eshell support, include:
+(conda-env-initialize-eshell)
+;; if you want auto-activation (see below for details), include:
+(after! 'python-mode
+  (conda-env-autoactivate-mode)) ;; auto-activate conda environment when you open a python file
+;; (conda-env-autoactivate-mode t) ;; auto-activate conda environment when you open any file
+;; if you want to automatically activate a conda environment on the opening of a file:
+(add-hook 'find-file-hook (lambda () (when (bound-and-true-p conda-project-env-path)
+                                          (conda-env-activate-for-buffer))))
+
 (custom-set-faces
  '(markdown-header-face ((t (:inherit font-lock-function-name-face :weight bold :family "variable-pitch"))))
  '(markdown-header-face-1 ((t (:inherit markdown-header-face :height 1.7))))
@@ -411,8 +424,38 @@
       doom-modeline-bar-width 5   ;; sets right bar width
       doom-modeline-persp-name t  ;; adds perspective name to modeline
       doom-modeline-persp-icon t) ;; adds folder icon next to persp name
+(setq-default mode-line-format (cons '(:exec conda-env-current-name) mode-line-format))
 
 (xterm-mouse-mode 1)
+
+(require 'evil-multiedit)
+;; (evil-multiedit-default-keybinds)
+
+;; now lets add a binding with leader to use these. those will be SPC > and then different keybinds
+(map! :leader
+      (:prefix (">" . "Multiedit")
+       :desc "Match all" "a" #'evil-multiedit-match-all
+       :desc "Match Next" "n" #'evil-multiedit-match-and-next
+       :desc "Match Prev" "N" #'evil-multiedit-match-and-prev
+       :desc "Restore Last Edit Group" "R" #'evil-multiedit-restore
+))
+
+(map! :leader
+      :desc "Multiedit Next" "C-n" #'evil-multiedit-match-and-next
+      :desc "Multiedit Prev" "C-p" #'evil-multiedit-match-and-prev
+)
+
+;; Many evil-mode motions/operators will have slightly different behavior while evil-multiedit is active or the cursor is in an iedit region:
+
+;;     D: clear the region
+;;     C: clear to end-of-region and go into insert mode
+;;     A: go into insert mode at end-of-region
+;;     I: go into insert mode at start-of-region
+;;     V: select the region
+;;     P: replace the iedit region with the contents of the clipboard
+;;     $: go to end-of-region
+;;     0/^: go to start-of-region
+;;     gg/G: go to the first/last region
 
 (after! neotree
   (setq neo-smart-open t
