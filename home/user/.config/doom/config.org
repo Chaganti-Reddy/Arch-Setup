@@ -813,9 +813,9 @@ I set comment-line to 'SPC TAB TAB' which is a rather comfortable keybinding for
 ;; if you want eshell support, include:
 (conda-env-initialize-eshell)
 ;; if you want auto-activation (see below for details), include:
-(after! 'python-mode
-  (conda-env-autoactivate-mode)) ;; auto-activate conda environment when you open a python file
-;; (conda-env-autoactivate-mode t) ;; auto-activate conda environment when you open any file
+;; (after! 'python-mode
+;;   (conda-env-autoactivate-mode)) ;; auto-activate conda environment when you open a python file
+(conda-env-autoactivate-mode t) ;; auto-activate conda environment when you open any file
 ;; if you want to automatically activate a conda environment on the opening of a file:
 (add-hook 'find-file-hook (lambda () (when (bound-and-true-p conda-project-env-path)
                                           (conda-env-activate-for-buffer))))
