@@ -48,6 +48,7 @@
 - [[#org-mode][ORG MODE]]
   - [[#org-agenda][Org-agenda]]
   - [[#org-auto-tangle][Org-auto-tangle]]
+  - [[#org-download][Org Download]]
   - [[#org-fonts][Org fonts]]
   - [[#org-export][Org-export]]
   - [[#org-journal][Org-journal]]
@@ -807,6 +808,7 @@ I set comment-line to 'SPC TAB TAB' which is a rather comfortable keybinding for
 #+end_src
 
 
+
 * MARKDOWN
 
 #+begin_src emacs-lisp
@@ -1009,6 +1011,15 @@ I wrapped most of this block in (after! org).  Without this, my settings might b
 
 (map! :leader
       :desc "Insert auto_tangle tag" "i a" #'dt/insert-auto-tangle-tag)
+#+end_src
+
+** Org Download
+using this we can directly paste images from clipboard which will save those images to a relative path directory to the current file
+
+#+begin_src emacs-lisp
+(require 'org-download)
+;; Drag-and-drop to `dired`
+(add-hook 'dired-mode-hook 'org-download-enable)
 #+end_src
 
 ** Org fonts

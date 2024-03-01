@@ -523,6 +523,10 @@
 (map! :leader
       :desc "Insert auto_tangle tag" "i a" #'dt/insert-auto-tangle-tag)
 
+(require 'org-download)
+;; Drag-and-drop to `dired`
+(add-hook 'dired-mode-hook 'org-download-enable)
+
 (defun dt/org-colors-doom-one ()
   "Enable Doom One colors for Org headers."
   (interactive)

@@ -96,3 +96,4 @@
 (package! lsp-pyright)
 (package! ein)
 (package! multiple-cursors)
+(package! org-download)
