@@ -1,10 +1,10 @@
 #!/bin/bash
 #
 #
-/home/ram/.dwm/newlook &
+xinput set-prop "DLL09D9:00 04F3:3147 Touchpad" "libinput Tapping Enabled" 1
+xinput set-prop "DLL09D9:00 04F3:3147 Touchpad" "libinput Natural Scrolling Enabled" 1
 /usr/lib/polkit-kde-authentication-agent-1 &
 /usr/bin/emacs --daemon &
-/home/ram/.dwm/scripts/whatsapp_start &
 numlockx &
 # nm-applet &
 dunst &
@@ -12,9 +12,9 @@ clipmenud &
 # walogram &
 # rsibreak &
 # flameshot &
-xinput set-prop "DLL09D9:00 04F3:3147 Touchpad" "libinput Tapping Enabled" 1
-xinput set-prop "DLL09D9:00 04F3:3147 Touchpad" "libinput Natural Scrolling Enabled" 1
 # blueman-applet &
 xcompmgr &
 mpd &
 slstatus &
+/home/ram/.dwm/newlook &
+# /home/ram/.dwm/scripts/whatsapp_start &
