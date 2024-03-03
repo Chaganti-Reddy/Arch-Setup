@@ -162,6 +162,7 @@ static const char *emacs[] = {"emacs", NULL};
 static const char *browser[] = {"floorp", NULL};
 static const char *browser1[] = {"thorium-browser", NULL};
 static const char *files[] = {"st", "-e", "ranger", NULL};
+static const char *files1[] = {"dolphin", NULL};
 
 #include "movestack.c"
 static Key keys[] = {
@@ -240,7 +241,7 @@ static Key keys[] = {
     {MODKEY | ShiftMask, XK_F11, spawn, SHCMD("brightnessctl s 5%+")},
     {MODKEY | ShiftMask, XK_F10, spawn, SHCMD("brightnessctl s 5%-")},
     {MODKEY, XK_v, spawn, SHCMD("clipmenu -i -fn JetBrainsMonoNL:10")},
-    {MODKEY, XK_n, spawn, SHCMD("~/.dwm/dmenu_file")},
+    // {MODKEY, XK_n, spawn, SHCMD("~/.dwm/dmenu_file")},
     {MODKEY | ShiftMask, XK_p, spawn, SHCMD("~/.dwm/scripts/power")},
     {MODKEY | ShiftMask, XK_a, spawn, SHCMD("~/.dwm/scripts/script")},
     {MODKEY | ShiftMask, XK_s, spawn, SHCMD("flameshot gui")},
@@ -249,7 +250,8 @@ static Key keys[] = {
      SHCMD("networkmanager_dmenu")},
     {MODKEY, XK_w, spawn, {.v = browser}},
     {MODKEY | ShiftMask, XK_w, spawn, {.v = browser1}},
-    {MODKEY | ShiftMask, XK_n, spawn, {.v = files}},
+    {MODKEY , XK_n, spawn, {.v = files}},
+    {MODKEY | ShiftMask, XK_n, spawn, {.v = files1}},
     {MODKEY, XK_F8, spawn, {.v = (const char *[]){"mpc", "next", NULL}}},
     {MODKEY, XK_F7, spawn, {.v = (const char *[]){"mpc", "toggle", NULL}}},
     {MODKEY, XK_F6, spawn, {.v = (const char *[]){"mpc", "prev", NULL}}},
