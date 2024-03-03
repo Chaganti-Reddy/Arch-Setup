@@ -323,10 +323,6 @@ alias gc="git clone"
 alias gp="git push"
 
 alias mangaread="curl -sSL mangal.metafates.one/run | sh"
-alias animesearch="animdl search" # Installe using pip install poetry animdl 
-alias animestream="animdl stream"
-# alias gonchillmov="cd ~/Git/dotfiles/gonchill/ && go run . movies -m"
-# alias gonchillser="cd ~/Git/dotfiles/gonchill/ && go run . series -m"
 alias torrentwatch1="peerflix -k -a -q"
 alias torrentwatch2="webtorrent --mpv"
 alias torrentdownload="webtorrent download"
