@@ -332,7 +332,6 @@ alias anime="anipy-cli"
 alias notion="/home/ram/Notion-linux-x64/Notion"
 alias whatsapp="/home/ram/Whatsapp-linux-x64/Whatsapp"
 alias todoist="/home/ram/Todoist-linux-x64/Todoist"
-alias hotstar="/home/ram/Hotstar-linux-x64/Hotstar"
 
 
 ## ---------------------------------------------------------------------------------------
