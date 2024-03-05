@@ -61,8 +61,8 @@ const char *spcmd3[] = {
     NULL};
 const char *spcmd4[] = {
     "st",     "-n",     "spgpt", "-f",   "JetBrainsMonoNL:weight=bold:size=11",
-    "-g",     "120x34", "-e",    "tgpt", "--model",
-    "llama2", "-i",     NULL};
+    // "-g",     "120x34", "-e",    "tgpt", "--model", "llama2", "-i",     NULL};
+    "-g",     "120x34", "-e",    "ollama", "run", "mistral",     NULL};
 const char *spcmd5[] = {
     "st", "-n",     "spnews", "-f",       "JetBrainsMonoNL:weight=bold:size=11",
     "-g", "120x34", "-e",     "newsboat", NULL};
