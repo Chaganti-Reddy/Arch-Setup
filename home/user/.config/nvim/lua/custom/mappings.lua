@@ -18,9 +18,11 @@ M.general = {
     ["<leader>cv"] = { ":VimtexView<CR>", "view vimtex" },
     -- Enter Zen Mode using z 
     ["<leader>z"] = { ":ZenMode<CR>", "zen mode" },
+    ["<leader>gg"] = { ":Gen<CR>", "Open Ollama" },
   },
   v = {
     [">"] = { ">gv", "indent" },
+    ["<leader>gg"] = { ":Gen<CR>", "Open Ollama" },
   },
 }
 
