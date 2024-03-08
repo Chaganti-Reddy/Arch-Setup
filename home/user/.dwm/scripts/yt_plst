@@ -53,6 +53,7 @@ play_youtube_playlist() {
                     index=$((video_number - 1))
                 else
                     dunstify "Invalid video number."
+                    exit 0
                 fi
                 ;;
             "quit")
