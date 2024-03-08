@@ -65,7 +65,20 @@ play_youtube_playlist() {
 }
 
 main() {
-    playlist_url=$(echo "" | dmenu -p "Enter YouTube playlist URL:")
+    choices=$(echo -e "Search\nEnter Link\nQuit" | dmenu -i -l 10 -p "Enter your choice:")
+    
+    case $choices in
+        "Search")
+          playlist_url=$(ytfzf --rii --type=playlist -LD)
+            ;;
+        "Enter Link")
+            playlist_url=$(echo "" | dmenu -p "Enter YouTube playlist URL:")
+            ;;
+        "Quit")
+            exit 0
+            ;;
+    esac
+
     if [ -z "$playlist_url" ]; then
         dunstify "No URL provided"
         exit 1
