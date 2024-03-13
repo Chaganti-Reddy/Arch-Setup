@@ -3,15 +3,18 @@
 # Directory containing wallpapers
 WALL="/home/ram/Git/dotfiles/home/user/Pictures"
 dir=$(ls $WALL)
-choice=$(echo -e "$dir\nDownload More\nTemporary From Internet\nQuit" | dmenu -i -l 10 -p "Choose an Option: ")
+choice=$(echo -e "$dir\nDownload to Collection\nTemporary Wallpaper\nQuit" | dmenu -i -l 10 -p "Choose an Option: ")
 
 
-if [ "$choice" = "Download More" ]; then
+if [ "$choice" = "Download to Collection" ]; then
   /usr/local/bin/waldl
+  if [ ! -d "$WALL/Wallheaven" ]; then
+    mkdir "$WALL/Wallheaven"
+  fi
   WALLPAPER_DIR="$WALL/Wallheaven"
 fi
 
-if [ "$choice" = "Temporary From Internet" ]; then
+if [ "$choice" = "Temporary Wallpaper" ]; then
   if [ ! -d "/home/ram/.cache/wallheaven" ]; then
     mkdir /home/ram/.cache/wallheaven
   fi
@@ -21,12 +24,6 @@ fi
 
 if [ "$choice" = "Quit" ]; then
   dunstify "Program terminated."
-  exit 1
-fi
-
-# Check if the directory exists
-if [ ! -d "$WALLPAPER_DIR" ]; then
-  dunstify "Directory does not exist."
   exit 1
 fi
 
