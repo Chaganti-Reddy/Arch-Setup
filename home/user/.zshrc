@@ -327,7 +327,6 @@ alias torrentwatch1="peerflix -k -a -q"
 alias torrentwatch2="webtorrent --mpv"
 alias torrentdownload="webtorrent download"
 alias anime="anipy-cli"
-alias youtube="yt help"
 
 #Web Apps
 alias notion="firefoxpwa site launch 01HRCGX1KEQWKX68C4CQSFDXN2 &"
