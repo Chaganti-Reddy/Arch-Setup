@@ -1,16 +1,28 @@
 #!/bin/bash
 
 # Directory containing wallpapers
-WALL="/home/ram/Git/dotfiles/home/user/Pictures/"
+WALL="/home/ram/Git/dotfiles/home/user/Pictures"
 dir=$(ls $WALL)
-choice=$(echo -e "$dir\nQuit" | dmenu -i -l 10 -p "Choose a directory: ")
+choice=$(echo -e "$dir\nDownload More\nTemporary From Internet\nQuit" | dmenu -i -l 10 -p "Choose an Option: ")
+
+
+if [ "$choice" = "Download More" ]; then
+  /usr/local/bin/waldl
+  WALLPAPER_DIR="$WALL/Wallheaven"
+fi
+
+if [ "$choice" = "Temporary From Internet" ]; then
+  if [ ! -d "/home/ram/.cache/wallheaven" ]; then
+    mkdir /home/ram/.cache/wallheaven
+  fi
+  /usr/local/bin/waldl -d /home/ram/.cache/wallheaven
+  WALLPAPER_DIR="/home/ram/.cache/wallheaven"
+fi
 
 if [ "$choice" = "Quit" ]; then
   dunstify "Program terminated."
   exit 1
 fi
-
-WALLPAPER_DIR="$WALL$choice"
 
 # Check if the directory exists
 if [ ! -d "$WALLPAPER_DIR" ]; then
@@ -18,8 +30,26 @@ if [ ! -d "$WALLPAPER_DIR" ]; then
   exit 1
 fi
 
+# If directory is empty then ask to exit or there is a script to download wallpapers ask to execute it
+if [ -z "$(ls -A $WALLPAPER_DIR)" ]; then
+  dunstify "Directory is empty."
+  choice=$(echo -e "Download\nExit" | dmenu -i -l 2 -p "Would you like to Download Some?")
+  if [ "$choice" = "Download" ]; then
+    /usr/local/bin/waldl
+  else
+    dunstify "Program terminated."
+    exit 1
+  fi
+fi 
+ 
+
 # List wallpapers in the directory
 WALLPAPERS=$(ls "$WALLPAPER_DIR")
+
+if [ -z "$WALLPAPERS" ]; then
+  dunstify "No wallpapers found."
+  exit 1
+fi
 
 # Prompt user to choose action
 ACTION=$(echo -e "Choose\nRandom\nExit" | dmenu -i -l 5 -p "What would you like to do?")
