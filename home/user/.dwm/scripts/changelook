@@ -1,7 +1,22 @@
 #!/bin/bash
 
 # Directory containing wallpapers
-WALLPAPER_DIR="/home/ram/Git/dotfiles/home/user/Pictures/Wall/"
+WALL="/home/ram/Git/dotfiles/home/user/Pictures/"
+dir=$(ls $WALL)
+choice=$(echo -e "$dir\nQuit" | dmenu -i -l 10 -p "Choose a directory: ")
+
+if [ "$choice" = "Quit" ]; then
+  dunstify "Program terminated."
+  exit 1
+fi
+
+WALLPAPER_DIR="$WALL$choice"
+
+# Check if the directory exists
+if [ ! -d "$WALLPAPER_DIR" ]; then
+  dunstify "Directory does not exist."
+  exit 1
+fi
 
 # List wallpapers in the directory
 WALLPAPERS=$(ls "$WALLPAPER_DIR")
@@ -11,7 +26,7 @@ ACTION=$(echo -e "Choose\nRandom\nExit" | dmenu -i -l 5 -p "What would you like 
 
 case $ACTION in
 "Choose")
-	SELECTED_WALLPAPER=$(sxiv -to /home/ram/Git/dotfiles/home/user/Pictures/Wall | awk '{print $NF}')
+	SELECTED_WALLPAPER=$(sxiv -to $WALLPAPER_DIR | awk '{print $NF}')
 	# Check if a wallpaper was selected
 	if [ -n "$SELECTED_WALLPAPER" ]; then
 		# Set the wallpaper
