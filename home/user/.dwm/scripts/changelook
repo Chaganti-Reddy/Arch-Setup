@@ -5,6 +5,7 @@ WALL="/home/ram/Git/dotfiles/home/user/Pictures"
 dir=$(ls $WALL)
 choice=$(echo -e "$dir\nDownload to Collection\nTemporary Wallpaper\nQuit" | dmenu -i -l 10 -p "Choose an Option: ")
 
+WALLPAPER_DIR="$WALL/$choice"
 
 if [ "$choice" = "Download to Collection" ]; then
   /usr/local/bin/waldl
