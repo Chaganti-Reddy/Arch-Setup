@@ -17,7 +17,15 @@ version="0.0.1"
 
 [ -z $VIEWER ] && VIEWER=sxiv
 # the dir where wallpapers are stored
-walldir="$HOME/Git/dotfiles/home/user/Pictures/Wallheaven/"
+# If user entry a directory location with the -d option, then the wallpapers will be downloaded to that location, else the wallpapers will be downloaded to the default location
+
+if [ -n "$1" ] && [ "$1" = "-d" ]; then
+  shift
+  walldir="$1"
+  shift
+else
+  walldir="$HOME/Git/dotfiles/home/user/Pictures/Wallheaven/"
+fi
 # the dir used to cache thumbnails
 cachedir="$HOME/.cache/wallhaven"
 # sxiv options
@@ -174,4 +182,4 @@ do
 done | curl -K -
 
 sh_info "wallpapers downloaded in:- '$walldir'"
-$VIEWER $(ls -c)
+# $VIEWER $(ls -c)
