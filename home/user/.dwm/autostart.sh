@@ -17,5 +17,8 @@ xcompmgr &
 mpd &
 slstatus &
 /home/ram/.dwm/scripts/mouse &
+if [ -d ~/.cache/wallheaven ]; then
+    rm -rf ~/.cache/wallheaven
+fi
 /home/ram/.dwm/newlook &
 # /home/ram/.dwm/scripts/whatsapp_start &
