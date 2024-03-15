@@ -8,6 +8,9 @@ M.general = {
     ["<C-b>"] = { "<ESC>^i", "Beginning of line" },
     ["<C-e>"] = { "<End>", "End of line" },
 
+    -- Command c-a to select all in the file
+    ["<C-a>"] = { "<ESC>ggVG", "Select all" },
+
     -- navigate within insert mode
     ["<C-h>"] = { "<Left>", "Move left" },
     ["<C-l>"] = { "<Right>", "Move right" },
@@ -25,6 +28,9 @@ M.general = {
 
     -- save
     ["<C-s>"] = { "<cmd> w <CR>", "Save file" },
+
+    -- Command c-a to select all in the file
+    ["<C-a>"] = { "<ESC>ggVG", "Select all" },
 
     -- Copy all
     ["<C-c>"] = { "<cmd> %y+ <CR>", "Copy whole file" },
