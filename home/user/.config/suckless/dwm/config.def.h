@@ -119,6 +119,7 @@ static const int resizehints =
 #define FORCE_VSPLIT                                                           \
   1 /* nrowgrid layout: force two clients to always split vertically */
 #include "vanitygaps.c"
+#include <X11/XF86keysym.h>
 
 static const Layout layouts[] = {
     /* symbol     arrange function */
@@ -223,21 +224,14 @@ static Key keys[] = {
     {MODKEY | ShiftMask, XK_c, togglescratch, {.ui = 2}},
     {MODKEY | ShiftMask, XK_g, togglescratch, {.ui = 3}},
     {MODKEY | Mod1Mask, XK_n, togglescratch, {.ui = 4}},
-    // { MODKEY,			XK_F10,	   spawn,
-    // SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-; kill -44 $(pidof
-    // dwmblocks)") }, { MODKEY|ShiftMask,		XK_F9,	   spawn,
-    // SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0%; kill -44 $(pidof
-    // dwmblocks)") }, { MODKEY,			XK_F11,	   spawn,
-    // SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+; kill -44 $(pidof
-    // dwmblocks)") },
-    {MODKEY, XK_F9, spawn, SHCMD("~/.dwm/volume mute")},
-    {MODKEY, XK_F10, spawn, SHCMD("~/.dwm/volume down")},
-    {MODKEY, XK_F11, spawn, SHCMD("~/.dwm/volume up")},
-    {MODKEY | ShiftMask, XK_F9, spawn, SHCMD("~/.dwm/volume micmute")},
-    // { MODKEY|ShiftMask,		XK_F11,	   spawn,
-    // SHCMD("brightnessctl s 5%+; dunstify 'Brightness Raised by 5%'")}, {
-    // MODKEY|ShiftMask,		XK_F10,	   spawn,
-    // SHCMD("brightnessctl s 5%-; dunstify 'Brightness Lowered by 5%'")},
+    // {MODKEY, XK_F9, spawn, SHCMD("~/.dwm/volume mute")},
+    // {MODKEY, XK_F10, spawn, SHCMD("~/.dwm/volume down")},
+    // {MODKEY, XK_F11, spawn, SHCMD("~/.dwm/volume up")},
+    {0, XF86XK_AudioMute, spawn, SHCMD("~/.dwm/volume mute")},
+    {0, XF86XK_AudioLowerVolume, spawn, SHCMD("~/.dwm/volume down")},
+    {0, XF86XK_AudioRaiseVolume, spawn, SHCMD("~/.dwm/volume up")},
+    // {MODKEY | ShiftMask, XK_F9, spawn, SHCMD("~/.dwm/volume micmute")},
+    {MODKEY , XF86XK_AudioMute, spawn, SHCMD("~/.dwm/volume micmute")},
     {MODKEY | ShiftMask, XK_F11, spawn, SHCMD("brightnessctl s 5%+")},
     {MODKEY | ShiftMask, XK_F10, spawn, SHCMD("brightnessctl s 5%-")},
     {MODKEY, XK_v, spawn, SHCMD("clipmenu -i -fn JetBrainsMonoNL:10")},
@@ -252,11 +246,18 @@ static Key keys[] = {
     {MODKEY | ShiftMask, XK_w, spawn, {.v = browser1}},
     {MODKEY , XK_n, spawn, {.v = files}},
     {MODKEY | ShiftMask, XK_n, spawn, {.v = files1}},
-    {MODKEY, XK_F8, spawn, {.v = (const char *[]){"mpc", "next", NULL}}},
-    {MODKEY, XK_F7, spawn, {.v = (const char *[]){"mpc", "toggle", NULL}}},
-    {MODKEY, XK_F6, spawn, {.v = (const char *[]){"mpc", "prev", NULL}}},
-    {MODKEY | ShiftMask,
-     XK_F7,
+    // {MODKEY, XK_F8, spawn, {.v = (const char *[]){"mpc", "next", NULL}}},
+    // {MODKEY, XK_F7, spawn, {.v = (const char *[]){"mpc", "toggle", NULL}}},
+    // {MODKEY, XK_F6, spawn, {.v = (const char *[]){"mpc", "prev", NULL}}},
+    //{MODKEY | ShiftMask,
+     // spawn,
+     // {.v = (const char *[]){"mpc", "stop", NULL}}},
+
+    { 0, XF86XK_AudioPrev,		spawn,		{.v = (const char*[]){ "mpc", "prev", NULL } } },
+	  { 0, XF86XK_AudioNext,		spawn,		{.v = (const char*[]){ "mpc",  "next", NULL } } },
+	  { 0, XF86XK_AudioPlay,		spawn,		{.v = (const char*[]){ "mpc", "toggle", NULL } } },
+    {MODKEY,
+     XF86XK_AudioPlay,
      spawn,
      {.v = (const char *[]){"mpc", "stop", NULL}}},
 };
