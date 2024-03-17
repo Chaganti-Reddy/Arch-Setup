@@ -88,7 +88,7 @@ else
   export EDITOR='nvim'
 fi
 
-export BROWSER='/usr/bin/qutebrowser'
+export BROWSER='/usr/bin/floorp'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
