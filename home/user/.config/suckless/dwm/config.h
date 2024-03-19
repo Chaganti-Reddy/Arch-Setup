@@ -231,7 +231,7 @@ static Key keys[] = {
     {0, XF86XK_AudioLowerVolume, spawn, SHCMD("~/.dwm/volume down")},
     {0, XF86XK_AudioRaiseVolume, spawn, SHCMD("~/.dwm/volume up")},
     // {MODKEY | ShiftMask, XK_F9, spawn, SHCMD("~/.dwm/volume micmute")},
-    {MODKEY , XF86XK_AudioMute, spawn, SHCMD("~/.dwm/volume micmute")},
+    {MODKEY , XK_F9, spawn, SHCMD("~/.dwm/volume micmute")},
     {MODKEY | ShiftMask, XK_F11, spawn, SHCMD("brightnessctl s 5%+")},
     {MODKEY | ShiftMask, XK_F10, spawn, SHCMD("brightnessctl s 5%-")},
     {MODKEY, XK_v, spawn, SHCMD("clipmenu -i -fn JetBrainsMonoNL:10")},
@@ -257,7 +257,7 @@ static Key keys[] = {
 	  { 0, XF86XK_AudioNext,		spawn,		{.v = (const char*[]){ "mpc",  "next", NULL } } },
 	  { 0, XF86XK_AudioPlay,		spawn,		{.v = (const char*[]){ "mpc", "toggle", NULL } } },
     {MODKEY,
-     XF86XK_AudioPlay,
+     XK_F7,
      spawn,
      {.v = (const char *[]){"mpc", "stop", NULL}}},
 };
