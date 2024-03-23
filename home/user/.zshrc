@@ -333,7 +333,7 @@ alias anime="anipy-cli"
 #Web Apps
 alias notion="firefoxpwa site launch 01HRCGX1KEQWKX68C4CQSFDXN2 &"
 alias todoist="firefoxpwa site launch 01HRCHAEVSC8X6X9156PM5QR4B &"
-alias whatsapp="firefoxpwa site launch 01HRCGK100QJKXF0034NJXQCYC &"
+alias whatsapp="firefoxpwa site launch 01HSMVSGF07MF1M29HVKQT69XG &"
 
 
 ## ---------------------------------------------------------------------------------------
