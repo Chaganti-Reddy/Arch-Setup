@@ -47,7 +47,32 @@ if [ "$choice" = "Temporary Wallpaper" ]; then
 		mkdir /home/ram/.cache/wallheaven
 	fi
 	/usr/local/bin/waldl -d /home/ram/.cache/wallheaven
-	WALLPAPER_DIR="/home/ram/.cache/wallheaven"
+
+  if [ -z "$(ls -A /home/ram/.cache/wallheaven)" ]; then
+    dunstify "Directory is empty."
+    exit 1
+  fi
+  choice=$(echo -e "Yes\nNo" | dmenu -i -l 3 -p "Would you like to change wallpaper?")
+  if [ "$choice" = "No" ]; then
+    dunstify "Program terminated."
+    exit 1
+  fi
+	wall=$(ls -t /home/ram/.cache/wallheaven | head -n 1)
+  wall="/home/ram/.cache/wallheaven/$wall"
+  dunstify "Wallpaper set to $wall"
+	if [ -n "$wall" ]; then
+		xwallpaper --zoom "$wall"
+		wal -c
+		wal -i "$wall"
+		xdotool key super+F5
+		rm -rf ~/.walcache/
+		mkdir ~/.walcache
+		cp "$wall" ~/.walcache/1
+		betterlockscreen -u ~/.walcache/1
+	else
+		dunstify "No wallpaper selected."
+	fi
+  exit 1
 fi
 
 if [ "$choice" = "Quit" ]; then
@@ -58,16 +83,16 @@ fi
 # if the directory is empty, and its path should not be .cache/wallheaven then download some WALLPAPERS
 
 if [ "$WALLPAPER_DIR" != "/home/ram/.cache/wallheaven" ]; then
-  if [ -z "$(ls -A $WALLPAPER_DIR)" ]; then
-    dunstify "Directory is empty."
-    choice=$(echo -e "Download\nExit" | dmenu -i -l 2 -p "Would you like to Download Some?")
-    if [ "$choice" = "Download" ]; then
-      /usr/local/bin/waldl
-    else
-      dunstify "Program terminated."
-      exit 1
-    fi
-  fi
+	if [ -z "$(ls -A $WALLPAPER_DIR)" ]; then
+		dunstify "Directory is empty."
+		choice=$(echo -e "Download\nExit" | dmenu -i -l 2 -p "Would you like to Download Some?")
+		if [ "$choice" = "Download" ]; then
+			/usr/local/bin/waldl
+		else
+			dunstify "Program terminated."
+			exit 1
+		fi
+	fi
 fi
 
 # List wallpapers in the directory
