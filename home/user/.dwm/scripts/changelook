@@ -16,18 +16,17 @@ if [ "$choice" = "Random" ]; then
 		wall+=$(find $WALL/$dir -type f -name "*.jpg" -o -name "*.png")
 	done
 
-	# now select a random wallpaper from the list
-	wall=$(echo $wall | tr " " "\n" | shuf -n 1)
-
 	valid_paper="No"
 	until [ "$valid_paper" = "Yes" ]; do
-		xwallpaper --zoom "$wall"
+		wallk=$(echo $wall | tr " " "\n" | shuf -n 1)
+    echo $wallk
+		xwallpaper --zoom "$wallk"
 		wal -c
-		wal -i "$wall"
+		wal -i "$wallk"
 		xdotool key super+F5
 		rm -rf ~/.walcache/
 		mkdir ~/.walcache
-		cp "$wall" ~/.walcache/1
+		cp "$wallk" ~/.walcache/1
 		valid_paper="$(printf "Yes\nNo" | dmenu -i -l 2 -p "Do you like the new wallpaper?")"
 	done
 	betterlockscreen -u ~/.walcache/1
@@ -48,18 +47,18 @@ if [ "$choice" = "Temporary Wallpaper" ]; then
 	fi
 	/usr/local/bin/waldl -d /home/ram/.cache/wallheaven
 
-  if [ -z "$(ls -A /home/ram/.cache/wallheaven)" ]; then
-    dunstify "Directory is empty."
-    exit 1
-  fi
-  choice=$(echo -e "Yes\nNo" | dmenu -i -l 3 -p "Would you like to change wallpaper?")
-  if [ "$choice" = "No" ]; then
-    dunstify "Program terminated."
-    exit 1
-  fi
+	if [ -z "$(ls -A /home/ram/.cache/wallheaven)" ]; then
+		dunstify "Directory is empty."
+		exit 1
+	fi
+	choice=$(echo -e "Yes\nNo" | dmenu -i -l 3 -p "Would you like to change wallpaper?")
+	if [ "$choice" = "No" ]; then
+		dunstify "Program terminated."
+		exit 1
+	fi
 	wall=$(ls -t /home/ram/.cache/wallheaven | head -n 1)
-  wall="/home/ram/.cache/wallheaven/$wall"
-  dunstify "Wallpaper set to $wall"
+	wall="/home/ram/.cache/wallheaven/$wall"
+	dunstify "Wallpaper set to $wall"
 	if [ -n "$wall" ]; then
 		xwallpaper --zoom "$wall"
 		wal -c
@@ -72,7 +71,7 @@ if [ "$choice" = "Temporary Wallpaper" ]; then
 	else
 		dunstify "No wallpaper selected."
 	fi
-  exit 1
+	exit 1
 fi
 
 if [ "$choice" = "Quit" ]; then
