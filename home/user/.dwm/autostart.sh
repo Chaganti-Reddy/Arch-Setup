@@ -16,10 +16,10 @@ clipmenud &
 xcompmgr &
 mpd &
 slstatus &
-/home/ram/.dwm/scripts/mouse &
+~/.dwm/scripts/mouse &
 /usr/bin/udiskie --smart-tray &
 if [ -d ~/.cache/wallheaven ]; then
     rm -rf ~/.cache/wallheaven
 fi
-/home/ram/.dwm/newlook &
+~/.dwm/newlook &
 # /home/ram/.dwm/scripts/whatsapp_start &
