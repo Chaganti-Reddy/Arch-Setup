@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Directory containing wallpapers
-WALL="/home/ram/Git/dotfiles/home/user/Pictures"
+WALL="$HOME/Git/dotfiles/home/user/Pictures"
 dir=$(ls $WALL)
 choice=$(echo -e "Random\n$dir\nDownload to Collection\nTemporary Wallpaper\nQuit" | dmenu -i -l 10 -p "Choose an Option: ")
 
@@ -42,12 +42,12 @@ if [ "$choice" = "Download to Collection" ]; then
 fi
 
 if [ "$choice" = "Temporary Wallpaper" ]; then
-	if [ ! -d "/home/ram/.cache/wallheaven" ]; then
-		mkdir /home/ram/.cache/wallheaven
+	if [ ! -d "$HOME/.cache/wallheaven" ]; then
+		mkdir $HOME/.cache/wallheaven
 	fi
-	/usr/local/bin/waldl -d /home/ram/.cache/wallheaven
+	/usr/local/bin/waldl -d $HOME/.cache/wallheaven
 
-	if [ -z "$(ls -A /home/ram/.cache/wallheaven)" ]; then
+	if [ -z "$(ls -A $HOME/.cache/wallheaven)" ]; then
 		dunstify "Directory is empty."
 		exit 1
 	fi
@@ -56,8 +56,8 @@ if [ "$choice" = "Temporary Wallpaper" ]; then
 		dunstify "Program terminated."
 		exit 1
 	fi
-	wall=$(ls -t /home/ram/.cache/wallheaven | head -n 1)
-	wall="/home/ram/.cache/wallheaven/$wall"
+	wall=$(ls -t $HOME/.cache/wallheaven | head -n 1)
+	wall="$HOME/.cache/wallheaven/$wall"
 	dunstify "Wallpaper set to $wall"
 	if [ -n "$wall" ]; then
 		xwallpaper --zoom "$wall"
@@ -81,7 +81,7 @@ fi
 
 # if the directory is empty, and its path should not be .cache/wallheaven then download some WALLPAPERS
 
-if [ "$WALLPAPER_DIR" != "/home/ram/.cache/wallheaven" ]; then
+if [ "$WALLPAPER_DIR" != "$HOME/.cache/wallheaven" ]; then
 	if [ -z "$(ls -A $WALLPAPER_DIR)" ]; then
 		dunstify "Directory is empty."
 		choice=$(echo -e "Download\nExit" | dmenu -i -l 2 -p "Would you like to Download Some?")
