@@ -176,7 +176,7 @@ export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f
 
 #list
 # alias emacs="emacsclient -c -a ''"
-alias zathura="/home/ram/.local/bin/zathura"
+alias zathura="$HOME/.local/bin/zathura"
 alias cd="z"
 alias cdi="zi"
 alias la='exa -al --colour=always --group-directories-first'
@@ -262,8 +262,8 @@ alias mirrora="sudo reflector --latest 30 --number 10 --sort age --save /etc/pac
 #our experimental - best option for the moment
 alias mirrorx="sudo reflector --age 6 --latest 20  --fastest 20 --threads 5 --sort rate --protocol https --save /etc/pacman.d/mirrorlist"
 alias mirrorxx="sudo reflector --age 6 --latest 20  --fastest 20 --threads 20 --sort rate --protocol https --save /etc/pacman.d/mirrorlist"
-alias ram='rate-mirrors --allow-root --disable-comments arch | sudo tee /etc/pacman.d/mirrorlist'
-alias rams='rate-mirrors --allow-root --disable-comments --protocol https arch  | sudo tee /etc/pacman.d/mirrorlist'
+alias ramm='rate-mirrors --allow-root --disable-comments arch | sudo tee /etc/pacman.d/mirrorlist'
+alias ramms='rate-mirrors --allow-root --disable-comments --protocol https arch  | sudo tee /etc/pacman.d/mirrorlist'
 
 #enabling vmware services
 alias start-vmware="sudo systemctl enable --now vmtoolsd.service"
