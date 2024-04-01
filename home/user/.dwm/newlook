@@ -1,11 +1,11 @@
 #!/bin/bash
 
-wall_dir=$(ls /home/ram/Git/dotfiles/home/user/Pictures/)
+wall_dir=$(ls ~/Git/dotfiles/home/user/Pictures/)
 wall=""
 
 # now search recursively in all the dirs in wall_dir 
 for dir in $wall_dir; do 
-  wall+=$(find /home/ram/Git/dotfiles/home/user/Pictures/$dir -type f -name "*.jpg" -o -name "*.png")
+  wall+=$(find ~/Git/dotfiles/home/user/Pictures/$dir -type f -name "*.jpg" -o -name "*.png")
 done
 
 # now select a random wallpaper from the list
