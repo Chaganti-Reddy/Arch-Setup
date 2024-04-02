@@ -25,7 +25,7 @@ map r reload
 map R rotate
 map p print
 map i recolor
-map / goto
+# map / goto
 #set show-scrollbars "true"
 set sandbox none
 
