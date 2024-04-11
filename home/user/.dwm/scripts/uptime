@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Path to the uptime log file
+uptime_log="$HOME/Git/dotfiles/uptime.log"
+
+if [ ! -f "$uptime_log" ]; then
+    touch "$uptime_log"
+fi
+
+# Get the current date and time
+current_date=$(date +"%Y-%m-%d %H:%M:%S")
+uptime_start=$(uptime -s)
+
+# Get the current system uptime using w command
+uptime_info=$(w -s | grep "up" | awk '{print $3,$4}' | sed 's/,//')
+# IFS=',' read -r uptime_days uptime_time <<<"$uptime_info"
+
+# if $1 is shutdown
+if [ "$1" == "shutdown" ]; then
+    echo "PC started at $uptime_start, now shutting down at $current_date with an uptime of $uptime_info" >> "$uptime_log"
+    echo "" >> "$uptime_log"
+    exit 0
+fi
+
+# if $1 is reboot
+if [ "$1" == "reboot" ]; then
+    echo "PC started at $uptime_start, now rebooting at $current_date with an uptime of $uptime_info" >> "$uptime_log"
+    echo "" >> "$uptime_log"
+    exit 0
+fi
