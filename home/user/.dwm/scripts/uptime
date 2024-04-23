@@ -14,8 +14,25 @@ uptime_start=$(uptime -s)
 # Get the current system uptime using w command
 uptime_info=$(w -s | grep "up" | awk '{print $3,$4}' | sed 's/,//')
 # IFS=',' read -r uptime_days uptime_time <<<"$uptime_info"
+#
+uptime=$uptime_info
 
-# if $1 is shutdown
+if [[ $uptime == *:* ]]; then
+    # Extract hours and minutes from uptime
+    # also if it is in  the fomat 6:12 1 then remove ending 1 
+    uptime=$(echo $uptime | sed 's/ [0-9]*$//')
+    hours=$(echo $uptime | cut -d':' -f1)
+    minutes=$(echo $uptime | cut -d':' -f2)
+
+    # Print the uptime in the desired format
+    # echo "${hours} hours ${minutes} minutes"
+    uptime_info="${hours} hrs ${minutes} min "
+else
+    # If there's no ":", assume uptime is in minutes
+    # echo "${uptime} minutes"
+    uptime_info="${uptime} "
+fi
+#
 if [ "$1" == "shutdown" ]; then
     echo "PC started at $uptime_start, now shutting down at $current_date with an uptime of $uptime_info" >> "$uptime_log"
     echo "" >> "$uptime_log"
