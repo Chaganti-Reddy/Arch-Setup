@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Check if WhatsApp is already running
+if pgrep -f "FFPWA-01HSMVSGF07MF1M29HVKQT69XG" > /dev/null
+then
+    dunstify "WhatsApp is already running"
+else
+    # Start WhatsApp
+    firefoxpwa site launch 01HSMVSGF07MF1M29HVKQT69XG &
+    dunstify "WhatsApp started"
+fi
+
