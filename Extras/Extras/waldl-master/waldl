@@ -24,7 +24,7 @@ if [ -n "$1" ] && [ "$1" = "-d" ]; then
   walldir="$1"
   shift
 else
-  walldir="$HOME/Git/dotfiles/home/user/Pictures/Wallheaven/"
+  walldir="$HOME/dotfiles/Pictures/Pictures/Wallheaven/"
 fi
 # the dir used to cache thumbnails
 cachedir="$HOME/.cache/wallhaven"
