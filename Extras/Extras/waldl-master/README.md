@@ -13,7 +13,7 @@ waldl <query>
 
 Selected images would be downloaded. The default download directory is
 
-	~/Git/dotfiles/home/user/Pictures/Wallheaven/
+	~/dotfiles/Pictures/Pictures/Wallheaven/
 
 which is my custom directory, you can change it before installation in the waldl script.
 
