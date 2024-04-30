@@ -8,18 +8,42 @@ To utilize these dotfiles, you need a system running Arch Linux with the DWM win
 
 ## Installation
 
-1. Clone this repository into your home directory:
+1. I have used stow to manage the dotfiles, so you need to install stow:
+```bash
+sudo pacman -S stow
+```
+
+2. Clone this repository into your home directory:
 ```bash
 git clone https://github.com/Chaganti-Reddy/dotfiles.git ~/dotfiles
 ```
-2. All the setup files for the dwm config are in .config/suckless/ && scripts in .dwm folder, go through all the files in suckless directory and make install those:
+
+3. Change into the `dotfiles` directory:
 ```bash
+cd ~/dotfiles
+```
+
+4. Use stow to symlink the configuration files you want to use. For example, to install the DWM configuration files:
+```bash 
+stow suckless
+```
+
+5. Repeat the stow command for any other configuration files you want to use.
+
+6. Now all the configuration files are symlinked to your home directory, and .config directory. You can now use these configurations in your system.
+
+7. To install the dwm, dmenu, st and slstatus, go to .config directory and make install in those respective folders:
+```bash
+cd .config/{}
 sudo make clean install
 ```
 
-3. There are still a lot application configurations and scripts which may be useful for you like ani-cli, grub theme etc., just go through every folder and fell free to use them in your system
+8. There are still a lot application configurations and scripts which may be useful for you like ani-cli, grub theme etc., just go through every folder and fell free to use them in your system
 
-4. If you have any doubt feel free to comment it and make sure you watch the youtube videos regarding that particular application before commenting in github.
+9. Make sure there is no .stow-local-ignore files in the config directory you want to use, else it will ignore the files in that directory.
+
+10. If you have any doubt feel free to comment it and make sure you watch the youtube videos regarding that particular application before commenting in github.
+
 
 ## Configuration
 
@@ -40,16 +64,18 @@ The main program I use for my daily life:
 - **Terminal**: ST
 - **Shell**: Zsh
 - **Editor**: Neovim, Doom Emacs
-- **File Manager**: Ranger
-- **Browser**: QuteBrowser, Floorp
+- **File Manager**: Ranger, Thunar
+- **Browser**: QuteBrowser, Floorp, Brave
 - **Music Player**: Mpd + Ncmpcpp
 - **Video Player**: MPV
-- **PDF Viewer**: Zathura
+- **PDF Viewer**: Zathura/Okular
 - **Image Viewer**: sxiv
-- **Launcher**: DMwnu
+- **Launcher**: DMenu
 - **Notification Daemon**: Dunst
 - **Screenshot Tool**: Flameshot
 - **System Monitor**: Htop
+- **Music Downloader**: Yt-dlp
+- **Youtube Player**: Mpv + Ytfzf
 - **Clipboard Manager**: Clipmenu
 - **Screen Recorder**: OBS
 - **IDE**: Visual Studio Code
