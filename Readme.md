@@ -27,6 +27,7 @@ cd ~/dotfiles
 ```bash 
 stow suckless
 ```
+Don't forget to use the dwm.desktop file to show dem in sddm from Extras/Extras/usr/share/xsessions
 
 5. Repeat the stow command for any other configuration files you want to use.
 
