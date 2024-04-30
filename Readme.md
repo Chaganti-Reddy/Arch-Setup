@@ -27,8 +27,8 @@ You can customize the settings and configurations in the various files within th
 
 ## Screenshots
 
-![Screenshot of DWM setup](assets/1.png)
-![Screenshot of DWM setup](assets/2.png)
+![Screenshot of DWM setup](assets/assets/1.png)
+![Screenshot of DWM setup](assets/assets/2.png)
 
 For a better understanding of how my configuration looks, check out the screenshot above. Feel free to create and add more screenshots as needed.
 
