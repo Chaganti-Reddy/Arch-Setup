@@ -6,7 +6,7 @@
 # add it.
 #
 
-file="$HOME/dotfiles/.todo"
+file="$HOME/.todo"
 touch "$file"
 height=$(wc -l "$file" | awk '{print $1}')
 prompt="Add/delete a task: "
