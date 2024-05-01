@@ -3,7 +3,7 @@
 #
 
 export EDITOR='nvim'
-export VISUAL='kate'
+export VISUAL='nvim'
 export HISTCONTROL=ignoreboth:erasedups
 export PAGER='bat'
 
