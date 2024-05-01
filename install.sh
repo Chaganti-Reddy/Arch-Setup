@@ -117,5 +117,6 @@
 # First check for conflicts
 # rm -rf ~/.config/doom
 # rm ~/.bashrc
+# rm ~/.zshrc
 # cd ~/dotfiles
 # stow */
