@@ -100,6 +100,8 @@
 # sudo cp ~/dotfiles/Extras/Extras/etc/DIR_COLORS /etc/
 # sudo cp ~/dotfiles/Extras/Extras/etc/mpd.conf /etc/
 # sudo cp ~/dotfiles/Extras/Extras/etc/nanorc /etc/
+# sudo cp ~/dotfiles/Extras/Extras/etc/environment /etc/
+# cp ~/dotfiles/Extras/Extras/alanpeabody.zsh-theme ~/.oh-my-zsh/themes/
 
 # 14. Setup PASS
 # gpg --full-generate-key
