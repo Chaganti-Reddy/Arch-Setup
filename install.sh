@@ -79,6 +79,9 @@
 # cd  ~/dotfiles/Extras/Extras/waldl-master/ && sudo make install && cd ~/dotfiles
 # 12. Install ollama from Extras folder of dotfiles
 # sh ~/dotfiles/Extras/Extras/ollama.sh
+# ollama serve
+# ollama pull mistral
+# ollama pull gemma:7b
 # 13. Install brave Extensions
 # brave://extensions/ ---> Install Comp Companion, uBlock Origin, GFG to Github, Google Translate, LeetHub, User-Agent switcher
 # 14. Install Bash Language Server
