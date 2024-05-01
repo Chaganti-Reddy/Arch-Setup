@@ -74,3 +74,5 @@ git config --global user.email "chagantivenkataramireddy4@gmail.com"
 # cd ./Extras/Extras/waldl-master/ && sudo make install && cd ../../..
 # 12. Install ollama from Extras folder of dotfiles
 # sh ./Extras/Extras/ollama.sh 
+# 13. Install brave Extensions
+# brave://extensions/ ---> Install Comp Companion, uBlock Origin, GFG to Github, Google Translate, LeetHub, User-Agent switcher
