@@ -102,3 +102,8 @@ sudo cp ./Extras/Extras/etc/nanorc /etc/
 wget https://repo.anaconda.com/miniconda/Miniconda3-py310_24.3.0-0-Linux-x86_64.sh
 bash Miniconda3-py310_24.3.0-0-Linux-x86_64.sh
 rm Miniconda3-py310_24.3.0-0-Linux-x86_64.sh
+
+# 16. Install Fonts
+mkdir ~/.local/share/fonts/
+git clone https://github.com/Chaganti-Reddy/my-fonts.git
+cp -r my-fonts ~/.local/share/fonts/
