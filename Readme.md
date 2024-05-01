@@ -45,6 +45,7 @@ sudo make clean install
 
 10. If you have any doubt feel free to comment it and make sure you watch the youtube videos regarding that particular application before commenting in github.
 
+11. ALso there is an install.sh script which contains my packages list to install, check it and uncomment or comment lines as per your need
 
 ## Configuration
 
