@@ -98,7 +98,7 @@ static const Rule rules[] = {
     {"flameshot", NULL, NULL, 0, 1, 0, 0, -1},
     {"obs", NULL, NULL, 0, 1, 0, 0, -1},
     {"floorp", NULL, NULL, 1 << 1, 0, 0, -1, -1},
-    {"Thorium-browser", NULL, NULL, 1 << 2, 0, 0, -1, -1},
+    {"brave", NULL, NULL, 1 << 2, 0, 0, -1, -1},
     {"FFPWA-01HSMVSGF07MF1M29HVKQT69XG", NULL, NULL, 1 << 5, 0, 0, -1, -1},
     {"discord", NULL, NULL, 1 << 5, 0, 0, -1, -1},
     {"St", NULL, NULL, 0, 0, 1, 0, -1},
@@ -160,8 +160,8 @@ static char dmenumon[2] =
 static const char *dmenucmd[] = {"dmenu_run", "-m", dmenumon, "-fn", dmenufont};
 static const char *termcmd[] = {"st", NULL};
 static const char *emacs[] = {"emacs", NULL};
-static const char *browser[] = {"floorp", NULL};
-static const char *browser1[] = {"thorium-browser", NULL};
+static const char *browser[] = {"brave", NULL};
+static const char *browser1[] = {"floorp", NULL};
 static const char *files[] = {"st", "-e", "ranger", NULL};
 static const char *files1[] = {"dolphin", NULL};
 
