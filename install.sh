@@ -86,7 +86,7 @@
 # 15. Setup zsh shell as default
 # chsh -s /bin/zsh
 # 16. Install oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 
 # 13. Move Respective files to root directory
