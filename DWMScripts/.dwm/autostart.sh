@@ -6,13 +6,13 @@
 /usr/lib/polkit-kde-authentication-agent-1 &
 /usr/bin/emacs --daemon &
 numlockx &
-nm-applet &
+# nm-applet &
 dunst &
 clipmenud &
 # walogram &
 # rsibreak &
 # flameshot &
-blueman-applet &
+# blueman-applet &
 xcompmgr &
 mpd &
 slstatus &
