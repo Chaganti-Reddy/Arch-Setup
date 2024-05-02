@@ -8,7 +8,7 @@
 # sudo pacman -Syu archlinux-keyring --noconfirm
 
 # 1. Install essential packages
-# sudo pacman -S base-devel intel-ucode git vim zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting bash-completion openssh wget curl htop neofetch bat exa fd ripgrep fzf stow stylua tar tree time acpilight aria2 unrar unzip bluez bluez-utils blueman brightnessctl xfsprogs ntfs-3g clang gcc clipmenu clipnotify dunst e2fsprogs gvfs efibootmgr zoxide gc git-lfs gnome-keyring polkit-kde-agent pass udiskie gstreamer jq xdotool screenkey xorg-xprop lazygit lolcat sxiv shellcheck net-tools numlockx prettier progress rsync ly trash-cli tlp tlp-rdw neovim xorg-xinput xclip xcompmgr xorg-xrandr xorg-xsetroot xsel xwallpaper pandoc starship python-pywal glow xarchiver --noconfirm
+# sudo pacman -S base-devel intel-ucode git vim zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting bash-completion openssh wget curl htop neofetch bat exa fd ripgrep fzf stow stylua tar tree time acpilight aria2 unrar unzip bluez bluez-utils blueman brightnessctl xfsprogs ntfs-3g clang gcc clipmenu clipnotify dunst e2fsprogs gvfs efibootmgr zoxide gc git-lfs gnome-keyring polkit-gnome pass udiskie gstreamer jq xdotool screenkey xorg-xprop lazygit lolcat sxiv shellcheck net-tools numlockx prettier progress rsync sddm trash-cli tlp tlp-rdw neovim xorg-xinput xclip xcompmgr xorg-xrandr xorg-xsetroot xsel xwallpaper pandoc starship python-pywal glow xarchiver --noconfirm
 
 # 2. Install paru 
 # git clone https://aur.archlinux.org/paru.git
@@ -18,7 +18,7 @@
 # rm -rf paru
 
 # 3. Install AUR packages
-# paru -S betterlockscreen-git brave-bin ccrypt didyoumean-git github-desktop-bin networkmanager-dmenu-git visual-studio-code-bin preload whitesur-cursor-theme-git --noconfirm
+# paru -S betterlockscreen-git brave-bin ccrypt didyoumean-git github-desktop-bin visual-studio-code-bin preload whitesur-cursor-theme-git --noconfirm
 
 # 4. Install GUI packages
 # sudo pacman -S baobab gnome-disk-utility flameshot bc discord docker emacs gparted libreoffice-fresh lxappearance pavucontrol qutebrowser ranger yad telegram-desktop timeshift --noconfirm
@@ -45,6 +45,7 @@
 # sudo updatedb
 # sudo systemctl enable --now tlp
 # sudo systemctl enable --now bluetooth.service
+# sudo systemctl enable sddm.service
 
 # 10. Permissions
 # sudo usermod -aG docker $USER
@@ -94,6 +95,8 @@
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 # 17. Install floorp instead of firefox 
 # paru -S floorp-bin python-pywalfox
+# 18. Use dmenu for network manager (Optional)
+# paru -S networkmanager-dmenu-git 
 
 
 # 13. Move Respective files to root directory
