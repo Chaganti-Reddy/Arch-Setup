@@ -97,6 +97,8 @@
 # paru -S floorp-bin python-pywalfox
 # 18. Use dmenu for network manager (Optional)
 # paru -S networkmanager-dmenu-git 
+# 19. Install sugar-candy sddm theme 
+# paru -S sddm-theme-sugar-candy-git
 
 
 # 13. Move Respective files to root directory
