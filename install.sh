@@ -8,7 +8,7 @@
 # sudo pacman -Syu archlinux-keyring --noconfirm
 
 # 1. Install essential packages
-# sudo pacman -S base-devel intel-ucode git vim zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting bash-completion openssh wget curl htop neofetch bat exa fd ripgrep fzf stow stylua tar tree time acpilight aria2 unrar unzip bluez bluez-utils blueman brightnessctl xfsprogs ntfs-3g clang gcc clipmenu clipnotify dunst e2fsprogs gvfs efibootmgr zoxide gc git-lfs gnome-keyring polkit-kde-agent pass udiskie gstreamer jq xdotool screenkey xorg-xprop lazygit lolcat sxiv shellcheck net-tools numlockx prettier progress rsync sddm trash-cli tlp tlp-rdw neovim xorg-xinput xclip xcompmgr xorg-xrandr xorg-xsetroot xsel xwallpaper pandoc starship python-pywal glow xarchiver --noconfirm
+# sudo pacman -S base-devel intel-ucode git vim zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting bash-completion openssh wget curl htop neofetch bat exa fd ripgrep fzf stow stylua tar tree time acpilight aria2 unrar unzip bluez bluez-utils blueman brightnessctl xfsprogs ntfs-3g clang gcc clipmenu clipnotify dunst e2fsprogs gvfs efibootmgr zoxide gc git-lfs gnome-keyring polkit-kde-agent pass udiskie gstreamer jq xdotool screenkey xorg-xprop lazygit lolcat sxiv shellcheck net-tools numlockx prettier progress rsync ly trash-cli tlp tlp-rdw neovim xorg-xinput xclip xcompmgr xorg-xrandr xorg-xsetroot xsel xwallpaper pandoc starship python-pywal glow xarchiver --noconfirm
 
 # 2. Install paru 
 # git clone https://aur.archlinux.org/paru.git
@@ -105,6 +105,7 @@
 # sudo cp ~/dotfiles/Extras/Extras/etc/mpd.conf /etc/
 # sudo cp ~/dotfiles/Extras/Extras/etc/nanorc /etc/
 # sudo cp ~/dotfiles/Extras/Extras/etc/environment /etc/
+# sudo cp ~/dotfiles/Extras/Extras/etc/ly/config.ini /etc/ly/
 # cp ~/dotfiles/Extras/Extras/alanpeabody.zsh-theme ~/.oh-my-zsh/themes/
 
 # 14. Setup PASS
