@@ -8,14 +8,13 @@
 numlockx &
 nm-applet &
 dunst &
-clipmenud &
+# clipmenud &
 # walogram &
 # rsibreak &
 # flameshot &
 # blueman-applet &
 xcompmgr &
 mpd &
-xfce4-clipman &
 slstatus &
 ~/.dwm/scripts/mouse &
 /usr/bin/udiskie --smart-tray &
@@ -29,3 +28,7 @@ export SSH_AUTH_SOCK
 export GPG_AGENT_INFO
 export GNOME_KEYRING_CONTROL
 export GNOME_KEYRING_PID
+
+if [ -z "$(pgrep xfce4-clipman)" ]; then
+    xfce4-clipman &
+fi
