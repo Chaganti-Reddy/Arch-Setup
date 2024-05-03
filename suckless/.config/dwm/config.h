@@ -163,7 +163,7 @@ static const char *emacs[] = {"emacs", NULL};
 static const char *browser[] = {"brave", NULL};
 // static const char *browser1[] = {"floorp", NULL};
 static const char *files[] = {"st", "-e", "ranger", NULL};
-static const char *files1[] = {"dolphin", NULL};
+static const char *files1[] = {"thunar", NULL};
 
 #include "movestack.c"
 static Key keys[] = {
