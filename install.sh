@@ -64,7 +64,8 @@
 # 2. Install qbit torrent
 # sudo pacman -S qbittorrent --noconfirm
 # 3. Install qt6ct
-# sudo pacman -S qt6ct lxappearance --noconfirm
+# sudo pacman -S qt6ct --noconfirm 
+# sudo pacman -S lxappearance --noconfirm
 # 4. Install Teamviewer
 # paru -S teamviewer --noconfirm
 # 5. Install Zathura
