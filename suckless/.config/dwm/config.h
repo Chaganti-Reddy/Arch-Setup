@@ -234,7 +234,7 @@ static Key keys[] = {
     {MODKEY , XK_F9, spawn, SHCMD("~/.dwm/volume micmute")},
     {MODKEY | ShiftMask, XK_F11, spawn, SHCMD("brightnessctl s 5%+")},
     {MODKEY | ShiftMask, XK_F10, spawn, SHCMD("brightnessctl s 5%-")},
-    {MODKEY, XK_v, spawn, SHCMD("clipmenu -i -fn JetBrainsMonoNL:10")},
+    // {MODKEY, XK_v, spawn, SHCMD("clipmenu -i -fn JetBrainsMonoNL:10")},
     // {MODKEY, XK_n, spawn, SHCMD("~/.dwm/dmenu_file")},
     {MODKEY | ShiftMask, XK_p, spawn, SHCMD("~/.dwm/scripts/power")},
     {MODKEY | ShiftMask, XK_a, spawn, SHCMD("~/.dwm/scripts/script")},
