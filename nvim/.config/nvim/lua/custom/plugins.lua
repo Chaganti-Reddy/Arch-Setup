@@ -102,7 +102,7 @@ local plugins = {
     "lervag/vimtex",
     lazy = false,
     init = function()
---       vim.g.vimtex_view_method = "zathura"
+      --       vim.g.vimtex_view_method = "zathura"
       vim.g.vimtex_view_method = "okular"
       vim.g.vimtex_syntax_enabled = 1
     end,
@@ -118,6 +118,7 @@ local plugins = {
     end,
     dependencies = { { "nvim-tree/nvim-web-devicons" } },
   },
+  { "wakatime/vim-wakatime", lazy = false },
   {
     "folke/zen-mode.nvim",
     cmd = "ZenMode",
