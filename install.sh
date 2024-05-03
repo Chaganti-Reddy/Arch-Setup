@@ -64,7 +64,7 @@
 # 2. Install qbit torrent
 # sudo pacman -S qbittorrent --noconfirm
 # 3. Install qt6ct
-# sudo pacman -S qt6ct --noconfirm 
+# sudo pacman -S qt6ct kvantum --noconfirm 
 # sudo pacman -S lxappearance --noconfirm
 # 4. Install Teamviewer
 # paru -S teamviewer --noconfirm
@@ -72,6 +72,10 @@
 # sudo pacman -S zathura zathura-pdf-mupdf zathura-djvu zathura-ps zathura-cb --noconfirm && paru -S zathura-pywal-git
 # 6. Install Okular 
 # sudo pacman -S okular --noconfirm
+# Or use FlatPak 
+# sudo pacman -S flatpak 
+# Restart the system 
+# flatpak install flathub org.kde.okular
 # 7. Install Dolphin 
 # sudo pacman -S dolphin --noconfirm
 # 8. Install Thunar
