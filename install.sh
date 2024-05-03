@@ -33,7 +33,7 @@
 # dsudo pacman -S adobe-source-code-pro-fonts noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-hack ttf-jetbrains-mono ttf-ubuntu-font-family ttf-ubuntu-mono-nerd ttf-ubuntu-nerd ttf-opensans gnu-free-fonts --noconfirm
 
 # 7. Install external packages
-# paru -S ani-cli-git arch-wiki-docs ytfzf-git firefox-pwa-bin walogram-git --noconfirm
+# paru -S ani-cli-git arch-wiki-docs ytfzf-git walogram-git --noconfirm
 # sudo pacman -S yt-dlp hugo hunspell hunspell-en_us imagemagick ueberzug luacheck mlocate newsboat nodejs npm texlive-bin texlive-meta texlive-latex texlive-basic translate-shell --noconfirm
 
 
@@ -103,7 +103,7 @@
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 # exit # exit from zsh
 # 17. Install floorp instead of firefox 
-# paru -S floorp-bin python-pywalfox
+# paru -S floorp-bin python-pywalfox firefox-pwa-bin 
 # 18. Use dmenu for network manager (Optional)
 # paru -S networkmanager-dmenu-git 
 
