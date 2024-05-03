@@ -15,6 +15,7 @@ clipmenud &
 # blueman-applet &
 xcompmgr &
 mpd &
+xfce4-clipman &
 slstatus &
 ~/.dwm/scripts/mouse &
 /usr/bin/udiskie --smart-tray &
