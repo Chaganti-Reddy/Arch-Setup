@@ -9,7 +9,7 @@
 #sudo pacman -Syu archlinux-keyring --noconfirm
 
 # 1. Install essential packages
-#sudo pacman -S base-devel intel-ucode git vim zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting bash-completion openssh wget curl htop neofetch bat exa fd ripgrep fzf stow stylua tar tree time acpilight aria2 unrar unzip bluez bluez-utils blueman brightnessctl xfsprogs ntfs-3g clang gcc clipmenu clipnotify dunst e2fsprogs gvfs efibootmgr zoxide gc git-lfs gnome-keyring polkit-gnome pass udiskie gstreamer jq xdotool screenkey xorg-xprop lazygit lolcat sxiv shellcheck net-tools numlockx prettier progress rsync lightdm-gtk-greeter trash-cli tlp tlp-rdw neovim xorg-xinput xclip xcompmgr xorg-xrandr xorg-xsetroot xsel xwallpaper pandoc starship python-pywal glow xarchiver xfce4-clipman-plugin --noconfirm
+#sudo pacman -S base-devel intel-ucode git vim zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting bash-completion openssh wget curl htop neofetch bat exa fd ripgrep fzf stow stylua tar tree time acpilight aria2 unrar unzip bluez bluez-utils blueman brightnessctl xfsprogs ntfs-3g clang gcc clipmenu clipnotify inotify-tools psutils dunst e2fsprogs gvfs efibootmgr zoxide gc git-lfs gnome-keyring polkit-gnome pass udiskie gstreamer jq xdotool screenkey xorg-xprop lazygit lolcat sxiv shellcheck net-tools numlockx prettier progress rsync lightdm-gtk-greeter trash-cli tlp tlp-rdw neovim xorg-xinput xclip xcompmgr xorg-xrandr xorg-xsetroot xsel xwallpaper pandoc starship python-pywal glow xarchiver xfce4-clipman-plugin --noconfirm
 
 # Using XFCE4-CLIPMAN for clipboard manager
 
@@ -149,3 +149,7 @@
 # cd ~/.config/slstatus && sudo make clean install && cd
 # cd ~/.config/st && sudo make install && cd
 # cd ~/.config/dmenu && sudo make install && cd
+
+# Install python packages 
+# pip install pynvim numpy pandas matplotlib seaborn scikit-learn jupyterlab ipykernel ipywidgets tensorflow python-prctl inotify-simple psutil 
+# pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu # pytorch cpu version 
