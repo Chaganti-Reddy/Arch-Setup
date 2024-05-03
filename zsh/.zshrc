@@ -329,7 +329,18 @@ alias torrentdownload="webtorrent download"
 alias anime="anipy-cli"
 alias kdrama="dra-cla"
 
-#Web Apps
-alias notion="firefoxpwa site launch 01HRCGX1KEQWKX68C4CQSFDXN2 &"
-alias todoist="firefoxpwa site launch 01HRCHAEVSC8X6X9156PM5QR4B &"
-alias whatsapp="firefoxpwa site launch 01HSMVSGF07MF1M29HVKQT69XG &"
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/ram/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/ram/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/ram/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/ram/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
