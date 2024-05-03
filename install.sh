@@ -64,7 +64,7 @@
 # 2. Install qbit torrent
 # sudo pacman -S qbittorrent --noconfirm
 # 3. Install qt6ct
-# sudo pacman -S qt6ct kvantum --noconfirm 
+# sudo pacman -S qt6ct kvantum breeze-icons --noconfirm 
 # sudo pacman -S lxappearance --noconfirm
 # 4. Install Teamviewer
 # paru -S teamviewer --noconfirm
