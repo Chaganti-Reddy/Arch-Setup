@@ -2,8 +2,11 @@ OOoUserDict1
 lang: <none>
 type: positive
 ---
+GANS
 MNIST
 MNIST-M
 OOD
+Real-MNIST
+VAE
 convolutional
 preprocess
