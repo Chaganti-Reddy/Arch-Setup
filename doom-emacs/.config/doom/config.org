@@ -933,7 +933,7 @@ Keybindings to open files that I work with all the time using the find-file comm
 | PATH TO FILE                  | DESCRIPTION                 | KEYBINDING |
 |-------------------------------+-----------------------------+------------|
 | ~/.config/doom/start.org      | /Edit start.org (start page)/ | SPC = =    |
-| ~/dotfiles/Org/agenda.org     | /Edit agenda file/            | SPC = a    |
+| ~/dotfiles/Org/Org/agenda.org | /Edit agenda file/            | SPC = a    |
 | ~/.config/doom/config.org     | /Edit doom config.org/        | SPC = c    |
 | ~/.config/doom/init.el        | /Edit doom init.el/           | SPC = i    |
 | ~/.config/doom/packages.el    | /Edit doom packages.el/       | SPC = p    |
@@ -944,7 +944,7 @@ Keybindings to open files that I work with all the time using the find-file comm
 (map! :leader
       (:prefix ("=" . "open file")
        :desc "Edit agenda file"      "=" #'(lambda () (interactive) (find-file "~/.config/doom/start.org"))
-       :desc "Edit agenda file"      "a" #'(lambda () (interactive) (find-file "~/dotfiles/Org/agenda.org"))
+       :desc "Edit agenda file"      "a" #'(lambda () (interactive) (find-file "~/dotfiles/Org/Org/agenda.org"))
        :desc "Edit doom config.org"  "c" #'(lambda () (interactive) (find-file "~/.config/doom/config.org"))
        :desc "Edit doom init.el"     "i" #'(lambda () (interactive) (find-file "~/.config/doom/init.el"))
        :desc "Edit doom packages.el" "p" #'(lambda () (interactive) (find-file "~/.config/doom/packages.el"))))
@@ -965,7 +965,7 @@ I wrapped most of this block in (after! org).  Without this, my settings might b
 (map! :leader
       :desc "Org babel tangle" "m B" #'org-babel-tangle)
 (after! org
-  (setq org-directory "~/dotfiles/Org/"
+  (setq org-directory "~/dotfiles/Org/Org"
         org-default-notes-file (expand-file-name "notes.org" org-directory)
         org-ellipsis " ▼ "
         org-superstar-headline-bullets-list '("◉" "●" "○" "◆" "●" "○" "◆")
@@ -1008,7 +1008,7 @@ I wrapped most of this block in (after! org).  Without this, my settings might b
 ** Org-agenda
 #+begin_src emacs-lisp
 (after! org
-  (setq org-agenda-files '("~/dorfiles/Org/agenda.org")))
+  (setq org-agenda-files '("~/dorfiles/Org/Org/agenda.org")))
 
 (setq
    ;; org-fancy-priorities-list '("[A]" "[B]" "[C]")
@@ -1251,7 +1251,7 @@ We need ox-man for "Org eXporting" to manpage format and ox-gemini for exporting
 
 ** Org-journal
 #+begin_src emacs-lisp
-(setq org-journal-dir "~/dotfiles/Org/journal/"
+(setq org-journal-dir "~/dotfiles/Org/Org/journal/"
       org-journal-date-prefix "* "
       org-journal-time-prefix "** "
       org-journal-date-format "%B %d, %Y (%A) "
@@ -1266,18 +1266,18 @@ We need ox-man for "Org eXporting" to manpage format and ox-gemini for exporting
 (setq org-export-with-broken-links t)
 (setq org-publish-project-alist
       '(("distro.tube without manpages"
-         :base-directory "~/dotfiles/Org/publish/"
+         :base-directory "~/dotfiles/Org/Org/publish/"
          :base-extension "org"
-         :publishing-directory "~/dotfiles/Org/publish/html/"
+         :publishing-directory "~/dotfiles/Org/Org/publish/html/"
          :recursive t
          :exclude "org-html-themes/.*\\|man-org/man*"
          :publishing-function org-html-publish-to-html
          :headline-levels 4             ; Just the default for this project.
          :auto-preamble t)
          ("man0p"
-         :base-directory "~/dotfiles/Org/publish/man-org/man0p/"
+         :base-directory "~/dotfiles/Org/Org/publish/man-org/man0p/"
          :base-extension "org"
-         :publishing-directory "~/dotfiles/Org/publish/html/man-org/man0p/"
+         :publishing-directory "~/dotfiles/Org/Org/publish/html/man-org/man0p/"
          :recursive t
          :publishing-function org-html-publish-to-html
          :headline-levels 4             ; Just the default for this project.
@@ -1301,7 +1301,7 @@ We need ox-man for "Org eXporting" to manpage format and ox-gemini for exporting
 
 #+begin_src emacs-lisp
 (after! org
-  (setq org-roam-directory "~/dotfiles/Org/roam/"
+  (setq org-roam-directory "~/dotfiles/Org/Org/roam/"
         ;; org-roam-graph-viewer "/usr/bin/floorp"
         org-roam-graph-viewer "/usr/bin/qutebrowser"
         ))
