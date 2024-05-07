@@ -24,7 +24,7 @@
 # paru -S betterlockscreen-git brave-bin ccrypt didyoumean-git github-desktop-bin visual-studio-code-bin preload elementary-icon-theme peerflix webtorrent-cli webtorrent-mpv-hook --noconfirm
 
 # 4. Install GUI packages
-# sudo pacman -S baobab gnome-disk-utility flameshot bc discord docker emacs gparted libreoffice-fresh pavucontrol qutebrowser ranger yad telegram-desktop timeshift --noconfirm
+# sudo pacman -S baobab gnome-disk-utility flameshot bc discord docker gparted libreoffice-fresh pavucontrol qutebrowser ranger yad telegram-desktop timeshift --noconfirm
 
 # 5. Install multimedia packages
 # sudo pacman -S mpv mpc mpd ncmpcpp mplayer poppler poppler-glib --noconfirm && paru -S cava-git --noconfirm
@@ -33,7 +33,7 @@
 # dsudo pacman -S adobe-source-code-pro-fonts noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-hack ttf-jetbrains-mono ttf-ubuntu-font-family ttf-ubuntu-mono-nerd ttf-ubuntu-nerd ttf-opensans gnu-free-fonts --noconfirm
 
 # 7. Install external packages
-# paru -S ani-cli-git arch-wiki-docs ytfzf-git walogram-git --noconfirm
+# paru -S ani-cli-git arch-wiki-docs ytfzf-git walogram-git docker-desktop --noconfirm
 # sudo pacman -S yt-dlp hugo hunspell hunspell-en_us imagemagick ueberzug luacheck mlocate newsboat nodejs npm texlive-bin texlive-meta texlive-latex texlive-basic translate-shell --noconfirm
 
 
@@ -85,7 +85,7 @@
 # 9. Install anipy-cli 
 # paru -S anipy-cli-git --noconfirm
 # 10. Install Doom Emacs 
-# git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs && ~/.config/emacs/bin/doom install # Later run doom sync
+# sudo pacman -S emacs --noconfirm && git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs && ~/.config/emacs/bin/doom install # Later run doom sync
 # 11. Insatll waldl from Extras folder of dotfiles
 # cd  ~/dotfiles/Extras/Extras/waldl-master/ && sudo make install && cd ~/dotfiles
 # 12. Install ollama from Extras folder of dotfiles
