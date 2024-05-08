@@ -1,0 +1,31 @@
+[Desktop Entry]
+FullScreen=false
+
+[General]
+LockSidebar=true
+ShowSidebar=false
+
+[MainWindow]
+ToolBarsMovable=Disabled
+
+[Recent Files]
+File1[$e]=$HOME/Downloads/9VG3H3DF.pdf
+File10[$e]=$HOME/Git/Books/DevOPS/DevOPS roadmap.pdf
+File2[$e]=$HOME/Git/Books/GRE/800 barrons words.pdf
+File3[$e]=$HOME/Downloads/Face_mask_Detector_Report.pdf
+File4[$e]=$HOME/Downloads/Report.pdf
+File5[$e]=$HOME/Downloads/Report_ISPSO.pdf
+File6[$e]=$HOME/Downloads/Test-Case-Optimization-master/Reviews/Test Panel Review 1.pdf
+File7[$e]=$HOME/Downloads/Test-Case-Optimization-master/Reviews/Test Panel Review 2.pdf
+File8[$e]=$HOME/Downloads/Flight Itinerary.pdf
+File9[$e]=$HOME/Git/Books/DevOPS/davechild_linux-command-line.pdf
+Name1[$e]=9VG3H3DF.pdf
+Name10[$e]=DevOPS roadmap.pdf
+Name2[$e]=800 barrons words.pdf
+Name3[$e]=Face_mask_Detector_Report.pdf
+Name4[$e]=Report.pdf
+Name5[$e]=Report_ISPSO.pdf
+Name6[$e]=Test Panel Review 1.pdf
+Name7[$e]=Test Panel Review 2.pdf
+Name8[$e]=Flight Itinerary.pdf
+Name9[$e]=davechild_linux-command-line.pdf
