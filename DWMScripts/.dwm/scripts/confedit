@@ -13,6 +13,7 @@ DMEDITOR="st -e nvim"
 
 declare -A confedit_list
 # confedit_list[alacritty]="$HOME/dotfiles/alacritty/.config/alacritty/alacritty.yml"
+confedit_list[dotinstall]="$HOME/dotfiles/install.sh"
 confedit_list[bash]="$HOME/dotfiles/bashrc/.bashrc"
 confedit_list[doom emacs]="$HOME/dotfiles/doom-emacs/.config/doom/config.org"
 confedit_list[dunstrc]="$HOME/dotfiles/dunst/.config/dunst/dunstrc"
