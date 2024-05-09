@@ -35,6 +35,8 @@
 # 7. Install external packages
 # paru -S ani-cli-git arch-wiki-docs ytfzf-git walogram-git docker-desktop --noconfirm
 # sudo pacman -S yt-dlp hugo hunspell hunspell-en_us imagemagick ueberzug luacheck mlocate newsboat nodejs npm texlive-bin texlive-meta texlive-latex texlive-basic translate-shell --noconfirm
+# KDE components 
+# sudo pacman -S kde-cli-tools kcmutils
 
 # 8. Mariadb setup
 # sudo pacman -S mariadb --noconfirm
