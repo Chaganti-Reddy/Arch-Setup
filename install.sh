@@ -110,7 +110,16 @@
 # paru -S floorp-bin python-pywalfox firefox-pwa-bin 
 # 18. Use dmenu for network manager (Optional)
 # paru -S networkmanager-dmenu-git 
-
+# 19. Install Blender for Video Editing
+# sudo pacman -S blender --noconfirm
+# 20. Install OBS Studio for Screen Recording
+# sudo pacman -S obs-studio --noconfirm
+# 21. Install GIMP for Image Editing
+# sudo pacman -S gimp --noconfirm
+# 22. Install Inkscape for Vector Graphics
+# sudo pacman -S inkscape --noconfirm
+# 23. Install Octave for Numerical Computing
+# sudo pacman -S octave --noconfirm  
 
 # 13. Move Respective files to root directory
 # sudo cp ~/dotfiles/Extras/Extras/usr/share/xsessions/dwm.desktop /usr/share/xsessions
@@ -124,8 +133,7 @@
 # cp ~/dotfiles/Extras/Extras/alanpeabody.zsh-theme ~/.oh-my-zsh/themes/
 
 # 14. Setup PASS
-# gpg --full-generate-key
-# then setup pass init key
+# gpg --full-generate-key && pass init $(gpg --list-keys --with-colons | grep '^pub:' | cut -d ':' -f 5)
 
 # 15. Install MINICONDA
 # zsh # start with zsh since we have to add into zsh
