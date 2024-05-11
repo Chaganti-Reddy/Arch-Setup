@@ -163,5 +163,5 @@
 # cd ~/.config/dmenu && sudo make install && cd
 
 # Install python packages 
-# pip install pynvim numpy pandas matplotlib seaborn scikit-learn jupyterlab ipykernel ipywidgets tensorflow python-prctl inotify-simple psutil 
+# pip install pynvim numpy pandas matplotlib seaborn scikit-learn jupyterlab ipykernel ipywidgets tensorflow python-prctl inotify-simple psutil opencv-python keras 
 # pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu # pytorch cpu version 
