@@ -1,0 +1,3 @@
+#!/bin/bash 
+
+gio launch ~/dotfiles/LucasChessR.desktop
