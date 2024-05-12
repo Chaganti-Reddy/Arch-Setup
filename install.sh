@@ -162,6 +162,18 @@
 # cd ~/.config/st && sudo make install && cd
 # cd ~/.config/dmenu && sudo make install && cd
 
+# 19. Install Lucas Chess 
+# cd ~/Downloads/ && https://sourceforge.net/projects/lucaschessr/files/Version_R2/LucasChessR2_14j_LINUX.sh
+# chmod +x LucasChessR2_14j_LINUX.sh 
+# ./LucasChessR2_14j_LINUX.sh 
+# 20. Install Stockfish 
+# wget https://github.com/official-stockfish/Stockfish/releases/latest/download/stockfish-ubuntu-x86-64-avx2.tar
+# tar -xvf stockfish-ubuntu-x86-64-avx2.tar
+# mv stockfish ~/
+# cd
+# move lucaschess file to usr/bin 
+# sudo cp ~/dotfiles/lucaschess /usr/bin/
+
 # Install python packages 
 # pip install pynvim numpy pandas matplotlib seaborn scikit-learn jupyterlab ipykernel ipywidgets tensorflow python-prctl inotify-simple psutil opencv-python keras 
 # pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu # pytorch cpu version 
