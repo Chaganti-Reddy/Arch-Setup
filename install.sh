@@ -62,7 +62,7 @@
 # git config --global user.name "Chaganti-Reddy"
 # git config --global user.email "chagantivenkataramireddy4@gmail.com"
 
-# 12. Tips:
+# 12. Alternatives & Optionals:
 # 1. Install Java 
 # sudo pacman -S jdk-openjdk openjdk-doc openjdk-src --noconfirm
 # 2. Install qbit torrent
