@@ -1,0 +1,199 @@
+[
+ {
+  "analyze": true,
+  "command": "/usr/lib/python3.12/site-packages/pychess/Players/PyChess.py",
+  "comment": "",
+  "country": "dk",
+  "level": 5,
+  "md5": "be6e594623ce6b20024914bcffba3f66",
+  "name": "PyChess.py",
+  "options": [
+   {
+    "default": false,
+    "name": "Ponder",
+    "type": "check",
+    "value": false
+   },
+   {
+    "default": 0,
+    "max": 100,
+    "min": 0,
+    "name": "skipPruneChance",
+    "type": "spin",
+    "value": 0
+   }
+  ],
+  "protocol": "xboard",
+  "recheck": false,
+  "variants": [
+   "normal",
+   "wildcastle",
+   "nocastle",
+   "fischerandom",
+   "crazyhouse",
+   "light-brigade",
+   "losers",
+   "suicide",
+   "giveaway",
+   "horde",
+   "atomic",
+   "racingkings",
+   "seirawan",
+   "kingofthehill",
+   "3check",
+   "placement",
+   "asean",
+   "cambodian",
+   "makruk",
+   "sittuyin"
+  ],
+  "vm_args": [
+   "-u"
+  ],
+  "vm_command": "/usr/bin/python",
+  "vm_name": "python"
+ },
+ {
+  "analyze": true,
+  "command": "/home/ram/stockfish/stockfish-ubuntu-x86-64-avx2",
+  "comment": "",
+  "country": "in",
+  "level": 20,
+  "md5": "00c9ffe31a7e8d0ac2da4503c1a525bb",
+  "name": "stockfish-ubuntu-x86-64-avx2",
+  "options": [
+   {
+    "name": "Clear Hash",
+    "type": "button"
+   },
+   {
+    "default": "",
+    "name": "Debug Log File",
+    "type": "text",
+    "value": ""
+   },
+   {
+    "default": "nn-b1a57edbea57.nnue",
+    "name": "EvalFile",
+    "type": "text",
+    "value": "nn-b1a57edbea57.nnue"
+   },
+   {
+    "default": "nn-baff1ede1f90.nnue",
+    "name": "EvalFileSmall",
+    "type": "text",
+    "value": "nn-baff1ede1f90.nnue"
+   },
+   {
+    "default": 16,
+    "max": 33554432,
+    "min": 1,
+    "name": "Hash",
+    "type": "spin",
+    "value": 2048
+   },
+   {
+    "default": 10,
+    "max": 5000,
+    "min": 0,
+    "name": "Move Overhead",
+    "type": "spin",
+    "value": 10
+   },
+   {
+    "default": 1,
+    "max": 256,
+    "min": 1,
+    "name": "MultiPV",
+    "type": "spin",
+    "value": 1
+   },
+   {
+    "default": 0,
+    "max": 10000,
+    "min": 0,
+    "name": "nodestime",
+    "type": "spin",
+    "value": 0
+   },
+   {
+    "default": false,
+    "name": "Ponder",
+    "type": "check",
+    "value": true
+   },
+   {
+    "default": 20,
+    "max": 20,
+    "min": 0,
+    "name": "Skill Level",
+    "type": "spin",
+    "value": 20
+   },
+   {
+    "default": true,
+    "name": "Syzygy50MoveRule",
+    "type": "check",
+    "value": true
+   },
+   {
+    "default": "<empty>",
+    "name": "SyzygyPath",
+    "type": "text",
+    "value": "<empty>"
+   },
+   {
+    "default": 1,
+    "max": 100,
+    "min": 1,
+    "name": "SyzygyProbeDepth",
+    "type": "spin",
+    "value": 1
+   },
+   {
+    "default": 7,
+    "max": 7,
+    "min": 0,
+    "name": "SyzygyProbeLimit",
+    "type": "spin",
+    "value": 7
+   },
+   {
+    "default": 1,
+    "max": 1024,
+    "min": 1,
+    "name": "Threads",
+    "type": "spin",
+    "value": 1
+   },
+   {
+    "default": false,
+    "name": "UCI_Chess960",
+    "type": "check",
+    "value": false
+   },
+   {
+    "default": 1320,
+    "max": 3190,
+    "min": 1320,
+    "name": "UCI_Elo",
+    "type": "spin",
+    "value": 1320
+   },
+   {
+    "default": false,
+    "name": "UCI_LimitStrength",
+    "type": "check",
+    "value": false
+   },
+   {
+    "default": false,
+    "name": "UCI_ShowWDL",
+    "type": "check",
+    "value": false
+   }
+  ],
+  "protocol": "uci",
+  "recheck": false
+ }
+]
