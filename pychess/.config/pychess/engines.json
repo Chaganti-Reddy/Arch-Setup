@@ -3,8 +3,8 @@
   "analyze": true,
   "command": "/usr/lib/python3.12/site-packages/pychess/Players/PyChess.py",
   "comment": "",
-  "country": "dk",
-  "level": 5,
+  "country": "in",
+  "level": 7,
   "md5": "be6e594623ce6b20024914bcffba3f66",
   "name": "PyChess.py",
   "options": [
@@ -12,7 +12,7 @@
     "default": false,
     "name": "Ponder",
     "type": "check",
-    "value": false
+    "value": true
    },
    {
     "default": 0,
@@ -58,7 +58,7 @@
   "command": "/home/ram/stockfish/stockfish-ubuntu-x86-64-avx2",
   "comment": "",
   "country": "in",
-  "level": 20,
+  "level": 7,
   "md5": "00c9ffe31a7e8d0ac2da4503c1a525bb",
   "name": "stockfish-ubuntu-x86-64-avx2",
   "options": [
