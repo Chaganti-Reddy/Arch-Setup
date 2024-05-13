@@ -30,7 +30,7 @@ autologin = False
 categorycombo = 0
 max_log_files = 10
 hint_mode = False
-spy_mode = False
+spy_mode = True
 show_sidepanels = True
 autocallflag = True
 tips_seed = 160833879
@@ -136,6 +136,11 @@ preferencesdialogwindow_width = 779
 preferencesdialogwindow_height = 672
 preferencesdialogwindow_x = 567
 preferencesdialogwindow_y = 201
+fromcurrent = True
+shouldblack = True
+shouldwhite = True
+variation_threshold_spin = 50
+threatpv = True
 
 [FICS]
 asguestcheck = True
