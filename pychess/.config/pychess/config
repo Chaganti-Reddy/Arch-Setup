@@ -25,7 +25,7 @@ sounduri9 = file:/usr/share/pychess/sounds/alarm.ogg
 sounduri10 = file:/usr/share/pychess/sounds/invalid.ogg
 sounduri11 = file:/usr/share/pychess/sounds/success.ogg
 sounduri12 = file:/usr/share/pychess/sounds/choice.ogg
-ics_combo = 1
+ics_combo = 0
 autologin = False
 categorycombo = 0
 max_log_files = 10
@@ -140,6 +140,7 @@ preferencesdialogwindow_y = 201
 [FICS]
 asguestcheck = True
 timesealcheck = True
+hostentry = freechess|org
 
 [ICC]
 asguestcheck = True
