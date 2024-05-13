@@ -173,6 +173,8 @@
 # cd
 # move lucaschess file to usr/bin 
 # sudo cp ~/dotfiles/lucaschess /usr/bin/
+# Or install pychess and add stockfish engine
+# sudo pacman -S pychess
 
 # Install python packages 
 # pip install pynvim numpy pandas matplotlib seaborn scikit-learn jupyterlab ipykernel ipywidgets tensorflow python-prctl inotify-simple psutil opencv-python keras 
