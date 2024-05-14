@@ -329,6 +329,10 @@ alias torrentdownload="webtorrent download"
 alias anime="anipy-cli"
 alias kdrama="dra-cla"
 
+function cheat() {
+    curl cht.sh/$1
+}
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/ram/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
