@@ -12,7 +12,7 @@
 #sudo pacman -Syu archlinux-keyring --noconfirm
 
 # 1. Install essential packages
-#sudo pacman -S base-devel intel-ucode git vim zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting bash-completion openssh wget curl htop neofetch bat exa fd ripgrep fzf stow stylua tar tree time acpilight aria2 unrar unzip bluez bluez-utils blueman brightnessctl xfsprogs ntfs-3g clang gcc clipmenu clipnotify inotify-tools psutils dunst e2fsprogs gvfs gvfs-afc gvfs-google gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb efibootmgr zoxide gc git-lfs gnome-keyring polkit-gnome pass udiskie gstreamer jq xdotool screenkey xorg-xprop lazygit lolcat sxiv shellcheck net-tools numlockx prettier progress rsync lightdm-gtk-greeter trash-cli tlp tlp-rdw neovim xorg-xinput xclip xcompmgr xorg-xrandr xorg-xsetroot xsel xwallpaper pandoc starship python-pywal glow xarchiver xfce4-clipman-plugin qemu-full libguestfs xorg-xman man-db man-pages ncdu python-adblock --noconfirm
+#sudo pacman -S base-devel intel-ucode git vim zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting bash-completion openssh wget curl htop neofetch bat exa fd ripgrep fzf stow stylua tar tree time acpilight aria2 unrar unzip bluez bluez-utils blueman brightnessctl xfsprogs ntfs-3g clang gcc clipmenu clipnotify inotify-tools psutils dunst e2fsprogs gvfs gvfs-afc gvfs-google gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb efibootmgr zoxide gc git-lfs gnome-keyring polkit-gnome pass udiskie gstreamer jq xdotool screenkey xorg-xprop lazygit lolcat sxiv shellcheck net-tools numlockx prettier progress rsync lightdm-gtk-greeter trash-cli tlp tlp-rdw neovim xorg-xinput xclip xcompmgr xorg-xrandr xorg-xsetroot xsel xwallpaper pandoc starship python-pywal glow xarchiver xfce4-clipman-plugin qemu-full libguestfs xorg-xman man-db man-pages ncdu python-adblock dnsmasq --noconfirm
 
 # Using XFCE4-CLIPMAN for clipboard manager
 
@@ -43,7 +43,7 @@
 
 # Install themes and icons 
 # pak -S elementary-icon-theme --noconfirm # Previously used icons
-# pak -S gruvbox-plus-icon-theme-git gruvbox-dark-gtk  && sudo pacman -S gtk-engine-murrine
+# pak -S gruvbox-plus-icon-theme-git gruvbox-dark-gtk  && sudo pacman -S gtk-engine-murrine capitaine-cursors-sainnhe-git --noconfirm
 
 # 8. Mariadb setup
 # sudo pacman -S mariadb --noconfirm
@@ -64,6 +64,7 @@
 # sudo usermod -aG docker $USER
 # sudo usermod -aG video $USER
 # sudo usermod -aG libvirt $USER
+# sudo virsh net-start default
 
 # 11. Setup git 
 # git config --global user.name "Chaganti-Reddy"
