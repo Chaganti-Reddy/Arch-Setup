@@ -5,6 +5,9 @@
 # lines_to_append="ILoveCandy\nParallelDownloads=10\nColor"
 # sudo sed -i '/^\[options\]/a '"$lines_to_append" /etc/pacman.conf
 
+# # Change paru or yay here 
+# pak="paru"
+
 # Update the system
 #sudo pacman -Syu archlinux-keyring --noconfirm
 
@@ -21,7 +24,7 @@
 # rm -rf paru
 
 # 3. Install AUR packages
-# paru -S betterlockscreen-git brave-bin ccrypt didyoumean-git github-desktop-bin visual-studio-code-bin preload peerflix webtorrent-cli webtorrent-mpv-hook --noconfirm
+# pak -S betterlockscreen-git brave-bin ccrypt didyoumean-git github-desktop-bin visual-studio-code-bin preload peerflix webtorrent-cli webtorrent-mpv-hook --noconfirm
 
 # 4. Install GUI packages
 # sudo pacman -S baobab gnome-disk-utility flameshot bc discord docker gparted libreoffice-fresh pavucontrol qutebrowser ranger yad telegram-desktop timeshift --noconfirm
@@ -30,17 +33,17 @@
 # sudo pacman -S mpv mpc mpd ncmpcpp mplayer poppler poppler-glib --noconfirm && paru -S cava-git --noconfirm
 
 # 6. Install fonts 
-# dsudo pacman -S adobe-source-code-pro-fonts noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-hack ttf-jetbrains-mono ttf-ubuntu-font-family ttf-ubuntu-mono-nerd ttf-ubuntu-nerd ttf-opensans gnu-free-fonts --noconfirm
+# sudo pacman -S adobe-source-code-pro-fonts noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-hack ttf-jetbrains-mono ttf-ubuntu-font-family ttf-ubuntu-mono-nerd ttf-ubuntu-nerd ttf-opensans gnu-free-fonts --noconfirm
 
 # 7. Install external packages
-# paru -S ani-cli-git arch-wiki-docs ytfzf-git walogram-git docker-desktop --noconfirm
+# pak -S ani-cli-git arch-wiki-docs ytfzf-git walogram-git docker-desktop --noconfirm
 # sudo pacman -S yt-dlp hugo hunspell hunspell-en_us imagemagick ueberzug luacheck mlocate newsboat nodejs npm texlive-bin texlive-meta texlive-latex texlive-basic translate-shell --noconfirm
 # KDE components 
 # sudo pacman -S kde-cli-tools kcmutils
 
 # Install themes and icons 
-# paru -S elementary-icon-theme --noconfirm # Previously used icons
-# paru -S gruvbox-plus-icon-theme-git gruvbox-dark-gtk  && sudo pacman -S gtk-engine-murrine
+# pak -S elementary-icon-theme --noconfirm # Previously used icons
+# pak -S gruvbox-plus-icon-theme-git gruvbox-dark-gtk  && sudo pacman -S gtk-engine-murrine
 
 # 8. Mariadb setup
 # sudo pacman -S mariadb --noconfirm
@@ -91,7 +94,7 @@
 # 8. Install GTK theme and QT theme
 # sudo pacman -S arc-gtk-theme arc-icon-theme --noconfirm
 # 9. Install anipy-cli 
-# paru -S anipy-cli-git --noconfirm
+# pak -S anipy-cli-git --noconfirm
 # 10. Install Doom Emacs 
 # sudo pacman -S emacs --noconfirm && git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs && ~/.config/emacs/bin/doom install # Later run doom sync
 # 11. Insatll waldl from Extras folder of dotfiles
@@ -111,9 +114,9 @@
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 # exit # exit from zsh
 # 17. Install floorp instead of firefox 
-# paru -S floorp-bin python-pywalfox firefox-pwa-bin 
+# pak -S floorp-bin python-pywalfox firefox-pwa-bin 
 # 18. Use dmenu for network manager (Optional)
-# paru -S networkmanager-dmenu-git 
+# pak -S networkmanager-dmenu-git 
 # 19. Install Blender for Video Editing
 # sudo pacman -S blender --noconfirm
 # 20. Install OBS Studio for Screen Recording
@@ -181,8 +184,8 @@
 # sudo pacman -S pychess
 #
 # 20. Use bottles for windows app 
-# paru -S bottles-git
+# pak -S bottles-git
 
 # Install python packages 
 # pip install pynvim numpy pandas matplotlib seaborn scikit-learn jupyterlab ipykernel ipywidgets tensorflow python-prctl inotify-simple psutil opencv-python keras 
-# pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu # pytorch cpu version 
+# pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu # pytorch cpu version 
