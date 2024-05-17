@@ -131,7 +131,8 @@
 
 # 13. Move Respective files to root directory
 # sudo cp ~/dotfiles/Extras/Extras/usr/share/xsessions/dwm.desktop /usr/share/xsessions
-# sudo cp -r ~/dotfiles/Extras/Extras/boot/grub/themes/mocha /boot/grub/themes/
+# # sudo cp -r ~/dotfiles/Extras/Extras/boot/grub/themes/mocha /boot/grub/themes/
+# sudo cp -r ~/dotfiles/Extras/Extras/boot/grub/themes/tartarus/ /boot/grub/themes/
 # Now edit the grub config file
 # sudo cp ~/dotfiles/Extras/Extras/etc/bash.bashrc /etc/
 # sudo cp ~/dotfiles/Extras/Extras/etc/DIR_COLORS /etc/
