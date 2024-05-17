@@ -21,7 +21,7 @@
 # rm -rf paru
 
 # 3. Install AUR packages
-# paru -S betterlockscreen-git brave-bin ccrypt didyoumean-git github-desktop-bin visual-studio-code-bin preload elementary-icon-theme peerflix webtorrent-cli webtorrent-mpv-hook --noconfirm
+# paru -S betterlockscreen-git brave-bin ccrypt didyoumean-git github-desktop-bin visual-studio-code-bin preload peerflix webtorrent-cli webtorrent-mpv-hook --noconfirm
 
 # 4. Install GUI packages
 # sudo pacman -S baobab gnome-disk-utility flameshot bc discord docker gparted libreoffice-fresh pavucontrol qutebrowser ranger yad telegram-desktop timeshift --noconfirm
@@ -37,6 +37,10 @@
 # sudo pacman -S yt-dlp hugo hunspell hunspell-en_us imagemagick ueberzug luacheck mlocate newsboat nodejs npm texlive-bin texlive-meta texlive-latex texlive-basic translate-shell --noconfirm
 # KDE components 
 # sudo pacman -S kde-cli-tools kcmutils
+
+# Install themes and icons 
+# paru -S elementary-icon-theme --noconfirm # Previously used icons
+# paru -S gruvbox-plus-icon-theme-git gruvbox-dark-gtk  && sudo pacman -S gtk-engine-murrine
 
 # 8. Mariadb setup
 # sudo pacman -S mariadb --noconfirm
@@ -175,6 +179,9 @@
 # sudo cp ~/dotfiles/lucaschess /usr/bin/
 # Or install pychess and add stockfish engine
 # sudo pacman -S pychess
+#
+# 20. Use bottles for windows app 
+# paru -S bottles-git
 
 # Install python packages 
 # pip install pynvim numpy pandas matplotlib seaborn scikit-learn jupyterlab ipykernel ipywidgets tensorflow python-prctl inotify-simple psutil opencv-python keras 
