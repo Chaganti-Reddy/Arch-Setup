@@ -127,6 +127,13 @@ local plugins = {
     end,
     dependencies = { { "nvim-tree/nvim-web-devicons" } },
   },
+  -- {
+ --  "nvim-lualine/lualine.nvim",
+ --    config = function()
+ --      require "custom.configs.lualine"
+ --    end,
+	-- dependencies = { { "nvim-tree/nvim-web-devicons" } },
+ --  },
   { "wakatime/vim-wakatime", lazy = false },
   {
     "folke/zen-mode.nvim",
