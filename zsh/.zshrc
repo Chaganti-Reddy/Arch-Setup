@@ -88,7 +88,7 @@ else
   export EDITOR='nvim'
 fi
 
-export BROWSER='/usr/bin/floorp'
+export BROWSER='/usr/bin/brave'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -157,13 +157,14 @@ function mosspy() {
 
 ##Exports
 
-export EDITOR='/usr/bin/emacs'
+export EDITOR='/usr/bin/nvim'
 export PAGER='bat'
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.dwm/bin/:$PATH"
 export PATH="$HOME/.config/emacs/bin:$PATH"
 
-SUDO_EDITOR=/usr/bin/emacs
+SUDO_EDITOR=/usr/bin/nvim
 export SUDO_EDITOR
 
 export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
