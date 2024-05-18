@@ -43,7 +43,7 @@
 
 # Install themes and icons 
 # pak -S elementary-icon-theme --noconfirm # Previously used icons
-# pak -S gruvbox-plus-icon-theme-git gruvbox-dark-gtk  && sudo pacman -S gtk-engine-murrine capitaine-cursors-sainnhe-git --noconfirm
+# pak -S gruvbox-plus-icon-theme-git gruvbox-dark-gtk  && sudo pacman -S gtk-engine-murrine --noconfirm
 
 # 8. Mariadb setup
 # sudo pacman -S mariadb --noconfirm
@@ -141,6 +141,7 @@
 # sudo cp ~/dotfiles/Extras/Extras/etc/environment /etc/
 # sudo cp -r ~/dotfiles/Extras/Extras/etc/lightdm/ /etc/
 # cp ~/dotfiles/Extras/Extras/alanpeabody.zsh-theme ~/.oh-my-zsh/themes/
+# mkdir ~/.icons && cp -r ~/dotfiles/Extras/Extras/.icons/Capitaine Cursors (Gruvbox)/ ~/.icons/
 
 # 14. Setup PASS
 # gpg --full-generate-key && pass init $(gpg --list-keys --with-colons | grep '^pub:' | cut -d ':' -f 5)
