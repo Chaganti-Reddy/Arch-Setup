@@ -13,7 +13,7 @@ dunst &
 # rsibreak &
 # flameshot &
 # blueman-applet &
-xcompmgr &
+xcompmgr -CFcfn &
 mpd &
 slstatus &
 ~/.dwm/scripts/mouse &
