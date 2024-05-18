@@ -1,0 +1,100 @@
+#!/bin/bash
+
+# Check if the file name is provided as an argument
+if [ -z "$1" ]; then
+  echo "Usage: $0 <filename>"
+  exit 1
+fi
+
+FILENAME="$1"
+
+# Function to show a more elaborate animation
+hacker_animation() {
+  local pid=$1
+  local delay=0.1
+  local spinstr='|/-\'
+  local frames=(
+    "⌛ Searching"
+    "🔍 Searching"
+    "💻 Searching"
+    "🔒 Searching"
+  )
+  local i=0
+  tput civis
+  while [ "$(ps a | awk '{print $1}' | grep $pid)" ]; do
+    printf " [%c] %s  " "${spinstr:i++%${#spinstr}:1}" "${frames[i % ${#frames[@]}]}"
+    sleep $delay
+    printf "\r"
+  done
+  tput cnorm
+  printf "\rDone!                      \n"
+}
+
+
+# Run the find command in the background
+(find / -type f \( -name "$FILENAME" -o -name "$FILENAME.*" \) 2>/dev/null) &
+search_pid=$!
+
+# Show hacker animation while the find command is running
+hacker_animation $search_pid
+# Capture the output of the find command after it finishes
+FILEPATH=$(find / -type f \( -name "$FILENAME" -o -name "$FILENAME.*" \) 2>/dev/null | fzf --prompt="Select a file: ")
+
+# Check if a file was selected
+if [ -z "$FILEPATH" ]; then
+  echo "No file selected."
+  exit 1
+fi
+
+# Check if the file is empty
+if [ ! -s "$FILEPATH" ]; then
+  echo "The selected file is empty."
+  exit 1
+fi
+
+# Determine the MIME type of the selected file
+MIMETYPE=$(xdg-mime query filetype "$FILEPATH")
+
+# Define a function to open files based on MIME type
+open_with_mime() {
+  case "$1" in
+    text/plain)
+      nvim "$2" # Replace with your preferred text editor
+      ;;
+    text/x-shellscript)
+      nvim "$2" # Replace with your preferred text editor
+      ;;
+    image/*)
+      sxiv "$2" & # Replace with your preferred image viewer
+      ;;
+    application/pdf)
+      okular "$2" & # Replace with your preferred PDF viewer
+      ;;
+    video/*)
+      mpv "$2" & # Replace with your preferred video player
+      ;;
+    audio/*)
+      mplayer "$2" & # Replace with your preferred audio player
+      ;;
+    *)
+      echo "No application found for MIME type: $1"
+      echo "Opening with xdg-open..."
+      xdg-open "$2" & # Fallback for unknown MIME types
+      ;;
+  esac
+}
+
+# Function to open file with or without sudo
+open_file() {
+  local mime="$1"
+  local file="$2"
+  
+  if [[ "$file" == "$HOME"* ]]; then
+    open_with_mime "$mime" "$file"
+  else
+    sudo bash -c "$(declare -f open_with_mime); open_with_mime '$mime' '$file'"
+  fi
+}
+
+# Open the file with the appropriate application
+open_file "$MIMETYPE" "$FILEPATH"
