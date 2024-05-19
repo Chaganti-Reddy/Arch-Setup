@@ -76,6 +76,7 @@
 # paru -S teamviewer --noconfirm
 # 5. Install Zathura
 # sudo pacman -S zathura zathura-pdf-mupdf zathura-djvu zathura-ps zathura-cb --noconfirm && paru -S zathura-pywal-git --noconfirm
+# also install pywal zathura in ~/dotfiles/Extras/Extras/Zathura-Pywal-master/
 # 6. Install Okular 
 # sudo pacman -S okular --noconfirm
 # 7. Install Dolphin 
