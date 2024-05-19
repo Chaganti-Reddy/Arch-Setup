@@ -1,88 +1,7 @@
 #!/bin/bash
 
-# Check if the file name is provided as an argument
-if [ -z "$1" ]; then
-  echo "Usage: $0 <filename>"
-  exit 1
-fi
-
-FILENAME="$1"
-
-# Function to show a more elaborate animation
-hacker_animation() {
-  local pid=$1
-  local delay=0.1
-  local spinstr='|/-\'
-  local frames=(
-    "⌛ Searching"
-    "🔍 Searching"
-    "💻 Searching"
-    "🔒 Searching"
-  )
-  local i=0
-  tput civis
-  while [ "$(ps a | awk '{print $1}' | grep $pid)" ]; do
-    printf " [%c] %s  " "${spinstr:i++%${#spinstr}:1}" "${frames[i % ${#frames[@]}]}"
-    sleep $delay
-    printf "\r"
-  done
-  tput cnorm
-  printf "\rDone!                      \n"
-}
-
-
-# Run the find command in the background
-(find / -type f \( -name "$FILENAME" -o -name "$FILENAME.*" \) 2>/dev/null) &
-search_pid=$!
-
-# Show hacker animation while the find command is running
-hacker_animation $search_pid
-# Capture the output of the find command after it finishes
-FILEPATH=$(find / -type f \( -name "$FILENAME" -o -name "$FILENAME.*" \) 2>/dev/null | fzf --prompt="Select a file: ")
-
-# Check if a file was selected
-if [ -z "$FILEPATH" ]; then
-  echo "No file selected."
-  exit 1
-fi
-
-# Check if the file is empty
-if [ ! -s "$FILEPATH" ]; then
-  echo "The selected file is empty."
-  exit 1
-fi
-
-# Determine the MIME type of the selected file
-MIMETYPE=$(xdg-mime query filetype "$FILEPATH")
-
-# Define a function to open files based on MIME type
-open_with_mime() {
-  case "$1" in
-    text/plain)
-      nvim "$2" # Replace with your preferred text editor
-      ;;
-    text/x-shellscript)
-      nvim "$2" # Replace with your preferred text editor
-      ;;
-    image/*)
-      sxiv "$2" & # Replace with your preferred image viewer
-      ;;
-    application/pdf)
-      okular "$2" & # Replace with your preferred PDF viewer
-      ;;
-    video/*)
-      mpv "$2" & # Replace with your preferred video player
-      ;;
-    audio/*)
-      mplayer "$2" & # Replace with your preferred audio player
-      ;;
-    *)
-      echo "No application found for MIME type: $1"
-      echo "Opening with xdg-open..."
-      xdg-open "$2" & # Fallback for unknown MIME types
-      ;;
-  esac
-}
+user=$(whoami)
+user=$(echo $user | awk '{print toupper(substr($0,1,1)) tolower(substr($0,2))}')
 
 # Function to open file with or without sudo
 open_file() {
@@ -90,11 +9,187 @@ open_file() {
   local file="$2"
   
   if [[ "$file" == "$HOME"* ]]; then
-    open_with_mime "$mime" "$file"
+    case "$mime" in
+      text/plain | text/x-shellscript | application/json | application/xml | application/x-zerosize)
+        nvim "$file" # Replace with your preferred text editor
+        ;;
+      image/*)
+        sxiv "$file" & # Replace with your preferred image viewer
+        ;;
+      application/pdf)
+        $HOME/.local/bin/zathura "$file" & # Replace with your preferred PDF viewer
+        ;;
+      video/*)
+        mpv "$file" & # Replace with your preferred video player
+        ;;
+      audio/*)
+        mplayer "$file" & # Replace with your preferred audio player
+        ;;
+      *)
+        whiptail --title "Unknown MIME Type" --msgbox "No application found for MIME type: $mime\nOpening with xdg-open..." 10 60
+        xdg-open "$file" & # Fallback for unknown MIME types
+        ;;
+    esac
   else
-    sudo bash -c "$(declare -f open_with_mime); open_with_mime '$mime' '$file'"
+    whiptail --title "Permission" --yesno "$user, would you like to edit the file with sudo?" 10 60
+    choice=$?
+    case $choice in
+      0)  # Yes option selected 
+        case "$mime" in
+          text/plain | text/x-shellscript)
+            sudo nvim "$file" # Replace with your preferred text editor
+            ;;
+          image/*)
+            sudo sxiv "$file" & # Replace with your preferred image viewer
+            ;;
+          application/pdf)
+            sudo $HOME/.local/bin/zathura "$file" & # Replace with your preferred PDF viewer
+            ;;
+          video/*)
+            sudo mpv "$file" & # Replace with your preferred video player
+            ;;
+          audio/*)
+            sudo mplayer "$file" & # Replace with your preferred audio player
+            ;;
+          *)
+          whiptail --title "Unknown MIME Type" --msgbox "No application found for MIME type: $mime\nOpening with xdg-open..." 10 60
+          sudo xdg-open "$file" & # Fallback for unknown MIME types
+          ;;
+      esac
+      ;;
+    1)  # No option selected
+        case "$mime" in
+          text/plain | text/x-shellscript)
+            nvim "$file" # Replace with your preferred text editor
+            ;;
+          image/*)
+            sxiv "$file" & # Replace with your preferred image viewer
+            ;;
+          application/pdf)
+            $HOME/.local/bin/zathura "$file" & # Replace with your preferred PDF viewer
+            ;;
+          video/*)
+            mpv "$file" & # Replace with your preferred video player
+            ;;
+          audio/*)
+            mplayer "$file" & # Replace with your preferred audio player
+            ;;
+          *)
+            whiptail --title "Unknown MIME Type" --msgbox "No application found for MIME type: $mime\nOpening with xdg-open..." 10 60
+            xdg-open "$file" & # Fallback for unknown MIME types
+            ;;
+        esac
+        ;;
+      255) # Esc or Cancel pressed
+        echo "Operation cancelled. Exiting...👽👽👽"
+        exit 1
+        ;;
+    esac
   fi
 }
+
+# Function to display an animated progress dialog
+animated_progress() {
+  local text="$1"
+  local pid=$!
+  local delay=0.1
+  local spinstr='|/-\'
+  local frames=(
+    "⌛ $text"
+    "🔍 $text"
+    "💻 $text"
+    "🔒 $text"
+  )
+  local i=0
+  while ps a | awk '{print $1}' | grep -q "$pid"; do
+    printf "[%c] %s " "${spinstr:i++%${#spinstr}:1}" "${frames[i % ${#frames[@]}]}"
+    sleep $delay
+    printf "\r"
+  done
+  printf "\r"
+}
+
+# Check if the file name is provided as an argument
+if [ -z "$1" ]; then
+  echo "Usage: search <filename>"
+  exit 1
+fi
+
+FILENAME="$1"
+
+# Run the find command in the background
+(find / -type f \( -name "$FILENAME" -o -name "$FILENAME.*" \) 2>/dev/null) &
+animated_progress "Searching"
+
+# If no files found then ask to create a new file
+if [ -z "$(find / -type f \( -name "$FILENAME" -o -name "$FILENAME.*" \) 2>/dev/null)" ]; then
+  # Use username and ask to create a new file
+  whiptail --title "No Files Found" --msgbox "No Luck!! 0 files found here 😢😢..\n\n$user, we are retreating!" 12 60
+
+  # Ask whether to create a new file
+  whiptail --title "Create a new file?" --yesno "Wait!...⌛⌛⌛  \n\n$user, how about creating a new file?😎😎" 15 60
+  choice=$?
+  case $choice in
+    0)  # Yes option selected
+        # Ask for folder using fzf and also caption the dialog
+        selected_folder=$(find ~ -type d | fzf --prompt="Select a folder to create the file: ")
+        if [ -z "$selected_folder" ]; then
+            echo "No folder selected. Exiting... 📂📂📂"
+            exit 1
+        fi
+
+        # Ask for file name
+        file_name=$(whiptail --inputbox "Yay!!! Enter the file name to create in $selected_folder:" 10 60 --title "File Name" 3>&1 1>&2 2>&3)
+
+        # Construct full file path
+        full_path="$selected_folder/$file_name"
+
+        # Create the file
+        touch "$full_path"
+        # echo "File created: $full_path"
+
+        # Ask whether to open the file
+        whiptail --title "Open file?" --yesno "Coool!!! $user lets explore the file..." 10 60
+        open_choice=$?
+        case $open_choice in
+          0)  # Yes option selected
+              # Open the file
+              # echo "Opening file: $full_path"
+              MIMETYPE=$(xdg-mime query filetype "$full_path")
+              open_file "$MIMETYPE" "$full_path"
+              ;;
+          1)  # No option selected
+              echo "No problem! Let's explore it later...🤗🤗🤗"
+              ;;
+          255) # Esc or Cancel pressed
+              echo "Operation cancelled. Exiting...👽👽👽"
+              exit 1
+              ;;
+        esac
+        ;;
+    1)  # No option selected
+        echo "OK! That's fine. Let's Exit now...😿😿😿"
+        exit 1
+        ;;
+    255) # Esc or Cancel pressed
+        echo "Operation cancelled. Exiting...👽👽👽"
+        exit 1
+        ;;
+  esac
+  exit 1
+fi
+
+# Capture the output of the find command after it finishes
+FILEPATH=$(find / -type f \( -name "$FILENAME" -o -name "$FILENAME.*" \) 2>/dev/null | fzf --prompt="Select a file: ")
+
+# Check if a file was selected
+if [ -z "$FILEPATH" ]; then
+  whiptail --title "No File Selected" --msgbox "No file selected." 8 50
+  exit 1
+fi
+
+# Determine the MIME type of the selected file
+MIMETYPE=$(xdg-mime query filetype "$FILEPATH")
 
 # Open the file with the appropriate application
 open_file "$MIMETYPE" "$FILEPATH"
