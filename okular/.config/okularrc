@@ -10,7 +10,7 @@ ToolBarsMovable=Disabled
 
 [Recent Files]
 File1[$e]=$HOME/Git/Masters-Documents/Resources/IELTS/IELTS Writing/120430_academic_writing_task_1a.pdf
-File10[$e]=$HOME/Downloads/R___Paper___1 (6) (1).pdf
+File10[$e]=/mnt/Baka/R___Paper___1 (6) (1).pdf
 File2[$e]=$HOME/Git/Masters-Documents/Resources/IELTS/IELTS Writing/120430_academic_writing_task_2a.pdf
 File3[$e]=$HOME/Git/Masters-Documents/Resources/IELTS/IELTS Writing/ielts-writing-task-1-sample-bar-chart.pdf
 File4[$e]=$HOME/Git/Masters-Documents/Resources/IELTS/IELTS Writing/120430_academic_writing_task_2b.pdf
@@ -18,7 +18,7 @@ File5[$e]=$HOME/Git/Masters-Documents/Resources/IELTS/IELTS Writing/ielts-buddy-
 File6[$e]=/mnt/Baka/Anime/Manga/Boruto: Two Blue Vortex /[0001]_Chapter_1.pdf
 File7[$e]=$HOME/Downloads/NCERT-Class-12-Chemistry-Part-2.pdf
 File8[$e]=$HOME/Downloads/dotfiles-master/.scripts/README.md
-File9[$e]=/mnt/Baka/R___Paper___1 (6) (1).pdf
+File9[$e]=$HOME/Downloads/R___Paper___1 (6) (1).pdf
 Name1[$e]=120430_academic_writing_task_1a.pdf
 Name10[$e]=R___Paper___1 (6) (1).pdf
 Name2[$e]=120430_academic_writing_task_2a.pdf
