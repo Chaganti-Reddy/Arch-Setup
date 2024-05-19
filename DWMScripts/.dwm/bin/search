@@ -3,89 +3,38 @@
 user=$(whoami)
 user=$(echo $user | awk '{print toupper(substr($0,1,1)) tolower(substr($0,2))}')
 
-# Function to open file with or without sudo
+
 open_file() {
   local mime="$1"
   local file="$2"
+  local command_prefix=""
   
-  if [[ "$file" == "$HOME"* ]]; then
-    case "$mime" in
-      text/plain | text/x-shellscript | application/json | application/xml | application/x-zerosize)
-        nvim "$file" # Replace with your preferred text editor
-        ;;
-      image/*)
-        sxiv "$file" & # Replace with your preferred image viewer
-        ;;
-      application/pdf)
-        $HOME/.local/bin/zathura "$file" & # Replace with your preferred PDF viewer
-        ;;
-      video/*)
-        mpv "$file" & # Replace with your preferred video player
-        ;;
-      audio/*)
-        mplayer "$file" & # Replace with your preferred audio player
-        ;;
-      *)
-        whiptail --title "Unknown MIME Type" --msgbox "No application found for MIME type: $mime\nOpening with xdg-open..." 10 60
-        xdg-open "$file" & # Fallback for unknown MIME types
-        ;;
-    esac
-  else
+  # Determine if sudo is needed
+  if [[ "$file" != "$HOME"* ]]; then
     whiptail --title "Permission" --yesno "$user, would you like to edit the file with sudo?" 10 60
-    choice=$?
-    case $choice in
-      0)  # Yes option selected 
-        case "$mime" in
-          text/plain | text/x-shellscript)
-            sudo nvim "$file" # Replace with your preferred text editor
-            ;;
-          image/*)
-            sudo sxiv "$file" & # Replace with your preferred image viewer
-            ;;
-          application/pdf)
-            sudo $HOME/.local/bin/zathura "$file" & # Replace with your preferred PDF viewer
-            ;;
-          video/*)
-            sudo mpv "$file" & # Replace with your preferred video player
-            ;;
-          audio/*)
-            sudo mplayer "$file" & # Replace with your preferred audio player
-            ;;
-          *)
-          whiptail --title "Unknown MIME Type" --msgbox "No application found for MIME type: $mime\nOpening with xdg-open..." 10 60
-          sudo xdg-open "$file" & # Fallback for unknown MIME types
-          ;;
-      esac
-      ;;
-    1)  # No option selected
-        case "$mime" in
-          text/plain | text/x-shellscript)
-            nvim "$file" # Replace with your preferred text editor
-            ;;
-          image/*)
-            sxiv "$file" & # Replace with your preferred image viewer
-            ;;
-          application/pdf)
-            $HOME/.local/bin/zathura "$file" & # Replace with your preferred PDF viewer
-            ;;
-          video/*)
-            mpv "$file" & # Replace with your preferred video player
-            ;;
-          audio/*)
-            mplayer "$file" & # Replace with your preferred audio player
-            ;;
-          *)
-            whiptail --title "Unknown MIME Type" --msgbox "No application found for MIME type: $mime\nOpening with xdg-open..." 10 60
-            xdg-open "$file" & # Fallback for unknown MIME types
-            ;;
-        esac
-        ;;
-      255) # Esc or Cancel pressed
-        echo "Operation cancelled. Exiting...👽👽👽"
-        exit 1
-        ;;
-    esac
+    if [[ $? -eq 0 ]]; then
+      command_prefix="sudo "
+    fi
   fi
+  
+  # Select the appropriate command based on MIME type
+  case "$mime" in
+    text/plain | text/x-shellscript)
+      $command_prefix nvim "$file" ;;
+    image/*)
+      $command_prefix sxiv "$file" & ;;
+    application/pdf)
+      $command_prefix $HOME/.local/bin/zathura "$file" & ;;
+    video/*)
+      $command_prefix mpv "$file" & ;;
+    audio/*)
+      $command_prefix mplayer "$file" & ;;
+    application/vnd.openxmlformats-officedocument.wordprocessingml.document)
+      $command_prefix libreoffice --writer "$file" & ;;
+    *)
+      whiptail --title "Unknown MIME Type" --msgbox "No application found for MIME type: $mime\nOpening with xdg-open..." 10 60
+      $command_prefix xdg-open "$file" & ;;
+  esac
 }
 
 # Function to display an animated progress dialog
@@ -118,11 +67,13 @@ fi
 FILENAME="$1"
 
 # Run the find command in the background
-(find / -type f \( -name "$FILENAME" -o -name "$FILENAME.*" \) 2>/dev/null) &
+# (find / -type f \( -name "$FILENAME" -o -name "$FILENAME.*" \) 2>/dev/null) &
+(find / -type f -iname "*$FILENAME*" 2>/dev/null) &
+
 animated_progress "Searching"
 
 # If no files found then ask to create a new file
-if [ -z "$(find / -type f \( -name "$FILENAME" -o -name "$FILENAME.*" \) 2>/dev/null)" ]; then
+if [ -z "$(find / -type f -iname "*$FILENAME*" 2>/dev/null)" ]; then
   # Use username and ask to create a new file
   whiptail --title "No Files Found" --msgbox "No Luck!! 0 files found here 😢😢..\n\n$user, we are retreating!" 12 60
 
@@ -180,7 +131,8 @@ if [ -z "$(find / -type f \( -name "$FILENAME" -o -name "$FILENAME.*" \) 2>/dev/
 fi
 
 # Capture the output of the find command after it finishes
-FILEPATH=$(find / -type f \( -name "$FILENAME" -o -name "$FILENAME.*" \) 2>/dev/null | fzf --prompt="Select a file: ")
+# FILEPATH=$(find / -type f \( -name "$FILENAME" -o -name "$FILENAME.*" \) 2>/dev/null | fzf --prompt="Select a file: ")
+FILEPATH=$(find / -type f -iname "*$FILENAME*" 2>/dev/null | fzf --prompt="Select a file: ")
 
 # Check if a file was selected
 if [ -z "$FILEPATH" ]; then
