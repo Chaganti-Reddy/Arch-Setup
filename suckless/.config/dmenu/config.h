@@ -7,7 +7,8 @@ static int centered = 0;                    /* -c option; centers dmenu on scree
 static int min_width = 700;                    /* minimum width when centered */
 /* -fn option overrides fonts[0]; default X11 font or font set */
 static const char *fonts[] = {
-	"JetBrains Mono:size=12",
+	// "JetBrains Mono:size=12",
+  "CaskaydiyaCove Nerd Font:size=12",
 	"JoyPixels:pixelsize=12:antialias=true:autohint=true"
 };
 static const unsigned int bgalpha = 0xe0;
