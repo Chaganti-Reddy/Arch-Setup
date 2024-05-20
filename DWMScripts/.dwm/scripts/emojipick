@@ -73,7 +73,7 @@ if [ ! -f "$file_check_program" ]; then
     touch "$file_check_program"
 fi
 
-emoji=$("$emojiget" $emoptions | $dmenu_app "$font" | tr '\n' ' ')
+emoji=$("$emojiget" $emoptions| shuf | $dmenu_app "$font" | tr '\n' ' ')
 
 # Does it start with a double quote?
 if [[ $emoji = \"* ]]
