@@ -21,6 +21,11 @@ slstatus &
 if [ -d ~/.cache/wallheaven ]; then
     rm -rf ~/.cache/wallheaven
 fi
+
+# if [ -d /tmp/redyt/ ]; then 
+#   rm -rf /tmp/redyt 
+# fi
+
 ~/.dwm/newlook &
 # /home/ram/.dwm/scripts/whatsapp_start &
 /usr/bin/gnome-keyring-daemon --start
