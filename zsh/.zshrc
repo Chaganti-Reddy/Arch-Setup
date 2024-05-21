@@ -328,8 +328,9 @@ alias mangaread="curl -sSL mangal.metafates.one/run | sh"
 alias torrentwatch1="peerflix -k -a -q"
 alias torrentwatch2="webtorrent --mpv"
 alias torrentdownload="webtorrent download"
-alias anime="anipy-cli"
-alias kdrama="dra-cla"
+alias anime1="ani-cli"
+alias anime2="anipy-cli"
+alias kdrama="cd ~/dotfiles/Extras/Extras/korean_cli/ && ./dra-cla"
 
 function cheat() {
     curl cht.sh/$1
