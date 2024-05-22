@@ -22,6 +22,7 @@ M.general = {
   },
   v = {
     [">"] = { ">gv", "indent" },
+    ["<"] = { "<gv", "indent" },
     ["<leader>gg"] = { ":Gen<CR>", "Open Ollama" },
   },
 }
