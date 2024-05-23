@@ -163,7 +163,7 @@ static const char *dmenucmd[] = {"dmenu_run", "-m", dmenumon, "-fn", dmenufont, 
 static const char *termcmd[] = {"st", NULL};
 static const char *emacs[] = {"emacs", NULL};
 static const char *browser[] = {"brave", NULL};
-// static const char *browser1[] = {"floorp", NULL};
+static const char *browser1[] = {"qutebrowser", NULL};
 static const char *files[] = {"st", "-e", "ranger", NULL};
 static const char *files1[] = {"thunar", NULL};
 
@@ -245,7 +245,7 @@ static Key keys[] = {
     // {MODKEY | ControlMask | ShiftMask, XK_i, spawn,
      // SHCMD("networkmanager_dmenu")},
     {MODKEY, XK_w, spawn, {.v = browser}},
-    // {MODKEY | ShiftMask, XK_w, spawn, {.v = browser1}},
+    {MODKEY | ShiftMask, XK_w, spawn, {.v = browser1}},
     {MODKEY , XK_n, spawn, {.v = files}},
     {MODKEY | ShiftMask, XK_n, spawn, {.v = files1}},
     // {MODKEY, XK_F8, spawn, {.v = (const char *[]){"mpc", "next", NULL}}},
