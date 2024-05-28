@@ -3,9 +3,11 @@ lang: <none>
 type: positive
 ---
 Badoni
+CJPR
 Centrale
 Chaganti
 GANS
+HPC
 Haryana
 I.I.T.
 Kharagpur
@@ -21,6 +23,7 @@ Rakesh
 Real-MNIST
 Reddy
 Sonepat
+TCO
 VAE
 Venkatarami
 convolutional
