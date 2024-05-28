@@ -23,6 +23,9 @@ open_file() {
       $command_prefix nvim "$file" ;;
     image/*)
       $command_prefix sxiv "$file" & ;;
+    # for ppt open in libreoffice impress
+    application/vnd.oasis.opendocument.presentation)
+      $command_prefix libreoffice --impress "$file" & ;;
     application/pdf)
       $command_prefix $HOME/.local/bin/zathura "$file" & ;;
     video/*)
