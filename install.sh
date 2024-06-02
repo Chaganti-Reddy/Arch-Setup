@@ -25,7 +25,7 @@
 # paru -S betterlockscreen-git brave-bin ccrypt didyoumean-git github-desktop-bin visual-studio-code-bin preload peerflix webtorrent-cli webtorrent-mpv-hook git-remote-gcrypt --noconfirm
 
 # 4. Install GUI packages
-#sudo pacman -S baobab gnome-disk-utility flameshot bc discord docker gparted libreoffice-fresh pavucontrol qutebrowser ranger yad telegram-desktop timeshift pychess --noconfirm
+#sudo pacman -S baobab gnome-disk-utility flameshot bc discord docker docker-compose docker-scan gparted libreoffice-fresh pavucontrol qutebrowser ranger yad telegram-desktop timeshift pychess --noconfirm
 
 # 5. Install multimedia packages
 # sudo pacman -S mpv mpc mpd ncmpcpp mplayer poppler poppler-glib --noconfirm && paru -S cava-git --noconfirm
