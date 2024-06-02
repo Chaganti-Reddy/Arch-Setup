@@ -2,7 +2,6 @@ sw_volume: 100
 audio_device_state:1:PipeWire Sound Server
 audio_device_state:1:my_fifo
 state: stop
-current: 1
 random: 0
 repeat: 0
 single: 0
@@ -11,107 +10,4 @@ crossfade: 0
 mixrampdb: 0.000000
 mixrampdelay: -1.000000
 playlist_begin
-0:Cold Play/A Head Full of Dreams/A Head Full of Dreams [rwdwb5Fkgso].mp3
-1:Cold Play/A Head Full of Dreams/Adventure of a Lifetime [XsMpXczOIPs].mp3
-2:Cold Play/A Head Full of Dreams/Amazing Day [XH9AkFPHPmM].mp3
-3:Cold Play/A Head Full of Dreams/Army of One [NE6vs4jqXWc].mp3
-4:Cold Play/A Head Full of Dreams/Birds [reVlIfn6u_c].mp3
-5:Cold Play/A Head Full of Dreams/Colour Spectrum [fUFyHWIJcY0].mp3
-6:Cold Play/A Head Full of Dreams/Everglow [7pfX1OKqP80].mp3
-7:Cold Play/A Head Full of Dreams/Fun (feat. Tove Lo) [rqCP4Invnrs].mp3
-8:Cold Play/A Head Full of Dreams/Hymn for the Weekend [H3Kzh6RrnMc].mp3
-9:Cold Play/A Head Full of Dreams/Kaleidoscope [h4ag7p5Tohw].mp3
-10:Cold Play/A Head Full of Dreams/Up & Up [qyNSAIESgn0].mp3
-11:Cold Play/A Rush of Blood to the Head/A Rush of Blood to the Head [AiebvAkb4LM].mp3
-12:Cold Play/A Rush of Blood to the Head/A Whisper [jPYRPDrn2MI].mp3
-13:Cold Play/A Rush of Blood to the Head/Amsterdam [kr4DNZz_8zI].mp3
-14:Cold Play/A Rush of Blood to the Head/Clocks [8Xv_Hg8o1fw].mp3
-15:Cold Play/A Rush of Blood to the Head/Daylight [LSz8iqz2zbU].mp3
-16:Cold Play/A Rush of Blood to the Head/God Put a Smile upon Your Face [lxECRgVSbE8].mp3
-17:Cold Play/A Rush of Blood to the Head/Green Eyes [waKvorfmuB8].mp3
-18:Cold Play/A Rush of Blood to the Head/In My Place [dFmO5_JeD_w].mp3
-19:Cold Play/A Rush of Blood to the Head/Politik [GOrADSEKb_k].mp3
-20:Cold Play/A Rush of Blood to the Head/The Scientist [gm-Y9idMMQ4].mp3
-21:Cold Play/A Rush of Blood to the Head/Warning Sign [xtQirM784oM].mp3
-22:Cold Play/Everyday Life/Arabesque [Qf3KgPCJXRA].mp3
-23:Cold Play/Everyday Life/BrokEn [wXdw8RJIbEw].mp3
-24:Cold Play/Everyday Life/Champion Of The World [3oXOu32MM1Q].mp3
-25:Cold Play/Everyday Life/Church [vMHDh-w1JUA].mp3
-26:Cold Play/Everyday Life/Cry Cry Cry [Cy972uooscU].mp3
-27:Cold Play/Everyday Life/Daddy [eaSSAiAFSVI].mp3
-28:Cold Play/Everyday Life/Èkó [M2k6RZl1rKs].mp3
-29:Cold Play/Everyday Life/Everyday Life [IEGNBRz-qiQ].mp3
-30:Cold Play/Everyday Life/Guns [2eQo4sL9S-4].mp3
-31:Cold Play/Everyday Life/Old Friends [LL7ZR5Kdx8g].mp3
-32:Cold Play/Everyday Life/Orphans [gHOpA_GY2c4].mp3
-33:Cold Play/Everyday Life/Sunrise [L0WWfY0_970].mp3
-34:Cold Play/Everyday Life/Trouble In Town [7ZAKyFE5QD0].mp3
-35:Cold Play/Everyday Life/When I Need A Friend [Dmn65JpnjtQ].mp3
-36:Cold Play/Everyday Life/WOTW ⧸ POTP [1MLkS5eu_A0].mp3
-37:Cold Play/Everyday Life/بنی آدم [QwlBgEgxya0].mp3
-38:Cold Play/Ghost Stories/A Sky Full of Stars (Live at the Royal Albert Hall, London) [S-4p1IRXVN8].mp3
-39:Cold Play/Ghost Stories/A Sky Full of Stars [KWuyx6yZ21U].mp3
-40:Cold Play/Ghost Stories/Always in My Head (Live at the Royal Albert Hall, London) [xdN2j2fwztU].mp3
-41:Cold Play/Ghost Stories/Always in My Head [l2UJmdM9Omw].mp3
-42:Cold Play/Ghost Stories/Another's Arms (Live at the Beacon Theatre, New York) [P-IJoUj2LoE].mp3
-43:Cold Play/Ghost Stories/Another's Arms [4EYN8yeReTE].mp3
-44:Cold Play/Ghost Stories/Ink (Live at Le Casino De Paris, Paris) [fE7JIFLvB4A].mp3
-45:Cold Play/Ghost Stories/Ink [Qjo_x_8vrVY].mp3
-46:Cold Play/Ghost Stories/Magic (Live at the Enmore Theatre, Sydney) [8op6kXTW-xI].mp3
-47:Cold Play/Ghost Stories/Magic [219pQObZq2I].mp3
-48:Cold Play/Ghost Stories/Midnight (Live at the Royal Albert Hall, London) [-Vc4OkSNAoE].mp3
-49:Cold Play/Ghost Stories/Midnight [L5uqSeA_bps].mp3
-50:Cold Play/Ghost Stories/O (Live at Royce Hall, Los Angeles) [ivDd6WMCXqw].mp3
-51:Cold Play/Ghost Stories/O [-gA3H3clEqk].mp3
-52:Cold Play/Ghost Stories/Oceans (Live at E-Werk, Cologne) [thZhXCEM3Dk].mp3
-53:Cold Play/Ghost Stories/Oceans [D72bzPbZQrI].mp3
-54:Cold Play/Ghost Stories/True Love (Live at the Enmore Theatre, Sydney) [e_5Mdo38Uv8].mp3
-55:Cold Play/Ghost Stories/True Love [d-6kIWaHwiY].mp3
-56:Cold Play/Mylo Xyloto/A Hopeful Transmission [o9rV6ALf4j4].mp3
-57:Cold Play/Mylo Xyloto/Charlie Brown [Q2zy_g6y_tU].mp3
-58:Cold Play/Mylo Xyloto/Don't Let It Break Your Heart [AIRk1NtU8Ck].mp3
-59:Cold Play/Mylo Xyloto/Every Teardrop Is a Waterfall [mpcTWvRwU9k].mp3
-60:Cold Play/Mylo Xyloto/Hurts Like Heaven [zXKDeVt64UQ].mp3
-61:Cold Play/Mylo Xyloto/M.M.I.X. [ZqLGysTWRUk].mp3
-62:Cold Play/Mylo Xyloto/Major Minus [oB0qAlTA7H4].mp3
-63:Cold Play/Mylo Xyloto/Mylo Xyloto [YUy4awDXeSE].mp3
-64:Cold Play/Mylo Xyloto/Paradise [Gfc_nijnfew].mp3
-65:Cold Play/Mylo Xyloto/Princess of China [GRK14J_we5k].mp3
-66:Cold Play/Mylo Xyloto/U.F.O. [W02mv2D7uQk].mp3
-67:Cold Play/Mylo Xyloto/Up in Flames [fdBQQ2Sskz0].mp3
-68:Cold Play/Mylo Xyloto/Up with the Birds [AKlSE32BjZg].mp3
-69:Cold Play/Mylo Xyloto/Us Against the World [Bkz9Oem6loo].mp3
-70:Cold Play/Parachutes/Don't Panic [2XqpXmhM1Fc].mp3
-71:Cold Play/Parachutes/Everything's Not Lost (Includes Hidden Track 'Life Is For Living') [_NLT4dkrZ5s].mp3
-72:Cold Play/Parachutes/High Speed [JXmyDJpZhAw].mp3
-73:Cold Play/Parachutes/Parachutes [v77WFwYtUE0].mp3
-74:Cold Play/Parachutes/Shiver [ujbS9mHRXDw].mp3
-75:Cold Play/Parachutes/Sparks [1aokooixKIo].mp3
-76:Cold Play/Parachutes/Spies [25s17jID6gs].mp3
-77:Cold Play/Parachutes/Trouble [oSBSpSOh6lQ].mp3
-78:Cold Play/Parachutes/We Never Change [OCthmb-m52E].mp3
-79:Cold Play/Parachutes/Yellow [9qnqYL0eNNI].mp3
-80:Cold Play/Viva La Vida or Death and All His Friends/42 [ez6eauLcOuc].mp3
-81:Cold Play/Viva La Vida or Death and All His Friends/Cemeteries of London [v6gxuxw69z0].mp3
-82:Cold Play/Viva La Vida or Death and All His Friends/Death and All His Friends [QvoM6TK8O6w].mp3
-83:Cold Play/Viva La Vida or Death and All His Friends/Life in Technicolor [sPD59NTahc0].mp3
-84:Cold Play/Viva La Vida or Death and All His Friends/Lost! [B5KjwuD3hEg].mp3
-85:Cold Play/Viva La Vida or Death and All His Friends/Lovers in Japan [A3hiqF3goTU].mp3
-86:Cold Play/Viva La Vida or Death and All His Friends/Strawberry Swing [H84ia4pR2PI].mp3
-87:Cold Play/Viva La Vida or Death and All His Friends/Violet Hill [7ENiDNrBj2g].mp3
-88:Cold Play/Viva La Vida or Death and All His Friends/Viva La Vida [zOQ4ld6NsXE].mp3
-89:Cold Play/Viva La Vida or Death and All His Friends/Yes [V4qdbGcFBxw].mp3
-90:Cold Play/X&Y/A Message [1bDz2MZWKlM].mp3
-91:Cold Play/X&Y/Fix You [Oncu0bgdcXU].mp3
-92:Cold Play/X&Y/Low [Tyjxnb8hVp4].mp3
-93:Cold Play/X&Y/Speed of Sound [04tC72kZM_o].mp3
-94:Cold Play/X&Y/Square One [j37GED-AR3M].mp3
-95:Cold Play/X&Y/Swallowed in the Sea [f-cyxWKzxVQ].mp3
-96:Cold Play/X&Y/Talk [FC_WRm3qA0Q].mp3
-97:Cold Play/X&Y/The Hardest Part [yeGtvyHl9oY].mp3
-98:Cold Play/X&Y/Til Kingdom Come [E0UN-pVTLf4].mp3
-99:Cold Play/X&Y/Twisted Logic [jLedhA6rMBg].mp3
-100:Cold Play/X&Y/What If [tH-GPdkkNik].mp3
-101:Cold Play/X&Y/White Shadows [EhC_c7p50so].mp3
-102:Cold Play/X&Y/X & Y [uIgxY0yWLNY].mp3
 playlist_end
