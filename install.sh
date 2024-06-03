@@ -91,6 +91,7 @@
 # pip install anipy-cli
 # 10. Install Doom Emacs 
 # sudo pacman -S emacs --noconfirm && git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs && ~/.config/emacs/bin/doom install # Later run doom sync
+# After that run ---- M-x nerd-icons-install-fonts 
 # 11. Insatll waldl from Extras folder of dotfiles
 # cd  ~/dotfiles/Extras/Extras/waldl-master/ && sudo make install && cd ~/dotfiles
 # 12. Install ollama from Extras folder of dotfiles
