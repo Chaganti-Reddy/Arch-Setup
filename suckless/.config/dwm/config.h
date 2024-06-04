@@ -96,7 +96,7 @@ static const Rule rules[] = {
     {"Gnome-disks", NULL, NULL, 0, 1, 0, 0, -1},
     {"Nm-connection-editor", NULL, NULL, 0, 1, 0, 0, -1},
     {"flameshot", NULL, NULL, 0, 1, 0, 0, -1},
-    {"obs", NULL, NULL, 0, 1, 0, 0, -1},
+    {"obs", NULL, NULL, 1<<7, 1, 0, 0, -1},
     // {"floorp", NULL, NULL, 1 << 2, 0, 0, -1, -1},
     {"Brave-browser", NULL, NULL, 1 << 1, 0, 0, -1, -1},
     // {"FFPWA-01HSMVSGF07MF1M29HVKQT69XG", NULL, NULL, 1 << 5, 0, 0, -1, -1},
