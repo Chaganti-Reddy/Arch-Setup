@@ -27,7 +27,8 @@ open_file() {
     application/vnd.oasis.opendocument.presentation)
       $command_prefix libreoffice --impress "$file" & ;;
     application/pdf)
-      $command_prefix $HOME/.local/bin/zathura "$file" & ;;
+      $command_prefix /usr/bin/okular "$file" & ;;
+      # $command_prefix $HOME/.local/bin/zathura "$file" & ;;
     video/*)
       $command_prefix mpv "$file" & ;;
     audio/*)
