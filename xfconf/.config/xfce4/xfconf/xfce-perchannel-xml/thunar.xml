@@ -11,7 +11,7 @@
   <property name="misc-thumbnail-mode" type="string" value="THUNAR_THUMBNAIL_MODE_ALWAYS"/>
   <property name="misc-thumbnail-draw-frames" type="bool" value="true"/>
   <property name="misc-parallel-copy-mode" type="string" value="THUNAR_PARALLEL_COPY_MODE_ALWAYS"/>
-  <property name="last-window-width" type="int" value="844"/>
+  <property name="last-window-width" type="int" value="1034"/>
   <property name="last-window-height" type="int" value="1032"/>
   <property name="last-menubar-visible" type="bool" value="true"/>
   <property name="last-toolbar-item-order" type="string" value="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17"/>
