@@ -68,7 +68,7 @@ if [ -z "$1" ]; then
   exit 1
 fi
 
-FILENAME="$1"
+FILENAME="$*"
 
 # Run the find command in the background
 # (find / -type f \( -name "$FILENAME" -o -name "$FILENAME.*" \) 2>/dev/null) &
