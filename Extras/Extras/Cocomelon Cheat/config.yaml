@@ -1,0 +1,205 @@
+key_settings: Insert
+esp_mode: AlwaysOn
+esp_toogle: null
+esp_settings:
+  player:
+    type: Player
+    box_type: None
+    box_color:
+      type: Static
+      options:
+        value: 3221225471
+    box_width: 3.0
+    skeleton: true
+    skeleton_color:
+      type: Static
+      options:
+        value: 3221225471
+    skeleton_width: 3.0
+    health_bar: None
+    health_bar_width: 10.0
+    tracer_lines: None
+    tracer_lines_color:
+      type: Static
+      options:
+        value: 3221225471
+    tracer_lines_width: 1.0
+    info_name: false
+    info_name_color:
+      type: Static
+      options:
+        value: 3221225471
+    info_distance: false
+    info_distance_color:
+      type: Static
+      options:
+        value: 3221225471
+    near_players: false
+    near_players_distance: 20.0
+    info_weapon: false
+    info_weapon_color:
+      type: Static
+      options:
+        value: 3221225471
+    info_hp_text: false
+    info_hp_text_color:
+      type: Static
+      options:
+        value: 3221225471
+    info_flag_kit: false
+    info_flag_flashed: false
+    info_flags_color:
+      type: Static
+      options:
+        value: 3221225471
+  player.enemy:
+    type: Player
+    box_type: Box2D
+    box_color:
+      type: Static
+      options:
+        value: 4278191871
+    box_width: 3.0
+    skeleton: true
+    skeleton_color:
+      type: Static
+      options:
+        value: 3218669817
+    skeleton_width: 3.0
+    health_bar: Bottom
+    health_bar_width: 10.0
+    tracer_lines: None
+    tracer_lines_color:
+      type: Static
+      options:
+        value: 3204448511
+    tracer_lines_width: 1.0
+    info_name: true
+    info_name_color:
+      type: Static
+      options:
+        value: 3221225471
+    info_distance: false
+    info_distance_color:
+      type: Static
+      options:
+        value: 3204448511
+    near_players: false
+    near_players_distance: 20.0
+    info_weapon: false
+    info_weapon_color:
+      type: Static
+      options:
+        value: 3221028092
+    info_hp_text: false
+    info_hp_text_color:
+      type: Static
+      options:
+        value: 3221225471
+    info_flag_kit: false
+    info_flag_flashed: false
+    info_flags_color:
+      type: Static
+      options:
+        value: 3204448511
+  player.friendly:
+    type: Player
+    box_type: Box2D
+    box_color:
+      type: Static
+      options:
+        value: 3204513536
+    box_width: 3.0
+    skeleton: true
+    skeleton_color:
+      type: Static
+      options:
+        value: 3204513536
+    skeleton_width: 3.0
+    health_bar: Bottom
+    health_bar_width: 10.0
+    tracer_lines: None
+    tracer_lines_color:
+      type: Static
+      options:
+        value: 3204513536
+    tracer_lines_width: 1.0
+    info_name: false
+    info_name_color:
+      type: Static
+      options:
+        value: 3204513536
+    info_distance: false
+    info_distance_color:
+      type: Static
+      options:
+        value: 3204513536
+    near_players: false
+    near_players_distance: 20.0
+    info_weapon: false
+    info_weapon_color:
+      type: Static
+      options:
+        value: 3204513536
+    info_hp_text: false
+    info_hp_text_color:
+      type: Static
+      options:
+        value: 3204513536
+    info_flag_kit: false
+    info_flag_flashed: false
+    info_flags_color:
+      type: Static
+      options:
+        value: 3204513536
+esp_settings_enabled:
+  player: false
+  player.enemy: true
+  player.friendly: false
+bomb_timer: true
+spectators_list: true
+valthrun_watermark: true
+mouse_x_360: 16364
+trigger_bot_mode: AlwaysOn
+key_trigger_bot: F
+trigger_bot_team_check: true
+trigger_bot_delay_min: 32
+trigger_bot_delay_max: 50
+trigger_bot_check_target_after_delay: false
+aim_assist_recoil: false
+hide_overlay_from_screen_capture: true
+render_debug_window: false
+metrics: true
+web_radar_url: null
+web_radar_advanced_settings: true
+imgui: |+
+  [Window][Debug##Default]
+  Pos=60,60
+  Size=400,400
+  Collapsed=0
+
+  [Window][overlay]
+  Pos=0,0
+  Size=1280,1023
+  Collapsed=0
+
+  [Window][Toggle Settings]
+  Pos=537,494
+  Size=206,34
+  Collapsed=0
+
+  [Window][Trigger bot key]
+  Pos=537,494
+  Size=206,34
+  Collapsed=0
+
+  [Window][Valthrun]
+  Pos=311,294
+  Size=651,404
+  Collapsed=0
+
+  [Window][Render Debug]
+  Pos=205,456
+  Size=400,400
+  Collapsed=0
+
