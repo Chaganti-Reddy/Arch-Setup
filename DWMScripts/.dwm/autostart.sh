@@ -12,7 +12,7 @@ dunst &
 # walogram &
 # rsibreak &
 # flameshot &
-# blueman-applet &
+blueman-applet &
 xcompmgr &
 mpd &
 slstatus &
