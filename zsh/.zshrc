@@ -323,6 +323,7 @@ alias gc="git clone"
 alias gp="git push"
 
 alias mkcd='f() { mkdir -p "$1" && cd "$1"; }; f'
+alias open='xdg-open'
 
 alias mangaread="curl -sSL mangal.metafates.one/run | sh"
 alias torrentwatch1="peerflix -k -a -q"
