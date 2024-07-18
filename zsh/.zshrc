@@ -8,7 +8,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="alanpeabody"
+# ZSH_THEME="alanpeabody"
+ZSH_THEME="archcraft-dwm"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -178,7 +179,7 @@ export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f
 
 #list
 # alias emacs="emacsclient -c -a ''"
-alias zathura="$HOME/.local/bin/zathura"
+# alias zathura="$HOME/.local/bin/zathura"
 alias cd="z"
 alias cdi="zi"
 alias la='exa -al --colour=always --group-directories-first'
@@ -324,6 +325,7 @@ alias gp="git push"
 
 alias mkcd='f() { mkdir -p "$1" && cd "$1"; }; f'
 alias open='xdg-open'
+alias karna='cd /mnt/Karna'
 
 alias mangaread="curl -sSL mangal.metafates.one/run | sh"
 alias torrentwatch1="peerflix -k -a -q"
