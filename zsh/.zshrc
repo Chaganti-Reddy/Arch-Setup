@@ -313,6 +313,7 @@ alias makeslstatus="cd ~/.config/slstatus/ && rm config.h --f && make && sudo ma
 alias dwmcon="nvim ~/.config/dwm/config.def.h"
 alias slstatuscon="nvim ~/.config/slstatus/config.def.h"
 alias dotfiles="cd $HOME/dotfiles/"
+alias n="nvim"
 
 #git 
 alias gs="git status"
