@@ -162,7 +162,7 @@ export EDITOR='/usr/bin/nvim'
 export PAGER='bat'
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.dwm/bin/:$PATH"
+export PATH="$HOME/dotfiles/DWMScripts/.dwm/bin/:$PATH"
 export PATH="$HOME/.config/emacs/bin:$PATH"
 
 SUDO_EDITOR=/usr/bin/nvim
