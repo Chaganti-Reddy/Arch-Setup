@@ -10,4 +10,5 @@
   <property name="font-name" type="string" value="CaskaydiaCove NF Semi-Bold 12"/>
   <property name="color-use-theme" type="bool" value="true"/>
   <property name="color-cursor-use-default" type="bool" value="true"/>
+  <property name="misc-confirm-close" type="bool" value="false"/>
 </channel>
