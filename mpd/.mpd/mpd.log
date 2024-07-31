@@ -3597,3 +3597,13 @@ Jun 03 11:55 : update: added Geetha Govindam/Yenti Yenti [7Qv4zAu_4vU].mp3
 Jun 07 18:16 : player: played "Anirudh Ravichandran/Emannavoo [XHHH7vm0y2o].mp3"
 Jun 07 19:41 : player: played "Anirudh Ravichandran/Emannavoo [XHHH7vm0y2o].mp3"
 Jun 08 10:18 : player: played "Anirudh Ravichandran/Emannavoo [XHHH7vm0y2o].mp3"
+Jul 30 22:07 : exception: inotify_add_watch() has failed: No such file or directory
+Jul 30 22:09 : exception: Failed to decode /home/ram/Music/Music/Ed Sheeran/%/Galway Girl [K0WAS1pyocY].mp3; Failed to open '/home/ram/Music/Music/Ed Sheeran/%/Galway Girl [K0WAS1pyocY].mp3': No such file or directory
+Jul 30 22:09 : player: played "Ed Sheeran/%/Galway Girl [K0WAS1pyocY].mp3"
+Jul 30 22:09 : exception: Failed to decode /home/ram/Music/Music/Anirudh Ravichandran/Emannavoo [XHHH7vm0y2o].mp3; Failed to open '/home/ram/Music/Music/Anirudh Ravichandran/Emannavoo [XHHH7vm0y2o].mp3': No such file or directory
+Jul 30 22:09 : player: played "Anirudh Ravichandran/Emannavoo [XHHH7vm0y2o].mp3"
+Jul 30 22:09 : exception: Failed to decode /home/ram/Music/Music/Anirudh Ravichandran/Emannavoo [XHHH7vm0y2o].mp3; Failed to open '/home/ram/Music/Music/Anirudh Ravichandran/Emannavoo [XHHH7vm0y2o].mp3': No such file or directory
+Jul 30 22:09 : player: played "Anirudh Ravichandran/Emannavoo [XHHH7vm0y2o].mp3"
+Jul 30 22:09 : exception: Failed to decode /home/ram/Music/Music/Anirudh Ravichandran/Emannavoo [XHHH7vm0y2o].mp3; Failed to open '/home/ram/Music/Music/Anirudh Ravichandran/Emannavoo [XHHH7vm0y2o].mp3': No such file or directory
+Jul 30 22:09 : exception: inotify_add_watch() has failed: No such file or directory
+Jul 31 11:06 : exception: inotify_add_watch() has failed: No such file or directory
