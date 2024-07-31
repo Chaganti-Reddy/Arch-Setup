@@ -166,6 +166,7 @@ static const char *browser[] = {"brave", NULL};
 static const char *browser1[] = {"qutebrowser", NULL};
 static const char *files[] = {"st", "-e", "ranger", NULL};
 static const char *files1[] = {"thunar", NULL};
+static const char *editor1[] = {"code", NULL};
 
 #include "movestack.c"
 static Key keys[] = {
@@ -249,6 +250,8 @@ static Key keys[] = {
     {MODKEY | ShiftMask, XK_w, spawn, {.v = browser1}},
     {MODKEY , XK_n, spawn, {.v = files}},
     {MODKEY | ShiftMask, XK_n, spawn, {.v = files1}},
+    {MODKEY, XK_v, spawn, SHCMD("subl")},
+    {MODKEY | ShiftMask, XK_v, spawn, {.v = editor1}},
     // {MODKEY, XK_F8, spawn, {.v = (const char *[]){"mpc", "next", NULL}}},
     // {MODKEY, XK_F7, spawn, {.v = (const char *[]){"mpc", "toggle", NULL}}},
     // {MODKEY, XK_F6, spawn, {.v = (const char *[]){"mpc", "prev", NULL}}},
