@@ -37,3 +37,8 @@ export GNOME_KEYRING_PID
 if [ -z "$(pgrep xfce4-clipman)" ]; then
     xfce4-clipman &
 fi
+
+if [ -z "$(pgrep ferdium)" ]; then
+    ferdium &
+fi
+
