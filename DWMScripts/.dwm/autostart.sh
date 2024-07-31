@@ -8,9 +8,8 @@
 numlockx &
 nm-applet &
 dunst &
+xscreensaver --no-splash &
 # clipmenud &
-# walogram &
-# rsibreak &
 # flameshot &
 blueman-applet &
 xcompmgr &
@@ -41,4 +40,3 @@ fi
 if [ -z "$(pgrep ferdium)" ]; then
     ferdium &
 fi
-
