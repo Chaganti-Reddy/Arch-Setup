@@ -1,0 +1,16 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"ayu",
+		"Clang Format",
+		"CppFastOlympicCoding",
+		"LSP",
+		"LSP-clangd",
+		"LSP-copilot",
+		"Package Control",
+	],
+}
