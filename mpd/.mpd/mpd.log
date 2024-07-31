@@ -3607,3 +3607,4 @@ Jul 30 22:09 : player: played "Anirudh Ravichandran/Emannavoo [XHHH7vm0y2o].mp3"
 Jul 30 22:09 : exception: Failed to decode /home/ram/Music/Music/Anirudh Ravichandran/Emannavoo [XHHH7vm0y2o].mp3; Failed to open '/home/ram/Music/Music/Anirudh Ravichandran/Emannavoo [XHHH7vm0y2o].mp3': No such file or directory
 Jul 30 22:09 : exception: inotify_add_watch() has failed: No such file or directory
 Jul 31 11:06 : exception: inotify_add_watch() has failed: No such file or directory
+Jul 31 12:11 : exception: inotify_add_watch() has failed: No such file or directory
