@@ -88,6 +88,7 @@ static const Rule rules[] = {
     /* class                instance  title           tags mask  isfloating
        isterminal  noswallow  monitor */
     {"TelegramDesktop", NULL, NULL, 0, 1, 0, 0, -1},
+    {"GitHub Desktop", NULL, NULL, 0, 1, 0, 0, -1},
     {"Pavucontrol", NULL, NULL, 0, 1, 0, 0, -1},
     {"Blueman-manager", NULL, NULL, 0, 1, 0, 0, -1},
     {"baobab", NULL, NULL, 0, 1, 0, 0, -1},
@@ -99,6 +100,7 @@ static const Rule rules[] = {
     {"obs", NULL, NULL, 1<<7, 1, 0, 0, -1},
     // {"floorp", NULL, NULL, 1 << 2, 0, 0, -1, -1},
     {"Brave-browser", NULL, NULL, 1 << 1, 0, 0, -1, -1},
+    // {"Ferdium", NULL, NULL, 1 << 5, 0, 0, -1, -1},
     // {"FFPWA-01HSMVSGF07MF1M29HVKQT69XG", NULL, NULL, 1 << 5, 0, 0, -1, -1},
     {"discord", NULL, NULL, 1 << 5, 0, 0, -1, -1},
     {"St", NULL, NULL, 0, 0, 1, 0, -1},
