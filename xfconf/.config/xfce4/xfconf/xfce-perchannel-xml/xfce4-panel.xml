@@ -138,7 +138,7 @@
     </property>
     <property name="clipman" type="empty">
       <property name="settings" type="empty">
-        <property name="add-primary-clipboard" type="bool" value="true"/>
+        <property name="add-primary-clipboard" type="bool" value="false"/>
       </property>
       <property name="tweaks" type="empty">
         <property name="never-confirm-history-clear" type="bool" value="true"/>

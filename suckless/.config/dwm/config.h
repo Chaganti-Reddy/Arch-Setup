@@ -87,7 +87,7 @@ static const Rule rules[] = {
     /* class                instance  title           tags mask  isfloating
        isterminal  noswallow  monitor */
     {"TelegramDesktop", NULL, NULL, 0, 1, 0, 0, -1},
-    {"GitHub Desktop", NULL, NULL, 0, 1 << 3, 0, 0, -1},
+    // {"GitHub Desktop", NULL, NULL, 0, 1 << 3, 0, 0, -1},
     {"Pavucontrol", NULL, NULL, 0, 1, 0, 0, -1},
     {"Blueman-manager", NULL, NULL, 0, 1, 0, 0, -1},
     {"baobab", NULL, NULL, 0, 1, 0, 0, -1},
