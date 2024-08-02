@@ -76,6 +76,7 @@
       <property name="hide-new-items" type="bool" value="false"/>
       <property name="menu-is-primary" type="bool" value="false"/>
       <property name="known-items" type="array">
+        <value type="string" value="blueman"/>
         <value type="string" value="chrome_status_icon_1"/>
       </property>
       <property name="symbolic-icons" type="bool" value="true"/>
