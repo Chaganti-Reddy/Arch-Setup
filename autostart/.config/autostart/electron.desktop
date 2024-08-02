@@ -6,3 +6,5 @@ Comment=electronstartup script
 Exec=/usr/lib/electron31/electron
 StartupNotify=false
 Terminal=false
+Hidden=true
+
