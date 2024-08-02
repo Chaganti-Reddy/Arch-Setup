@@ -139,6 +139,7 @@
 			},
 			"file_history":
 			[
+				"/home/ram/.xscreensaver",
 				"/mnt/Karna/Oral-cancer-detection-using-deep-learning\n/Oral-cancer-detection-using-deep-learning-main/README.md",
 				"/home/ram/dotfiles/CP/CP/outputf.in",
 				"/home/ram/dotfiles/CP/CP/inputf.in",
@@ -281,6 +282,14 @@
 			},
 			"buffers":
 			[
+				{
+					"file": "/home/ram/.xscreensaver",
+					"settings":
+					{
+						"buffer_size": 9628,
+						"line_ending": "Unix"
+					}
+				}
 			],
 			"build_system": "",
 			"build_system_choices":
@@ -419,6 +428,68 @@
 				{
 					"sheets":
 					[
+						{
+							"buffer": 0,
+							"file": "/home/ram/.xscreensaver",
+							"selected": true,
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 9628,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										0,
+										0
+									]
+								],
+								"settings":
+								{
+									"auto_complete_triggers":
+									[
+										{
+											"characters": ".>:",
+											"selector": "source.c++ - string - comment - constant.numeric"
+										},
+										{
+											"characters": ".>:",
+											"selector": "source.c - string - comment - constant.numeric"
+										},
+										{
+											"characters": ".>: ",
+											"selector": "source.objc++ - string - comment - constant.numeric"
+										},
+										{
+											"characters": ".>: ",
+											"selector": "source.objc - string - comment - constant.numeric"
+										},
+										{
+											"characters": ".>: ",
+											"selector": "source.cuda-c++ - string - comment - constant.numeric"
+										}
+									],
+									"copilot.completion.is_visible": false,
+									"copilot.completion.is_visible_panel_completions": false,
+									"copilot.completion.is_waiting_completion": false,
+									"copilot.completion.is_waiting_panel_completions": false,
+									"copilot.completion.original_layout": null,
+									"lsp_active": true,
+									"lsp_uri": "file:///home/ram/.xscreensaver",
+									"syntax": "Packages/Text/Plain text.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": false
+								},
+								"translation.x": 0.0,
+								"translation.y": 4902.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 0,
+							"stack_multiselect": false,
+							"type": "text"
+						}
 					]
 				}
 			],
