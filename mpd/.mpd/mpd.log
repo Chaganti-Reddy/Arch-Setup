@@ -3608,3 +3608,5 @@ Jul 30 22:09 : exception: Failed to decode /home/ram/Music/Music/Anirudh Ravicha
 Jul 30 22:09 : exception: inotify_add_watch() has failed: No such file or directory
 Jul 31 11:06 : exception: inotify_add_watch() has failed: No such file or directory
 Jul 31 12:11 : exception: inotify_add_watch() has failed: No such file or directory
+Aug 02 09:13 : exception: inotify_add_watch() has failed: No such file or directory
+Aug 02 09:19 : exception: inotify_add_watch() has failed: No such file or directory
