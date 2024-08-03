@@ -3610,3 +3610,7 @@ Jul 31 11:06 : exception: inotify_add_watch() has failed: No such file or direct
 Jul 31 12:11 : exception: inotify_add_watch() has failed: No such file or directory
 Aug 02 09:13 : exception: inotify_add_watch() has failed: No such file or directory
 Aug 02 09:19 : exception: inotify_add_watch() has failed: No such file or directory
+Aug 02 12:30 : exception: inotify_add_watch() has failed: No such file or directory
+Aug 02 12:32 : exception: inotify_add_watch() has failed: No such file or directory
+Aug 02 18:37 : exception: inotify_add_watch() has failed: No such file or directory
+Aug 03 14:04 : exception: inotify_add_watch() has failed: No such file or directory
