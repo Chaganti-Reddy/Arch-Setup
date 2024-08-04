@@ -7,14 +7,6 @@ https://rss.nytimes.com/services/xml/rss/nyt/Science.xml NYT "~NYT Science" News
 https://rss.nytimes.com/services/xml/rss/nyt/Space.xml NYT "~NYT Space & Comics" News
 https://rss.nytimes.com/services/xml/rss/nyt/AsiaPacific.xml NYT "~NYT Asia Pacific" News
 
-TeluguNews
-https://telugu.oneindia.com/rss/feeds/telugu-entertainment-fb.xml OneIndia "~Entertainment" News
-https://telugu.hindustantimes.com/rss/andhra-pradesh Hindustantimes "~AP" News
-
-Cricket
-https://www.espncricinfo.com/rss/content/story/feeds/6.xml ESPNCric "~ESPN" Cricket
-https://static.cricinfo.com/rss/livescores.xml Livescores "~Cricket" Cricket
-
 #Youtube
 #https://www.youtube.com/feeds/videos.xml?channel_id=UCngn7SVujlvskHRvRKc1cTw Youtube "~BugsWriter" Tech
 # https://www.youtube.com/feeds/videos.xml?channel_id=UCXUPKJO5MZQN11PqgIvyuvQ Youtube "~Andrej Karapathy" ML&DL
