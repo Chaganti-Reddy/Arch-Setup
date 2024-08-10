@@ -92,6 +92,10 @@
 	},
 	"file_history":
 	[
+		"/home/ram/Downloads/Astroid-Diameter-Prediction/.gitignore",
+		"/home/ram/Downloads/Astroid-Diameter-Prediction/.gitattributes",
+		"/home/ram/Downloads/Astroid-Diameter-Prediction/streamlit_app.py",
+		"/home/ram/Downloads/wget-log",
 		"/home/ram/.xscreensaver",
 		"/home/ram/Downloads/physionet.org/robots.txt",
 		"/mnt/Karna/Oral-cancer-detection-using-deep-learning\n/Oral-cancer-detection-using-deep-learning-main/README.md",
@@ -251,7 +255,7 @@
 		"copilot.conversation.conversation_id": "",
 		"copilot.conversation.follow_up": "",
 		"copilot.conversation.is_waiting_conversation": false,
-		"copilot.conversation.last_active_view_id": 12,
+		"copilot.conversation.last_active_view_id": 17,
 		"copilot.conversation.original_layout": null,
 		"copilot.conversation.suggested_title": "",
 		"copilot.copilotignore.patterns":
