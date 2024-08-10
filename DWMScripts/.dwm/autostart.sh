@@ -33,6 +33,8 @@ export GPG_AGENT_INFO
 export GNOME_KEYRING_CONTROL
 export GNOME_KEYRING_PID
 
+
+
 if [ -z "$(pgrep xfce4-clipman)" ]; then
     xfce4-clipman &
 fi
