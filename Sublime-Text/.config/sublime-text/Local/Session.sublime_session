@@ -1,6 +1,10 @@
 {
 	"file_history":
 	[
+		"/home/ram/Downloads/Astroid-Diameter-Prediction/.gitignore",
+		"/home/ram/Downloads/Astroid-Diameter-Prediction/.gitattributes",
+		"/home/ram/Downloads/Astroid-Diameter-Prediction/streamlit_app.py",
+		"/home/ram/Downloads/wget-log",
 		"/home/ram/.xscreensaver",
 		"/home/ram/Downloads/physionet.org/robots.txt",
 		"/mnt/Karna/Oral-cancer-detection-using-deep-learning\n/Oral-cancer-detection-using-deep-learning-main/README.md",
@@ -36,19 +40,19 @@
 	"folder_history":
 	[
 	],
-	"last_version": 4169,
+	"last_version": 4180,
 	"last_window_id": 14,
 	"log_indexing": false,
-	"next_update_check": 1723003716,
+	"next_update_check": 1723349316,
 	"settings":
 	{
 		"new_window_full_screen": false,
-		"new_window_height": 1052.0,
+		"new_window_height": 508.0,
 		"new_window_maximized": false,
 		"new_window_position":
 		[
-			3.0,
-			25.0
+			1063.0,
+			559.0
 		],
 		"new_window_settings":
 		{
@@ -141,6 +145,10 @@
 			},
 			"file_history":
 			[
+				"/home/ram/Downloads/Astroid-Diameter-Prediction/.gitignore",
+				"/home/ram/Downloads/Astroid-Diameter-Prediction/.gitattributes",
+				"/home/ram/Downloads/Astroid-Diameter-Prediction/streamlit_app.py",
+				"/home/ram/Downloads/wget-log",
 				"/home/ram/.xscreensaver",
 				"/home/ram/Downloads/physionet.org/robots.txt",
 				"/mnt/Karna/Oral-cancer-detection-using-deep-learning\n/Oral-cancer-detection-using-deep-learning-main/README.md",
@@ -268,7 +276,7 @@
 				"max_columns": 2
 			}
 		},
-		"new_window_width": 1914.0
+		"new_window_width": 844.0
 	},
 	"windows":
 	[
@@ -366,6 +374,10 @@
 			},
 			"file_history":
 			[
+				"/home/ram/Downloads/Astroid-Diameter-Prediction/.gitignore",
+				"/home/ram/Downloads/Astroid-Diameter-Prediction/.gitattributes",
+				"/home/ram/Downloads/Astroid-Diameter-Prediction/streamlit_app.py",
+				"/home/ram/Downloads/wget-log",
 				"/home/ram/.xscreensaver",
 				"/home/ram/Downloads/physionet.org/robots.txt",
 				"/mnt/Karna/Oral-cancer-detection-using-deep-learning\n/Oral-cancer-detection-using-deep-learning-main/README.md",
@@ -480,7 +492,7 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "Packages/User/C++17.sublime-build",
-			"position": "0,0,0,0,0,0,22,1914,1074,1920,1080,0",
+			"position": "0,0,0,0,0,1060,556,1904,1064,1920,1080,0",
 			"project": "CPP.sublime-project",
 			"replace":
 			{
@@ -526,7 +538,7 @@
 				"copilot.conversation.conversation_id": "",
 				"copilot.conversation.follow_up": "",
 				"copilot.conversation.is_waiting_conversation": false,
-				"copilot.conversation.last_active_view_id": 12,
+				"copilot.conversation.last_active_view_id": 17,
 				"copilot.conversation.original_layout": null,
 				"copilot.conversation.suggested_title": "",
 				"copilot.copilotignore.patterns":
