@@ -12,4 +12,10 @@ ToolBarsMovable=Disabled
 
 [Recent Files]
 File1[$e]=$HOME/Downloads/Asteriod-Diameter-Prediction-main/12-555-156136953136-40.pdf
+File2[$e]=$HOME/Git/HITA2024/Reinforcement Learning for Traffic Light Control/Traffic Light Control using Reinforcement Learning.pdf
+File3[$e]=$HOME/Downloads/Reinforcement-learning-approach-for-prognosis-in-ICU/Reinforcement Learning for Clinical Decision Support (July 2024).pdf
+File4[$e]=$HOME/Downloads/JEI-23-013_FINAL.pdf
 Name1[$e]=12-555-156136953136-40.pdf
+Name2[$e]=Traffic Light Control using Reinforcement Learning.pdf
+Name3[$e]=Reinforcement Learning for Clinical Decision Support (July 2024).pdf
+Name4[$e]=JEI-23-013_FINAL.pdf
