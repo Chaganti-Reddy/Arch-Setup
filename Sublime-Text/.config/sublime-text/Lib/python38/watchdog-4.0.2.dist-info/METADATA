@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: watchdog
-Version: 4.0.1
+Version: 4.0.2
 Summary: Filesystem events monitoring
 Home-page: https://github.com/gorakhargosh/watchdog
 Author: Yesudeep Mangalapilly
@@ -35,6 +35,7 @@ Classifier: Programming Language :: Python :: 3.9
 Classifier: Programming Language :: Python :: 3.10
 Classifier: Programming Language :: Python :: 3.11
 Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
 Classifier: Programming Language :: Python :: Implementation :: PyPy
 Classifier: Programming Language :: C
 Classifier: Topic :: Software Development :: Libraries
@@ -47,7 +48,7 @@ License-File: LICENSE
 License-File: COPYING
 License-File: AUTHORS
 Provides-Extra: watchmedo
-Requires-Dist: PyYAML >=3.10 ; extra == 'watchmedo'
+Requires-Dist: PyYAML>=3.10; extra == "watchmedo"
 
 Watchdog
 ========
@@ -67,28 +68,26 @@ as command-line arguments and logs events generated:
 
 .. code-block:: python
 
-    import sys
     import time
-    import logging
     from watchdog.observers import Observer
-    from watchdog.events import LoggingEventHandler
+    from watchdog.events import FileSystemEventHandler
 
-    if __name__ == "__main__":
-        logging.basicConfig(level=logging.INFO,
-                            format='%(asctime)s - %(message)s',
-                            datefmt='%Y-%m-%d %H:%M:%S')
-        path = sys.argv[1] if len(sys.argv) > 1 else '.'
-        logging.info(f'start watching directory {path!r}')
-        event_handler = LoggingEventHandler()
-        observer = Observer()
-        observer.schedule(event_handler, path, recursive=True)
-        observer.start()
-        try:
-            while True:
-                time.sleep(1)
-        finally:
-            observer.stop()
-            observer.join()
+
+    class MyEventHandler(FileSystemEventHandler):
+        def on_any_event(self, event):
+            print(event)
+
+
+    event_handler = MyEventHandler()
+    observer = Observer()
+    observer.schedule(event_handler, '.', recursive=True)
+    observer.start()
+    try:
+        while True:
+            time.sleep(1)
+    finally:
+        observer.stop()
+        observer.join()
 
 
 Shell Utilities
@@ -333,13 +332,28 @@ to do:
 Changelog
 ---------
 
+4.0.2
+~~~~~
+
+2024-08-11 • `full history <https://github.com/gorakhargosh/watchdog/compare/v4.0.1...v4.0.2>`__
+
+- Add support for Python 3.13 (`#1052 <https://github.com/gorakhargosh/watchdog/pull/1052>`__)
+- [core] Run ``ruff``, apply several fixes (`#1033 <https://github.com/gorakhargosh/watchdog/pull/1033>`__)
+- [core] Remove execution rights from ``events.py``
+- [documentation] Update ``PatternMatchingEventHandler`` docstrings (`#1048 <https://github.com/gorakhargosh/watchdog/pull/1048>`__)
+- [documentation] Simplify the quickstart example (`#1047 <https://github.com/gorakhargosh/watchdog/pull/1047>`__)
+- [fsevents] Add missing ``event_filter`` keyword-argument to ``FSEventsObserver.schedule()`` (`#1049 <https://github.com/gorakhargosh/watchdog/pull/1049>`__)
+- [utils] Fix a possible race condition in ``AutoRestartTrick`` (`#1002 <https://github.com/gorakhargosh/watchdog/pull/1002>`__)
+- [watchmedo] Remove execution rights from ``watchmedo.py``
+- Thanks to our beloved contributors: @BoboTiG, @nbelakovski, @ivg
+
 4.0.1
 ~~~~~
 
 2024-05-23 • `full history <https://github.com/gorakhargosh/watchdog/compare/v4.0.0...v4.0.1>`__
 
 - [inotify] Fix missing ``event_filter`` for the full emitter (`#1032 <https://github.com/gorakhargosh/watchdog/pull/1032>`__)
-- Thanks to our beloved contributors: @mraspaud
+- Thanks to our beloved contributors: @mraspaud, @BoboTiG
 
 4.0.0
 ~~~~~
