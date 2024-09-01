@@ -8,7 +8,6 @@
 		"Clang Format",
 		"ClangAutoComplete",
 		"CppFastOlympicCoding",
-		"EasyClangComplete",
 		"LSP",
 		"LSP-clangd",
 		"LSP-copilot",
