@@ -164,3 +164,10 @@
 # Install python packages 
 # pip install pynvim numpy pandas matplotlib seaborn scikit-learn jupyterlab ipykernel ipywidgets tensorflow python-prctl inotify-simple psutil opencv-python keras mov-cli-youtube mov-cli mov-cli-test otaku-watcher film-central 
 # pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu # pytorch cpu version 
+
+
+### HYPRLAND
+
+# sudo pacman -S kitty hyprland system-config-printer wofi waybar speech-dispatcher hyprpaper brightnessctl cmake meson cpio grim slurp
+# yay -S xdg-desktop-portal-hyprland-git wlrobs-hg clipse
+# git clone https://github.com/dracula/wofi.git
