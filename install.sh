@@ -168,7 +168,7 @@
 
 ### HYPRLAND
 
-# sudo pacman -S kitty hyprland system-config-printer hyprpicker hyprlock chafa hypridle wofi waybar speech-dispatcher hyprpaper brightnessctl cmake meson cpio grim slurp
+# sudo pacman -S kitty hyprland system-config-printer hyprpicker hyprlock chafa hypridle wofi waybar wl-clipboard speech-dispatcher hyprpaper brightnessctl cmake meson cpio grim slurp
 # yay -S xdg-desktop-portal-hyprland-git wlrobs-hg clipse
 # yay -Sy hyde-cli-git
 # git clone https://github.com/dracula/wofi.git
