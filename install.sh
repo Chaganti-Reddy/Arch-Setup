@@ -77,7 +77,7 @@
 # sudo pacman -S thunar thunar-archive-plugin thunar-volman thunar-media-tags-plugin --noconfirm
 # 8. Install GTK theme and QT theme
 # yay -S elementary-icon-theme --noconfirm # Previously used icons
-# yay -S gruvbox-plus-icon-theme-git gruvbox-dark-gtk kvantum && sudo pacman -S gtk-engine-murrine --noconfirm
+# yay -S gruvbox-plus-icon-theme-git gruvbox-dark-gtk kvantum kvantum-theme-otto-git && sudo pacman -S gtk-engine-murrine --noconfirm
 # 15. Install MINICONDA
 # wget https://repo.anaconda.com/miniconda/Miniconda3-py310_24.3.0-0-Linux-x86_64.sh
 # sh Miniconda3-py310_24.3.0-0-Linux-x86_64.sh
@@ -168,6 +168,8 @@
 
 ### HYPRLAND
 
-# sudo pacman -S kitty hyprland system-config-printer wofi waybar speech-dispatcher hyprpaper brightnessctl cmake meson cpio grim slurp
+# sudo pacman -S kitty hyprland system-config-printer hyprpicker hyprlock chafa hypridle wofi waybar speech-dispatcher hyprpaper brightnessctl cmake meson cpio grim slurp
 # yay -S xdg-desktop-portal-hyprland-git wlrobs-hg clipse
+# yay -Sy hyde-cli-git
 # git clone https://github.com/dracula/wofi.git
+# sudo pacman -S thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman thunar-vcs-plugin
