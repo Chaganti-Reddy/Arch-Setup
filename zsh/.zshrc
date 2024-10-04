@@ -190,6 +190,7 @@ alias l='ls'
 alias l.="ls -A | egrep '^\.'"
 alias listdir="ls -d */ > list"
 alias depends='function_depends'
+alias yayo='yay -Syyu --overwrite "*"'
 
 #fix obvious typo's
 alias cd..='cd ..'
