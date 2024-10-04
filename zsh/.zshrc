@@ -156,6 +156,16 @@ function mosspy() {
     perl -i moss.pl -l python $1 $2
 }
 
+function Restart() {
+  sh ~/.dwm/scripts/uptime reboot
+  systemctl reboot
+}
+
+function Shutdown() {
+  sh ~/.dwm/scripts/uptime shutdown
+  systemctl poweroff
+}
+
 ##Exports
 
 export EDITOR='/usr/bin/nvim'
