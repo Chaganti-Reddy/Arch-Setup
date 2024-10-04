@@ -98,7 +98,7 @@ static const Rule rules[] = {
     {"flameshot", NULL, NULL, 0, 1, 0, 0, -1},
     {"obs", NULL, NULL, 1<<7, 1, 0, 0, -1},
     // {"floorp", NULL, NULL, 1 << 2, 0, 0, -1, -1},
-    {"Brave-browser", NULL, NULL, 1 << 1, 0, 0, -1, -1},
+    {"Firefox", NULL, NULL, 1 << 1, 0, 0, -1, -1},
     // {"Ferdium", NULL, NULL, 1 << 3, 0, 0, -1, -1},
     {"discord", NULL, NULL, 1 << 5, 0, 0, -1, -1},
     {"St", NULL, NULL, 0, 0, 1, 0, -1},
@@ -162,7 +162,7 @@ static const char *dmenucmd[] = {"dmenu_run", "-m", dmenumon, "-fn", dmenufont, 
 // static const char *dmenucmd[] = {"dmenu_run", "-c", "-fn", dmenufont, "-l", "15","-p", dmenuprompt, NULL};
 static const char *termcmd[] = {"st", NULL};
 static const char *emacs[] = {"emacs", NULL};
-static const char *browser[] = {"brave", NULL};
+static const char *browser[] = {"firefox", NULL};
 static const char *browser1[] = {"qutebrowser", NULL};
 static const char *files[] = {"st", "-e", "ranger", NULL};
 static const char *files1[] = {"thunar", NULL};
