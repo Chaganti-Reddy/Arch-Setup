@@ -5,3 +5,6 @@ Oct 07 15:10 : player: played "Pee Loon Hoto Ki Sargam - Once Upon A Time In Mum
 Oct 07 16:38 : player: played "Pee Loon Hoto Ki Sargam - Once Upon A Time In Mumbaai 320 Kbps.mp3"
 Oct 07 18:22 : player: played "Pee Loon Hoto Ki Sargam - Once Upon A Time In Mumbaai 320 Kbps.mp3"
 Oct 07 20:08 : player: played "Pee Loon Hoto Ki Sargam - Once Upon A Time In Mumbaai 320 Kbps.mp3"
+Oct 09 12:39 : exception: inotify_add_watch() has failed: No such file or directory
+Oct 09 12:39 : exception: Failed to decode /home/karna/Music/Music/Pee Loon Hoto Ki Sargam - Once Upon A Time In Mumbaai 320 Kbps.mp3; Failed to open '/home/karna/Music/Music/Pee Loon Hoto Ki Sargam - Once Upon A Time In Mumbaai 320 Kbps.mp3': No such file or directory
+Oct 09 12:39 : player: played "Pee Loon Hoto Ki Sargam - Once Upon A Time In Mumbaai 320 Kbps.mp3"
