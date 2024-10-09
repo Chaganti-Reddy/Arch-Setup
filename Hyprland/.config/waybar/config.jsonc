@@ -25,9 +25,10 @@
         "custom/paddc",
         "custom/left2",
         "custom/cpuinfo",       // temperature
-        
+
         "custom/left3",
         "memory",               // memory
+        "custom/kernelinfo",
         
         "custom/left4",
         "cpu",                  // cpu
@@ -135,6 +136,10 @@
             "(.*) - Visual Studio Code": "<span foreground='#89b4fa'>󰨞 </span> $1",
             "(.*)Visual Studio Code": "<span foreground='#89b4fa'>󰨞 </span> Visual Studio Code",
 
+            "(.*) - Kate": "<span foreground='#89b4fa'>󰨞 </span> $1",
+            "(.*)Kate": "<span foreground='#89b4fa'>󰨞 </span> Kate",
+
+
             // spotify
             "(.*)Spotify": "<span foreground='#a6e3a1'> </span> Spotify",
             "(.*)Spotify Premium": "<span foreground='#a6e3a1'> </span> Spotify Premium",
@@ -201,6 +206,18 @@
         "max-length": 8
     },
 
+    "custom/kernelinfo": {
+        "exec": "~/.config/waybar/scripts/kernelinfo.sh",
+        "return-type": "json",
+        "format": "{}",
+        "tooltip": true,
+        // "interval": 86400,
+        "interval": 18000,
+        "on-click-right": "kitty -- bash -c 'sudo pacman -Syu'",
+        "min-length": 10,
+        "max-length": 15
+    },
+
     "memory": {
         "states": {"c": 90},
 	    "format": "󰘚 {percentage}%",
@@ -209,15 +226,15 @@
         "tooltip-format": "{used:0.1f} GB / {total:0.1f} GB",
         "interval": 20,
         "min-length": 7,
-        "max-length": 7
+        "max-length": 15
     },
 
     "cpu": {    // TODO: Custom tooltip (?)
-        "format": "󰻠 {usage}%",
-        "tooltip": false,
+        "format": "󰻠 {usage}% - 8C",
+        "tooltip": true,
         "interval": 5,
         "min-length": 6,
-        "max-length": 6
+        "max-length": 10
     },
 
     "custom/arch": {
