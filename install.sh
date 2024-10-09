@@ -6,7 +6,7 @@
 # sudo pacman -Syu archlinux-keyring --noconfirm
 
 # 1. Install essential packages
-# sudo pacman -S base-devel intel-ucode git vim zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting bash-completion openssh wget curl htop neofetch bat exa fd ripgrep fzf stow stylua tar tree time acpilight aria2 unrar unzip bluez bluez-utils brightnessctl xfsprogs ntfs-3g clang gcc clipmenu clipnotify inotify-tools psutils dunst e2fsprogs gvfs gvfs-afc gvfs-google gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb efibootmgr zoxide gc git-lfs gnome-keyring polkit-gnome pass udiskie gstreamer jq xdotool screenkey xorg-xprop lazygit lolcat sxiv shellcheck net-tools numlockx prettier progress zip rsync lightdm-gtk-greeter trash-cli tlp tlp-rdw neovim xorg-xinput xclip xcompmgr xorg-xrandr xorg-xsetroot xsel xwallpaper pandoc starship python-pywal glow xarchiver xfce4-clipman-plugin qemu-full libguestfs xorg-xman man-db man-pages ncdu python-adblock dnsmasq python-pip lxappearance python-prctl vscode-css-languageserver ffmpegthumbnailer virt-manager spice-vdagent lua-language-server pass pinentry gnupg pass-otp zbar xorg-xlsclients xscreensaver os-prober qt6ct  --noconfirm
+# sudo pacman -S base-devel intel-ucode git vim zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting bash-completion openssh wget curl htop neofetch bat exa fd ripgrep fzf stow stylua tar tree time acpilight aria2 unrar unzip bluez bluez-utils brightnessctl xfsprogs ntfs-3g clang gcc clipmenu clipnotify inotify-tools psutils dunst e2fsprogs gvfs gvfs-afc gvfs-google gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb efibootmgr zoxide gc git-lfs gnome-keyring polkit-gnome pass udiskie gstreamer jq xdotool screenkey xorg-xprop lazygit lolcat sxiv shellcheck net-tools numlockx prettier progress zip rsync lightdm-gtk-greeter trash-cli tlp tlp-rdw neovim xorg-xinput xclip xcompmgr xorg-xrandr xorg-xsetroot xsel xwallpaper pandoc starship python-pywal glow xarchiver xfce4-clipman-plugin qemu-full libguestfs xorg-xman man-db man-pages ncdu python-adblock dnsmasq python-pip lxappearance python-prctl vscode-css-languageserver ffmpegthumbnailer virt-manager spice-vdagent lua-language-server pass pinentry gnupg pass-otp zbar xorg-xlsclients xscreensaver os-prober qt6ct pamixer parallel --noconfirm
 
 # sudo apt-get install  kitty rofi build-essential libx11-dev lm-sensors libxinerama-dev sharutils suckless-tools libxft-dev libc6 feh # for dwm in debian systems
 # sudo apt-get install xcb libxcb-xkb-dev x11-xkb-utils libx11-xcb-dev libxkbcommon-x11-dev libxcb-res0-devlibharfbuzz-dev libharfbuzz-dev
@@ -168,7 +168,7 @@
 ### HYPRLAND
 
 # sudo pacman -S kitty hyprland system-config-printer hyprpicker hyprlock chafa hypridle waybar wl-clipboard speech-dispatcher hyprpaper brightnessctl cmake meson cpio grim slurp rofi-wayland wf-recorder
-# yay -S wlrobs-hg clipse hyde-cli-git
+# yay -S wlrobs-hg clipse hyde-cli-git wlogout
 # sudo pacman -S wofi
 # git clone https://github.com/dracula/wofi.git
 # sudo pacman -S thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman thunar-vcs-plugin 
