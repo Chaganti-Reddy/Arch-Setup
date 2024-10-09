@@ -77,7 +77,7 @@
 # sudo pacman -S thunar thunar-archive-plugin thunar-volman thunar-media-tags-plugin --noconfirm
 # 8. Install GTK theme and QT theme
 # yay -S elementary-icon-theme --noconfirm # Previously used icons
-# yay -S gruvbox-plus-icon-theme-git gruvbox-dark-gtk kvantum kvantum-theme-otto-git && sudo pacman -S gtk-engine-murrine --noconfirm
+# yay -S  gruvbox-dark-gtk whitesur-icon-theme  whitesur-cursor-theme-git kvantum kvantum-theme-whitesur-git && sudo pacman -S gtk-engine-murrine --noconfirm
 # 15. Install MINICONDA
 # wget https://repo.anaconda.com/miniconda/Miniconda3-py310_24.3.0-0-Linux-x86_64.sh
 # sh Miniconda3-py310_24.3.0-0-Linux-x86_64.sh
