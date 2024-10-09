@@ -6,7 +6,7 @@
 # sudo pacman -Syu archlinux-keyring --noconfirm
 
 # 1. Install essential packages
-# sudo pacman -S base-devel intel-ucode git vim zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting bash-completion openssh wget curl htop neofetch bat exa fd ripgrep fzf stow stylua tar tree time acpilight aria2 unrar unzip bluez bluez-utils brightnessctl xfsprogs ntfs-3g clang gcc clipmenu clipnotify inotify-tools psutils dunst e2fsprogs gvfs gvfs-afc gvfs-google gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb efibootmgr zoxide gc git-lfs gnome-keyring polkit-gnome pass udiskie gstreamer jq xdotool screenkey xorg-xprop lazygit lolcat sxiv shellcheck net-tools numlockx prettier progress zip rsync lightdm-gtk-greeter trash-cli tlp tlp-rdw neovim xorg-xinput xclip xcompmgr xorg-xrandr xorg-xsetroot xsel xwallpaper pandoc starship python-pywal glow xarchiver xfce4-clipman-plugin qemu-full libguestfs xorg-xman man-db man-pages ncdu python-adblock dnsmasq python-pip lxappearance python-prctl vscode-css-languageserver ffmpegthumbnailer virt-manager spice-vdagent lua-language-server pass pinentry gnupg pass-otp zbar xorg-xlsclients xscreensaver --noconfirm
+# sudo pacman -S base-devel intel-ucode git vim zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting bash-completion openssh wget curl htop neofetch bat exa fd ripgrep fzf stow stylua tar tree time acpilight aria2 unrar unzip bluez bluez-utils brightnessctl xfsprogs ntfs-3g clang gcc clipmenu clipnotify inotify-tools psutils dunst e2fsprogs gvfs gvfs-afc gvfs-google gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb efibootmgr zoxide gc git-lfs gnome-keyring polkit-gnome pass udiskie gstreamer jq xdotool screenkey xorg-xprop lazygit lolcat sxiv shellcheck net-tools numlockx prettier progress zip rsync lightdm-gtk-greeter trash-cli tlp tlp-rdw neovim xorg-xinput xclip xcompmgr xorg-xrandr xorg-xsetroot xsel xwallpaper pandoc starship python-pywal glow xarchiver xfce4-clipman-plugin qemu-full libguestfs xorg-xman man-db man-pages ncdu python-adblock dnsmasq python-pip lxappearance python-prctl vscode-css-languageserver ffmpegthumbnailer virt-manager spice-vdagent lua-language-server pass pinentry gnupg pass-otp zbar xorg-xlsclients xscreensaver os-prober qt6ct  --noconfirm
 
 # sudo apt-get install  kitty rofi build-essential libx11-dev lm-sensors libxinerama-dev sharutils suckless-tools libxft-dev libc6 feh # for dwm in debian systems
 # sudo apt-get install xcb libxcb-xkb-dev x11-xkb-utils libx11-xcb-dev libxkbcommon-x11-dev libxcb-res0-devlibharfbuzz-dev libharfbuzz-dev
@@ -40,8 +40,7 @@
 # 8. Mariadb setup
 # sudo pacman -S mariadb --noconfirm
 # sudo mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
-# sudo systemctl enable mariadb
-# sudo systemctl start mariadb
+# sudo systemctl enable --now mariadb
 # sudo mariadb-secure-installation
 
 # 9. Enable services
@@ -77,7 +76,7 @@
 # sudo pacman -S thunar thunar-archive-plugin thunar-volman thunar-media-tags-plugin --noconfirm
 # 8. Install GTK theme and QT theme
 # yay -S elementary-icon-theme --noconfirm # Previously used icons
-# yay -S  gruvbox-dark-gtk whitesur-icon-theme  whitesur-cursor-theme-git kvantum kvantum-theme-whitesur-git && sudo pacman -S gtk-engine-murrine --noconfirm
+# yay -S  gruvbox-dark-gtk whitesur-icon-theme  whitesur-cursor-theme-git kvantum kvantum-theme-otto-git && sudo pacman -S gtk-engine-murrine --noconfirm
 # 15. Install MINICONDA
 # wget https://repo.anaconda.com/miniconda/Miniconda3-py310_24.3.0-0-Linux-x86_64.sh
 # sh Miniconda3-py310_24.3.0-0-Linux-x86_64.sh
@@ -168,8 +167,8 @@
 
 ### HYPRLAND
 
-# sudo pacman -S kitty hyprland system-config-printer hyprpicker hyprlock chafa hypridle wofi waybar wl-clipboard speech-dispatcher hyprpaper brightnessctl cmake meson cpio grim slurp rofi-wayland wf-recorder
-# yay -S xdg-desktop-portal-hyprland-git wlrobs-hg clipse
-# yay -Sy hyde-cli-git
+# sudo pacman -S kitty hyprland system-config-printer hyprpicker hyprlock chafa hypridle waybar wl-clipboard speech-dispatcher hyprpaper brightnessctl cmake meson cpio grim slurp rofi-wayland wf-recorder
+# yay -S wlrobs-hg clipse hyde-cli-git
+# sudo pacman -S wofi
 # git clone https://github.com/dracula/wofi.git
 # sudo pacman -S thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman thunar-vcs-plugin 
