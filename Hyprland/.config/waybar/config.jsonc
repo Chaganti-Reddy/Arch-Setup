@@ -164,7 +164,14 @@
              "MPV": "<span foreground='#fab387'>󰕼 </span> MPV",
             "(.*) - MPV": "<span foreground='#fab387'>󰕼 </span> $1",
 
-            
+            // Okular PDF Reader
+            "Okular": "<span foreground='#f38ba8'>󰅂 </span> Okular",
+            "(.*) - Okular": "<span foreground='#f38ba8'>󰅂 </span> $1",
+
+            //nvim 
+            "nvim": "<span foreground='#a6adc8'>󰝓 </span> Neovim", 
+            "nvim (.*)": "<span foreground='#a6adc8'>󰝓 </span> $2",
+
             // GIMP
             "GNU Image Manipulation Program": "<span foreground='#a6adc8'> </span> GNU Image Manipulation Program",
 
