@@ -212,7 +212,7 @@
         "format": "{}",
         "tooltip": true,
         // "interval": 86400,
-        "interval": 10,
+        "interval": 1000,
         "on-click-right": "kitty -- bash -c 'sudo pacman -Syu'",
         "min-length": 10,
         "max-length": 15
