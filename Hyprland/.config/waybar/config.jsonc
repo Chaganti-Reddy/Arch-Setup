@@ -23,12 +23,12 @@
 
 	"modules-center": [
         "custom/paddc",
+        "custom/kernelinfo",
         "custom/left2",
         "custom/cpuinfo",       // temperature
 
         "custom/left3",
         "memory",               // memory
-        "custom/kernelinfo",
         
         "custom/left4",
         "cpu",                  // cpu
