@@ -1,5 +1,5 @@
 [Desktop Entry]
-FullScreen=false
+FullScreen=true
 shouldShowMenuBarComingFromFullScreen=true
 shouldShowToolBarComingFromFullScreen=true
 
@@ -13,22 +13,22 @@ ToolBarsMovable=Disabled
 
 [Recent Files]
 File1[$e]=/mnt/Karna/Reinforcement-learning-approach-for-prognosis-in-ICU/Reinforcement Learning for Clinical Decision Support (July 2024).pdf
-File10[$e]=/mnt/Karna/Git/Books/Quantum Computing/Griffiths - Introduction to quantum mechanics.pdf
+File10[$e]=$HOME/Downloads/Bus_Routing_Problems__June_06th__2024_.pdf
 File2[$e]=/mnt/Karna/Git/Masters-Documents/Applications/NE Boston/Venkat LoR - Northeastern University.pdf
 File3[$e]=/mnt/Karna/Git/Masters-Documents/Applications/Amherst/Venkat LoR - University of Massachusetts Amherst_Rakesh.pdf
 File4[$e]=/mnt/Karna/Git/Masters-Documents/Applications/TAMU/Aman_Recommendation_Letter.pdf
 File5[$e]=/mnt/Karna/Git/Masters-Documents/Applications/Certificates BTech/CMM.pdf
 File6[$e]=/mnt/Karna/Git/Masters-Documents/Applications/Memos/Bachelor Transcripts .pdf
-File7[$e]=$HOME/Downloads/Bus_Routing_Problems__June_06th__2024_.pdf
-File8[$e]=/mnt/Karna/Git/Masters-Documents/Applications/LOR/Aman_Recommendation_Letter.pdf
-File9[$e]=/mnt/Karna/acknowledgementSlip_S1858416595000.pdf
+File7[$e]=/mnt/Karna/Git/Masters-Documents/Applications/LOR/Aman_Recommendation_Letter.pdf
+File8[$e]=/mnt/Karna/acknowledgementSlip_S1858416595000.pdf
+File9[$e]=/mnt/Karna/Git/Books/Quantum Computing/Griffiths - Introduction to quantum mechanics.pdf
 Name1[$e]=Reinforcement Learning for Clinical Decision Support (July 2024).pdf
-Name10[$e]=Griffiths - Introduction to quantum mechanics.pdf
+Name10[$e]=Bus_Routing_Problems__June_06th__2024_.pdf
 Name2[$e]=Venkat LoR - Northeastern University.pdf
 Name3[$e]=Venkat LoR - University of Massachusetts Amherst_Rakesh.pdf
 Name4[$e]=Aman_Recommendation_Letter.pdf
 Name5[$e]=CMM.pdf
 Name6[$e]=Bachelor Transcripts .pdf
-Name7[$e]=Bus_Routing_Problems__June_06th__2024_.pdf
-Name8[$e]=Aman_Recommendation_Letter.pdf
-Name9[$e]=acknowledgementSlip_S1858416595000.pdf
+Name7[$e]=Aman_Recommendation_Letter.pdf
+Name8[$e]=acknowledgementSlip_S1858416595000.pdf
+Name9[$e]=Griffiths - Introduction to quantum mechanics.pdf
