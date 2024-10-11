@@ -200,7 +200,7 @@
             "Authenticate": "  Authenticate"
         },
         "min-length": 5,
-        "max-length": 45
+        "max-length": 50
     },
 
     "custom/cpuinfo": {
