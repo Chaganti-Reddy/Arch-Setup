@@ -57,6 +57,7 @@
 
         "custom/left7",
         "backlight",            // brightness
+        "idle_inhibitor",
 
         "custom/left8",
         "battery",              // battery
@@ -115,6 +116,14 @@
         "tooltip-format-disconnected": "󰌙 Disconnected",
         "max-length": 30,
         //"format-icons": ["󰤯","󰤟","󰤢","󰤥","󰤨"]
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
     },
     
     "hyprland/window": {
