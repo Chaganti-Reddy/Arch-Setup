@@ -1,17 +1,17 @@
 # Path to user files, this includes history, seasonals files and more.
 # 
 # You may use `~` or environment vars in your path.
-user_files_path: /home/ram/miniconda3/lib/python3.10/site-packages/anipy_cli/user_files
+user_files_path: /home/karna/miniconda3/lib/python3.10/site-packages/anipy_cli/user_files
 
 # Path to your download folder/directory.
 # 
 # You may use `~` or environment vars in your path.
-download_folder_path: /home/ram/Downloads/anipy_cli
+download_folder_path: /home/karna/Downloads/anipy_cli
 
 # Path to your seasonal downloads directory.
 # 
 # You may use `~` or environment vars in your path.
-seasonals_dl_path: /home/ram/miniconda3/lib/python3.10/site-packages/anipy_cli/download/seasonals
+seasonals_dl_path: /home/karna/miniconda3/lib/python3.10/site-packages/anipy_cli/download/seasonals
 
 # A list of pairs defining which providers will search for anime
 # in different parts of the program. Configurable areas are as follows:
@@ -21,7 +21,7 @@ seasonals_dl_path: /home/ram/miniconda3/lib/python3.10/site-packages/anipy_cli/d
 # 
 # For an updated list of providers look here: https://sdaqo.github.io/anipy-cli/availabilty
 # 
-# Supported providers (as of 3.1.9): gogoanime, yugenanime
+# Supported providers (as of 3.2.1): gogoanime, yugenanime
 # 
 # Examples:
 #     providers:
@@ -55,7 +55,7 @@ provider_urls: {}
 # Path to your video player.
 # For a list of supported players look here: https://sdaqo.github.io/anipy-cli/availabilty
 # 
-# Supported players (as of 3.1.9): mpv, vlc, syncplay, mpvnet, mpv-controlled
+# Supported players (as of 3.2.1): mpv, vlc, syncplay, mpvnet, mpv-controlled
 # 
 # Info for mpv-controlled:
 # Reuse the mpv window instead of closing and reopening.
@@ -229,4 +229,8 @@ preferred_type: null
 
 # If this is set to true you will not be prompted to search in season.
 skip_season_search: false
+
+# If this is set to true, the system will assume you want to search in season.
+# If skip_season_search is true, this will be ignored)
+assume_season_search: false
 
