@@ -77,6 +77,7 @@ tooltip {
 #clock,
 #custom-wifi,
 #pulseaudio,
+#idle_inhibitor,
 #backlight,
 #battery,
 #custom-power {
@@ -264,6 +265,14 @@ tooltip {
     background: @background;
     padding-left: 3px;
 }
+
+#custom-left11 {
+    color: @pulseaudio;
+    background: @background;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
 
 #pulseaudio { background: @pulseaudio; }
 
