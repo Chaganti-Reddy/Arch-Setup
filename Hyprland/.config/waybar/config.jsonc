@@ -52,12 +52,14 @@
     ],
 
 	"modules-right": [
+        "custom/left11",
+
+        "idle_inhibitor",
         "custom/left6",
         "pulseaudio",           // output device
 
         "custom/left7",
         "backlight",            // brightness
-        "idle_inhibitor",
 
         "custom/left8",
         "battery",              // battery
