@@ -206,6 +206,17 @@ tooltip {
     text-shadow: 0px 0px 1.5px rgba(0, 0, 0, 1);
 }
 
+#idle_inhibitor {
+    color: black;
+    background: @arch;
+    font-size: 11pt;
+    margin-right: -1px;
+    margin-bottom: -2px;
+    padding-right: 0px;
+    padding-left: 3px;
+    text-shadow: 0px 0px 1.5px rgba(0, 0, 0, 1);
+}
+
 #custom-right2 {
     color: @arch;
     background: @background;
