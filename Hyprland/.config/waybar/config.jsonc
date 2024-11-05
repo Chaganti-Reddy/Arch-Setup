@@ -35,7 +35,7 @@
         "custom/leftin1",
         
         "custom/left5",
-        "custom/arch",          // arch logo
+        "idle_inhibitor",          // arch logo
         "custom/right2",
         
         "custom/rightin1",
@@ -52,9 +52,6 @@
     ],
 
 	"modules-right": [
-        "custom/left11",
-
-        "idle_inhibitor",
         "custom/left6",
         "pulseaudio",           // output device
 
@@ -120,14 +117,6 @@
         //"format-icons": ["󰤯","󰤟","󰤢","󰤥","󰤨"]
     },
 
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        }
-    },
-    
     "hyprland/window": {
         "format": "{}",
         "separate-outputs": true,
@@ -256,11 +245,20 @@
     },
 
     "custom/arch": {
-        "format": " ",
+        "format": " ",
         // "tooltip": false
         "tooltip": true,
         "tooltip-format": "Karna",
     },
+
+    "idle_inhibitor": {
+    "format": " ",
+    "tooltip": true,
+    "tooltip-format-activated": "Presentation Mode",
+    "tooltip-format-deactivated": "Idle Mode",
+    "start-activated": false,
+    "timeout": 600
+  },
 
     "clock#time": {
         "interval":1,
