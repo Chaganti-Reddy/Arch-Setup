@@ -55,6 +55,7 @@ You can customize the settings and configurations in the various files within th
 
 ![Screenshot of DWM setup](assets/assets/1.png)
 ![Screenshot of DWM setup](assets/assets/2.png)
+![Screenshot of DWM setup](assets/assets/hypr.png)
 
 For a better understanding of how my configuration looks, check out the screenshot above. Feel free to create and add more screenshots as needed.
 
@@ -62,23 +63,23 @@ For a better understanding of how my configuration looks, check out the screensh
 
 The main program I use for my daily life:
 
-- **Window Manager**: DWM
-- **Terminal**: ST
+- **Window Manager**: DWM, HyprLand
+- **Terminal**: ST, Kitty
 - **Shell**: Zsh
-- **Editor**: Neovim, Doom Emacs
+- **Editor**: Neovim
 - **File Manager**: Ranger, Thunar
-- **Browser**: QuteBrowser, Floorp, Brave
+- **Browser**: QuteBrowser, FireFox
 - **Music Player**: Mpd + Ncmpcpp
 - **Video Player**: MPV
 - **PDF Viewer**: Zathura/Okular
 - **Image Viewer**: sxiv
-- **Launcher**: DMenu
+- **Launcher**: DMenu, Rofi
 - **Notification Daemon**: Dunst
 - **Screenshot Tool**: Flameshot
 - **System Monitor**: Htop
 - **Music Downloader**: Yt-dlp
 - **Youtube Player**: Mpv + Ytfzf
-- **Clipboard Manager**: Clipmenu
+- **Clipboard Manager**: xfce4-clipman, clipse
 - **Screen Recorder**: OBS
 - **IDE**: Visual Studio Code
 - **Torrent Client**: Webtorrent, Peerflix
