@@ -345,6 +345,7 @@ alias anime1="ani-cli"
 alias anime2="anipy-cli"
 alias kdrama="cd ~/dotfiles/Extras/Extras/korean_cli/ && ./dra-cla"
 alias download="aria2c"
+alias timeshift-wayland="sudo -E timeshift-gtk"
 
 function cheat() {
     curl cht.sh/$1
