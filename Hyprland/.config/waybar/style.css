@@ -336,3 +336,40 @@ tooltip {
     box-shadow: none;
     transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
 }
+
+
+/* Pomodoro Module */
+
+#custom-pomodoro {
+    color: @foreground;
+    background: @cpuinfo;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+
+/* Pomodoro States */
+#custom-pomodoro.work {
+    background: @active-bg;       /* Active state background for work */
+    color: @active-fg;            /* Active state foreground for work */
+    text-shadow: 0px 0px 3px rgba(255, 255, 255, 0.6); /* Bright shadow */
+}
+
+#custom-pomodoro.break {
+    background: @hover-bg;        /* Hover state background for breaks */
+    color: @hover-fg;             /* Hover state foreground for breaks */
+}
+
+#custom-pomodoro.pause {
+    background: @background;      /* Neutral background for pause */
+    color: @foreground;           /* Match foreground color */
+    opacity: 0.8;                 /* Slightly dimmed for paused state */
+}
+@define-color light-background #4c4c4c;  /* Manually lightened color */
+/* Hover Effect for Pomodoro */
+#custom-pomodoro:hover {
+    background: @light-background;  /* Adjust lightness */
+    box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.8); /* Enhanced hover shadow */
+    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682); /* Smooth hover effect */
+}
+
