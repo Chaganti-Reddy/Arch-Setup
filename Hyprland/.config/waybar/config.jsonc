@@ -52,7 +52,7 @@
     ],
 
 	"modules-right": [
-        "custom/timer",
+        "custom/pomodoro",
         
         "custom/left6",
         "pulseaudio",           // output device
@@ -375,7 +375,7 @@
 //     "on-scroll-down": "~/dotfiles/Hyprland/.config/waybar/waybar-timer.sh increase -60"
 // },
 
-"custom/timer": {
+"custom/pomodoro": {
   // https://github.com/Andeskjerf/waybar-module-pomodoro
 
 // It follows the same rules as pomodoro: 4 cycles of work and short breaks, followed by a long break.
@@ -412,9 +412,11 @@
 
 	"format": "{}",
 	"return-type": "json",
-	"exec": "~/dotfiles/Hyprland/.config/waybar/waybar-module-pomodoro --work 1",
+	"exec": "~/dotfiles/Hyprland/.config/waybar/waybar-module-pomodoro --work 25 --shortbreak 5 --longbreak 15 --autow --autob --persist",
 	"on-click": "~/dotfiles/Hyprland/.config/waybar/waybar-module-pomodoro toggle",
-	"on-click-right": "~/dotfiles/Hyprland/.config/waybar/waybar-module-pomodoro reset",
+	"on-click-right": "~/dotfiles/Hyprland/.config/waybar/waybar-module-pomodoro set-work 25 && ~/dotfiles/Hyprland/.config/waybar/waybar-module-pomodoro reset",
+    // "on-click-middle": "bash -c 'CUSTOM_TIME=$(echo \"\" | rofi -dmenu -p \"Enter custom work time (minutes):\"); if [[ \"$CUSTOM_TIME\" =~ ^[0-9]+$ ]] && [ -n \"$CUSTOM_TIME\" ]; then waybar-module-pomodoro set-work $CUSTOM_TIME && waybar-module-pomodoro start && sleep $(($CUSTOM_TIME * 60)) && waybar-module-pomodoro set-work 25; fi'",
+  "class": "custom-pomodoro",
   "tooltip": true
 },
 
