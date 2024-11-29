@@ -52,6 +52,8 @@
     ],
 
 	"modules-right": [
+        "custom/timer",
+        
         "custom/left6",
         "pulseaudio",           // output device
 
@@ -248,7 +250,7 @@
         "format": " ",
         // "tooltip": false
         "tooltip": true,
-        "tooltip-format": "Karna",
+        "tooltip-format": "Karna"
     },
 
     "idle_inhibitor": {
@@ -331,7 +333,7 @@
         "max-length": 6
     },
 
-    "battery": {    // TODO: Send notification on low battery
+    "battery": {
         "states": {
             "warning": 30,
             "critical": 20
@@ -353,6 +355,68 @@
         "on-click-right": "~/.config/waybar/scripts/logoutlaunch.sh 1",
         "interval" : 86400
     },
+
+// "custom/timer": {
+//     "exec": "~/dotfiles/Hyprland/.config/waybar/waybar-timer.sh updateandprint",
+//     "exec-on-event": true,
+//     "return-type": "json",
+//     "interval": 5,
+//     "signal": 4,
+//     "format": "{icon} {0}",
+//     "format-icons": {
+//         "standby": "STANDBY",
+//         "running": "RUNNING",
+//         "paused": "PAUSE"
+//     },
+//     "on-click": "~/dotfiles/Hyprland/.config/waybar/waybar-timer.sh new 25 'notify-send \"Session finished\"'",
+//     "on-click-middle": "~/dotfiles/Hyprland/.config/waybar/waybar-timer.sh cancel",
+//     "on-click-right": "~/dotfiles/Hyprland/.config/waybar/waybar-timer.sh togglepause",
+//     "on-scroll-up": "~/dotfiles/Hyprland/.config/waybar/waybar-timer.sh increase 60 || ~/dotfiles/Hyprland/.config/waybar/waybar-timer.sh new 1 'notify-send -u critical \"Timer expired.\"'",
+//     "on-scroll-down": "~/dotfiles/Hyprland/.config/waybar/waybar-timer.sh increase -60"
+// },
+
+"custom/timer": {
+  // https://github.com/Andeskjerf/waybar-module-pomodoro
+
+// It follows the same rules as pomodoro: 4 cycles of work and short breaks, followed by a long break.
+
+    // usage: waybar-module-pomodoro [options] [operation]
+    // options:
+    //     -h, --help                  Prints this help message
+    //     -v, --version               Prints the version string
+    //     -w, --work <value>          Sets how long a work cycle is, in minutes. default: 25
+    //     -s, --shortbreak <value>    Sets how long a short break is, in minutes. default: 5
+    //     -l, --longbreak <value>     Sets how long a long break is, in minutes. default: 15
+    //
+    //     -p, --play <value>          Sets custom play icon/text. default: ▶
+    //     -a, --pause <value>         Sets custom pause icon/text. default: ⏸
+    //     -o, --work-icon <value>     Sets custom work icon/text. default: 󰔟
+    //     -b, --break-icon <value>    Sets custom break icon/text. default: 
+    //
+    //     --no-icons                  Disable the pause/play icon
+    //     --no-work-icons             Disable the work/break icon
+    //
+    //     --autow                     Starts a work cycle automatically after a break
+    //     --autob                     Starts a break cycle automatically after work
+    //     --persist                   Persist timer state between sessions
+    //
+    // operations:
+    //     toggle                      Toggles the timer
+    //     start                       Start the timer
+    //     stop                        Stop the timer
+    //     reset                       Reset timer to initial state
+    //
+    //     set-work <value>            Set new work time
+    //     set-short <value>           Set new short break time
+    //     set-long <value>            Set new long break time
+
+	"format": "{}",
+	"return-type": "json",
+	"exec": "~/dotfiles/Hyprland/.config/waybar/waybar-module-pomodoro --work 1",
+	"on-click": "~/dotfiles/Hyprland/.config/waybar/waybar-module-pomodoro toggle",
+	"on-click-right": "~/dotfiles/Hyprland/.config/waybar/waybar-module-pomodoro reset",
+  "tooltip": true
+},
 
 // Padding
     "custom/paddw": {
