@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Get the current state of the Pomodoro timer
+STATE=$(~/dotfiles/Hyprland/.config/waybar/waybar-module-pomodoro status)
+
+# Extract the status and send notifications based on it
+case "$STATE" in
+    *"work"*)
+        notify-send "Pomodoro Timer" "Time to focus! Work cycle started 🛠️" --icon=alarm
+        ;;
+    *"short break"*)
+        notify-send "Pomodoro Timer" "Short break time! Relax for a bit ☕" --icon=alarm
+        ;;
+    *"long break"*)
+        notify-send "Pomodoro Timer" "Long break time! Rest well 🌴" --icon=alarm
+        ;;
+    *"pause"*)
+        notify-send "Pomodoro Timer" "Timer paused ⏸" --icon=alarm
+        ;;
+    *"reset"*)
+        notify-send "Pomodoro Timer" "Timer reset 🔄" --icon=alarm
+        ;;
+    *)
+        notify-send "Pomodoro Timer" "Unknown state: $STATE" --icon=alarm
+        ;;
+esac
