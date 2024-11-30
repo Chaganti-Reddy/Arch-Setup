@@ -13,15 +13,29 @@
 }
 
 {
+    "label" : "suspend",
+    "action" : "swaylock -f && systemctl suspend",
+    "text" : "Suspend",
+    "keybind" : "u"
+}
+
+{
     "label" : "shutdown",
-    "action" : "systemctl poweroff",
+    "action" : "sh ~/.dwm/scripts/uptime shutdown && systemctl poweroff",
     "text" : "Shutdown",
     "keybind" : "s"
 }
 
 {
+    "label" : "hibernate",
+    "action" : "systemctl hibernate",
+    "text" : "Hibernate",
+    "keybind" : "h"
+}
+
+{
     "label" : "reboot",
-    "action" : "systemctl reboot",
+    "action" : "sh ~/.dwm/scripts/uptime reboot && systemctl reboot",
     "text" : "Reboot",
     "keybind" : "r"
 }
