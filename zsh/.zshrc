@@ -351,6 +351,18 @@ function cheat() {
     curl cht.sh/$1
 }
 
+function fd() {
+    local dir
+    dir=$(
+        (zoxide query -l; find / -maxdepth 5 -type d -not -path "/proc/*" -not -path "/sys/*" -not -path "/run/*" 2>/dev/null) \
+        | fzf --preview 'ls -al {}' --tac
+    ) && cd "$dir" && zle clear-screen
+}
+
+
+zle -N fd
+bindkey '^O' fd 
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/karna/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
