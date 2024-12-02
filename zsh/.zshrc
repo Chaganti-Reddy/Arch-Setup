@@ -363,6 +363,19 @@ function fd() {
 zle -N fd
 bindkey '^O' fd 
 
+
+function rmfzf() {
+    local target
+    target=$(
+        (find . -maxdepth 1 -type f 2>/dev/null; \
+        find . -maxdepth 1 -type d 2>/dev/null) \
+        | fzf --preview 'ls -al {}' --tac
+    ) && trash "$target" && zle clear-screen  
+}
+
+zle -N rmfzf
+bindkey '^X^A' rmfzf
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/karna/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
