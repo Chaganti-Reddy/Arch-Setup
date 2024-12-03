@@ -339,7 +339,7 @@
 
 ### HYPRLAND
 
-# sudo pacman -S kitty hyprland system-config-printer hyprpicker hyprlock chafa hypridle waybar wl-clipboard speech-dispatcher hyprpaper brightnessctl cmake meson cpio grim slurp rofi-wayland wf-recorder
+# sudo pacman -S kitty hyprland system-config-printer hyprpicker hyprlock chafa hypridle waybar wl-clipboard speech-dispatcher hyprpaper brightnessctl cmake meson cpio grim slurp rofi  rofi-emoji rofi-calc wtype wf-recorder
 # yay -S wlrobs-hg clipse hyde-cli-git wlogout
 # sudo pacman -S wofi
 # git clone https://github.com/dracula/wofi.git
