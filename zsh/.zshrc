@@ -332,6 +332,7 @@ alias ga="git add"
 alias gcm="git commit -m"
 alias gc="git clone"
 alias gp="git push"
+alias gpb="git push -u origin"
 
 alias mkcd='f() { mkdir -p "$1" && cd "$1"; }; f'
 alias open='xdg-open'
