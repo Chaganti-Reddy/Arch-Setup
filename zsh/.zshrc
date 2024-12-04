@@ -354,7 +354,7 @@ function cheat() {
 function fd() {
     local dir
     dir=$(
-        (zoxide query -l; find / -maxdepth 5 -type d -not -path "/proc/*" -not -path "/sys/*" -not -path "/run/*" 2>/dev/null) \
+        (zoxide query -l; find / -maxdepth 8 -type d -not -path "/proc/*" -not -path "/sys/*" -not -path "/run/*" 2>/dev/null) \
         | fzf --preview 'ls -al {}' --tac
     ) && cd "$dir" && zle clear-screen
 }
