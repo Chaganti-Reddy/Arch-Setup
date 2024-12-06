@@ -27,7 +27,9 @@
 # sudo pacman -S baobab gnome-disk-utility flameshot bc docker docker-compose docker-scan gparted libreoffice-fresh pavucontrol qutebrowser ranger yad timeshift --noconfirm
 
 # 5. Install multimedia packages
-# sudo pacman -S mpv mpc mpd ncmpcpp mplayer poppler poppler-glib --noconfirm && yay -S ferdium-bin --noconfirm
+# sudo pacman -S mpv mpc mpd ncmpcpp mplayer poppler poppler-glib --noconfirm && 
+# yay -S ferdium-bin --noconfirm
+# sudo pacman -Rns kate
 
 # 6. Install fonts
 # sudo pacman -S adobe-source-code-pro-fonts noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-hack ttf-jetbrains-mono ttf-ubuntu-font-family ttf-ubuntu-mono-nerd ttf-ubuntu-nerd ttf-opensans gnu-free-fonts --noconfirm && yay -S ttf-ms-fonts --noconfirm
@@ -58,6 +60,8 @@
 # sudo virsh net-start default
 # For VM sharing https://docs.getutm.app/guest-support/linux/
 
+# 11. Setup git
+# git config --global user.name "Chaganti-Reddy"
 # 11. Setup git
 # git config --global user.name "Chaganti-Reddy"
 # git config --global user.email "chagantivenkataramireddy4@gmail.com"
@@ -103,7 +107,7 @@
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 # exit # exit from zsh
 # 17. Install floorp instead of firefox
-# yay -S floorp-bin firefox-pwa-bin --noconfirm
+# yay -S zen-browser-bin --noconfirm
 # yay -S python-pywalfox --noconfirm
 # 18. Use dmenu for network manager (Optional)
 # yay -S networkmanager-dmenu-git
@@ -135,8 +139,6 @@
 # mkdir ~/.icons && cp -r ~/dotfiles/Extras/Extras/.icons/Capitaine/ ~/.icons/
 
 # 16. Install Fonts
-# mkdir ~/.local/share/fonts/
-# git clone https://github.com/Chaganti-Reddy/my-fonts.git
 # mv my-fonts ~/.local/share/fonts/
 
 # 17. Install/stow dotfiles
