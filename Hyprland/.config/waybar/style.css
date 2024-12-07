@@ -446,11 +446,18 @@ tooltip {
     /* Smooth hover effect */
 }
 
-#tray {
-    color: rgba(255, 165, 79, 0.2);
-    background: rgba(255, 174, 66, 0.3);
-    box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.8);
-    transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+/* #tray { */
+/*     color: rgba(255, 165, 79, 0.2); */
+/*     background: rgba(255, 174, 66, 0.3); */
+/*     box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.8); */
+/*     transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682); */
+/*     padding: 5px; */
+/*     border-radius: 4px; */
+/* } */
+
+#bluetooth {
+    color: @foreground;
+    background: rgba(255, 165, 79, 0.09);
     padding: 5px;
     border-radius: 4px;
 }
