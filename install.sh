@@ -29,7 +29,7 @@
 # sudo pacman -Rns kate
 
 # 6. Install fonts
-# sudo pacman -S adobe-source-code-pro-fonts noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-hack ttf-jetbrains-mono ttf-ubuntu-font-family ttf-ubuntu-mono-nerd ttf-ubuntu-nerd ttf-opensans gnu-free-fonts --noconfirm && yay -S ttf-ms-fonts qt6ct-kde --noconfirm
+# sudo pacman -S adobe-source-code-pro-fonts noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-hack ttf-jetbrains-mono ttf-ubuntu-font-family ttf-ubuntu-mono-nerd ttf-ubuntu-nerd ttf-opensans gnu-free-fonts --noconfirm && paru -S ttf-ms-fonts qt6ct-kde --noconfirm
 
 # 7. Install external packages
 # paru -S ani-cli-git arch-wiki-docs ytfzf-git  --noconfirm
@@ -75,7 +75,7 @@
 # sudo pacman -S thunar thunar-archive-plugin thunar-volman thunar-media-tags-plugin --noconfirm
 # 8. Install GTK theme and QT theme
 # yay -S elementary-icon-theme --noconfirm # Previously used icons
-# paru -S  gruvbox-dark-gtk whitesur-icon-theme  whitesur-cursor-theme-git kvantum kvantum-theme-otto-git && sudo pacman -S gtk-engine-murrine --noconfirm
+# paru -S  gruvbox-dark-gtk whitesur-icon-theme kvantum-theme-whitesur-git whitesur-cursor-theme-git kvantum kvantum-theme-otto-git && sudo pacman -S gtk-engine-murrine --noconfirm
 # 15. Install MINICONDA
 # wget https://repo.anaconda.com/miniconda/Miniconda3-py310_24.3.0-0-Linux-x86_64.sh
 # sh Miniconda3-py310_24.3.0-0-Linux-x86_64.sh
@@ -165,8 +165,8 @@
 
 ### HYPRLAND
 
-sudo pacman -S kitty hyprland system-config-printer hyprpicker hyprlock chafa hypridle waybar wl-clipboard speech-dispatcher hyprpaper brightnessctl cmake meson cpio grim slurp rofi rofi-emoji rofi-calc wtype wf-recorder swaync
-yay -S wlrobs-hg clipse hyde-cli-git wlogout hyprshot-git 
+# sudo pacman -S kitty hyprland system-config-printer hyprpicker hyprlock chafa hypridle waybar wl-clipboard speech-dispatcher hyprpaper brightnessctl cmake meson cpio grim slurp rofi rofi-emoji rofi-calc wtype wf-recorder swaync
+# paru -S wlrobs-hg clipse hyde-cli-git wlogout hyprshot-git 
 # sudo pacman -S wofi
 # git clone https://github.com/dracula/wofi.git
-sudo pacman -S thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman thunar-vcs-plugin
+# sudo pacman -S thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman thunar-vcs-plugin
