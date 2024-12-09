@@ -60,3 +60,4 @@ Dec 07 12:20 : exception: Failed to decode /home/karna/Music/Music/Pee Loon Hoto
 Dec 07 12:20 : exception: Failed to decode /home/karna/Music/Music/Pee Loon Hoto Ki Sargam - Once Upon A Time In Mumbaai 320 Kbps.mp3; Failed to open '/home/karna/Music/Music/Pee Loon Hoto Ki Sargam - Once Upon A Time In Mumbaai 320 Kbps.mp3': No such file or directory
 Dec 07 12:20 : player: played "Pee Loon Hoto Ki Sargam - Once Upon A Time In Mumbaai 320 Kbps.mp3"
 Dec 07 12:36 : exception: inotify_add_watch() has failed: No such file or directory
+Dec 09 15:12 : exception: inotify_add_watch() has failed: No such file or directory
