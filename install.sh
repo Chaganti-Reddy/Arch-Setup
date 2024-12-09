@@ -75,7 +75,7 @@
 # sudo pacman -S thunar thunar-archive-plugin thunar-volman thunar-media-tags-plugin --noconfirm
 # 8. Install GTK theme and QT theme
 # yay -S elementary-icon-theme --noconfirm # Previously used icons
-# paru -S  gruvbox-dark-gtk whitesur-icon-theme kvantum-theme-whitesur-git whitesur-cursor-theme-git kvantum kvantum-theme-otto-git && sudo pacman -S gtk-engine-murrine --noconfirm
+# paru -S  gruvbox-dark-gtk whitesur-icon-theme whitesur-gtk-theme-git kvantum-theme-whitesur-git whitesur-cursor-theme-git kvantum kvantum-theme-otto-git && sudo pacman -S gtk-engine-murrine --noconfirm
 # 15. Install MINICONDA
 # wget https://repo.anaconda.com/miniconda/Miniconda3-py310_24.3.0-0-Linux-x86_64.sh
 # sh Miniconda3-py310_24.3.0-0-Linux-x86_64.sh
@@ -170,3 +170,8 @@
 # sudo pacman -S wofi
 # git clone https://github.com/dracula/wofi.git
 # sudo pacman -S thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman thunar-vcs-plugin
+#
+#
+#### SDDM 
+# sudo pacman -S qt6-5compat qt6-declarative qt6-svg sddm 
+
