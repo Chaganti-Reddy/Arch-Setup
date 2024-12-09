@@ -41,7 +41,7 @@ tooltip {
     border-radius: 8px;
     margin-top: 2px;
     margin-bottom: 2px;
-    padding: 0px 4px;
+    padding: 0px 1px;
     /* Adjusted padding for a cleaner look */
     transition: all 0.3s ease;
 }
