@@ -6,22 +6,19 @@
 # sudo pacman -Syu archlinux-keyring --noconfirm
 
 # 1. Install essential packages
-# sudo pacman -S base-devel intel-ucode git vim zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting bash-completion openssh wget curl htop neofetch bat exa fd ripgrep fzf stow stylua tar tree time acpilight aria2 unrar unzip bluez bluez-utils brightnessctl xfsprogs ntfs-3g clang gcc clipmenu clipnotify inotify-tools psutils dunst e2fsprogs gvfs gvfs-afc gvfs-google gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb efibootmgr zoxide gc git-lfs gnome-keyring polkit-gnome pass udiskie gstreamer jq xdotool screenkey xorg-xprop lazygit lolcat sxiv shellcheck net-tools numlockx prettier progress zip rsync lightdm-gtk-greeter trash-cli tlp tlp-rdw neovim xorg-xinput xclip xcompmgr xorg-xrandr xorg-xsetroot xsel xwallpaper pandoc starship python-pywal glow xarchiver xfce4-clipman-plugin qemu-full libguestfs xorg-xman man-db man-pages ncdu python-adblock dnsmasq python-pip lxappearance python-prctl vscode-css-languageserver ffmpegthumbnailer virt-manager spice-vdagent lua-language-server pass pinentry gnupg pass-otp zbar xorg-xlsclients xscreensaver os-prober qt6ct pamixer parallel shfmt tesseract html-xml-utils --noconfirm
-
-# sudo apt-get install  kitty rofi build-essential libx11-dev lm-sensors libxinerama-dev sharutils suckless-tools libxft-dev libc6 feh # for dwm in debian systems
-# sudo apt-get install xcb libxcb-xkb-dev x11-xkb-utils libx11-xcb-dev libxkbcommon-x11-dev libxcb-res0-devlibharfbuzz-dev libharfbuzz-dev
+# sudo pacman -S base-devel intel-ucode git vim zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting bash-completion openssh wget curl btop fastfetch bat exa fd ripgrep fzf stow stylua tar tree time acpilight aria2 unrar unzip bluez bluez-utils brightnessctl xfsprogs ntfs-3g clang gcc clipmenu clipnotify inotify-tools psutils dunst e2fsprogs gvfs gvfs-afc gvfs-google gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb efibootmgr zoxide gc git-lfs gnome-keyring polkit-gnome pass udiskie gstreamer jq xdotool screenkey xorg-xprop lazygit lolcat sxiv shellcheck net-tools numlockx prettier progress zip rsync trash-cli tlp tlp-rdw neovim xorg-xinput xclip xcompmgr xorg-xrandr xorg-xsetroot xsel xwallpaper pandoc starship python-pywal glow xarchiver xfce4-clipman-plugin qemu-full libguestfs xorg-xman man-db man-pages ncdu python-adblock dnsmasq python-pip nwg-look python-prctl vscode-css-languageserver ffmpegthumbnailer virt-manager spice-vdagent lua-language-server pass pinentry gnupg pass-otp zbar xorg-xlsclients xscreensaver os-prober qt5ct pamixer qt5-wayland qt6-wayland parallel shfmt tesseract html-xml-utils --noconfirm
 
 # Using XFCE4-CLIPMAN for clipboard manager
 
 # 2. Install yay
-# git clone https://aur.archlinux.org/yay.git
-# cd yay
+# git clone https://aur.archlinux.org/paru.git
+# cd paru
 # makepkg -si
 # cd ..
-# rm -rf yay
+# rm -rf paru
 
 # 3. Install AUR packages
-# yay -S  brave-bin ccrypt didyoumean-git github-desktop-bin visual-studio-code-bin preload peerflix webtorrent-cli webtorrent-mpv-hook git-remote-gcrypt sublime-text-4 --noconfirm
+# paru -S zen-browser-bin ccrypt didyoumean-git github-desktop-bin visual-studio-code-bin preload peerflix webtorrent-cli webtorrent-mpv-hook git-remote-gcrypt --noconfirm
 
 # 4. Install GUI packages
 # sudo pacman -S baobab gnome-disk-utility flameshot bc docker docker-compose docker-scan gparted libreoffice-fresh pavucontrol qutebrowser ranger yad timeshift --noconfirm
@@ -32,10 +29,10 @@
 # sudo pacman -Rns kate
 
 # 6. Install fonts
-# sudo pacman -S adobe-source-code-pro-fonts noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-hack ttf-jetbrains-mono ttf-ubuntu-font-family ttf-ubuntu-mono-nerd ttf-ubuntu-nerd ttf-opensans gnu-free-fonts --noconfirm && yay -S ttf-ms-fonts --noconfirm
+# sudo pacman -S adobe-source-code-pro-fonts noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-hack ttf-jetbrains-mono ttf-ubuntu-font-family ttf-ubuntu-mono-nerd ttf-ubuntu-nerd ttf-opensans gnu-free-fonts --noconfirm && yay -S ttf-ms-fonts qt6ct-kde --noconfirm
 
 # 7. Install external packages
-# yay -S ani-cli-git arch-wiki-docs ytfzf-git  --noconfirm
+# paru -S ani-cli-git arch-wiki-docs ytfzf-git  --noconfirm
 # yay -S walogram-git docker-desktop # Optional
 # sudo pacman -S yt-dlp hugo hunspell hunspell-en_us imagemagick ueberzug luacheck mlocate newsboat nodejs npm texlive-bin texlive-meta texlive-latex texlive-basic translate-shell --noconfirm
 
@@ -61,18 +58,16 @@
 # For VM sharing https://docs.getutm.app/guest-support/linux/
 
 # 11. Setup git
-# git config --global user.name "Chaganti-Reddy"
-# 11. Setup git
-# git config --global user.name "Chaganti-Reddy"
-# git config --global user.email "chagantivenkataramireddy4@gmail.com"
+#git config --global user.name "Chaganti-Reddy"
+#git config --global user.email "chagantivenkataramireddy4@gmail.com"
 
 # 12. Alternatives & Optionals:
 # 1. Install Java
-# sudo pacman -S jdk-openjdk openjdk-doc openjdk-src --noconfirm
+#sudo pacman -S jdk-openjdk openjdk-doc openjdk-src --noconfirm
 # 2. Install qbit torrent
 # sudo pacman -S qbittorrent --noconfirm
 # 4. Install Teamviewer
-# yay -S teamviewer --noconfirm
+# paru -S teamviewer --noconfirm
 # 5. Install Zathura
 # sudo pacman -S zathura zathura-pdf-mupdf zathura-djvu zathura-ps zathura-cb --noconfirm && yay -S zathura-pywal-git --noconfirm
 # also install pywal zathura in ~/dotfiles/Extras/Extras/Zathura-Pywal-master/
@@ -80,7 +75,7 @@
 # sudo pacman -S thunar thunar-archive-plugin thunar-volman thunar-media-tags-plugin --noconfirm
 # 8. Install GTK theme and QT theme
 # yay -S elementary-icon-theme --noconfirm # Previously used icons
-# yay -S  gruvbox-dark-gtk whitesur-icon-theme  whitesur-cursor-theme-git kvantum kvantum-theme-otto-git && sudo pacman -S gtk-engine-murrine --noconfirm
+# paru -S  gruvbox-dark-gtk whitesur-icon-theme  whitesur-cursor-theme-git kvantum kvantum-theme-otto-git && sudo pacman -S gtk-engine-murrine --noconfirm
 # 15. Install MINICONDA
 # wget https://repo.anaconda.com/miniconda/Miniconda3-py310_24.3.0-0-Linux-x86_64.sh
 # sh Miniconda3-py310_24.3.0-0-Linux-x86_64.sh
@@ -107,8 +102,8 @@
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 # exit # exit from zsh
 # 17. Install floorp instead of firefox
-# yay -S zen-browser-bin --noconfirm
-# yay -S python-pywalfox --noconfirm
+# paru -S zen-browser-bin --noconfirm
+# paru -S python-pywalfox --noconfirm
 # 18. Use dmenu for network manager (Optional)
 # yay -S networkmanager-dmenu-git
 # 19. Install Blender for Video Editing
@@ -123,8 +118,10 @@
 # sudo pacman -S octave --noconfirm
 # 24. Install blueman if needed for bluetooth manager
 # sudo pacman -S blueman --noconfirm
+# sudo pacman -S discord --noconfirm
 
 # 13. Move Respective files to root directory
+# sudo mkdir /usr/share/xsessions/
 # sudo cp ~/dotfiles/Extras/Extras/usr/share/xsessions/dwm.desktop /usr/share/xsessions
 # # sudo cp -r ~/dotfiles/Extras/Extras/boot/grub/themes/mocha /boot/grub/themes/
 # sudo cp -r ~/dotfiles/Extras/Extras/boot/grub/themes/tartarus/ /boot/grub/themes/
@@ -134,7 +131,7 @@
 # sudo cp ~/dotfiles/Extras/Extras/etc/mpd.conf /etc/
 # sudo cp ~/dotfiles/Extras/Extras/etc/nanorc /etc/
 # sudo cp ~/dotfiles/Extras/Extras/etc/environment /etc/
-# sudo cp -r ~/dotfiles/Extras/Extras/etc/lightdm/ /etc/
+# # sudo cp -r ~/dotfiles/Extras/Extras/etc/lightdm/ /etc/
 # cp ~/dotfiles/Extras/Extras/alanpeabody.zsh-theme ~/.oh-my-zsh/themes/
 # mkdir ~/.icons && cp -r ~/dotfiles/Extras/Extras/.icons/Capitaine/ ~/.icons/
 
@@ -163,12 +160,12 @@
 # mv stockfish ~/
 
 # Install python packages
-# pip install pynvim numpy pandas matplotlib seaborn scikit-learn jupyterlab ipykernel ipywidgets tensorflow python-prctl inotify-simple psutil opencv-python keras mov-cli-youtube mov-cli mov-cli-test otaku-watcher film-central
+# pip install pynvim numpy pandas matplotlib seaborn scikit-learn jupyterlab ipykernel ipywidgets tensorflow python-prctl inotify-simple psutil opencv-python keras mov-cli-youtube mov-cli mov-cli-test otaku-watcher film-central daemon
 # pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu # pytorch cpu version
 
 ### HYPRLAND
 
-# sudo pacman -S kitty hyprland system-config-printer hyprpicker hyprlock chafa hypridle waybar wl-clipboard speech-dispatcher hyprpaper brightnessctl cmake meson cpio grim slurp rofi  rofi-emoji rofi-calc wtype wf-recorder swaync
+# sudo pacman -S kitty hyprland system-config-printer hyprpicker hyprlock chafa hypridle waybar wl-clipboard speech-dispatcher hyprpaper brightnessctl cmake meson cpio grim slurp rofi-wayland rofi-emoji rofi-calc wtype wf-recorder swaync
 # yay -S wlrobs-hg clipse hyde-cli-git wlogout hyprshot-git 
 # sudo pacman -S wofi
 # git clone https://github.com/dracula/wofi.git
