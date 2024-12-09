@@ -414,7 +414,7 @@
         "on-scroll-up": "~/.config/waybar/scripts/brightnesscontrol.sh -o i",
         "on-scroll-down": "~/.config/waybar/scripts/brightnesscontrol.sh -o d",
         "min-length": 6,
-        "max-length": 6
+        "max-length": 10
     },
 
     "battery": {
