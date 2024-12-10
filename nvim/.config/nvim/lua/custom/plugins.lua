@@ -48,6 +48,44 @@ local plugins = {
       require "custom.configs.conform"
     end,
   },
+
+  {
+    "kawre/leetcode.nvim",
+    lazy = false,
+    build = ":TSUpdate html",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim", -- required by telescope
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+
+      -- optional
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
+    },
+    keys = {
+      { "<leader>lq", mode = { "n" }, "<cmd>Leet tabs<cr>" },
+      { "<leader>lm", mode = { "n" }, "<cmd>Leet menu<cr>" },
+      { "<leader>lc", mode = { "n" }, "<cmd>Leet console<cr>" },
+      { "<leader>li", mode = { "n" }, "<cmd>Leet info<cr>" },
+      { "<leader>ll", mode = { "n" }, "<cmd>Leet lang<cr>" },
+      { "<leader>ld", mode = { "n" }, "<cmd>Leet desc<cr>" },
+      { "<leader>lr", mode = { "n" }, "<cmd>Leet run<cr>" },
+      { "<leader>ls", mode = { "n" }, "<cmd>Leet submit<cr>" },
+      { "<leader>ly", mode = { "n" }, "<cmd>Leet yank<cr>" },
+      { "<leader>lp", mode = { "n" }, "<cmd>Leet list<cr>" },
+    },
+    config = function()
+      require "custom.configs.leetcode"
+    end,
+  },
+  {
+    "3rd/image.nvim",
+    lazy = false,
+    build = false, -- so that it doesn't build the rock https://github.com/3rd/image.nvim/issues/91#issuecomment-2453430239
+    opts = {},
+  },
+
   -- {
   --   "zbirenbaum/copilot.lua",
   --   cmd = "Copilot",
@@ -99,8 +137,8 @@ local plugins = {
   --   end,
   -- },
   {
-    'Exafunction/codeium.vim',
-    event = 'BufEnter',
+    "Exafunction/codeium.vim",
+    event = "BufEnter",
     -- config = function()
     --   -- vim.g.codeium_disable_bindings = 1
     --   vim.g.codeium_enabled = true
@@ -135,7 +173,7 @@ local plugins = {
     end,
   },
   {
-   "lukas-reineke/indent-blankline.nvim",
+    "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
     commit = "29be0919b91fb59eca9e90690d76014233392bef",
     opts = {},
@@ -155,12 +193,12 @@ local plugins = {
     dependencies = { { "nvim-tree/nvim-web-devicons" } },
   },
   -- {
- --  "nvim-lualine/lualine.nvim",
- --    config = function()
- --      require "custom.configs.lualine"
- --    end,
-	-- dependencies = { { "nvim-tree/nvim-web-devicons" } },
- --  },
+  --  "nvim-lualine/lualine.nvim",
+  --    config = function()
+  --      require "custom.configs.lualine"
+  --    end,
+  -- dependencies = { { "nvim-tree/nvim-web-devicons" } },
+  --  },
   { "wakatime/vim-wakatime", lazy = false },
   {
     "folke/zen-mode.nvim",
