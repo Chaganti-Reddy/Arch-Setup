@@ -347,6 +347,7 @@ alias anime2="anipy-cli"
 alias download="aria2c"
 alias timeshift-wayland="sudo -E timeshift-gtk"
 alias nvimleetcode="cd /mnt/Karna/Git/Project-K/DSA/Leetcode/ && nvim leetcode.nvim"
+alias projectk="cd /mnt/Karna/Git/Project-K/"
 
 function cheat() {
     curl cht.sh/$1
