@@ -86,6 +86,15 @@ local plugins = {
     opts = {},
   },
 
+  {
+    "xeluxee/competitest.nvim",
+    lazy = false,
+    dependencies = "MunifTanjim/nui.nvim",
+    config = function()
+      require "custom.configs.competitest"
+    end,
+  },
+
   -- {
   --   "zbirenbaum/copilot.lua",
   --   cmd = "Copilot",
