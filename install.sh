@@ -175,3 +175,5 @@
 #### SDDM 
 # sudo pacman -S qt6-5compat qt6-declarative qt6-svg sddm 
 
+# Video Download Helper 
+# curl -sSLf https://github.com/aclap-dev/vdhcoapp/releases/latest/download/install.sh | bash
