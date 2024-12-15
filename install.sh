@@ -177,3 +177,6 @@
 
 # Video Download Helper 
 # curl -sSLf https://github.com/aclap-dev/vdhcoapp/releases/latest/download/install.sh | bash
+#
+# Open in neovim from Thunar 
+# sudo cp ~/dotfiles/Extras/Extras/nvim.desktop /usr/share/applications/
