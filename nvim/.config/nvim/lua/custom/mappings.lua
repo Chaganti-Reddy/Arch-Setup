@@ -20,6 +20,11 @@ M.general = {
     ["<leader>z"] = { ":ZenMode<CR>", "zen mode" },
     ["<leader>gg"] = { ":Gen<CR>", "Open Ollama" },
 
+    -- Compiler.nvim 
+    ["<leader>co"] = { "<cmd>CompilerOpen<cr>", "Compiler open" },
+    ["<leader>cs"] = { "<cmd>CompilerStop<cr>", "Compiler Stop" },
+    ["<leader>ct"] = { "<cmd>CompilerToggleResults<cr>", "Compiler Toggle Results" },
+
     -- CompetiTest
     ["<leader>pr"] = { "<cmd>CompetiTest run<cr>", "Competitest run" },
     ["<leader>pa"] = { "<cmd>CompetiTest receive testcases<cr>", "Competitest Receive Testcases" },
