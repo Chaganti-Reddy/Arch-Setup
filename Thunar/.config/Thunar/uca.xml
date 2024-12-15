@@ -21,7 +21,5 @@
 	<description>Open this File with Neovim</description>
 	<range>*</range>
 	<patterns>*</patterns>
-	<other-files/>
-	<text-files/>
 </action>
 </actions>
