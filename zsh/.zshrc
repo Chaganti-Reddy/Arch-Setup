@@ -89,7 +89,7 @@ else
   export EDITOR='nvim'
 fi
 
-export BROWSER='/usr/bin/brave'
+export BROWSER='/usr/bin/zen-browser'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
