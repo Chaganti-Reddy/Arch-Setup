@@ -166,7 +166,7 @@
 ### HYPRLAND
 
 # sudo pacman -S kitty hyprland system-config-printer hyprpicker hyprlock chafa hypridle waybar wl-clipboard speech-dispatcher hyprpaper brightnessctl cmake meson cpio grim slurp rofi rofi-emoji rofi-calc wtype wf-recorder swaync
-# paru -S wlrobs-hg clipse hyde-cli-git wlogout hyprshot-git 
+# paru -S wlrobs-hg clipse-bin hyde-cli-git wlogout hyprshot-git 
 # sudo pacman -S wofi
 # git clone https://github.com/dracula/wofi.git
 # sudo pacman -S thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman thunar-vcs-plugin
