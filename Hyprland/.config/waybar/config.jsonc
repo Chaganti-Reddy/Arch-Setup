@@ -142,8 +142,8 @@
 
     "format-alt": "󰤨  <big><b>{essid}</b></big>",
     "interval": 2,
-    // "on-click-right": "sh $HOME/dotfiles/Hyprland/.config/waybar/scripts/wifimenu.sh"
-    "on-click-right": "nm-connection-editor"
+    "on-click-right": "sh $HOME/dotfiles/Hyprland/.config/waybar/scripts/wifimenu.sh"
+    // "on-click-right": "nm-connection-editor"
 },
 
   "custom/notification": {
