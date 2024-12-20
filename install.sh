@@ -18,7 +18,7 @@
 # rm -rf paru
 
 # 3. Install AUR packages
-# paru -S zen-browser-bin ccrypt didyoumean-git github-desktop-bin visual-studio-code-bin preload peerflix webtorrent-cli webtorrent-mpv-hook git-remote-gcrypt --noconfirm
+# paru -S zen-browser-bin ccrypt didyoumean-git github-desktop-bin visual-studio-code-bin preload peerflix webtorrent-cli webtorrent-mpv-hook git-remote-gcrypt telegram-desktop-bin discord --noconfirm
 
 # 4. Install GUI packages
 # sudo pacman -S baobab gnome-disk-utility flameshot bc docker docker-compose docker-scan gparted libreoffice-fresh pavucontrol qutebrowser ranger yad timeshift --noconfirm
