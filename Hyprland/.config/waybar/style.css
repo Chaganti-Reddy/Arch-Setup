@@ -312,12 +312,12 @@ tooltip {
 
 #custom-right5 {
     color: rgba(255, 165, 79, 0.1);
-    background: @background;
+    /* background: @background; */
 }
 
 /* Media Info */
 #custom-media {
-    background-color: @background;
+    /* background-color: @background; */
     padding-right: 8px;
     padding-left: 8px;
 }
@@ -325,13 +325,13 @@ tooltip {
 /* PulseAudio */
 #custom-left6 {
     color: rgba(255, 165, 79, 0.2);
-    background: @background;
+    /* background: @background; */
     padding-left: 3px;
 }
 
 #custom-left11 {
     color: rgba(255, 165, 79, 0.2);
-    background: @background;
+    /* background: @background; */
     padding-left: 3px;
     padding-right: 3px;
 }
@@ -343,7 +343,7 @@ tooltip {
 /* Brightness */
 #custom-left7 {
     color: rgba(255, 165, 79, 0.2);
-    background: @pulseaudio;
+    /* background: @pulseaudio; */
     padding-left: 2px;
 }
 
@@ -354,7 +354,7 @@ tooltip {
 /* Battery */
 #custom-left8 {
     color: rgba(255, 165, 79, 0.2);
-    background: @backlight;
+    /* background: @backlight; */
     padding-left: 2px;
 }
 
@@ -457,7 +457,7 @@ tooltip {
 
 #bluetooth {
     color: @foreground;
-    background: rgba(255, 165, 79, 0.09);
+    background: rgba(255, 165, 79, 0.15);
     padding: 5px;
-    border-radius: 4px;
+    border-radius: 0px;
 }
