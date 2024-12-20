@@ -177,7 +177,7 @@ tooltip {
 }
 
 #custom-cpuinfo {
-    background: @cpuinfo;
+    background: rgba(255, 165, 79, 0.1);
     padding-left: 1px;
     padding-right: 0px;
 }
@@ -185,7 +185,7 @@ tooltip {
 /* Memory */
 #custom-left3 {
     color: rgba(255, 165, 79, 0.1);
-    background: @cpuinfo;
+    /* background: @cpuinfo; */
     padding-left: 3px;
 }
 
@@ -198,7 +198,7 @@ tooltip {
 /* CPU */
 #custom-left4 {
     color: rgba(255, 165, 79, 0.2);
-    background: @memory;
+    /* background: @memory; */
     padding-left: 3px;
 }
 
@@ -283,7 +283,7 @@ tooltip {
 
 #custom-right3 {
     color: rgba(255, 165, 79, 0.2);
-    background: @date;
+    /* background: @date; */
 }
 
 /* Date */
@@ -292,8 +292,8 @@ tooltip {
 }
 
 #custom-right4 {
-    color: rgba(255, 165, 79, 0.1);
-    background: @wifi;
+    color: rgba(255, 165, 79, 0.2);
+    /* background: @wifi; */
 }
 
 /* Network */
