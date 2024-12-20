@@ -15,7 +15,7 @@
         //"custom/left1",
 
         "hyprland/workspaces",  // workspaces
-        "custom/right1",
+        // "custom/right1",
 
         "custom/paddw",
         "hyprland/window"       // window title
@@ -45,9 +45,9 @@
         "clock#date",           // date
         "custom/right4",
 
-        "network",          // connection
+        "network"          // connection
         // "network#speed",
-        "custom/right5"
+        // "custom/right5"
     ],
 
 	"modules-right": [
