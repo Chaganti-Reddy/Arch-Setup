@@ -27,7 +27,7 @@
         "custom/left2",
         "custom/cpuinfo",       // temperature
 
-        "custom/left3",
+        // "custom/left3",
         "memory",               // memory
         
         "custom/left4",
