@@ -38,6 +38,7 @@
 # paru -S ani-cli-git arch-wiki-docs ytfzf-git  --noconfirm
 # yay -S walogram-git docker-desktop # Optional
 # sudo pacman -S yt-dlp go hugo hunspell hunspell-en_us imagemagick ueberzug luacheck mlocate newsboat nodejs npm texlive-bin texlive-meta texlive-latex texlive-basic translate-shell --noconfirm
+# sudo pacman -S texlive-binextra perl-yaml-tiny perl-file-homedir perl-unicode-linebreak
 
 # 8. Mariadb setup
 # sudo pacman -S mariadb --noconfirm
