@@ -45,7 +45,14 @@ sudo make clean install
 
 10. If you have any doubt feel free to comment it and make sure you watch the youtube videos regarding that particular application before commenting in github.
 
-11. ALso there is an install.sh script which contains my packages list to install, check it and uncomment or comment lines as per your need
+11. Also there is an install.sh script which contains my packages list to install, check it and uncomment or comment lines as per your need
+
+12. If you are dual-booting with windows then there might be problems with time in windows. To resolve that open cmd as admin in windows
+    a. For 32 Bit System rum
+          Reg add HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsUniversal /t REG_DWORD /d 1
+    b. For 64 Bit System run
+          Reg add HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsUniversal /t REG_QWORD /d 1
+
 
 ## Configuration
 
