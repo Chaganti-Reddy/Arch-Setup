@@ -166,6 +166,7 @@
 # Install python packages
 # pip install pynvim numpy pandas matplotlib seaborn scikit-learn jupyterlab ipykernel ipywidgets tensorflow python-prctl inotify-simple psutil opencv-python keras mov-cli-youtube mov-cli mov-cli-test otaku-watcher film-central daemon
 # pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu # pytorch cpu version
+# pip install jupyterlab_wakatime
 
 ### HYPRLAND
 
