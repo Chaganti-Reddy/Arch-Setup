@@ -4,6 +4,9 @@
 # mkdir Downloads Documents Music Videos Pictures Desktop Git
 # Update the system
 # sudo pacman -Syu archlinux-keyring --noconfirm
+#
+# Dual boot windows time changing problem solution --> Go to cmd with admiin permissions and run the following 
+# Reg add HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsUniversal /t REG_QWORD /d 1
 
 # 1. Install essential packages
 # sudo pacman -S base-devel intel-ucode git vim zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting bash-completion openssh wget curl btop fastfetch bat exa fd ripgrep fzf stow stylua tar tree time acpilight aria2 unrar unzip bluez bluez-utils brightnessctl xfsprogs ntfs-3g clang gcc clipmenu clipnotify inotify-tools psutils dunst e2fsprogs gvfs gvfs-afc gvfs-google gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb efibootmgr zoxide gc git-lfs gnome-keyring polkit-gnome pass udiskie gstreamer jq xdotool screenkey xorg-xprop lazygit lolcat sxiv shellcheck net-tools numlockx prettier progress zip rsync trash-cli tlp tlp-rdw neovim xorg-xinput xclip xcompmgr xorg-xrandr xorg-xsetroot xsel xwallpaper pandoc starship python-pywal glow xarchiver xfce4-clipman-plugin qemu-full libguestfs xorg-xman man-db man-pages ncdu python-adblock dnsmasq python-pip nwg-look python-prctl vscode-css-languageserver ffmpegthumbnailer virt-manager spice-vdagent lua-language-server pass pinentry gnupg pass-otp zbar xorg-xlsclients xscreensaver os-prober qt5ct pamixer qt5-wayland qt6-wayland parallel shfmt tesseract html-xml-utils --noconfirm
@@ -126,6 +129,7 @@
 # # sudo cp -r ~/dotfiles/Extras/Extras/boot/grub/themes/mocha /boot/grub/themes/
 # sudo cp -r ~/dotfiles/Extras/Extras/boot/grub/themes/tartarus/ /boot/grub/themes/
 # Now edit the grub config file
+# Remove the quiet option from the GRUB_CMDLINE_LINUX_DEFAULT line if you want to check all the log 
 # sudo cp ~/dotfiles/Extras/Extras/etc/bash.bashrc /etc/
 # sudo cp ~/dotfiles/Extras/Extras/etc/DIR_COLORS /etc/
 # sudo cp ~/dotfiles/Extras/Extras/etc/mpd.conf /etc/
