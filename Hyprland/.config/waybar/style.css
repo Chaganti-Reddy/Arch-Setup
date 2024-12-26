@@ -288,7 +288,7 @@ tooltip {
 }
 
 #custom-right2 {
-    color: rgba(255, 77, 77, 0.5);
+    color: rgba(255, 77, 77, 0.8);
     /* Bright orange */
     background: transparent;
     text-shadow: -1px 0px 2px rgba(0, 0, 0, 0.6);
