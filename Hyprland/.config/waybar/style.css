@@ -5,7 +5,7 @@
     font-weight: bold;
     font-size: 11px;
     min-height: 10px;
-  color: rgba(255, 255, 0, 1);
+  color: rgba(255, 200, 0, 1);
 text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
 }
 
@@ -36,7 +36,7 @@ tooltip {
 }
 tooltip label {
   /* color: rgba(255, 77, 0, 1); */
-  color: #ffff00;
+  color: rgba(255, 200, 0, 1);
   font-weight: bold;
   margin: 0.25px;
 }
@@ -82,7 +82,7 @@ tooltip label {
 #cpu,
 #memory,
 #network {
-    color: #ffff00;
+    color: rgba(255, 200, 0, 1);
     /* Ensure consistent text color for modules */
 }
 
@@ -437,7 +437,7 @@ tooltip {
 /* Pomodoro Module */
 
 #custom-pomodoro {
-    color: rgba(255, 255, 0, 0.8);
+    color: rgba(255, 150, 0, 0.8);
     background: rgba(255, 77, 77, 0.15);
     padding: 5px;
     border-radius: 4px;
@@ -456,14 +456,14 @@ tooltip {
 #custom-pomodoro.break {
     background: @hover-bg;
     /* Hover state background for breaks */
-    color: rgba(255, 255, 0, 0.5);
+    color: rgba(255, 150, 0, 0.5);
     /* Hover state foreground for breaks */
 }
 
 #custom-pomodoro.pause {
     background: rgba(255, 77, 77, 0.15);
     /* Neutral background for pause */
-    color: rgba(255, 255, 0, 0.7);
+    color: rgba(255, 150, 0, 0.7);
     /* Match foreground color */
     opacity: 0.8;
     /* Slightly dimmed for paused state */
@@ -492,7 +492,7 @@ tooltip {
 /* } */
 
 #bluetooth {
-    color: rgba(255, 255, 0, 1);
+    color: rgba(255, 150, 0, 1);
     background: rgba(255, 77, 77, 0.3);
     padding: 5px;
     border-radius: 0px;
