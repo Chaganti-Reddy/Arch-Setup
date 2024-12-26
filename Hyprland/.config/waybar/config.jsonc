@@ -23,13 +23,13 @@
 
 	"modules-center": [
         "custom/paddc",
+        "custom/left1",
         "custom/kernelinfo",
         "custom/left2",
         "custom/cpuinfo",       // temperature
 
         // "custom/left3",
         "memory",               // memory
-        
         "custom/left4",
         "cpu",                  // cpu
         "custom/leftin1",
@@ -45,12 +45,13 @@
         "clock#date",           // date
         "custom/right4",
 
-        "network"          // connection
+        "network",          // connection
         // "network#speed",
-        // "custom/right5"
+        "custom/right5"
     ],
 
 	"modules-right": [
+        "custom/left9",
         "custom/pomodoro",
         
         // "custom/left6",
@@ -128,10 +129,10 @@
 "network": {
     "tooltip": true,
     "format-wifi": 
-      // "<span foreground='#99ffdd'> {bandwidthDownBytes}</span> <span foreground='#ffcc66'> {bandwidthUpBytes}</span>",
-        "<span foreground='#ffcc66'> {bandwidthDownBytes}</span> <span foreground='#ffcc66'> {bandwidthUpBytes}</span>",
+        // "<span foreground='#ffcc66'> {bandwidthDownBytes}</span> <span foreground='#ffcc66'> {bandwidthUpBytes}</span>",
+        "<span foreground='#ffff00'> {bandwidthDownBytes}</span> <span foreground='#ffff00'> {bandwidthUpBytes}</span>",
     "format-ethernet": 
-      "<span foreground='#ffcc66'> {bandwidthDownBytes}</span> <span foreground='#ffcc66'> {bandwidthUpBytes}</span>",
+      "<span foreground='#ffff00'> {bandwidthDownBytes}</span> <span foreground='#ffff00'> {bandwidthUpBytes}</span>",
 
     "tooltip-format": 
       "Network: <big><b>{essid}</b></big>\nSignal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>\nGateway: <b>{gwaddr}</b>\nNetmask: <b>{netmask}</b>",
@@ -550,6 +551,10 @@
         "format": "",
         "tooltip": false
     },
+     "custom/left9": {
+        "format": "",
+        "tooltip": false
+    },
 
 // Right Arrows
     "custom/right1": {
@@ -582,9 +587,17 @@
         "format": "",
         "tooltip": false
     },
+    "custom/leftin3": {
+        "format": "",
+        "tooltip": false
+    },
 
 // Right Inverse
     "custom/rightin1": {
+        "format": "",
+        "tooltip": false
+    },
+    "custom/rightin2": {
         "format": "",
         "tooltip": false
     }
