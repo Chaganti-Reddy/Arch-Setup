@@ -5,6 +5,8 @@
     font-weight: bold;
     font-size: 11px;
     min-height: 10px;
+  color: rgba(255, 255, 0, 1);
+text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
 }
 
 @import "theme.css";
@@ -26,17 +28,22 @@ window#waybar>box {
 
 /* Tooltip Styling */
 tooltip {
-    color: @foreground;
-    /* Text in tooltips */
-    background: @background;
-    border: solid 1.5px transparent;
-    /* Remove colored border */
-    border-radius: 7px;
+  background: @main-bg;
+  border: solid;
+  border-width: 1.5px;
+  border-radius: 8px;
+  border-color: @main-br;
+}
+tooltip label {
+  /* color: rgba(255, 77, 0, 1); */
+  color: #ffff00;
+  font-weight: bold;
+  margin: 0.25px;
 }
 
 /* Workspace Button */
 #workspaces button {
-    color: @foreground;
+    color: rgba(255, 255, 0, 1);
     background: @background;
     /* Text matches the main theme */
     border-radius: 8px;
@@ -49,7 +56,7 @@ tooltip {
 
 /* Active Workspace Button */
 #workspaces button.active {
-    color: @active-fg;
+    color: #fff;
     /* White text */
     background: @active-bg;
     /* Fiery red background */
@@ -61,11 +68,11 @@ tooltip {
 
 /* Hover Effect for Workspace Buttons */
 #workspaces button:hover {
-    color: @hover-fg;
+    color: @active-fg;
     /* White text for hover */
-    background: @hover-bg;
+    background: rgba(255, 77, 77, 0.4);;
     /* Warm orange background */
-    box-shadow: 0px 0px 6px 2px rgba(255, 163, 71, 0.8);
+    box-shadow: 0px 0px 4px rgba(255, 77, 77, 0.8);
     /* Orange glow */
     transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
 }
@@ -75,13 +82,13 @@ tooltip {
 #cpu,
 #memory,
 #network {
-    color: @foreground;
+    color: #ffff00;
     /* Ensure consistent text color for modules */
 }
 
 /* Tooltip Text */
 tooltip {
-    color: #ffffff;
+    /* color: #ffffff; */
     /* White for readability */
 }
 
@@ -91,6 +98,7 @@ tooltip {
 #window,
 #custom-cpuinfo,
 #memory,
+#network,
 #cpu,
 #clock,
 #custom-wifi,
@@ -151,7 +159,7 @@ tooltip {
 
 /* Workspaces */
 #custom-left1 {
-    color: @workspaces;
+    color: rgba(255, 77, 77, 0.15);
     background: @background;
     padding-left: 2px;
 }
@@ -162,7 +170,7 @@ tooltip {
 }
 
 #custom-right1 {
-    color: rgba(255, 165, 79, 0.1);
+    color: rgba(255, 165, 79, 0.15);
     /* background: @background; */
 }
 
@@ -172,51 +180,64 @@ tooltip {
 }
 
 #custom-left2 {
-    color: rgba(255, 165, 79, 0.2);
-    background: @background;
-    border-radius: 10px;
-    padding-left: 3px;
+    /* color: rgba(255, 165, 79, 0.2); */
+  color: rgba(255, 77, 77, 0.3);
+    background: rgba(255, 77, 77, 0.15);
+    /* border-radius: 10px; */
+    /* padding-left: 3px; */
 }
 
 #custom-cpuinfo {
-    background: rgba(255, 165, 79, 0.1);
+    /* background: rgba(255, 165, 79, 0.1); */
+  background: rgba(255, 77, 77, 0.3);
     padding-left: 1px;
     padding-right: 0px;
 }
 
 /* Memory */
 #custom-left3 {
-    color: rgba(255, 165, 79, 0.1);
+    color: rgba(255, 77, 77, 0.3);
     /* background: @cpuinfo; */
     padding-left: 3px;
 }
 
 #memory {
-    background: rgba(255, 165, 79, 0.1);
+    /* background: rgba(255, 165, 79, 0.1); */
+  background: rgba(255, 77, 77, 0.3);
+    padding-left: 1px;
+    padding-right: 0px;
+}
+
+#custom-kernelinfo {
+    /* background: rgba(255, 165, 79, 0.1); */
+  background: rgba(255, 77, 77, 0.15);
     padding-left: 1px;
     padding-right: 0px;
 }
 
 /* CPU */
 #custom-left4 {
-    color: rgba(255, 165, 79, 0.2);
-    /* background: @memory; */
+    /* color: rgba(255, 165, 79, 0.2); */
+  color: rgba(255, 77, 77, 0.5);
+    background: rgba(255, 77, 77, 0.3);
     padding-left: 3px;
 }
 
 #cpu {
-    background: rgba(255, 165, 79, 0.2);
+    /* background: rgba(255, 165, 79, 0.2); */
+  background: rgba(255, 77, 77, 0.5);
 }
 
 #custom-leftin1 {
-    color: rgba(255, 165, 79, 0.2);
+    color: rgba(255, 77, 77, 0.5);
+  background: #000;
     font-size: 12.2pt;
     margin-bottom: -2px;
 }
 
 /* Arch Logo */
 #custom-left5 {
-    color: #ffa500;
+    color: rgba(255, 77, 77, 0.8);
     /* Bright orange */
     background: transparent;
     text-shadow: -1px 0px 2px rgba(0, 0, 0, 0.6);
@@ -236,9 +257,11 @@ tooltip {
 }
 
 #idle_inhibitor {
-    color: #ffae42;
+    /* color: #ffae42; */
+  color: rgba(255, 255, 50, 1);
     /* Warm orange to match the theme */
-    background: rgba(255, 174, 66, 0.3);
+    /* background: rgba(255, 174, 66, 0.3); */
+    background: rgba(255, 77, 77, 0.8);
     /* Light orange with 30% opacity */
     font-size: 11pt;
     /* Retain font size */
@@ -265,7 +288,7 @@ tooltip {
 }
 
 #custom-right2 {
-    color: #ffa500;
+    color: rgba(255, 77, 77, 0.5);
     /* Bright orange */
     background: transparent;
     text-shadow: -1px 0px 2px rgba(0, 0, 0, 0.6);
@@ -274,28 +297,29 @@ tooltip {
 
 /* Time */
 #custom-rightin1 {
-    color: rgba(255, 165, 79, 0.2);
+    color: rgba(255, 77, 77, 0.5);
+  background: #000;
     font-size: 12.2pt;
     margin-bottom: -2px;
 }
 
 #clock.time {
-    background: rgba(255, 165, 79, 0.2);
+    background: rgba(255, 77, 77, 0.5);
 }
 
 #custom-right3 {
-    color: rgba(255, 165, 79, 0.2);
-    /* background: @date; */
+    color: rgba(255, 77, 77, 0.5);
+    background: rgba(255, 77, 77, 0.3);
 }
 
 /* Date */
 #clock.date {
-    background: rgba(255, 165, 79, 0.1);
+    background: rgba(255, 77, 77, 0.3);
 }
 
 #custom-right4 {
-    color: rgba(255, 165, 79, 0.2);
-    /* background: @wifi; */
+    color: rgba(255, 77, 77, 0.3);
+    background: rgba(255, 77, 77, 0.15);
 }
 
 /* Network */
@@ -312,8 +336,12 @@ tooltip {
     padding-left: 0px;
 }
 
+#network {
+  background: rgba(255, 77, 77, 0.15);
+}
+
 #custom-right5 {
-    color: rgba(255, 165, 79, 0.1);
+    color: rgba(255, 77, 77, 0.15);
     /* background: @background; */
 }
 
@@ -326,42 +354,48 @@ tooltip {
 
 /* PulseAudio */
 #custom-left6 {
-    color: rgba(255, 165, 79, 0.2);
-    /* background: @background; */
+    color: rgba(255, 77, 77, 0.3);
+    background: rgba(255, 77, 77, 0.15);
     padding-left: 3px;
 }
 
 #custom-left11 {
-    color: rgba(255, 165, 79, 0.2);
+    color: rgba(255, 77, 77, 0.1);
     /* background: @background; */
     padding-left: 3px;
     padding-right: 3px;
 }
 
 #pulseaudio {
-    background: rgba(255, 165, 79, 0.15);
+    background: rgba(255, 77, 77, 0.3);
 }
 
 /* Brightness */
 #custom-left7 {
-    color: rgba(255, 165, 79, 0.2);
-    /* background: @pulseaudio; */
+    color: rgba(255, 77, 77, 0.5);
+    background: rgba(255, 77, 77, 0.3);
     padding-left: 2px;
 }
 
 #backlight {
-    background: rgba(255, 165, 79, 0.15);
+    background: rgba(255, 77, 77, 0.5);
 }
 
 /* Battery */
 #custom-left8 {
-    color: rgba(255, 165, 79, 0.2);
-    /* background: @backlight; */
+    color: rgba(255, 77, 77, 0.8);
+    background: rgba(255, 77, 77, 0.5);
+    padding-left: 2px;
+}
+
+#custom-left9 {
+    color: rgba(255, 165, 79, 0.15);
+    background: #000;
     padding-left: 2px;
 }
 
 #battery {
-    background: rgba(255, 165, 79, 0.15);
+    background: rgba(255, 77, 77, 0.8);
 }
 
 #battery.warning {
@@ -374,7 +408,7 @@ tooltip {
 
 /* Power Button */
 #custom-leftin2 {
-    color: rgba(255, 165, 79, 0.2);
+    color: rgba(255, 77, 77, 0.8);
     background: @background;
     font-size: 12.2pt;
     margin-bottom: -2px;
@@ -403,17 +437,17 @@ tooltip {
 /* Pomodoro Module */
 
 #custom-pomodoro {
-    color: @foreground;
-    background: rgba(255, 165, 79, 0.09);
+    color: rgba(255, 255, 0, 0.8);
+    background: rgba(255, 77, 77, 0.15);
     padding: 5px;
     border-radius: 4px;
 }
 
 /* Pomodoro States */
 #custom-pomodoro.work {
-    background: @active-bg;
+    background: rgba(100, 50, 50, 1);
     /* Active state background for work */
-    color: @active-fg;
+    color: rgba(255, 255, 0, 1);
     /* Active state foreground for work */
     text-shadow: 0px 0px 3px rgba(255, 255, 255, 0.6);
     /* Bright shadow */
@@ -422,14 +456,14 @@ tooltip {
 #custom-pomodoro.break {
     background: @hover-bg;
     /* Hover state background for breaks */
-    color: @hover-fg;
+    color: rgba(255, 255, 0, 0.5);
     /* Hover state foreground for breaks */
 }
 
 #custom-pomodoro.pause {
-    background: @background;
+    background: rgba(255, 77, 77, 0.15);
     /* Neutral background for pause */
-    color: @foreground;
+    color: rgba(255, 255, 0, 0.7);
     /* Match foreground color */
     opacity: 0.8;
     /* Slightly dimmed for paused state */
@@ -458,8 +492,8 @@ tooltip {
 /* } */
 
 #bluetooth {
-    color: @foreground;
-    background: rgba(255, 165, 79, 0.15);
+    color: rgba(255, 255, 0, 1);
+    background: rgba(255, 77, 77, 0.3);
     padding: 5px;
     border-radius: 0px;
 }
