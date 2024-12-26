@@ -16,7 +16,7 @@
     prompt-padding:              4px;
     alternate-normal-background: #1a1a1a;
     alternate-normal-foreground: @text-color;
-    selected-normal-background:  rgba(255, 165, 79, 0.2);
+    selected-normal-background:  rgba(255, 77, 77, 0.3);
     selected-normal-foreground:  #ffffff;
     spacing:                     3;
 }
