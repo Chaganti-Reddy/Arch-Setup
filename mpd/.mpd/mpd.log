@@ -63,3 +63,4 @@ Dec 07 12:36 : exception: inotify_add_watch() has failed: No such file or direct
 Dec 09 15:12 : exception: inotify_add_watch() has failed: No such file or directory
 Dec 09 17:02 : exception: inotify_add_watch() has failed: No such file or directory
 Dec 09 17:04 : exception: inotify_add_watch() has failed: No such file or directory
+Dec 27 15:54 : exception: inotify_add_watch() has failed: No such file or directory
