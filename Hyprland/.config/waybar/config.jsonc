@@ -22,7 +22,7 @@
     ],
 
 	"modules-center": [
-        "custom/paddc",
+        // "custom/paddc",
         "custom/left1",
         "custom/kernelinfo",
         "custom/left2",
