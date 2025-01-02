@@ -379,6 +379,9 @@ function rmfzf() {
 zle -N rmfzf
 bindkey '^X^A' rmfzf
 
+
+[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/karna/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
