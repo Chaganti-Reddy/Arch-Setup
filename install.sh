@@ -53,6 +53,7 @@
 # sudo systemctl enable --now bluetooth.service
 # sudo systemctl enable lightdm.service
 # sudo systemctl enable --now libvirtd
+# sudo systemctl enable --now docker.service
 
 # 10. Permissions
 # sudo usermod -aG docker $USER
@@ -190,3 +191,6 @@
 #
 # Compiler.nvim for neovim compilation --> Choose what you need 
 # paru -S --needed "gcc" "binutils" "dotnet-runtime" "dotnet-sdk" "aspnet-runtime" "mono" "jdk-openjdk" "dart" "kotlin" "elixir" "npm" "nodejs" "typescript" "make" "go" "nasm" "r" "nuitka" "python" "ruby" "perl" "lua" "pyinstaller" "swift-language" "flutter-bin" "gcc-fortran" "fortran-fpm-bin"
+#
+# Kubernetes installing locally using kind 
+# paru -S kind-bin
