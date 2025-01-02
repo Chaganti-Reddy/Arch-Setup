@@ -342,6 +342,7 @@ tooltip {
 
 #custom-right5 {
     color: rgba(255, 77, 77, 0.15);
+    background: #000;
     /* background: @background; */
 }
 
