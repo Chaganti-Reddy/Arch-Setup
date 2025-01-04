@@ -1,0 +1,63 @@
+[global]
+
+[player]
+initial_volume = 50
+dbus = true
+hide_channels_on_homepage = true
+hide_albums_on_homepage = false
+volume_slider = true
+shuffle = false
+
+[player.gauge_paused_style]
+fg = "Yellow"
+add_modifier = ""
+sub_modifier = ""
+
+[player.gauge_playing_style]
+fg = "Green"
+add_modifier = ""
+sub_modifier = ""
+
+[player.gauge_nomusic_style]
+fg = "White"
+add_modifier = ""
+sub_modifier = ""
+
+[player.text_paused_style]
+fg = "Yellow"
+add_modifier = ""
+sub_modifier = ""
+
+[player.text_playing_style]
+fg = "Green"
+add_modifier = ""
+sub_modifier = ""
+
+[player.text_next_style]
+fg = "White"
+add_modifier = ""
+sub_modifier = ""
+
+[player.text_waiting_style]
+fg = "White"
+add_modifier = ""
+sub_modifier = ""
+
+[player.text_downloading_style]
+fg = "Blue"
+add_modifier = ""
+sub_modifier = ""
+
+[player.text_error_style]
+fg = "Red"
+add_modifier = ""
+sub_modifier = ""
+
+[player.text_searching_style]
+fg = "LightCyan"
+add_modifier = ""
+sub_modifier = ""
+
+[playlist]
+
+[search]
