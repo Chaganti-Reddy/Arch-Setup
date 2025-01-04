@@ -194,3 +194,8 @@
 #
 # Kubernetes installing locally using kind 
 # paru -S kind-bin
+#
+# YTERMUSIC - youtube music in terminal 
+# installation -  cargo install ytermusic --git https://github.com/ccgauche/ytermusic 
+# setup - https://github.com/ccgauche/ytermusic/blob/master/README.md
+# just copy the cookie value from / document in network tab on f12 in youtube music and just paste in ~/dotfiles/ytermusic/.config/ytermusic/headers.txt cookie value
