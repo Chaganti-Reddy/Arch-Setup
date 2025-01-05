@@ -199,3 +199,7 @@
 # installation -  cargo install ytermusic --git https://github.com/ccgauche/ytermusic 
 # setup - https://github.com/ccgauche/ytermusic/blob/master/README.md
 # just copy the cookie value from / document in network tab on f12 in youtube music and just paste in ~/dotfiles/ytermusic/.config/ytermusic/headers.txt cookie value
+#
+# For alternative we can use youtui (Present using)
+# cargo install youtui
+# copy cookie value and paste in cookie.txt in ~/.config/youtui/
