@@ -44,6 +44,25 @@ if ! command -v paru &>/dev/null; then
 fi
 clear
 
+echo "Checking and removing packages: dolphin, htop, and wofi..."
+
+# Array of packages to check and remove
+packages=("dolphin" "htop" "wofi")
+
+for pkg in "${packages[@]}"; do
+  if pacman -Qi "$pkg" &>/dev/null; then
+    echo "$pkg is installed. Removing..."
+    sudo pacman -Rns --noconfirm "$pkg"
+    dialog --msgbox "$pkg has been removed successfully." 10 50
+  else
+    echo "$pkg is not installed."
+  fi
+done
+
+dialog --msgbox "Package check and removal process is complete." 10 50
+
+clear
+
 # Install base-devel and required packages
 echo "Installing dependencies.." && sleep 2
 
@@ -212,10 +231,13 @@ if [ $exit_status -ne 0 ]; then
 else
   dialog --msgbox "KVM installation will begin now." 10 50
 
-  sudo pacman -S --noconfirm qemu-full virt-manager spice-vdagent 
+sudo pacman -S qemu-full qemu-img libvirt virt-install virt-manager virt-viewer spice-vdagent edk2-ovmf dnsmasq swtpm guestfs-tools libosinfo tuned
   sudo systemctl enable --now libvirtd.service
   sudo usermod -aG libvirt "$USER"
 sudo virsh net-autostart default
+
+sudo modprobe -r kvm_intel
+sudo modprobe kvm_intel nested=1
 
   dialog --msgbox "QEMU installation completed." 10 50
 fi
