@@ -47,7 +47,7 @@ clear
 # Install base-devel and required packages
 echo "Installing dependencies.." && sleep 2
 
-sudo pacman -S --noconfirm --needed base-devel intel-ucode vim zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting bash-completion openssh wget curl btop fastfetch bat exa fd ripgrep fzf stow stylua tar tree time acpilight aria2 unrar unzip bluez bluez-utils brightnessctl xfsprogs ntfs-3g clang gcc clipmenu clipnotify inotify-tools psutils dunst e2fsprogs gvfs gvfs-afc gvfs-google gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb efibootmgr zoxide gc git-lfs gnome-keyring polkit-gnome pass udiskie gstreamer jq xdotool screenkey xorg-xprop lazygit lolcat sxiv shellcheck net-tools numlockx prettier progress zip rsync trash-cli tlp tlp-rdw neovim feh xorg-xinput xclip xcompmgr xorg-xrandr xorg-xsetroot xsel xwallpaper pandoc starship python-pywal glow xarchiver xfce4-clipman-plugin qemu-full libguestfs bc xorg-xman man-db man-pages ncdu python-adblock dnsmasq python-pip nwg-look python-prctl vscode-css-languageserver ffmpegthumbnailer virt-manager spice-vdagent lua-language-server pass pinentry gnupg pass-otp zbar xorg-xlsclients xscreensaver os-prober qt5ct pamixer qt5-wayland qt6-wayland parallel shfmt tesseract html-xml-utils cava thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman thunar-vcs-plugin flameshot alacritty playerctl ncmpcpp mpd mpv mpc poppler poppler-glib adobe-source-code-pro-fonts noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-hack ttf-jetbrains-mono ttf-ubuntu-font-family ttf-ubuntu-mono-nerd ttf-ubuntu-nerd ttf-opensans gnu-free-fonts libnewt baobab gnome-disk-utility gparted pavucontrol ranger yad timeshift go hugo hunspell hunspell-en_us imagemagick ueberzug luacheck yt-dlp mlocate nodejs npm translate-shell jdk-openjdk openjdk-doc openjdk-src blueman zenity rofi rofi-emoji rofi-calc newsboat
+sudo pacman -S --noconfirm --needed base-devel intel-ucode vim zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting bash-completion openssh wget curl btop fastfetch bat exa fd ripgrep fzf stow stylua tar tree time acpilight aria2 unrar unzip bluez bluez-utils brightnessctl xfsprogs ntfs-3g clang gcc clipmenu clipnotify inotify-tools psutils dunst e2fsprogs gvfs gvfs-afc gvfs-google gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb efibootmgr zoxide gc git-lfs gnome-keyring polkit-gnome pass udiskie gstreamer jq xdotool screenkey xorg-xprop lazygit lolcat sxiv shellcheck net-tools numlockx prettier progress zip rsync trash-cli tlp tlp-rdw neovim feh xorg-xinput xclip xcompmgr xorg-xrandr xorg-xsetroot xsel xwallpaper pandoc starship python-pywal glow xarchiver xfce4-clipman-plugin libguestfs bc xorg-xman man-db man-pages ncdu python-adblock dnsmasq python-pip nwg-look python-prctl vscode-css-languageserver ffmpegthumbnailer lua-language-server pass pinentry gnupg pass-otp zbar xorg-xlsclients xscreensaver os-prober qt5ct pamixer qt5-wayland qt6-wayland parallel shfmt tesseract html-xml-utils cava thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman thunar-vcs-plugin flameshot alacritty playerctl ncmpcpp mpd mpv mpc poppler poppler-glib adobe-source-code-pro-fonts noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-hack ttf-jetbrains-mono ttf-ubuntu-font-family ttf-ubuntu-mono-nerd ttf-ubuntu-nerd ttf-opensans gnu-free-fonts libnewt baobab gnome-disk-utility gparted pavucontrol ranger yad timeshift go hugo hunspell hunspell-en_us imagemagick ueberzug luacheck yt-dlp mlocate nodejs npm translate-shell jdk-openjdk openjdk-doc openjdk-src blueman zenity rofi rofi-emoji rofi-calc newsboat
 
 paru -S --noconfirm --needed base-devel python-psutil preload git-remote-gcrypt pywal-git picom ttf-ms-fonts qt6ct-kde ccrypt didyoumean-git arch-wiki-docs material-black-colors-theme apple_cursor kvantum-theme-materia kvantum --noconfirm
 
@@ -57,11 +57,8 @@ sudo updatedb
 sudo mandb
 sudo systemctl enable --now tlp
 sudo systemctl enable --now bluetooth.service
-sudo systemctl enable --now libvirtd.service
 
 sudo usermod -aG video "$USER"
-sudo usermod -aG libvirt "$USER"
-sudo virsh net-start default
 
 echo "For VM sharing details https://docs.getutm.app/guest-support/linux/"
 
@@ -195,6 +192,30 @@ else
 
   # Remove the installer after installation
   rm Miniconda3-py310_24.3.0-0-Linux-x86_64.sh
+
+  dialog --msgbox "Miniconda installation completed." 10 50
+fi
+
+clear
+
+# -------------------------------------------------------------------------------------
+
+echo "Setting up KVM..."
+
+# Ask the user if they want to install Miniconda
+dialog --title "Install KVM QEMU?" \
+  --yesno "Would you like to install KVM QEMU Virtual Machine" 10 60
+
+exit_status=$?
+if [ $exit_status -ne 0 ]; then
+  dialog --msgbox "KVM installation skipped. Proceeding with the setup." 10 50
+else
+  dialog --msgbox "KVM installation will begin now." 10 50
+
+  sudo pacman -S --noconfirm qemu-full virt-manager spice-vdagent 
+  sudo systemctl enable --now libvirtd.service
+  sudo usermod -aG libvirt "$USER"
+  sudo virsh net-start default
 
   dialog --msgbox "Miniconda installation completed." 10 50
 fi
