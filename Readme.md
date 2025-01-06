@@ -6,7 +6,15 @@ This repository contains my personal configuration files for various application
 
 To utilize these dotfiles, you need a system running Arch Linux with the DWM window manager installed. You will also require Git to clone and manage the repository. If you don't have it already, install Git using your package manager.
 
-## Installation
+## Automated Installation 
+
+Read install.sh carefully and modify options whatever you want and just run 
+
+```bash 
+./install.sh
+```
+
+## Manual Installation
 
 1. I have used stow to manage the dotfiles, so you need to install stow:
 ```bash
