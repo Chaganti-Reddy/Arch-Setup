@@ -217,7 +217,7 @@ else
   sudo usermod -aG libvirt "$USER"
   sudo virsh net-start default
 
-  dialog --msgbox "Miniconda installation completed." 10 50
+  dialog --msgbox "QEMU installation completed." 10 50
 fi
 
 clear
