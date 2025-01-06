@@ -215,7 +215,7 @@ else
   sudo pacman -S --noconfirm qemu-full virt-manager spice-vdagent 
   sudo systemctl enable --now libvirtd.service
   sudo usermod -aG libvirt "$USER"
-  sudo virsh net-start default
+sudo virsh net-autostart default
 
   dialog --msgbox "QEMU installation completed." 10 50
 fi
