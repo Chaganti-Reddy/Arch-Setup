@@ -805,7 +805,24 @@ cd ~/dotfiles/
 
 rm ~/.bashrc ~/.zshrc
 
+# choice yes or no 
+#
+
+dialog --title "Install Extras?" \
+  --yesno "Please Press No since these are my installs(You can copy configs from dots)?" 10 60
+
+exit_status=$?
+if [ $exit_status -ne 0 ]; then
+  dialog --msgbox "Copy all configs from dots but before using change username from mine to yours..." 10 50
+  exit 0
+else
+  dialog --msgbox "Extras installation will begin now." 10 50
+fi
+
 stow anipy-cli bashrc BTOP cava dunst face fastfetch DWMScripts flameshot gtk-3 Kvantum latexmkrc libreoffice mpd mpv ncmpcpp newsboat nvim NWG octave pandoc pavucontrol picom Profile qt6ct qutebrowser ranger redyt rofi screenlayout screensaver starship XFCEPic xsettingsd zathura zsh
+
+# Show confirmation message
+dialog --msgbox "Extras have been installed." 10 50
 
 clear
 
