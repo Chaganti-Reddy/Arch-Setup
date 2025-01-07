@@ -689,43 +689,6 @@ fi
 
 clear
 
-# -------------------------------------------------------------------------------------
-
-echo "Setting up Qtile..."
-
-# Ask the user if they want to install dwm
-dialog --title "Install Qtile?" \
-  --yesno "Would you like to install Qtile (Python based Window Manager)?" 10 60
-
-exit_status=$?
-if [ $exit_status -ne 0 ]; then
-  dialog --msgbox "Qtile installation skipped. Proceeding with the setup." 10 50
-else
-  dialog --msgbox "Qtile installation will begin now." 10 50
-
-  paru -Syu qtile feh picom-git alacritty --noconfirm --needed
-
-  cd ~/dotfiles
-
-  stow qtile picom qtile_themes qtile_wallpaper cava alacritty
-
-  echo "Pre-generating pywal colors..."
-  echo "Might take some time, hang on tight!"
-  wal -b 282738 -i ~/Wallpaper/Aesthetic2.png >/dev/null 2>&1
-  echo "Theme 1 ../done"
-  wal -b 282738 -i ~/Wallpaper/120_-_KnFPX73.jpg >/dev/null 2>&1
-  echo "Theme 2 ../done"
-  wal -i ~/Wallpaper/claudio-testa-FrlCwXwbwkk-unsplash.jpg >/dev/null 2>&1
-  echo "Theme 3 ../done"
-  wal -b 232A2E -i ~/Wallpaper/fog_forest_2.png >/dev/null 2>&1
-  echo "Theme 4 ../done"
-
-  # Inform the user that dwm has been installed
-  dialog --msgbox "Qtile has been installed. Please configure your system as needed." 10 50
-fi
-
-clear
-
 # --------------------------------------------------------------------------------------
 
 echo "Setting up Ollama..."
