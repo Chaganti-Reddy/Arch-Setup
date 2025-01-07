@@ -66,9 +66,9 @@ clear
 # Install base-devel and required packages
 echo "Installing dependencies.." && sleep 2
 
-sudo pacman -S --noconfirm --needed base-devel intel-ucode vim zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting bash-completion openssh wget curl btop fastfetch bat exa fd ripgrep fzf stow stylua tar tree time acpilight aria2 unrar unzip bluez bluez-utils brightnessctl xfsprogs ntfs-3g clang gcc clipmenu clipnotify inotify-tools psutils dunst e2fsprogs gvfs gvfs-afc gvfs-google gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb efibootmgr zoxide gc git-lfs gnome-keyring polkit-gnome pass udiskie gstreamer jq xdotool screenkey xorg-xprop lazygit lolcat sxiv shellcheck net-tools numlockx prettier progress zip rsync trash-cli tlp tlp-rdw neovim feh xorg-xinput xclip xcompmgr xorg-xrandr xorg-xsetroot xsel xwallpaper pandoc starship python-pywal glow xarchiver xfce4-clipman-plugin libguestfs bc xorg-xman man-db man-pages ncdu python-adblock dnsmasq python-pip nwg-look python-prctl vscode-css-languageserver ffmpegthumbnailer lua-language-server pass pinentry gnupg pass-otp zbar xorg-xlsclients xscreensaver os-prober qt5ct pamixer qt5-wayland qt6-wayland parallel shfmt tesseract html-xml-utils cava thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman thunar-vcs-plugin flameshot alacritty playerctl ncmpcpp mpd mpv mpc poppler poppler-glib adobe-source-code-pro-fonts noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-hack ttf-jetbrains-mono ttf-ubuntu-font-family ttf-ubuntu-mono-nerd ttf-ubuntu-nerd ttf-opensans gnu-free-fonts libnewt baobab gnome-disk-utility gparted pavucontrol ranger yad timeshift go hugo hunspell hunspell-en_us imagemagick ueberzug luacheck yt-dlp mlocate nodejs npm translate-shell jdk-openjdk openjdk-doc openjdk-src blueman zenity rofi rofi-emoji rofi-calc newsboat
+sudo pacman -S --noconfirm --needed base-devel intel-ucode vim zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting bash-completion openssh wget curl btop fastfetch bat exa fd ripgrep fzf stow stylua tar tree time acpilight aria2 unrar unzip bluez bluez-utils brightnessctl xfsprogs ntfs-3g clang gcc clipmenu clipnotify inotify-tools psutils dunst e2fsprogs gvfs gvfs-afc gvfs-google gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb efibootmgr zoxide gc git-lfs gnome-keyring polkit-gnome pass udiskie gstreamer jq xdotool screenkey xorg-xprop lazygit lolcat sxiv shellcheck net-tools numlockx prettier progress zip rsync trash-cli tlp tlp-rdw neovim feh xorg-xinput xclip xcompmgr xorg-xrandr xorg-xsetroot xsel xwallpaper pandoc starship python-pywal glow xarchiver xfce4-clipman-plugin libguestfs bc xorg-xman man-db man-pages ncdu python-adblock dnsmasq python-pip nwg-look python-prctl vscode-css-languageserver ffmpegthumbnailer lua-language-server pass pinentry gnupg pass-otp zbar xorg-xlsclients xscreensaver os-prober qt5ct pamixer qt5-wayland qt6-wayland parallel shfmt tesseract html-xml-utils cava thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman thunar-vcs-plugin flameshot  playerctl ncmpcpp mpd mpv mpc poppler poppler-glib adobe-source-code-pro-fonts noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-hack ttf-jetbrains-mono ttf-ubuntu-font-family ttf-ubuntu-mono-nerd ttf-ubuntu-nerd ttf-opensans gnu-free-fonts libnewt baobab gnome-disk-utility gparted pavucontrol ranger yad timeshift go hugo hunspell hunspell-en_us imagemagick ueberzug luacheck yt-dlp mlocate nodejs npm translate-shell jdk-openjdk openjdk-doc openjdk-src blueman zenity rofi rofi-emoji rofi-calc newsboat
 
-paru -S --noconfirm --needed base-devel python-psutil preload git-remote-gcrypt pywal-git picom ttf-ms-fonts qt6ct-kde ccrypt didyoumean-git arch-wiki-docs material-black-colors-theme apple_cursor kvantum-theme-materia kvantum --noconfirm
+paru -S --noconfirm --needed base-devel python-psutil preload git-remote-gcrypt pywal-git picom-git ttf-ms-fonts qt6ct-kde ccrypt didyoumean-git arch-wiki-docs material-black-colors-theme apple_cursor kvantum-theme-materia kvantum --noconfirm
 
 echo "Dependencies installed... executing services & permissions..." && sleep 1
 
@@ -603,6 +603,24 @@ fi
 
 clear
 
+# -------------------------------------------------------------------------------------
+
+echo "Setting up Fonts..."
+&& sleep 1
+
+mkdir -p ~/.local/share/fonts
+cd ~/.local/share/fonts
+
+git clone https://github.com/Chaganti-Reddy/my-fonts.git
+
+cd my-fonts
+
+rm -rf .git/
+
+cd ~/dotfiles/
+
+echo "Fonts have been installed..."
+
 # --------------------------------------------------------------------------------------
 
 echo "Setting up Hyprland..."
@@ -669,6 +687,28 @@ else
 
   # Inform the user that dwm has been installed
   dialog --msgbox "dwm has been installed. Please configure your system as needed." 10 50
+fi
+
+clear
+
+# -------------------------------------------------------------------------------------
+
+echo "Setting up Qtile..."
+
+# Ask the user if they want to install dwm
+dialog --title "Install Qtile?" \
+  --yesno "Would you like to install Qtile (Python based Window Manager)?" 10 60
+
+exit_status=$?
+if [ $exit_status -ne 0 ]; then
+  dialog --msgbox "Qtile installation skipped. Proceeding with the setup." 10 50
+else
+  dialog --msgbox "Qtile installation will begin now." 10 50
+
+  paru -Syu qtile pywal-git feh picom-git alacritty --noconfirm --needed
+
+  # Inform the user that dwm has been installed
+  dialog --msgbox "Qtile has been installed. Please configure your system as needed." 10 50
 fi
 
 clear
@@ -827,22 +867,6 @@ dialog --msgbox "Extras have been installed." 10 50
 clear
 
 # --------------------------------------------------------------------------------------
-
-echo "Setting up Fonts...
-&& sleep 1
-
-mkdir -p ~/.local/share/fonts
-cd ~/.local/share/fonts
-
-git clone https://github.com/Chaganti-Reddy/my-fonts.git
-
-cd my-fonts
-
-rm -rf .git/
-
-cd ~/dotfiles/
-
-echo "Fonts have been installed, moving some root files..."
 
 cd ~/dotfiles/Extras/Extras/
 
