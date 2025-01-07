@@ -66,9 +66,9 @@ clear
 # Install base-devel and required packages
 echo "Installing dependencies.." && sleep 2
 
-sudo pacman -S --noconfirm --needed base-devel intel-ucode vim zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting bash-completion openssh wget curl btop fastfetch bat exa fd ripgrep fzf stow stylua tar tree time acpilight aria2 unrar unzip bluez bluez-utils brightnessctl xfsprogs ntfs-3g clang gcc clipmenu clipnotify inotify-tools psutils dunst e2fsprogs gvfs gvfs-afc gvfs-google gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb efibootmgr zoxide gc git-lfs gnome-keyring polkit-gnome pass udiskie gstreamer jq xdotool screenkey xorg-xprop lazygit lolcat sxiv shellcheck net-tools numlockx prettier progress zip rsync trash-cli tlp tlp-rdw neovim feh xorg-xinput xclip xcompmgr xorg-xrandr xorg-xsetroot xsel xwallpaper pandoc starship python-pywal glow xarchiver xfce4-clipman-plugin libguestfs bc xorg-xman man-db man-pages ncdu python-adblock dnsmasq python-pip nwg-look python-prctl vscode-css-languageserver ffmpegthumbnailer lua-language-server pass pinentry gnupg pass-otp zbar xorg-xlsclients xscreensaver os-prober qt5ct pamixer qt5-wayland qt6-wayland parallel shfmt tesseract html-xml-utils cava thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman thunar-vcs-plugin flameshot  playerctl ncmpcpp mpd mpv mpc poppler poppler-glib adobe-source-code-pro-fonts noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-hack ttf-jetbrains-mono ttf-ubuntu-font-family ttf-ubuntu-mono-nerd ttf-ubuntu-nerd ttf-opensans gnu-free-fonts libnewt baobab gnome-disk-utility gparted pavucontrol ranger yad timeshift go hugo hunspell hunspell-en_us imagemagick ueberzug luacheck yt-dlp mlocate nodejs npm translate-shell jdk-openjdk openjdk-doc openjdk-src blueman zenity rofi rofi-emoji rofi-calc newsboat
+sudo pacman -S --noconfirm --needed base-devel intel-ucode vim zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting bash-completion openssh wget curl btop fastfetch bat exa fd ripgrep fzf stow stylua tar tree time acpilight aria2 unrar unzip bluez bluez-utils brightnessctl xfsprogs ntfs-3g clang gcc clipmenu clipnotify inotify-tools psutils dunst e2fsprogs gvfs gvfs-afc gvfs-google gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb efibootmgr zoxide gc git-lfs gnome-keyring polkit-gnome pass udiskie gstreamer jq xdotool screenkey xorg-xprop xorg-xinit xf86-video-intel lazygit lolcat sxiv shellcheck net-tools numlockx prettier progress zip rsync trash-cli tlp tlp-rdw neovim feh xorg-xinput xclip xcompmgr xorg-xrandr xorg-xsetroot xsel xwallpaper pandoc starship python-pywal glow xarchiver xfce4-clipman-plugin libguestfs bc xorg-xman man-db man-pages ncdu python-adblock dnsmasq python-pip nwg-look python-prctl vscode-css-languageserver ffmpegthumbnailer lua-language-server pass pinentry gnupg pass-otp zbar xorg-xlsclients xscreensaver os-prober qt5ct pamixer qt5-wayland qt6-wayland parallel shfmt tesseract html-xml-utils cava thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman thunar-vcs-plugin flameshot playerctl ncmpcpp mpd mpv mpc poppler poppler-glib adobe-source-code-pro-fonts noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-hack ttf-jetbrains-mono ttf-ubuntu-font-family ttf-ubuntu-mono-nerd ttf-ubuntu-nerd ttf-opensans gnu-free-fonts libnewt baobab gnome-disk-utility gparted pavucontrol ranger yad timeshift go hugo hunspell hunspell-en_us imagemagick ueberzug luacheck yt-dlp mlocate nodejs npm translate-shell jdk-openjdk openjdk-doc openjdk-src blueman zenity rofi rofi-emoji rofi-calc newsboat
 
-paru -S --noconfirm --needed base-devel python-psutil preload git-remote-gcrypt pywal-git picom-git ttf-ms-fonts qt6ct-kde ccrypt didyoumean-git arch-wiki-docs material-black-colors-theme apple_cursor kvantum-theme-materia kvantum --noconfirm
+paru -S --noconfirm --needed base-devel python-psutil preload git-remote-gcrypt ttf-ms-fonts qt6ct-kde ccrypt didyoumean-git arch-wiki-docs material-black-colors-theme apple_cursor kvantum-theme-materia kvantum --noconfirm
 
 echo "Dependencies installed... executing services & permissions..." && sleep 1
 
@@ -80,7 +80,6 @@ sudo systemctl enable --now bluetooth.service
 sudo usermod -aG video "$USER"
 
 echo "For VM sharing details https://docs.getutm.app/guest-support/linux/"
-
 
 # paru -S material-black-colors-theme apple_cursor kvantum-theme-materia kvantum --noconfirm
 
@@ -231,13 +230,13 @@ if [ $exit_status -ne 0 ]; then
 else
   dialog --msgbox "KVM installation will begin now." 10 50
 
-sudo pacman -S qemu-full qemu-img libvirt virt-install virt-manager virt-viewer spice-vdagent edk2-ovmf dnsmasq swtpm guestfs-tools libosinfo tuned
+  sudo pacman -S qemu-full qemu-img libvirt virt-install virt-manager virt-viewer spice-vdagent edk2-ovmf dnsmasq swtpm guestfs-tools libosinfo tuned
   sudo systemctl enable --now libvirtd.service
   sudo usermod -aG libvirt "$USER"
-sudo virsh net-autostart default
+  sudo virsh net-autostart default
 
-sudo modprobe -r kvm_intel
-sudo modprobe kvm_intel nested=1
+  sudo modprobe -r kvm_intel
+  sudo modprobe kvm_intel nested=1
 
   dialog --msgbox "QEMU installation completed." 10 50
 fi
@@ -605,8 +604,7 @@ clear
 
 # -------------------------------------------------------------------------------------
 
-echo "Setting up Fonts..."
-&& sleep 1
+echo "Setting up Fonts..." && sleep 1
 
 mkdir -p ~/.local/share/fonts
 cd ~/.local/share/fonts
@@ -705,7 +703,22 @@ if [ $exit_status -ne 0 ]; then
 else
   dialog --msgbox "Qtile installation will begin now." 10 50
 
-  paru -Syu qtile pywal-git feh picom-git alacritty --noconfirm --needed
+  paru -Syu qtile feh picom-git alacritty --noconfirm --needed
+
+  cd ~/dotfiles
+
+  stow qtile picom qtile_themes qtile_wallpaper cava alacritty
+
+  echo "Pre-generating pywal colors..."
+  echo "Might take some time, hang on tight!"
+  wal -b 282738 -i ~/Wallpaper/Aesthetic2.png >/dev/null 2>&1
+  echo "Theme 1 ../done"
+  wal -b 282738 -i ~/Wallpaper/120_-_KnFPX73.jpg >/dev/null 2>&1
+  echo "Theme 2 ../done"
+  wal -i ~/Wallpaper/claudio-testa-FrlCwXwbwkk-unsplash.jpg >/dev/null 2>&1
+  echo "Theme 3 ../done"
+  wal -b 232A2E -i ~/Wallpaper/fog_forest_2.png >/dev/null 2>&1
+  echo "Theme 4 ../done"
 
   # Inform the user that dwm has been installed
   dialog --msgbox "Qtile has been installed. Please configure your system as needed." 10 50
@@ -845,7 +858,7 @@ cd ~/dotfiles/
 
 rm ~/.bashrc ~/.zshrc
 
-# choice yes or no 
+# choice yes or no
 #
 
 dialog --title "Install Extras?" \
@@ -879,7 +892,6 @@ sudo cp etc/mpd.conf /etc/mpd.conf
 cp archcraft-dwm.zsh-theme ~/.oh-my-zsh/themes/archcraft-dwm.zsh-theme
 
 # Setup kaggle JSON and wakatime files using ccrypt
-
 
 # --------------------------------------------------------------------------------------
 
