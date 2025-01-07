@@ -103,6 +103,23 @@ export BROWSER='/usr/bin/zen-browser'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# On-demand rehash
+zshcache_time="$(date +%s%N)"
+
+autoload -Uz add-zsh-hook
+
+rehash_precmd() {
+  if [[ -a /var/cache/zsh/pacman ]]; then
+    local paccache_time="$(date -r /var/cache/zsh/pacman +%s%N)"
+    if (( zshcache_time < paccache_time )); then
+      rehash
+      zshcache_time="$paccache_time"
+    fi
+  fi
+}
+
+add-zsh-hook -Uz precmd rehash_precmd
+
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/fzf/completion.zsh
@@ -350,6 +367,7 @@ alias timeshift-wayland="sudo -E timeshift-gtk"
 alias nvimleetcode="cd /mnt/Karna/Git/Project-K/DSA/Leetcode/ && nvim leetcode.nvim"
 alias dsa="cd /mnt/Karna/Git/Project-K/DSA/"
 alias blog="cd /mnt/Karna/Git/My-Blog/"
+alias fontc="fc-cache -fv"
 
 function cheat() {
     curl cht.sh/$1
@@ -379,6 +397,11 @@ function rmfzf() {
 
 zle -N rmfzf
 bindkey '^X^A' rmfzf
+
+
+cat ~/.cache/wal/sequences
+
+export STARSHIP_LOG="error"
 
 
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
