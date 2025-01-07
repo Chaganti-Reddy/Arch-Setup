@@ -399,8 +399,6 @@ zle -N rmfzf
 bindkey '^X^A' rmfzf
 
 
-cat ~/.cache/wal/sequences
-
 export STARSHIP_LOG="error"
 
 
