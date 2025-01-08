@@ -1,7 +1,7 @@
 # DO NOT EDIT! This file will be overwritten by nwg-look.
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
-include "/home/karna/.gtkrc-2.0.mine"
+include "$HOME/.gtkrc-2.0.mine"
 gtk-theme-name="Material-Black-Cherry-3.38"
 gtk-icon-theme-name="MB-Cherry-Suru-GLOW"
 gtk-font-name="CaskaydiaCove Nerd Font Semi-Bold 11"
