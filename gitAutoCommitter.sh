@@ -50,33 +50,36 @@ while IFS= read -r line; do
 
   # Determine commit message based on file status
   case "$status" in
-    "A") # Added files (new files, untracked)
-      commit_message="create $file"
-      git add -- "$file"
-      ;;
-    "M") # Modified files
-      commit_message="update $file"
-      git add -- "$file"
-      ;;
-    "D") # Deleted files
-      commit_message="delete $file"
-      git rm -- "$file"
-      ;;
-    "??") # Untracked files (new files)
-      commit_message="create $file"
-      git add -- "$file"
-      ;;
-    *) # Other statuses
-      commit_message="change $file"
-      git add -- "$file"
-      ;;
+  "A") # Added files (new files, untracked)
+    commit_message="create $file"
+    git add -- "$file"
+    ;;
+  "M") # Modified files
+    commit_message="update $file"
+    git add -- "$file"
+    ;;
+  "D") # Deleted files
+    commit_message="delete $file"
+    git rm --cached --ignore-unmatch "$file" # Handle deletion
+    ;;
+  "??") # Untracked files (new files)
+    commit_message="create $file"
+    git add -- "$file"
+    ;;
+  *) # Other statuses
+    commit_message="Unknown status: $status for file: $file"
+    git add -- "$file"
+    ;;
   esac
 
   # Commit the change
   echo "Committing: \"$commit_message\""
-  git commit -m "$commit_message" && commit_counter=$((commit_counter + 1)) || { echo "Commit failed for file: $file"; continue; }
+  git commit -m "$commit_message" && commit_counter=$((commit_counter + 1)) || {
+    echo "Commit failed for file: $file"
+    continue
+  }
 
-done <<< "$(git status --porcelain)"
+done <<<"$(git status --porcelain)"
 
 # Check if there were no commits
 if [ "$commit_counter" -eq 0 ]; then
