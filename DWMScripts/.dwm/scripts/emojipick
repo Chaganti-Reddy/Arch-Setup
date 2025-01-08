@@ -13,7 +13,7 @@ font_family='"Noto Color Emoji"'
 font_size="12"
 
 # Path to personal emojis file to display them at top of the dmenu list.
-favorites=~/.myemojis
+favorites=$HOME/.myemojis
 
 # 1=Yes, 0=No
 use_rofi=0
