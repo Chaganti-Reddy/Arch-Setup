@@ -8,8 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="alanpeabody"
-ZSH_THEME="archcraft-dwm"
+ZSH_THEME="alanpeabody"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -89,7 +88,7 @@ else
   export EDITOR='nvim'
 fi
 
-export BROWSER='/usr/bin/zen-browser'
+export BROWSER='/usr/bin/firefox'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -160,28 +159,6 @@ function ex ()
   fi
 }
 
-function ctime() {
-    g++ -std=c++17 $1".cpp" -o $1
-    time ./$1
-}
-
-function mosscc() {
-    perl -i moss.pl -l cc $1 $2
-}
-
-function mosspy() {
-    perl -i moss.pl -l python $1 $2
-}
-
-function Restart() {
-  sh ~/.dwm/scripts/uptime reboot
-  systemctl reboot
-}
-
-function Shutdown() {
-  sh ~/.dwm/scripts/uptime shutdown
-  systemctl poweroff
-}
 
 ##Exports
 
@@ -189,9 +166,6 @@ export EDITOR='/usr/bin/nvim'
 export PAGER='bat'
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/dotfiles/DWMScripts/.dwm/bin/:$PATH"
-export PATH="$HOME/.config/emacs/bin:$PATH"
-export PATH="$HOME/.cargo/bin:$PATH"
 
 SUDO_EDITOR=/usr/bin/nvim
 export SUDO_EDITOR
@@ -207,7 +181,6 @@ export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f
 
 #list
 # alias emacs="emacsclient -c -a ''"
-alias zathura="$HOME/.local/bin/zathura"
 alias cd="z"
 alias cdi="zi"
 alias la='exa -al --colour=always --group-directories-first'
@@ -218,7 +191,7 @@ alias l='ls'
 alias l.="ls -A | egrep '^\.'"
 alias listdir="ls -d */ > list"
 alias depends='function_depends'
-alias yayo='yay -Syyu --overwrite "*"'
+alias paruo='paru -Syyu --overwrite "*"'
 
 #fix obvious typo's
 alias cd..='cd ..'
@@ -280,7 +253,7 @@ alias audio="pactl info | grep 'Server Name'"
 
 #skip integrity check
 alias paruskip='paru -S --mflags --skipinteg'
-alias yayskip='yay -S --mflags --skipinteg'
+alias paruskip='paru -S --mflags --skipinteg'
 alias trizenskip='trizen -S --skipinteg'
 
 #check cpu
@@ -336,14 +309,6 @@ alias rg="rg --sort path"
 alias ssn="sudo shutdown now"
 alias sr="reboot"
 
-# DWM 
-alias makedwm="cd ~/.config/dwm && rm config.h --f && sudo make clean install"
-alias makeslstatus="cd ~/.config/slstatus/ && rm config.h --f && make && sudo make install"
-alias dwmcon="nvim ~/.config/dwm/config.def.h"
-alias slstatuscon="nvim ~/.config/slstatus/config.def.h"
-alias dotfiles="cd $HOME/dotfiles/"
-alias n="nvim"
-
 #git 
 alias gs="git status"
 alias ga="git add"
@@ -354,71 +319,9 @@ alias gpb="git push -u origin"
 
 alias mkcd='f() { mkdir -p "$1" && cd "$1"; }; f'
 alias open='xdg-open'
-alias karna='cd /mnt/Karna'
 
-alias mangaread="curl -sSL mangal.metafates.one/run | sh"
-alias torrentwatch1="peerflix -k -a -q"
-alias torrentwatch2="webtorrent --mpv"
-alias torrentdownload="webtorrent download"
-alias anime1="ani-cli"
-alias anime2="anipy-cli"
-alias download="aria2c"
 alias timeshift-wayland="sudo -E timeshift-gtk"
-alias nvimleetcode="cd /mnt/Karna/Git/Project-K/DSA/Leetcode/ && nvim leetcode.nvim"
-alias dsa="cd /mnt/Karna/Git/Project-K/DSA/"
-alias blog="cd /mnt/Karna/Git/My-Blog/"
 alias fontc="fc-cache -fv"
-
-function cheat() {
-    curl cht.sh/$1
-}
-
-function fd() {
-    local dir
-    dir=$(
-        (zoxide query -l; find / -maxdepth 8 -type d -not -path "/proc/*" -not -path "/sys/*" -not -path "/run/*" 2>/dev/null) \
-        | fzf --preview 'ls -al {}' --tac
-    ) && cd "$dir" && zle clear-screen
-}
-
-
-zle -N fd
-bindkey '^O' fd 
-
-
-function rmfzf() {
-    local target
-    target=$(
-        (find . -maxdepth 1 -type f 2>/dev/null; \
-        find . -maxdepth 1 -type d 2>/dev/null) \
-        | fzf --preview 'ls -al {}' --tac
-    ) && trash "$target" && zle clear-screen  
-}
-
-zle -N rmfzf
-bindkey '^X^A' rmfzf
-
 
 export STARSHIP_LOG="error"
 
-
-[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/karna/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/karna/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/karna/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/karna/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-
-# Generated for envman. Do not edit.
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
