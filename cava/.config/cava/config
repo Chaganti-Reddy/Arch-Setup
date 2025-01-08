@@ -22,8 +22,8 @@
 # The number of bars (0-200). 0 sets it to auto (fill up console).
 # Bars' width and space between bars in number of characters.
 ; bars = 0
-; bar_width = 2
-; bar_spacing = 1
+bar_width = 8
+bar_spacing = 1
 # bar_height is only used for output in "noritake" format
 ; bar_height = 32
 
@@ -91,7 +91,7 @@
 #  in graphic mode. It only support the 3000 series graphical VFDs for now.
 #
 # 'sdl' uses the Simple DirectMedia Layer to render in a graphical context.
-; method = ncurses
+method = ncurses
 
 # Visual channels. Can be 'stereo' or 'mono'.
 # 'stereo' mirrors both channels with low frequencies in center.
@@ -144,13 +144,15 @@
 # background must also be defined in hex  or remain commented out. 1 = on, 0 = off.
 # You can define as many as 8 different colors. They range from bottom to top of screen
  gradient = 1
- gradient_count = 6
- gradient_color_6 = '#E894E1'
- gradient_color_5 = '#DA97E9'
- gradient_color_4 = '#C49AEB'
- gradient_color_3 = '#B49CEB'
- gradient_color_2 = '#A19FEC'
- gradient_color_1 = '#A2B5ED'
+ gradient_count = 8
+gradient_color_1 = '#B5E8E0'
+gradient_color_2 = '#89DCEB'
+gradient_color_3 = '#96CDFB'
+gradient_color_4 = '#DDB6F2'
+gradient_color_5 = '#F5C2E7'
+gradient_color_6 = '#E8A2AF'
+gradient_color_7 = '#F2CDCD'
+gradient_color_8 = '#F5E0DC'
 
 ; gradient_color_1 = '#D5CADE'
 ; gradient_color_2 = '#DCC7CC'
