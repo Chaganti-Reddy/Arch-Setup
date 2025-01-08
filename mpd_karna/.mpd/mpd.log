@@ -69,3 +69,5 @@ Jan 06 19:16 : exception: inotify_add_watch() has failed: No such file or direct
 Jan 06 19:18 : exception: inotify_add_watch() has failed: No such file or directory
 Jan 06 19:26 : exception: inotify_add_watch() has failed: No such file or directory
 Jan 06 19:28 : exception: inotify_add_watch() has failed: No such file or directory
+Jan 08 21:18 : exception: Failed to decode /home/karna/Music/Pee Loon Hoto Ki Sargam - Once Upon A Time In Mumbaai 320 Kbps.mp3; Failed to open '/home/karna/Music/Pee Loon Hoto Ki Sargam - Once Upon A Time In Mumbaai 320 Kbps.mp3': No such file or directory
+Jan 08 21:18 : player: played "Pee Loon Hoto Ki Sargam - Once Upon A Time In Mumbaai 320 Kbps.mp3"
