@@ -36,16 +36,17 @@ while IFS= read -r line; do
   status=$(echo "$line" | awk '{print $1}')
   file=$(echo "$line" | awk '{print substr($0, index($0,$2))}' | sed 's/^ *//')
 
-  # Check if the file is a directory (based on the status code)
-  if [ -d "$file" ]; then
-    continue
-  fi
-
   # Debugging: Output the status and file to ensure correct handling
-  echo "Processing file: $file with status: $status"
+  echo "Processing file: \"$file\" with status: $status"
 
   # Remove any unwanted quotes around the file name
   file=$(echo "$file" | sed 's/^"\(.*\)"$/\1/')
+
+  # Check if the file or directory exists
+  if [ ! -e "$file" ]; then
+    echo "Warning: File or directory $file does not exist."
+    continue
+  fi
 
   # Determine commit message based on file status
   case "$status" in
