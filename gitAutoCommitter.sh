@@ -43,7 +43,7 @@ while IFS= read -r line; do
   file=$(echo "$file" | sed 's/^"\(.*\)"$/\1/')
 
   # Check if the file or directory exists
-  if [ ! -e "$file" ]; then
+  if [ ! -e "$file" ] && [ "$status" != "D" ]; then
     echo "Warning: File or directory $file does not exist."
     continue
   fi
@@ -60,16 +60,15 @@ while IFS= read -r line; do
     ;;
   "D") # Deleted files
     commit_message="delete $file"
-
-    git rm "$file"
+    git rm --ignore-unmatch "$file"
     ;;
   "??") # Untracked files (new files)
     commit_message="create $file"
     git add -- "$file"
     ;;
   *) # Other statuses
-    commit_message="Unknown status: $status for file: $file"
-    git add -- "$file"
+    echo "Unknown status: $status for file: $file. Skipping."
+    continue
     ;;
   esac
 
@@ -96,8 +95,7 @@ read -p "Do you want to push these changes to branch '$branch'? (y/n): " confirm
 if [[ "$confirm_push" == "y" || "$confirm_push" == "Y" ]]; then
   # Push all committed changes
   echo "Pushing changes to branch '$branch'..."
-  git push origin "$branch"
-  echo "Changes have been pushed to the remote repository."
+  git push origin "$branch" && echo "Changes have been pushed to the remote repository." || echo "Push failed. Check your connection or permissions."
 else
   echo "Push cancelled. Changes are committed locally."
 fi
