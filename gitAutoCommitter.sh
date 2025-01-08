@@ -21,8 +21,24 @@ branch=${input_branch:-$current_branch}
 
 # Check for unstaged changes
 changes=$(git status --porcelain)
-if [ -z "$changes" ]; then
+unpushed_changes=$(git log origin/"$branch"..HEAD --oneline)
+
+if [ -z "$changes" ] && [ -z "$unpushed_changes" ]; then
   echo "No changes detected. Exiting."
+  exit 0
+fi
+
+# If there are committed but unpushed changes
+if [ -z "$changes" ] && [ -n "$unpushed_changes" ]; then
+  echo "You have unpushed commits:"
+  echo "$unpushed_changes"
+  read -p "Do you want to push these commits to branch '$branch'? (y/n): " confirm_push
+  if [[ "$confirm_push" == "y" || "$confirm_push" == "Y" ]]; then
+    echo "Pushing changes to branch '$branch'..."
+    git push origin "$branch" && echo "Changes have been pushed to the remote repository." || echo "Push failed. Check your connection or permissions."
+  else
+    echo "Push cancelled. Changes remain committed locally."
+  fi
   exit 0
 fi
 
@@ -83,19 +99,16 @@ done <<<"$(git status --porcelain)"
 
 # Check if there were no commits
 if [ "$commit_counter" -eq 0 ]; then
-  echo "No changes to commit. Exiting."
-  exit 0
+  echo "No new changes to commit."
+else
+  echo "$commit_counter commit(s) have been successfully made."
 fi
 
-# Show the number of commits before pushing
-echo "$commit_counter commit(s) have been successfully made."
-
 # Confirm pushing the changes
-read -p "Do you want to push these changes to branch '$branch'? (y/n): " confirm_push
+read -p "Do you want to push all changes to branch '$branch'? (y/n): " confirm_push
 if [[ "$confirm_push" == "y" || "$confirm_push" == "Y" ]]; then
-  # Push all committed changes
   echo "Pushing changes to branch '$branch'..."
   git push origin "$branch" && echo "Changes have been pushed to the remote repository." || echo "Push failed. Check your connection or permissions."
 else
-  echo "Push cancelled. Changes are committed locally."
+  echo "Push cancelled. Changes remain committed locally."
 fi
