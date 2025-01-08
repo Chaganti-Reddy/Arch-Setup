@@ -14,8 +14,6 @@ echo "Setting up pacman.conf..."
 sudo sed -i '/#UseSyslog/a\
 ILoveCandy\nParallelDownloads=10\nColor' /etc/pacman.conf
 
-echo "Configuration added under #UseSyslog."
-
 # System update
 echo "Performing a full system update..."
 sudo pacman --noconfirm -Syu
@@ -44,24 +42,7 @@ if ! command -v paru &>/dev/null; then
 fi
 clear
 
-echo "Checking and removing packages: dolphin, htop, and wofi..."
-
-# Array of packages to check and remove
-packages=("dolphin" "htop" "wofi")
-
-for pkg in "${packages[@]}"; do
-  if pacman -Qi "$pkg" &>/dev/null; then
-    echo "$pkg is installed. Removing..."
-    sudo pacman -Rns --noconfirm "$pkg"
-    dialog --msgbox "$pkg has been removed successfully." 10 50
-  else
-    echo "$pkg is not installed."
-  fi
-done
-
-dialog --msgbox "Package check and removal process is complete." 10 50
-
-clear
+# --------------------------------------------------------------------------------------
 
 # Install base-devel and required packages
 echo "Installing dependencies.." && sleep 2
@@ -121,6 +102,61 @@ else
   whiptail --msgbox "Git configuration canceled. No changes were made." 10 50
   exit 1
 fi
+
+# -------------------------------------------------------------------------------------
+
+echo "Setting up Miniconda..."
+
+# Ask the user if they want to install Miniconda
+dialog --title "Install Miniconda?" \
+  --yesno "Would you like to install Miniconda? (Recommended for Python and Data Science)" 10 60
+
+exit_status=$?
+if [ $exit_status -ne 0 ]; then
+  dialog --msgbox "Miniconda installation skipped. Proceeding with the setup." 10 50
+else
+  dialog --msgbox "Miniconda installation will begin now." 10 50
+
+  # Download Miniconda installer
+  wget https://repo.anaconda.com/miniconda/Miniconda3-py310_24.3.0-0-Linux-x86_64.sh
+
+  # Run the installer
+  bash Miniconda3-py310_24.3.0-0-Linux-x86_64.sh
+
+  # Remove the installer after installation
+  rm Miniconda3-py310_24.3.0-0-Linux-x86_64.sh
+
+  dialog --msgbox "Miniconda installation completed." 10 50
+fi
+
+clear
+
+# -------------------------------------------------------------------------------------
+
+echo "Setting up KVM..."
+
+# Ask the user if they want to install Miniconda
+dialog --title "Install KVM QEMU?" \
+  --yesno "Would you like to install KVM QEMU Virtual Machine" 10 60
+
+exit_status=$?
+if [ $exit_status -ne 0 ]; then
+  dialog --msgbox "KVM installation skipped. Proceeding with the setup." 10 50
+else
+  dialog --msgbox "KVM installation will begin now." 10 50
+
+  sudo pacman -S qemu-full qemu-img libvirt virt-install virt-manager virt-viewer spice-vdagent edk2-ovmf dnsmasq swtpm guestfs-tools libosinfo tuned
+  sudo systemctl enable --now libvirtd.service
+  sudo usermod -aG libvirt "$USER"
+  sudo virsh net-autostart default
+
+  sudo modprobe -r kvm_intel
+  sudo modprobe kvm_intel nested=1
+
+  dialog --msgbox "QEMU installation completed." 10 50
+fi
+
+clear
 
 # -------------------------------------------------------------------------------------
 
@@ -190,75 +226,20 @@ clear
 
 # -------------------------------------------------------------------------------------
 
-echo "Setting up Miniconda..."
-
-# Ask the user if they want to install Miniconda
-dialog --title "Install Miniconda?" \
-  --yesno "Would you like to install Miniconda? (Recommended for Python and Data Science)" 10 60
-
-exit_status=$?
-if [ $exit_status -ne 0 ]; then
-  dialog --msgbox "Miniconda installation skipped. Proceeding with the setup." 10 50
-else
-  dialog --msgbox "Miniconda installation will begin now." 10 50
-
-  # Download Miniconda installer
-  wget https://repo.anaconda.com/miniconda/Miniconda3-py310_24.3.0-0-Linux-x86_64.sh
-
-  # Run the installer
-  bash Miniconda3-py310_24.3.0-0-Linux-x86_64.sh
-
-  # Remove the installer after installation
-  rm Miniconda3-py310_24.3.0-0-Linux-x86_64.sh
-
-  dialog --msgbox "Miniconda installation completed." 10 50
-fi
-
-clear
-
-# -------------------------------------------------------------------------------------
-
-echo "Setting up KVM..."
-
-# Ask the user if they want to install Miniconda
-dialog --title "Install KVM QEMU?" \
-  --yesno "Would you like to install KVM QEMU Virtual Machine" 10 60
-
-exit_status=$?
-if [ $exit_status -ne 0 ]; then
-  dialog --msgbox "KVM installation skipped. Proceeding with the setup." 10 50
-else
-  dialog --msgbox "KVM installation will begin now." 10 50
-
-  sudo pacman -S qemu-full qemu-img libvirt virt-install virt-manager virt-viewer spice-vdagent edk2-ovmf dnsmasq swtpm guestfs-tools libosinfo tuned
-  sudo systemctl enable --now libvirtd.service
-  sudo usermod -aG libvirt "$USER"
-  sudo virsh net-autostart default
-
-  sudo modprobe -r kvm_intel
-  sudo modprobe kvm_intel nested=1
-
-  dialog --msgbox "QEMU installation completed." 10 50
-fi
-
-clear
-
-# -------------------------------------------------------------------------------------
-
 echo "Setting up torrent and remote working applications..."
 
 # Display checklist for torrent and remote working applications
 apps=$(whiptail --title "Select Applications to Install" \
   --checklist "Choose the applications you want to install:" 20 60 8 \
-  "torrent-cli" "" OFF \
-  "qBittorrent" "" OFF \
-  "Transmission" "" OFF \
-  "Remmina" "" OFF \
-  "VNC" "" OFF \
-  "TeamViewer" "" OFF \
-  "AnyDesk" "" OFF \
-  "xrdp" "" OFF \
-  "openvpn" "" OFF \
+  "torrent-cli" "webtorrent-cli" OFF \
+  "qBittorrent" "Recommended" OFF \
+  "Transmission" "Transmission" OFF \
+  "Remmina" "Remote Desktop" OFF \
+  "VNC" "VNC" OFF \
+  "TeamViewer" "Recommended" OFF \
+  "AnyDesk" "Remote Desktop" OFF \
+  "xrdp" "Remote Desktop" OFF \
+  "openvpn" "VPN" OFF \
   3>&1 1>&2 2>&3)
 
 exit_status=$?
@@ -485,7 +466,7 @@ echo "Setting up additional tools and packages..."
 extra_tools_choices=$(dialog --title "Select Extra Tools to Install" \
   --checklist "Choose the extra tools and packages you want to install:" 20 60 20 \
   "Ani-Cli" "" OFF \
-  "Ani-Cli-PY" "Python Version" OFF \
+  "Ani-Cli-PY" "" OFF \
   "ytfzf" "" OFF \
   "Zathura" "" OFF \
   "Evince" "" OFF \
@@ -511,10 +492,23 @@ for app in $extra_tools_choices; do
   "Ani-Cli-PY")
     echo "Installing ani-cli python version..."
     pip install anipy-cli
+    cd ~/dotfiles/
+    stow anipy-cli
     ;;
   "ytfzf")
     echo "Installing ytfzf..."
     paru -S --noconfirm --needed ytfzf-git
+
+    # Stow configuration based on username
+    if [ "$(whoami)" == "karna" ]; then
+      stow_folder="ytfzf_karna"
+    else
+      stow_folder="ytfzf"
+    fi
+
+    # Apply the stow configuration
+    cd ~/dotfiles
+    stow "$stow_folder"
     ;;
   "Zathura")
     echo "Installing Zathura..."
@@ -576,34 +570,6 @@ clear
 
 # -------------------------------------------------------------------------------------
 
-echo "Setting up Zsh..."
-
-# Ask the user if they want to install Zsh
-dialog --title "Install and Set Up Zsh?" \
-  --yesno "Would you like to install Zsh and set it as your default shell?" 10 60
-
-exit_status=$?
-if [ $exit_status -ne 0 ]; then
-  dialog --msgbox "Zsh installation skipped. Proceeding with the setup." 10 50
-else
-  dialog --msgbox "Zsh installation will begin now." 10 50
-
-  # Install Zsh if not already installed
-  sudo pacman -S --noconfirm zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting
-
-  # Change the default shell to Zsh
-  chsh -s /bin/zsh
-
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-  # Check if the installation was successful and prompt to restart the terminal
-  dialog --msgbox "Zsh has been installed and set as your default shell. Please restart your terminal to apply the changes." 10 50
-fi
-
-clear
-
-# -------------------------------------------------------------------------------------
-
 echo "Setting up Fonts..." && sleep 1
 
 mkdir -p ~/.local/share/fonts
@@ -635,20 +601,28 @@ else
   dialog --msgbox "Hyprland installation will begin now." 10 50
 fi
 
-sudo pacman -S kitty system-config-printer hyprpicker hyprlock chafa hypridle waybar wl-clipboard speech-dispatcher hyprpaper brightnessctl cmake meson cpio grim slurp wtype wf-recorder swaync
+# Install Hyprland and related packages
+sudo pacman -S --noconfirm kitty system-config-printer hyprpicker hyprlock chafa hypridle waybar wl-clipboard speech-dispatcher hyprpaper brightnessctl cmake meson cpio grim slurp wtype wf-recorder swaync
 
-paru -S wlrobs-hg hyprland-git xdg-desktop-portal-hyprland-git clipse-bin hyde-cli-git wlogout hyprshot-git hyprland-qtutils
+paru -S --noconfirm wlrobs-hg hyprland-git xdg-desktop-portal-hyprland-git clipse-bin hyde-cli-git wlogout hyprshot-git hyprland-qtutils
 
 sudo cp ~/dotfiles/Extras/Extras/nvim.desktop /usr/share/applications/
 
 # Set up Hyprland configuration
 echo "Configuring Hyprland..."
 
+# Check if the username is "karna"
+if [ "$(whoami)" == "karna" ]; then
+  stow_folder="Hyprland"
+else
+  stow_folder="Hypr_ALL"
+fi
+
 # Create the configuration file if it doesn't exist
 if [ ! -f "$HOME/.config/hypr/hyprland.conf" ]; then
   cd ~/dotfiles
-  stow Hyprland
-  dialog --msgbox "Hyprland configuration has been set up." 10 50
+  stow "$stow_folder"
+  dialog --msgbox "Hyprland configuration ($stow_folder) has been set up." 10 50
 else
   dialog --msgbox "Hyprland configuration file already exists." 10 50
 fi
@@ -748,8 +722,6 @@ else
 
   pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu # pytorch cpu version
 
-  zsh
-
   # Inform the user that dwm has been installed
   dialog --msgbox "PIP Packages has been installed. Please configure your system as needed." 10 50
 fi
@@ -813,6 +785,34 @@ clear
 
 # --------------------------------------------------------------------------------------
 
+echo "Setting up Zsh..."
+
+# Ask the user if they want to install Zsh
+dialog --title "Install and Set Up Zsh?" \
+  --yesno "Would you like to install Zsh and set it as your default shell?" 10 60
+
+exit_status=$?
+if [ $exit_status -ne 0 ]; then
+  dialog --msgbox "Zsh installation skipped. Proceeding with the setup." 10 50
+else
+  dialog --msgbox "Zsh installation will begin now." 10 50
+
+  # Install Zsh if not already installed
+  sudo pacman -S --noconfirm zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting
+
+  # Change the default shell to Zsh
+  chsh -s /bin/zsh
+
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+  # Check if the installation was successful and prompt to restart the terminal
+  dialog --msgbox "Zsh has been installed and set as your default shell. Please restart your terminal to apply the changes." 10 50
+fi
+
+clear
+
+# -------------------------------------------------------------------------------------
+
 echo "Setting Extra Packages for System..." && sleep 1
 
 sudo npm i -g bash-language-server
@@ -821,11 +821,8 @@ cd ~/dotfiles/
 
 rm ~/.bashrc ~/.zshrc
 
-# choice yes or no
-#
-
 dialog --title "Install Extras?" \
-  --yesno "Please Press No since these are my installs(You can copy configs from dots)?" 10 60
+  --yesno "Choose to Install my configs?" 10 60
 
 exit_status=$?
 if [ $exit_status -ne 0 ]; then
@@ -835,10 +832,16 @@ else
   dialog --msgbox "Extras installation will begin now." 10 50
 fi
 
-stow anipy-cli bashrc BTOP cava dunst face fastfetch DWMScripts flameshot gtk-3 Kvantum latexmkrc libreoffice mpd mpv ncmpcpp newsboat nvim NWG octave pandoc pavucontrol picom Profile qt6ct qutebrowser ranger redyt rofi screenlayout screensaver starship XFCEPic xsettingsd zathura zsh
+# Check if the username is "karna"
+if [ "$(whoami)" != "karna" ]; then
+  stow bashrc BTOP cava dunst DWMScripts fastfetch flameshot gtk-2 gtk-3 Kvantum mpd mpv ncmpcpp newsboat NWG pandoc pavucontrol qt6ct qutebrowser ranger redyt screensaver sxiv Templates Thunar XFCEPic xsettingsd zathura zsh
 
-# Show confirmation message
-dialog --msgbox "Extras have been installed." 10 50
+  # Show confirmation message
+  dialog --msgbox "Extras have been installed." 10 50
+else
+  stow bash_karna BTOP_karna cava dunst DWMScripts face_karna fastfetch flameshot gtk-2 gtk-3_karna Kvantum latexmkrc libreoffice mpd_karna mpv_karna myemojis ncmpcpp_karna newsboat_karna nvim NWG octave pandoc pavucontrol qt6ct qutebrowser ranger_karna redyt screenlayout screensaver sxiv Templates Thunar xarchiver XFCEPic xsettingsd zathura zsh_karna 
+  dialog --msgbox "Extras have been installed for KARNA." 10 50
+fi
 
 clear
 
@@ -854,8 +857,24 @@ sudo cp etc/mpd.conf /etc/mpd.conf
 
 cp archcraft-dwm.zsh-theme ~/.oh-my-zsh/themes/archcraft-dwm.zsh-theme
 
+cd .icons
+
+unzip MB-Cherry-Suru-GLOW_1.9.3.zip
+unzip MB-Plum-Suru-GLOW_1.9.3.zip
+
+mkdir ~/.icons
+
+mv MB-Cherry-Suru-GLOW ~/.icons
+mv MB-Plum-Suru-GLOW ~/.icons
+
+cd ~/dotfiles/Extras/Extras/Zathura-Pywal-master/
+
+./install.sh
+
+cd ~/dotfiles/
+
 # Setup kaggle JSON and wakatime files using ccrypt
 
 # --------------------------------------------------------------------------------------
 
-echo "All done! Please reboot your system."
+dialog --msgbox "All done! Please go through essentials.md before rebooting your system." 10 50
