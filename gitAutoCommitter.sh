@@ -60,7 +60,7 @@ while IFS= read -r line; do
     ;;
   "D") # Deleted files
     commit_message="delete $file"
-    git rm --cached --ignore-unmatch "$file" # Handle deletion
+    git rm --ignore-unmatch "$file" # Handle deletion
     ;;
   "??") # Untracked files (new files)
     commit_message="create $file"
