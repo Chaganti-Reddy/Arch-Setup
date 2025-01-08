@@ -32,8 +32,9 @@ fi
 if [ -z "$changes" ] && [ -n "$unpushed_changes" ]; then
   echo "You have unpushed commits:"
   echo "$unpushed_changes"
-  read -p "Do you want to push these commits to branch '$branch'? (y/n): " confirm_push
-  if [[ "$confirm_push" == "y" || "$confirm_push" == "Y" ]]; then
+  read -p "Do you want to push these commits to branch '$branch'? (Y/n): " confirm_push
+  confirm_push=${confirm_push:-Y}  # Default to "Y" if input is blank
+  if [[ "$confirm_push" =~ ^[Yy]$ ]]; then
     echo "Pushing changes to branch '$branch'..."
     git push origin "$branch" && echo "Changes have been pushed to the remote repository." || echo "Push failed. Check your connection or permissions."
   else
@@ -76,6 +77,7 @@ while IFS= read -r line; do
     ;;
   "D") # Deleted files
     commit_message="delete $file"
+
     git rm --ignore-unmatch "$file"
     ;;
   "??") # Untracked files (new files)
@@ -105,8 +107,9 @@ else
 fi
 
 # Confirm pushing the changes
-read -p "Do you want to push all changes to branch '$branch'? (y/n): " confirm_push
-if [[ "$confirm_push" == "y" || "$confirm_push" == "Y" ]]; then
+read -p "Do you want to push all changes to branch '$branch'? (Y/n): " confirm_push
+confirm_push=${confirm_push:-Y}  # Default to "Y" if input is blank
+if [[ "$confirm_push" =~ ^[Yy]$ ]]; then
   echo "Pushing changes to branch '$branch'..."
   git push origin "$branch" && echo "Changes have been pushed to the remote repository." || echo "Push failed. Check your connection or permissions."
 else
