@@ -77,6 +77,12 @@ while IFS= read -r line; do
 
 done <<< "$(git status --porcelain)"
 
+# Check if there were no commits
+if [ "$commit_counter" -eq 0 ]; then
+  echo "No changes to commit. Exiting."
+  exit 0
+fi
+
 # Show the number of commits before pushing
 echo "$commit_counter commit(s) have been successfully made."
 
