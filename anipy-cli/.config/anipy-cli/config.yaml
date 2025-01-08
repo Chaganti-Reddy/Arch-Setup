@@ -6,7 +6,7 @@ user_files_path: $HOME/miniconda3/lib/python3.10/site-packages/anipy_cli/user_fi
 # Path to your download folder/directory.
 # 
 # You may use `~` or environment vars in your path.
-download_folder_path: $HOME/Downloads/anipy_cli
+download_folder_path: $HOME/Downloads/anipy_cli 
 
 # Path to your seasonal downloads directory.
 # 
