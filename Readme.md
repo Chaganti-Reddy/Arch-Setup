@@ -14,6 +14,8 @@ Read install.sh carefully and modify options whatever you want and just run
 ./install.sh
 ```
 
+Note:`Please dont stow any folder which ends with _karna, because those are my files which works only with my system and may break your system.`
+
 ## Manual Installation
 
 1. I have used stow to manage the dotfiles, so you need to install stow:
