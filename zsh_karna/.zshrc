@@ -119,7 +119,6 @@ rehash_precmd() {
 }
 
 add-zsh-hook -Uz precmd rehash_precmd
-
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/fzf/completion.zsh
@@ -192,6 +191,7 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/dotfiles/DWMScripts/.dwm/bin/:$PATH"
 export PATH="$HOME/.config/emacs/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.config/rofi/scripts:$PATH"
 
 SUDO_EDITOR=/usr/bin/nvim
 export SUDO_EDITOR
