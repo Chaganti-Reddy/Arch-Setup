@@ -117,6 +117,8 @@ rehash_precmd() {
   fi
 }
 
+neofetch
+
 add-zsh-hook -Uz precmd rehash_precmd
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -166,6 +168,7 @@ export EDITOR='/usr/bin/nvim'
 export PAGER='bat'
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.config/rofi/scripts:$PATH"
 
 SUDO_EDITOR=/usr/bin/nvim
 export SUDO_EDITOR
