@@ -47,9 +47,9 @@ clear
 # Install base-devel and required packages
 echo "Installing dependencies.." && sleep 2
 
-sudo pacman -S --noconfirm --needed base-devel intel-ucode vim zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting bash-completion openssh wget curl btop fastfetch bat exa fd ripgrep fzf stow stylua tar tree time acpilight aria2 unrar unzip bluez bluez-utils brightnessctl xfsprogs ntfs-3g clang gcc clipmenu clipnotify inotify-tools psutils dunst e2fsprogs gvfs gvfs-afc gvfs-google gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb efibootmgr zoxide gc git-lfs gnome-keyring polkit-gnome pass udiskie gstreamer jq xdotool screenkey xorg-xprop xorg-xinit xf86-video-intel lazygit lolcat sxiv shellcheck net-tools numlockx prettier progress zip rsync trash-cli tlp tlp-rdw neovim feh xorg-xinput xclip xcompmgr xorg-xrandr xorg-xsetroot xsel xwallpaper pandoc starship python-pywal glow xarchiver xfce4-clipman-plugin libguestfs bc xorg-xman man-db man-pages ncdu python-adblock dnsmasq python-pip nwg-look python-prctl vscode-css-languageserver ffmpegthumbnailer lua-language-server pass pinentry gnupg pass-otp zbar xorg-xlsclients xscreensaver os-prober qt5ct pamixer qt5-wayland qt6-wayland parallel shfmt tesseract html-xml-utils cava thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman thunar-vcs-plugin flameshot playerctl ncmpcpp mpd mpv mpc poppler poppler-glib adobe-source-code-pro-fonts noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-hack ttf-jetbrains-mono ttf-ubuntu-font-family ttf-ubuntu-mono-nerd ttf-ubuntu-nerd ttf-opensans gnu-free-fonts libnewt baobab gnome-disk-utility gparted pavucontrol ranger yad timeshift go hugo hunspell hunspell-en_us imagemagick ueberzug luacheck yt-dlp mlocate nodejs npm translate-shell jdk-openjdk openjdk-doc openjdk-src blueman zenity rofi-wayland rofi-emoji rofi-calc newsboat
+sudo pacman -S --noconfirm --needed base-devel intel-ucode vim zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting bash-completion openssh wget curl btop neofetch bat exa fd ripgrep fzf stow stylua tar tree time acpilight aria2 unrar unzip bluez bluez-utils brightnessctl xfsprogs ntfs-3g clang gcc clipmenu clipnotify inotify-tools psutils dunst e2fsprogs gvfs gvfs-afc gvfs-google gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive gvfs-smb efibootmgr zoxide gc git-lfs gnome-keyring polkit-kde-agent polkit-gnome pass udiskie gstreamer jq xdotool screenkey xorg-xprop xorg-xinit xf86-video-intel lazygit lolcat sxiv shellcheck net-tools numlockx prettier progress zip rsync trash-cli tlp tlp-rdw neovim feh xorg-xinput xclip xcompmgr xorg-xrandr xorg-xsetroot xsel xwallpaper pandoc starship python-pywal glow xarchiver xfce4-clipman-plugin libguestfs bc xorg-xman man-db man-pages ncdu python-adblock dnsmasq python-pip nwg-look python-prctl vscode-css-languageserver ffmpegthumbnailer lua-language-server pass pinentry gnupg pass-otp zbar xorg-xlsclients xscreensaver os-prober qt5ct pamixer qt5-wayland qt6-wayland parallel shfmt tesseract html-xml-utils thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman thunar-vcs-plugin flameshot playerctl ncmpcpp mpd mpv mpc poppler poppler-glib adobe-source-code-pro-fonts noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-hack ttf-jetbrains-mono ttf-ubuntu-font-family ttf-ubuntu-mono-nerd ttf-ubuntu-nerd ttf-opensans gnu-free-fonts libnewt baobab gnome-disk-utility gparted pavucontrol ranger yad timeshift go hugo hunspell hunspell-en_us imagemagick ueberzug luacheck yt-dlp mlocate nodejs npm translate-shell jdk-openjdk openjdk-doc openjdk-src blueman zenity rofi-wayland rofi-emoji rofi-calc newsboat fcitx5 fcitx5-configtool papirus-icon-theme acpi xfce4-power-manager powertop
 
-paru -S --noconfirm --needed base-devel python-psutil preload git-remote-gcrypt ttf-ms-fonts qt6ct-kde ccrypt didyoumean-git arch-wiki-docs material-black-colors-theme apple_cursor kvantum-theme-materia kvantum --noconfirm
+paru -S --noconfirm --needed base-devel python-psutil preload git-remote-gcrypt ttf-ms-fonts qt6ct-kde ccrypt didyoumean-git arch-wiki-docs kvantum kvantum-theme-catppuccin-git catppuccin-fcitx5-git apple_cursor cava  --noconfirm
 
 echo "Dependencies installed... executing services & permissions..." && sleep 1
 
@@ -311,6 +311,7 @@ tools_choices=$(dialog --title "Select Tools to Install" \
   "Kubernetes" "" OFF \
   "Latex" "" OFF \
   "Discord" "" OFF \
+  "Obsidian" "" OFF \
   "Telegram" "" OFF \
   "LibreOffice" "" OFF \
   "OnlyOffice" "" OFF \
@@ -371,6 +372,10 @@ for app in $tools_choices; do
   "Discord")
     echo "Installing Discord..."
     sudo pacman -S --noconfirm discord
+    ;;
+  "Obsidian")
+    echo "Installing Obsidian..."
+    sudo pacman -S --noconfirm obsidian
     ;;
   "Telegram")
     echo "Installing Telegram..."
@@ -618,10 +623,13 @@ else
   stow_folder="Hypr_ALL"
 fi
 
+
+
 # Create the configuration file if it doesn't exist
 if [ ! -f "$HOME/.config/hypr/hyprland.conf" ]; then
   cd ~/dotfiles
   stow "$stow_folder"
+  stow waybar
   dialog --msgbox "Hyprland configuration ($stow_folder) has been set up." 10 50
 else
   dialog --msgbox "Hyprland configuration file already exists." 10 50
@@ -826,7 +834,7 @@ dialog --title "Install Extras?" \
 
 exit_status=$?
 if [ $exit_status -ne 0 ]; then
-  dialog --msgbox "Copy all configs from dots but before using change username from mine to yours..." 10 50
+  dialog --msgbox "All configs will be stowed to your config directory, but please do not stow any folder with _karna name which is for my configs and may break your system..." 10 50
   exit 0
 else
   dialog --msgbox "Extras installation will begin now." 10 50
@@ -834,12 +842,13 @@ fi
 
 # Check if the username is "karna"
 if [ "$(whoami)" != "karna" ]; then
-  stow bashrc BTOP cava dunst DWMScripts fastfetch flameshot gtk-2 gtk-3 Kvantum mpd mpv ncmpcpp newsboat NWG pandoc pavucontrol qt6ct qutebrowser ranger redyt screensaver sxiv Templates Thunar XFCEPic xsettingsd zathura zsh
+  stow bashrc BTOP cava dunst DWMScripts neofetch flameshot gtk-2 gtk-3 Kvantum mpd mpv ncmpcpp newsboat NWG pandoc pavucontrol qt6ct qutebrowser ranger redyt screensaver sxiv Templates themes Thunar XFCEPic xsettingsd zathura zsh
 
   # Show confirmation message
   dialog --msgbox "Extras have been installed." 10 50
 else
-  stow bash_karna BTOP_karna cava dunst DWMScripts face_karna fastfetch flameshot gtk-2 gtk-3_karna Kvantum latexmkrc libreoffice mpd_karna mpv_karna myemojis ncmpcpp_karna newsboat_karna nvim NWG octave pandoc pavucontrol qt6ct qutebrowser ranger_karna redyt screenlayout screensaver sxiv Templates Thunar xarchiver XFCEPic xsettingsd zathura zsh_karna 
+  stow bash_karna BTOP_karna cava dunst DWMScripts face_karna neofetch flameshot gtk-2 gtk-3_karna Kvantum latexmkrc libreoffice mpd_karna mpv_karna myemojis ncmpcpp_karna newsboat_karna nvim NWG octave pandoc pavucontrol qt6ct qutebrowser ranger_karna redyt screenlayout screensaver sxiv Templates themes Thunar xarchiver XFCEPic xsettingsd zathura zsh_karna 
+  paru -Rns wlogout hyprshot-git
   dialog --msgbox "Extras have been installed for KARNA." 10 50
 fi
 
