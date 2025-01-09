@@ -367,6 +367,7 @@ alias download="aria2c"
 alias timeshift-wayland="sudo -E timeshift-gtk"
 alias nvimleetcode="cd /mnt/Karna/Git/Project-K/DSA/Leetcode/ && nvim leetcode.nvim"
 alias dsa="cd /mnt/Karna/Git/Project-K/DSA/"
+alias projk="cd /mnt/Karna/Git/Project-K/"
 alias blog="cd /mnt/Karna/Git/My-Blog/"
 alias fontc="fc-cache -fv"
 
