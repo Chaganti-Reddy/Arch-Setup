@@ -24,7 +24,7 @@
     # dynamic width from 0 to 300
     # width = (0, 300)
     # constant width of 300
-    width = 270
+    width = 320
 
     # The maximum height of a single notification, excluding the frame.
     height = (0, 300)
@@ -33,13 +33,13 @@
     origin = top-right
 
     # Offset from the origin
-    offset = (10, 50)
+    offset = (10, 20)
 
     # Scale factor. It is auto-detected if value is 0.
     scale = 0
 
     # Maximum number of notification (0 means no limit)
-    notification_limit = 5
+    notification_limit = 0
 
     ### Progress bar ###
 
@@ -60,11 +60,6 @@
     # Set the maximum width for the progress bar
     progress_bar_max_width = 300
 
-    # Corner radius for the progress bar. 0 disables rounded corners.
-    progress_bar_corner_radius = 0
-
-    # Corner radius for the icon image.
-    icon_corner_radius = 0
 
     # Show how many messages are currently hidden (because of
     # notification_limit).
@@ -78,7 +73,6 @@
     # Draw a line of "separator_height" pixel height between two
     # notifications.
     # Set to 0 to disable.
-    # If gap_size is greater than 0, this setting will be ignored.
     separator_height = 2
 
     # Padding between text and separator.
@@ -95,13 +89,7 @@
     frame_width = 3
 
     # Defines color of the frame around the notification window.
-    frame_color = "#aaaaaa"
-
-    # Size of gap to display between notifications - requires a compositor.
-    # If value is greater than 0, separator_height will be ignored and a border
-    # of size frame_width will be drawn around each notification instead.
-    # Click events on gaps do not currently propagate to applications below.
-    gap_size = 0
+    frame_color = "#89B4FA"
 
     # Define a color for the separator.
     # possible values are:
@@ -123,7 +111,7 @@
 
     ### Text ###
 
-    font = CaskaydiaCove Nerd Font Bold 9
+    font = jetbrains mono nerd font 12
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
@@ -196,29 +184,20 @@
 
     ### Icons ###
 
-    # Recursive icon lookup. You can set a single theme, instead of having to
-    # define all lookup paths.
-    enable_recursive_icon_lookup = true
-
-    # Set icon theme (only used for recursive icon lookup)
-    icon_theme = Adwaita
-    # You can also set multiple icon themes, with the leftmost one being used first.
-    # icon_theme = "Adwaita, breeze"
-
     # Align icons left/right/top/off
     icon_position = left
 
     # Scale small icons up to this size, set to 0 to disable. Helpful
     # for e.g. small files or high-dpi screens. In case of conflict,
     # max_icon_size takes precedence over this.
-    min_icon_size = 32
+    min_icon_size = 0
 
     # Scale larger icons down to this size, set to 0 to disable
-    max_icon_size = 128
+    max_icon_size = 32
 
-    # Paths to default icons (only neccesary when not using recursive icon lookup)
+    # Paths to default icons.
     icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
-
+icon_path = /usr/share/icons/Papirus-Dark/48x48/actions/:/usr/share/icons/Papirus-Dark/48x48/apps/:/usr/share/icons/Papirus-Dark/48x48/devices/:/usr/share/icons/Papirus-Dark/48x48/emblems/:/usr/share/icons/Papirus-Dark/48x48/emotes/:/usr/share/icons/Papirus-Dark/48x48/mimetypes/:/usr/share/icons/Papirus-Dark/48x48/places/:/usr/share/icons/Papirus-Dark/48x48/status/
     ### History ###
 
     # Should a notification popped up from history be sticky or timeout
@@ -250,7 +229,7 @@
     # corners.
     # The radius will be automatically lowered if it exceeds half of the
     # notification height to avoid clipping text and/or icons.
-    corner_radius = 5
+    corner_radius = 0
 
     # Ignore the dbus closeNotification message.
     # Useful to enforce the timeout set by dunst configuration. Without this
@@ -309,27 +288,24 @@
     # where there are multiple screens with very different dpi values.
     per_monitor_dpi = false
 
-[urgency_low]
-    # IMPORTANT: colors have to be defined in quotation marks.
-    # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#222222"
-    foreground = "#888888"
-    timeout = 3
-    # Icon for notifications with low urgency, uncomment to enable
-    #default_icon = /path/to/icon
 
+[urgency_low]
+timeout = 3
+background = "#1E1E2E"
+foreground = "#CDD6F4"
+highlight = "#f48ee8"
 [urgency_normal]
-    background = "#285577"
-    foreground = "#ffffff"
-    timeout =5
-    # Icon for notifications with normal urgency, uncomment to enable
-    #default_icon = /path/to/icon
+    timeout = 6
+background = "#1E1E2E"
+foreground = "#CDD6F4"
+highlight = "#f48ee8"
 
 [urgency_critical]
-    background = "#900000"
-    foreground = "#ffffff"
-    frame_color = "#ff0000"
     timeout = 0
+highlight = "#f48ee8"
+background = "#1E1E2E"
+foreground = "#CDD6F4"
+frame_color = "#FAB387"
     # Icon for notifications with critical urgency, uncomment to enable
     #default_icon = /path/to/icon
 
@@ -456,7 +432,3 @@
 #    set_stack_tag = "volume"
 #
 # vim: ft=cfg
-
-# [play_sound]
-#     summary = "*"
-#     script = /home/ram/.dwm/scripts/alert
