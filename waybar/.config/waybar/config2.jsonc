@@ -124,7 +124,8 @@
     "return-type": "json",
     "interval": 60, // Updates every minute
     "format": "",
-    "tooltip": true
+    "tooltip": true,
+        "on-click-right": "~/dotfiles/hypr_wall/changelook"
 },
 
   "clock#date": {
