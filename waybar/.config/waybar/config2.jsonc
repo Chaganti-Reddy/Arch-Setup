@@ -64,8 +64,7 @@
     // "exec": "~/.config/waybar/cava-internal.sh",
     },
   "hyprland/workspaces": {
-    "disable-scroll": true,
-    "show-special": true
+    "disable-scroll": true
   },
   "idle_inhibitor": {
     "format": "{icon}",
