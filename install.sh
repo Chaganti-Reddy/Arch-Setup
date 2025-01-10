@@ -55,7 +55,7 @@ echo "Dependencies installed... executing services & permissions..." && sleep 1
 
 sudo updatedb
 sudo mandb
-sudo systemctl enable --now tlp
+# sudo systemctl enable --now tlp
 sudo systemctl enable --now bluetooth.service
 
 sudo usermod -aG video "$USER"
