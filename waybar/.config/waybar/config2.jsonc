@@ -14,6 +14,7 @@
     "tray"
   ],
   "modules-right": [
+    "bluetooth",
     "pulseaudio",
     "backlight",
     "memory",
@@ -23,6 +24,33 @@
     "custom/powermenu"
     // "tray"
   ],
+
+"bluetooth": {
+    "format": " ",
+    "format-disabled": " Disabled",
+    "format-connected": " {num_connections}",
+    "format-connected-battery": "{device_alias} - {icon} {device_battery_percentage}%",
+    // "format-connected-battery":
+      // "{icon} {device_alias}-{device_battery_percentage}%",
+
+    "format-icons": ["󰥇", "󰤾", "󰤿", "󰥀", "󰥁", "󰥂", "󰥃", "󰥄", "󰥅", "󰥆", "󰥈"],
+    // "format-device-preference": [ "device1", "device2" ],
+    // Preference list deciding the displayed device.
+    // If this is not defined or none of the devices in the list are connected,
+    // it will fall back to showing the last connected device.
+
+    "tooltip-format": 
+      "{controller_alias}\n{num_connections} connected",
+    "tooltip-format-connected": 
+      "{controller_alias}\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": 
+      "{device_alias}",
+    "tooltip-format-enumerate-connected-battery": 
+      "{device_alias}\t{icon} {device_battery_percentage}%",
+      "on-click-right": "blueman-manager"
+},
+
+
   "custom/launcher": {
     "format": " ",
 "exec": "~/.config/waybar/kernelinfo.sh",
@@ -57,7 +85,8 @@
     "on-scroll-down": "brightnessctl s 5%-",
     "format": "{icon} {percent}%",
     "format-icons": ["","","",""],
-        "tooltip-format": "{icon} {percent}% Brightness"
+        "tooltip-format": "{icon} {percent}% Brightness",
+    "on-click-right": "~/.config/rofi/applets/bin/brightness.sh"
   },
     "pulseaudio": {
         "format": "{icon} {volume}%",
@@ -84,7 +113,9 @@
     "format-icons": ["", "", "", "", "", "", "", "", ""],
     "format-full": "{icon} {capacity}%",
     "format-charging": " {capacity}%",
-        "tooltip-format": "{timeTo}"
+        "tooltip-format": "{timeTo}",
+    "on-click": "~/.config/rofi/applets/bin/battery.sh",
+    "on-click-right": "xfce4-power-manager-settings"
   },
 
 
@@ -127,8 +158,8 @@
         "tooltip": true,
         "tooltip-format": "{used:0.1f} GB / {total:0.1f} GB",
         "interval": 20,
-        "min-length": 7,
-        "max-length": 15,
+        // "min-length": 7,
+       // "max-length": 15,
 "states": {
       "warning": 85
     }
@@ -148,17 +179,16 @@
         "return-type": "json",
         "format": "{}",
         "tooltip": true,
-        "interval": 5,
-        "min-length": 8,
-        "max-length": 8
+        "interval": 5
     },
 
   "mpd": {
     "max-length": 25,
+    "tooltip": true,
     "format": "<span foreground='#bb9af7'></span> {title}",
     "format-paused": " {title}",
     "format-stopped":"<span foreground='#bb9af7'></span>",
-    "format-disconnected": "",
+    "format-disconnected": "󰝛 ",
     "on-click": "mpc --quiet toggle",
     "on-click-right": "mpc ls | mpc add",
     "on-click-middle": "kitty ncmpcpp",
@@ -181,7 +211,9 @@
       "Network: <b>{essid}</b>\nSignal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>\nGateway: <b>{gwaddr}</b>\nNetmask: <b>{netmask}</b>",
     "format-alt": "說 {essid}",
     "format-linked": "說 {essid} (No IP)",
-    "format-disconnected": "說 Disconnected"
+    "format-disconnected": "說 Disconnected",
+    "interval": 2,
+    "on-click-right": "kitty -e nm-applet"
   },
   "custom/powermenu": {
     "format": "",
