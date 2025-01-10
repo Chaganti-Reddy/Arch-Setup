@@ -71,3 +71,7 @@ Jan 06 19:26 : exception: inotify_add_watch() has failed: No such file or direct
 Jan 06 19:28 : exception: inotify_add_watch() has failed: No such file or directory
 Jan 08 21:18 : exception: Failed to decode /home/karna/Music/Pee Loon Hoto Ki Sargam - Once Upon A Time In Mumbaai 320 Kbps.mp3; Failed to open '/home/karna/Music/Pee Loon Hoto Ki Sargam - Once Upon A Time In Mumbaai 320 Kbps.mp3': No such file or directory
 Jan 08 21:18 : player: played "Pee Loon Hoto Ki Sargam - Once Upon A Time In Mumbaai 320 Kbps.mp3"
+Jan 10 16:10 : update: removing Pee Loon Hoto Ki Sargam - Once Upon A Time In Mumbaai 320 Kbps.mp3
+Jan 10 16:10 : update: added /Usure Usure (From ＂Amaran＂) (Telugu) [IllLc0XM8KY].mp3
+Jan 10 16:30 : player: played "Usure Usure (From ＂Amaran＂) (Telugu) [IllLc0XM8KY].mp3"
+Jan 10 16:37 : update: removing Usure Usure (From ＂Amaran＂) (Telugu) [IllLc0XM8KY].mp3
