@@ -65,7 +65,7 @@ tooltip label {
   color: rgb(201, 203, 255);
 }
 
-#mode, #clock, #memory, #temperature,#custom-cpuinfo,#cpu,#mpd, #idle_inhibitor, #temperature, #backlight, #pulseaudio, #network, #battery, #custom-powermenu, #custom-cava-internal {
+#mode, #clock, #memory, #temperature,#custom-cpuinfo,#cpu,#mpd, #idle_inhibitor, #temperature, #backlight, #bluetooth, #pulseaudio, #network, #battery, #custom-powermenu, #custom-cava-internal {
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -128,6 +128,9 @@ tooltip label {
 }
 #mpd {
   color: #c0caf5;
+}
+#bluetooth {
+  color: #ABE9B3;
 }
 #custom-cava-internal{
   font-family: "Hack Nerd Font" ;
