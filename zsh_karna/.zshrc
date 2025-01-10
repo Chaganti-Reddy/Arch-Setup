@@ -370,6 +370,7 @@ alias dsa="cd /mnt/Karna/Git/Project-K/DSA/"
 alias projk="cd /mnt/Karna/Git/Project-K/"
 alias blog="cd /mnt/Karna/Git/My-Blog/"
 alias fontc="fc-cache -fv"
+alias autocommit="sh ~/dotfiles/gitAutoCommitter.sh"
 
 function cheat() {
     curl cht.sh/$1
