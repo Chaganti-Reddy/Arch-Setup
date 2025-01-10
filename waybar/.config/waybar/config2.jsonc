@@ -120,7 +120,7 @@
 
 
 "custom/greeting": {
-    "exec": "~/.config/waybar/greet.sh",
+    "exec": "~/.config/hypr/scripts/greet.sh",
     "return-type": "json",
     "interval": 60, // Updates every minute
     "format": "",
