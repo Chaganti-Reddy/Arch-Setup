@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the directory where your wallpapers are stored
-wallpaper_dir="$HOME/dotfiles/XFCEPic/Pictures"
+wallpaper_dir="$HOME/dotfiles/hypr_wall"
 
 # Get a list of all images in the directory (recursively)
 wallpapers=$(find "$wallpaper_dir" -type f \( -iname "*.jpg" -o -iname "*.png" -o -iname "*.gif" -o -iname "*.webp" -o -iname "*.bmp" -o -iname "*.tiff" \))
