@@ -399,7 +399,7 @@
             "headphone": "󰋋",
             "default": ["󰖀", "󰕾"]
         },
-        "on-click": "~/.config/hypr/waybar/scripts/volumecontrol.sh -o m",
+        "on-click": "~/.config/waybar/scripts/volumecontrol.sh -o m",
         "on-click-right": "pavucontrol -t 3",
         "on-scroll-up": "~/.config/hypr/waybar/scripts/volumecontrol.sh -o i",
         "on-scroll-down": "~/.config/hypr/waybar/scripts/volumecontrol.sh -o d",
