@@ -610,7 +610,7 @@ fi
 sudo pacman -S --noconfirm kitty system-config-printer hyprpicker hyprlock chafa hypridle waybar wl-clipboard speech-dispatcher swww brightnessctl cmake meson cpio grim slurp wtype wf-recorder swaync
 # sudo pacman -S --noconfirm kitty system-config-printer hyprpicker hyprlock chafa hypridle waybar wl-clipboard speech-dispatcher hyprpaper brightnessctl cmake meson cpio grim slurp wtype wf-recorder swaync
 
-paru -S --noconfirm wlrobs-hg hyprland-git xdg-desktop-portal-hyprland-git clipse-bin hyde-cli-git wlogout hyprshot-git hyprland-qtutils
+paru -S --noconfirm wlrobs-hg hyprland-git xdg-desktop-portal-hyprland-git clipse-bin hyde-cli-git wlogout hyprshot-git hyprland-qtutils bluetui
 
 sudo cp ~/dotfiles/Extras/Extras/nvim.desktop /usr/share/applications/
 
