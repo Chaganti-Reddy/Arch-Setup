@@ -57,9 +57,9 @@ run_cmd() {
 	selected="$(confirm_exit)"
 	if [[ "$selected" == "$yes" ]]; then
 		if [[ $1 == '--shutdown' ]]; then
-			sh ~/.dwm/scripts/uptime shutdown && systemctl poweroff
+			systemctl poweroff
 		elif [[ $1 == '--reboot' ]]; then
-			sh ~/.dwm/scripts/uptime reboot && systemctl reboot
+			systemctl reboot
 		elif [[ $1 == '--suspend' ]]; then
 			mpc -q pause
 			amixer set Master mute
