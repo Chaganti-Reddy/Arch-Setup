@@ -1,24 +1,30 @@
 #!/usr/bin/env sh
 
-# CPU model
-model=$(cat /proc/cpuinfo | grep 'model name' | head -n 1 | awk -F ': ' '{print $2}' | sed 's/@.*//' | sed 's/(R)//g' | sed 's/(TM)//g')
+# cpu model
+model=$(grep 'model name' /proc/cpuinfo | head -n 1 | awk -F ': ' '{print $2}' | sed 's/@.*//' | sed 's/(r)//g' | sed 's/(tm)//g' | tr -d '"')
 
-# CPU utilization
-utilization=$(top -bn1 | awk '/^%Cpu/ {print 100 - $8}')
+# total cpu utilization
+total_utilization=$(mpstat -P ALL 1 1 | awk '/^Average/ && $2 ~ /all/ {printf "%.0f", 100 - $12}')
 
-# Clock speed
-freqlist=$(cat /proc/cpuinfo | grep "cpu MHz" | awk '{ print $4 }')
+# per-core utilization (integer values)
+per_core_utilization=$(mpstat -P ALL 1 1 | awk '/^Average/ && $2 ~ /^[0-9]+$/ {printf "Core %s: %d%%\\n", $2, int(100 - $12)}' | tr -d '"')
+
+# clock speed
+freqlist=$(grep "cpu MHz" /proc/cpuinfo | awk '{print $4}')
 maxfreq=$(cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq | sed 's/...$//')
-frequency=$(echo $freqlist | tr ' ' '\n' | awk "{ sum+=\$1 } END {printf \"%.0f/$maxfreq MHz\", sum/NR}")
+frequency=$(echo "$freqlist" | tr ' ' '\n' | awk -v maxfreq="$maxfreq" '{ sum+=$1 } END {printf "%.0f/%s MHz", sum/NR, maxfreq}')
 
-# CPU temp
+# cpu temp
 temp=$(sensors | awk '/Package id 0/ {print $4}' | awk -F '[+.]' '{print $2}')
 if [ -z "$temp" ]; then
     temp=$(sensors | awk '/Tctl/ {print $2}' | tr -d '+°C')
 fi
 if [ -z "$temp" ]; then
-    temp="N/A"
+    temp="n/a"
 fi
+
+# cpu cores
+cores=$(grep -c ^processor /proc/cpuinfo)
 
 # map icons
 set_ico="{\"thermo\":{\"0\":\"󱃃\",\"45\":\"󰔏\",\"65\":\"󱃂\",\"85\":\"󰸁\"},\"util\":{\"0\":\"󰾆\",\"30\":\"󰾅\",\"60\":\"󰓅\",\"90\":\"󰀪\"}}"
@@ -27,8 +33,12 @@ eval_ico() {
     echo "${set_ico}" | jq -r --arg aky "$1" --arg avl "$map_ico" '.[$aky] | .[$avl]'
 }
 
-thermo=$(eval_ico thermo $temp)
-speedo=$(eval_ico util $utilization)
+thermo=$(eval_ico thermo "$temp")
+speedo=$(eval_ico util "$total_utilization")
 
-# Print cpu info (json)
-echo "{\"text\":\"${thermo} ${temp}°C\", \"tooltip\":\"${model}\nTemperature: ${temp}°C\nUtilization: ${utilization}%\nClock Speed: ${frequency}\"}"
+# ensure JSON-safe strings
+model=$(echo "$model" | sed 's/"/\\"/g')
+per_core_utilization=$(echo "$per_core_utilization" | sed ':a;N;$!ba;s/\n/\\n/g')
+
+# print cpu info (json)
+echo "{\"text\":\"${thermo} ${temp}°C\", \"tooltip\":\"${model}\\ntemperature: ${temp}°C\\ntotal CPU utilization: ${total_utilization}%\\nper-core utilization:\\n${per_core_utilization}\\nclock speed: ${frequency}\"}"
