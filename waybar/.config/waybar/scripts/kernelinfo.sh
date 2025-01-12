@@ -16,4 +16,4 @@ else
 fi
 
 # Print kernel info (json)
-echo "{\"text\":\"${icon} ${kernel_version}\", \"tooltip\":\"${updates_text}\"}"
+echo "{\"text\":\"${icon} ${kernel_version}\", \"tooltip\":\"${icon} ${updates_text}\"}"
