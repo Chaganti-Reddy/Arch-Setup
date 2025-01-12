@@ -25,9 +25,9 @@
     // "backlight",
     // "hyprland/language",
     // "custom/paddc",
-"custom/cpuinfo",
+    "custom/cpuinfo",
     "memory",
-    "cpu",
+    // "cpu",
     "idle_inhibitor",
     "custom/paddc",
     "network",
@@ -241,13 +241,14 @@
                               }
                     },
         "actions":  {
-                    "on-click-right": "mode",
+                    "on-click": "mode",
                     "on-scroll-up": "tz_up",
                     "on-scroll-down": "tz_down",
                     "on-scroll-up": "shift_up",
                     "on-scroll-down": "shift_down"
                     },
     "on-click-middle": "~/.config/waybar/scripts/wallpaper_random.sh &",
+    "on-click-right": "~/dotfiles/hypr_wall/changelook &",
 "timezones": [
         "Asia/Kolkata",
         "America/New_York",
