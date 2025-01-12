@@ -298,8 +298,8 @@
   },
 
   "mpris": {
-    "format": "<span color='#cc241d'> 󰎇  </span>  {dynamic}  ",
-"format-paused": "<span color='#cc241d'>   </span> <i>{dynamic}</i>",
+    "format": "<span color='#cc241d'> 󰎇 </span>  {dynamic}  ",
+"format-paused": "<span color='#cc241d'>  </span> <i>{dynamic}</i>",
     "max-length": 50
   },
 "idle_inhibitor": {
